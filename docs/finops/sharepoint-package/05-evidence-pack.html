@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05 - Evidence Pack</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #323130;
+            background: #fff;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            background: #f3f2f1;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            border-left: 4px solid #0078d4;
+        }
+        
+        nav a {
+            color: #0078d4;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0078d4 0%, #107c10 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 { font-size: 2.5em; margin-bottom: 15px; }
+        h2 { color: #0078d4; font-size: 2em; margin: 30px 0 20px 0; padding-bottom: 10px; border-bottom: 3px solid #0078d4; }
+        h3 { color: #107c10; font-size: 1.5em; margin: 25px 0 15px 0; }
+        h4 { color: #ff8c00; font-size: 1.2em; margin: 20px 0 10px 0; }
+        
+        section {
+            margin-bottom: 30px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid #e1dfdd;
+        }
+        
+        p { margin-bottom: 15px; text-align: justify; }
+        
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 8px 0; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #e1dfdd;
+        }
+        
+        th {
+            background: #f8f8f8;
+            font-weight: 600;
+            color: #0078d4;
+        }
+        
+        tr:nth-child(even) { background: #fafafa; }
+        tr:hover { background: #f0f0f0; }
+        
+        code {
+            background: #f3f2f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #f3f2f1;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid #e1dfdd;
+        }
+        
+        pre code { background: none; padding: 0; }
+        
+        .callout {
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid;
+        }
+        
+        .callout.info { background: #e7f3ff; border-color: #0078d4; }
+        .callout.success { background: #dff6dd; border-color: #107c10; }
+        .callout.warning { background: #fff4ce; border-color: #ff8c00; }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #605e5c;
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding: 30px;
+            background: #f8f8f8;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e1dfdd;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" target="_parent">🏠 Home</a>
+        <a href="00-current-state-inventory.html" target="_parent">00 - Current State</a>
+        <a href="01-gap-analysis-finops-hubs.html" target="_parent">01 - Gap Analysis</a>
+        <a href="02-target-architecture-embedded.html" target="_parent">02 - Architecture</a>
+        <a href="03-deployment-plan.html" target="_parent">03 - Deployment Plan</a>
+        <a href="04-backlog.html" target="_parent">04 - Backlog</a>
+        <a href="05-evidence-pack.html" target="_parent">05 - Evidence</a>
+        <a href="PHASE1-DEPLOYMENT-CHECKLIST.html" target="_parent">Phase 1 Checklist</a>
+    </nav>
+    
+    <header>
+        <h1>05 - Evidence Pack</h1>
+        <p style="margin:0; opacity:0.95;">FinOps Hubs - marcosandbox Implementation</p>
+    </header>
+    
+    <section>
+<h1>05 - Evidence Pack (Validation Commands & Artifacts)</h1>
+
+<strong>Document Type</strong>: Operational  
+<strong>Phase</strong>: Validation  
+<strong>Audience</strong>: [engineers, auditors, operations]  
+<strong>Last Updated</strong>: 2026-02-17 08:20 AM ET  
+<strong>Author</strong>: Marco Presta (marco.presta@hrsdc-rhdcc.gc.ca)
+
+<p>---</p>
+
+<h2>Overview</h2>
+
+<p>This document provides <strong>executable commands</strong> to validate current state and capture evidence artifacts for audit/compliance purposes. All commands output JSON or tables suitable for version control and comparison over time.</p>
+
+<strong>Output Directory</strong>: <code>i:/eva-foundation/14-az-finops/tools/finops/out/</code>  
+<strong>Execution Context</strong>: Azure CLI authenticated as marco.presta@hrsdc-rhdcc.gc.ca (professional account)  
+<strong>Subscriptions</strong>: EsDAICoESub (d2d4e571-e0f2-4f6c-901a-f88f7669bcba), EsPAICoESub (802d84ab-3189-4221-8453-fcc30c8dc8ea)
+
+<p>---</p>
+
+<h2>1. Storage Account Validation</h2>
+
+<h3>1.1 List Storage Accounts</h3>
+
+<strong>Purpose</strong>: Enumerate all storage accounts in sandbox resource group.
+
+<pre><code><h1>Command</h1>
+<p>az storage account list \</p>
+<p>  --resource-group EsDAICoE-Sandbox \</p>
+<p>  --subscription d2d4e571-e0f2-4f6c-901a-f88f7669bcba \</p>
+<p>  --output json | Out-File -FilePath "i:/eva-foundation/14-az-finops/tools/finops/out/storage-accounts.json"</p>
+
+<h1>Expected Output: marcosandboxfinopshub with properties</h1></code></pre>
+
+<strong>Validation Points</strong>:
+<ul><li>[ ] <code>marcosandboxfinopshub</code> present in results</li>
+<li>[ ] <code>kind</code>: StorageV2 (ADLS Gen2 capable)</li>
+<li>[ ] <code>isHnsEnabled</code>: true (hierarchical namespace enabled)</li>
+<li>[ ] <code>location</code>: canadacentral</li>
+<li>[ ] <code>sku.name</code>: Standard_LRS or Standard_GRS</li>
+
+</ul><strong>Evidence Artifact</strong>: <code>storage-accounts.json</code> (saved to repo)
+
+<p>---</p>
+
+<h3>1.2 List Storage Containers</h3>
+
+<strong>Purpose</strong>: Enumerate all blob containers in FinOps Hub storage.
+
+<pre><code><h1>Command</h1>
+<p>az storage container list \</p>
+<p>  --account-name marcosandboxfinopshub \</p>
+<p>  --auth-mode login \</p>
+<p>  --output json | Out-File -FilePath "i:/eva-foundation/14-az-finops/tools/finops/out/storage-containers.json"</p>
+
+<h1>Expected Output: Container list with "costs", potentially "raw", "processed", "checkpoint"</h1></code></pre>
+
+<strong>Validation Points</strong>:
+<ul><li>[ ] Container <code>costs</code> exists (current location of exports)</li>
+<li>[ ] If migrated: Containers <code>raw</code>, <code>processed</code>, <code>archive</code>, <code>checkpoint</code> exist</li>
+<li>[ ] Public access level: None (private)</li>
+<li>[ ] Metadata includes creation timestamp</li>
+
+</ul><strong>Evidence Artifact</strong>: <code>storage-containers.json</code>
+
+<strong>Screenshot Required</strong>: Portal → Storage Account → Containers blade
+
+<p>---</p>
+
+<h3>1.3 Sample Blob Listing</h3>
+
+<strong>Purpose</strong>: Validate export file naming and structure.
+
+<pre><code><h1>Command (list last 10 blobs in costs container)</h1>
+<p>az storage blob list \</p>
+<p>  --container-name costs \</p>
+<p>  --account-name marcosandboxfinopshub \</p>
+<p>  --auth-mode login \</p>
+<p>  --num-results 10 \</p>
+<p>  --output table</p>
+
+<h1>Expected Output: CSV files with pattern {SubscriptionName}_xxxxxxxx-xxxx.../[date].csv.gz</h1></code></pre>
+
+<strong>Validation Points</strong>:
+<ul><li>[ ] Blob names follow Cost Management naming convention</li>
+<li>[ ] File extension: <code>.csv.gz</code> (compressed)</li>
+<li>[ ] Size: >100 KB for daily exports, >1 MB for full exports</li>
+<li>[ ] Last modified: Recent (within 24 hours for daily exports)</li>
+
+</ul><strong>Evidence</strong>: Copy-paste table output to <code>storage-sample-blobs.txt</code>
+
+<p>---</p>
+
+<h3>1.4 Network Rules (Firewall)</h3>
+
+<strong>Purpose</strong>: Verify public access settings.
+
+<pre><code><h1>Command</h1>
+<p>az storage account show \</p>
+<p>  --name marcosandboxfinopshub \</p>
+<p>  --resource-group EsDAICoE-Sandbox \</p>
+<p>  --query "{publicAccess: publicNetworkAccess, defaultAction: networkRuleSet.defaultAction, bypass: networkRuleSet.bypass}" \</p>
+<p>  --output json | Out-File -FilePath "i:/eva-foundation/14-az-finops/tools/finops/out/storage-network.json"</p>
+
+<h1>Expected Output (before hardening): publicAccess=Enabled, defaultAction=Allow</h1>
+<h1>Expected Output (after hardening): publicAccess=Disabled, defaultAction=Deny</h1></code></pre>
+
+<strong>Validation Points</strong>:
+<ul><li>[ ] Current state: Public access enabled (development phase)</li>
+<li>[ ] Target state: Public access disabled, VNet rules configured (production phase)</li>
+
+</ul><strong>Evidence Artifact</strong>: <code>storage-network.json</code>
+
+<p>---</p>
+
+<h2>2. Event Grid Validation</h2>
+
+<h3>2.1 List Event Grid System Topics</h3>
+
+<strong>Purpose</strong>: Confirm storage account has system topic for blob events.
+
+<pre><code><h1>Command</h1>
+<p>az eventgrid system-topic list \</p>
+<p>  --resource-group EsDAICoE-Sandbox \</p>
+<p>  --output json | Out-File -FilePath "i:/eva-foundation/14-az-finops/tools/finops/out/eventgrid-system-topics.json"</p>
+
+<h1>Expected Output: One system topic with source=marcosandboxfinopshub</h1></code></pre>
+
+<strong>Validation Points</strong>:
+<ul><li>[ ] System topic name: <code>marcosandboxfinopshub-*</code> (auto-generated)</li>
+<li>[ ] Topic type: Microsoft.Storage.StorageAccounts</li>
+<li>[ ] Provisioning state: Succeeded</li>
+<li>[ ] Source: <code>/subscriptions/.../resourceGroups/EsDAICoE-Sandbox/providers/Microsoft.Storage/storageAccounts/marcosandboxfinopshub</code></li>
+
+</ul><strong>Evidence Artifact</strong>: <code>eventgrid-system-topics.json</code>
+
+<p>---</p>
+
+<h3>2.2 List Event Subscriptions</h3>
+
+<strong>Purpose</strong>: Enumerate event subscriptions (if any) wired to ADF or other endpoints.
+
+<pre><code><h1>Command</h1>
+<p>az eventgrid system-topic event-subscription list \</p>
+<p>  --resource-group EsDAICoE-Sandbox \</p>
+<p>  --system-topic-name <system-topic-name-from-above> \</p>
+<p>  --output json | Out-File -FilePath "i:/eva-foundation/14-az-finops/tools/finops/out/eventgrid-subscriptions.json"</p>
+
+<h1>Expected Output (current): Empty array (no subscriptions yet)</h1>
+<h1>Expected Output (future): Subscription to ADF webhook for ingest-costs-to-adx pipeline</h1></code></pre>
+
+<strong>Validation Points</strong>:
+<ul><li>[ ] If empty: No automated ingestion yet (manual validation required)</li>
+<li>[ ] If populated: Endpoint type, filter prefix (<code>/raw/costs/</code>), delivery status</li>
+
+</ul><strong>Evidence Artifact</strong>: <code>eventgrid-subscriptions.json</code>
+
+<strong>Screenshot Required</strong>: Portal → Event Grid System Topic → Metrics (Event Count last 7 days)
+
+<p>---</p>
+
+<h2>3. Azure Data Factory Validation</h2>
+
+<h3>3.1 List Data Factories</h3>
+
+<strong>Purpose</strong>: Confirm ADF resource exists in sandbox.
+
+<pre><code><h1>Command</h1>
+<p>az datafactory list \</p>
+<p>  --resource-group EsDAICoE-Sandbox \</p>
+<p>  --output json | Out-File -FilePath "i:/eva-foundation/14-az-finops/tools/finops/out/adf-factories.json"</p>
+
+<h1>Expected Output: marco-sandbox-finops-adf</h1></code></pre>
+
+<strong>Validation Points</strong>:
+<ul><li>[ ] Factory name: <code>marco-sandbox-finops-adf</code></li>
+<li>[ ] Location: canadacentral</li>
+<li>[ ] Identity: SystemAssigned or UserAssigned (for authentication)</li>
+<li>[ ] Provisioning state: Succeeded</li>
+
+</ul><strong>Evidence Artifact</strong>: <code>adf-factories.json</code>
+
+<p>---</p>
+
+<h3>3.2 List Pipelines</h3>
+
+<strong>Purpose</strong>: Enumerate configured pipelines (currently unknown).
+
+<pre><code><h1>Command</h1>
+<p>az datafactory pipeline list \</p>
+<p>  --factory-name marco-sandbox-finops-adf \</p>
+<p>  --resource-group EsDAICoE-Sandbox \</p>
+<p>  --output json | Out-File -FilePath "i:/eva-foundation/14-az-finops/tools/finops/out/adf-pipelines.json"</p>
+
+<h1>Expected Output (current): Empty array OR legacy pipelines</h1>
+<h1>Expected Output (future): ingest-costs-to-adx, backfill-historical</h1></code></pre>
+
+<strong>Validation Points</strong>:
+<ul><li>[ ] If empty: No automation configured (meets UNKNOWN status from doc 00)</li>
+<li>[ ] If populated: Pipeline activity structure, parameters, triggers</li>
+
+</ul><strong>Evidence Artifact</strong>: <code>adf-pipelines.json</code>
+
+<strong>Screenshot Required</strong>: Portal → ADF → Author blade showing pipeline list
+
+<p>---</p>
+
+<h3>3.3 List Triggers</h3>
+
+<strong>Purpose</strong>: Check if Event Grid triggers are configured.
+
+<pre><code><h1>Command</h1>
+<p>az datafactory trigger list \</p>
+<p>  --factory-name marco-sandbox-finops-adf \</p>
+<p>  --resource-group EsDAICoE-Sandbox \</p>
+<p>  --output json | Out-File -FilePath "i:/eva-foundation/14-az-finops/tools/finops/out/adf-triggers.json"</p>
+
+<h1>Expected Output (current): Empty or no Event Grid trigger</h1>
+<h1>Expected Output (future): Storage Event trigger for /raw/costs/ blob creation</h1></code></pre>
+
+<strong>Validation Points</strong>:
+<ul><li>[ ] Trigger type: BlobEventsTrigger</li>
+<li>[ ] Scope: <code>/subscriptions/.../resourceGroups/.../storageAccounts/marcosandboxfinopshub</code></li>
+<li>[ ] Events: Microsoft.Storage.BlobCreated</li>
+<li>[ ] Status: Started</li>
+
+</ul><strong>Evidence Artifact</strong>: <code>adf-triggers.json</code>
+
+<p>---</p>
+
+<h3>3.4 Check Pipeline Run History</h3>
+
+<strong>Purpose</strong>: Validate recent execution (if any).
+
+<pre><code><h1>Command (requires pipeline name, skip if empty)</h1>
+<p>az datafactory pipeline-run query-by-factory \</p>
+<p>  --factory-name marco-sandbox-finops-adf \</p>
+<p>  --resource-group EsDAICoE-Sandbox \</p>
+<p>  --last-updated-after "2026-02-01T00:00:00Z" \</p>
+<p>  --last-updated-before "2026-02-17T23:59:59Z" \</p>
+<p>  --output json | Out-File -FilePath "i:/eva-foundation/14-az-finops/tools/finops/out/adf-run-history.json"</p>
+
+<h1>Expected Output (current): Empty array (no runs)</h1>
+<h1>Expected Output (future): Successful run with duration, row count processed</h1></code></pre>
+
+<strong>Validation Points</strong>:
+<ul><li>[ ] Run status: Succeeded</li>
+<li>[ ] Duration: <10 minutes for single CSV ingestion</li>
+<li>[ ] Output: Row count, target table name</li>
+
+</ul><strong>Evidence Artifact</strong>: <code>adf-run-history.json</code>
+
+<p>---</p>
+
+<h2>4. Azure Data Explorer (ADX) Validation</h2>
+
+<h3>4.1 List ADX Clusters</h3>
+
+<strong>Purpose</strong>: Check if ADX cluster is deployed.
+
+<pre><code><h1>Command</h1>
+<p>az kusto cluster list \</p>
+<p>  --resource-group EsDAICoE-Sandbox \</p>
+<p>  --output json | Out-File -FilePath "i:/eva-foundation/14-az-finops/tools/finops/out/adx-clusters.json"</p>
+
+<h1>Expected Output (current): Empty array (NOT deployed yet)</h1>
+<h1>Expected Output (future): marcofinopsadx, SKU=Dev, state=Running</h1></code></pre>
+
+<strong>Validation Points</strong> (post-deployment):
+<ul><li>[ ] Cluster name: <code>marcofinopsadx</code></li>
+<li>[ ] URI: <code>https://marcofinopsadx.canadacentral.kusto.windows.net</code></li>
+<li>[ ] SKU: Dev_No_SLA_Standard_D11_v2, capacity 2</li>
+<li>[ ] State: Running</li>
+<li>[ ] Provisioning state: Succeeded</li>
+
+</ul><strong>Evidence Artifact</strong>: <code>adx-clusters.json</code>
+
+<strong>Note</strong>: If empty, this confirms CRITICAL gap from gap analysis (doc 01).
+
+<p>---</p>
+
+<h3>4.2 List ADX Databases</h3>
+
+<strong>Purpose</strong>: Enumerate databases in cluster (post-deployment).
+
+<pre><code><h1>Command (only after cluster deployed)</h1>
+<p>az kusto database list \</p>
+<p>  --cluster-name marcofinopsadx \</p>
+<p>  --resource-group EsDAICoE-Sandbox \</p>
+<p>  --output json | Out-File -FilePath "i:/eva-foundation/14-az-finops/tools/finops/out/adx-databases.json"</p>
+
+<h1>Expected Output: finopsdb with retention, hot cache settings</h1></code></pre>
+
+<strong>Validation Points</strong>:
+<ul><li>[ ] Database name: <code>finopsdb</code></li>
+<li>[ ] Hot cache period: 31 days</li>
+<li>[ ] Soft delete period: 1825 days (5 years)</li>
+
+</ul><strong>Evidence Artifact</strong>: <code>adx-databases.json</code>
+
+<p>---</p>
+
+<h3>4.3 KQL Validation Queries</h3>
+
+<strong>Purpose</strong>: Validate ADX schema and sample data (post-ingestion).
+
+<strong>Commands</strong> (execute in ADX Web Explorer: https://dataexplorer.azure.com):
+
+<pre><code>// 1. List tables
+<p>.show tables</p>
+
+<p>// Expected Output: raw_costs, apim_usage</p>
+
+<p>// 2. Check materialized views</p>
+<p>.show materialized-views</p>
+
+<p>// Expected Output: normalized_costs</p>
+
+<p>// 3. Check functions</p>
+<p>.show functions</p>
+
+<p>// Expected Output: AllocateCostByApp</p>
+
+<p>// 4. Validate ingestion mappings</p>
+<p>.show table raw_costs ingestion csv mappings</p>
+
+<p>// Expected Output: CostExportMapping with 55+ column mappings</p>
+
+<p>// 5. Row count validation (after ingestion)</p>
+<p>raw_costs</p>
+<p>| summarize Count=count() by Date</p>
+<p>| order by Date desc</p>
+<p>| take 30</p>
+
+<p>// Expected Output: Daily row counts matching subscription activity</p>
+
+<p>// 6. Cost trend validation</p>
+<p>normalized_costs</p>
+<p>| where Date >= ago(30d)</p>
+<p>| summarize DailyCost=sum(Cost) by Date, SubscriptionName</p>
+<p>| order by Date desc</p>
+
+<p>// Expected Output: Daily cost aggregates matching invoice</code></pre></p>
+
+<strong>Evidence</strong>: Export query results as CSV, save to <code>out/adx-validation-queries/</code>
+
+<strong>Screenshot Required</strong>: ADX Web Explorer showing table list and sample query results
+
+<p>---</p>
+
+<h2>5. APIM Validation</h2>
+
+<h3>5.1 List APIM Instances</h3>
+
+<strong>Purpose</strong>: Confirm APIM resource exists.
+
+<pre><code><h1>Command</h1>
+<p>az apim list \</p>
+<p>  --resource-group EsDAICoE-Sandbox \</p>
+<p>  --output json | Out-File -FilePath "i:/eva-foundation/14-az-finops/tools/finops/out/apim-instances.json"</p>
+
+<h1>Expected Output: marco-sandbox-apim</h1></code></pre>
+
+<strong>Validation Points</strong>:
+<ul><li>[ ] Service name: <code>marco-sandbox-apim</code></li>
+<li>[ ] SKU: Developer, Standard, or Premium</li>
+<li>[ ] Location: canadacentral</li>
+<li>[ ] Gateway URL: <code>https://marco-sandbox-apim.azure-api.net</code></li>
+
+</ul><strong>Evidence Artifact</strong>: <code>apim-instances.json</code>
+
+<p>---</p>
+
+<h3>5.2 List APIM APIs</h3>
+
+<strong>Purpose</strong>: Enumerate APIs for policy configuration.
+
+<pre><code><h1>Command</h1>
+<p>az apim api list \</p>
+<p>  --service-name marco-sandbox-apim \</p>
+<p>  --resource-group EsDAICoE-Sandbox \</p>
+<p>  --output json | Out-File -FilePath "i:/eva-foundation/14-az-finops/tools/finops/out/apim-apis.json"</p>
+
+<h1>Expected Output: List of APIs with display names, paths</h1></code></pre>
+
+<strong>Validation Points</strong>:
+<ul><li>[ ] At least 1 API exists for testing</li>
+<li>[ ] API path, version, protocols (HTTP/HTTPS)</li>
+
+</ul><strong>Evidence Artifact</strong>: <code>apim-apis.json</code>
+
+<strong>Screenshot Required</strong>: Portal → APIM → APIs blade
+
+<p>---</p>
+
+<h3>5.3 Check Base Policy Configuration</h3>
+
+<strong>Purpose</strong>: Validate if cost attribution headers are injected.
+
+<strong>Manual Steps</strong> (Azure Portal):
+<ul><li>Navigate to APIM → APIs → "All APIs"</li>
+<li>Open "Inbound processing" policy editor</li>
+<li>Look for <code><set-variable></code> or <code><set-header></code> elements extracting:</li>
+</ul><p>   - <code>x-eva-costcenter</code></p>
+<p>   - <code>x-eva-caller-app</code></p>
+<p>   - <code>x-eva-environment</code></p>
+
+<strong>Evidence</strong>: Export policy XML and save to <code>out/apim-base-policy.xml</code>
+
+<strong>Validation Points</strong>:
+<ul><li>[CURRENT] Policy likely does NOT have these headers (meets UNKNOWN status)</li>
+<li>[TARGET] Policy injects headers with defaults for missing values</li>
+
+</ul><p>---</p>
+
+<h3>5.4 Check Application Insights Integration</h3>
+
+<strong>Purpose</strong>: Verify telemetry logging is enabled.
+
+<pre><code><h1>Command</h1>
+<p>az apim logger list \</p>
+<p>  --service-name marco-sandbox-apim \</p>
+<p>  --resource-group EsDAICoE-Sandbox \</p>
+<p>  --output json | Out-File -FilePath "i:/eva-foundation/14-az-finops/tools/finops/out/apim-loggers.json"</p>
+
+<h1>Expected Output: Logger linked to App Insights resource</h1></code></pre>
+
+<strong>Validation Points</strong>:
+<ul><li>[ ] Logger type: applicationInsights</li>
+<li>[ ] Resource ID: App Insights instrumentation key or connection string</li>
+<li>[ ] Sampling: 100% (for accurate cost attribution)</li>
+
+</ul><strong>Evidence Artifact</strong>: <code>apim-loggers.json</code>
+
+<strong>Screenshot Required</strong>: Portal → APIM → Application Insights blade showing diagnostics settings
+
+<p>---</p>
+
+<h2>6. Cost Management Exports</h2>
+
+<h3>6.1 List Configured Exports</h3>
+
+<strong>Purpose</strong>: Enumerate active cost exports for both subscriptions.
+
+<pre><code><h1>Command for EsDAICoESub (dev/stage)</h1>
+<p>az costmanagement export list \</p>
+<p>  --scope "/subscriptions/d2d4e571-e0f2-4f6c-901a-f88f7669bcba" \</p>
+<p>  --output json | Out-File -FilePath "i:/eva-foundation/14-az-finops/tools/finops/out/cost-exports-dev.json"</p>
+
+<h1>Command for EsPAICoESub (prod)</h1>
+<p>az costmanagement export list \</p>
+<p>  --scope "/subscriptions/802d84ab-3189-4221-8453-fcc30c8dc8ea" \</p>
+<p>  --output json | Out-File -FilePath "i:/eva-foundation/14-az-finops/tools/finops/out/cost-exports-prod.json"</p>
+
+<h1>Expected Output: EsDAICoESub-Daily, EsPAICoESub-Daily</h1></code></pre>
+
+<strong>Validation Points</strong>:
+<ul><li>[ ] Export name: <code>EsDAICoESub-Daily</code>, <code>EsPAICoESub-Daily</code></li>
+<li>[ ] Schedule: Daily, 1 AM UTC</li>
+<li>[ ] Destination: Storage account <code>marcosandboxfinopshub</code>, container <code>costs</code></li>
+<li>[ ] Format: CSV</li>
+<li>[ ] Schema version: 2024-08-01 (ActualCost with tags)</li>
+<li>[ ] Status: Active</li>
+
+</ul><strong>Evidence Artifacts</strong>: <code>cost-exports-dev.json</code>, <code>cost-exports-prod.json</code>
+
+<strong>Screenshot Required</strong>: Portal → Cost Management → Exports showing run history
+
+<p>---</p>
+
+<h3>6.2 Validate Export Run History</h3>
+
+<strong>Purpose</strong>: Confirm recent successful executions.
+
+<strong>Manual Steps</strong> (Azure Portal):
+<ul><li>Navigate to Cost Management → Exports</li>
+<li>Select export (e.g., <code>EsDAICoESub-Daily</code>)</li>
+<li>View run history tab</li>
+<li>Check last 7 days for status (Succeeded) and file size</li>
+
+</ul><strong>Evidence</strong>: Screenshot showing:
+<ul><li>[ ] Last run date: Within 24 hours</li>
+<li>[ ] Status: Succeeded</li>
+<li>[ ] File size: >1 MB (indicates data)</li>
+<li>[ ] Execution time: <5 minutes</li>
+
+</ul><p>---</p>
+
+<h2>7. RBAC and Permissions</h2>
+
+<h3>7.1 Check Role Assignments on Storage</h3>
+
+<strong>Purpose</strong>: Validate permissions for ADF managed identity (post-deployment).
+
+<pre><code><h1>Command</h1>
+<p>az role assignment list \</p>
+<p>  --scope "/subscriptions/d2d4e571-e0f2-4f6c-901a-f88f7669bcba/resourceGroups/EsDAICoE-Sandbox/providers/Microsoft.Storage/storageAccounts/marcosandboxfinopshub" \</p>
+<p>  --output json | Out-File -FilePath "i:/eva-foundation/14-az-finops/tools/finops/out/storage-rbac.json"</p>
+
+<h1>Expected Output (future): mi-finops-adf with Storage Blob Data Contributor</h1></code></pre>
+
+<strong>Validation Points</strong>:
+<ul><li>[ ] Principal: Managed identity for ADF (<code>mi-finops-adf</code>)</li>
+<li>[ ] Role: Storage Blob Data Contributor</li>
+<li>[ ] Scope: Storage account <code>marcosandboxfinopshub</code></li>
+
+</ul><strong>Evidence Artifact</strong>: <code>storage-rbac.json</code>
+
+<p>---</p>
+
+<h3>7.2 Check Role Assignments on ADX</h3>
+
+<strong>Purpose</strong>: Validate database ingestor role for ADF (post-deployment).
+
+<pre><code>// Execute in ADX Web Explorer
+<p>.show database finopsdb principals</p>
+
+<p>// Expected Output: mi-finops-adf with role "ingestor"</code></pre></p>
+
+<strong>Evidence</strong>: Export query result to <code>out/adx-principals.csv</code>
+
+<p>---</p>
+
+<h3>7.3 Check Current User Permissions</h3>
+
+<strong>Purpose</strong>: Document user's RBAC roles for audit trail.
+
+<pre><code><h1>Command</h1>
+<p>az role assignment list \</p>
+<p>  --assignee marco.presta@hrsdc-rhdcc.gc.ca \</p>
+<p>  --include-inherited \</p>
+<p>  --output json | Out-File -FilePath "i:/eva-foundation/14-az-finops/tools/finops/out/user-rbac.json"</p>
+
+<h1>Expected Output: Reader on subscriptions, potentially Contributor on sandbox RG</h1></code></pre>
+
+<strong>Validation Points</strong>:
+<ul><li>[ ] Subscription-level: Reader (minimum)</li>
+<li>[ ] Resource group-level: Contributor (if managing resources)</li>
+<li>[ ] Limitations: Cannot assign roles (requires Owner or User Access Administrator)</li>
+
+</ul><strong>Evidence Artifact</strong>: <code>user-rbac.json</code>
+
+<p>---</p>
+
+<h2>8. Monitoring and Diagnostics</h2>
+
+<h3>8.1 Check Application Insights Availability</h3>
+
+<strong>Purpose</strong>: Confirm App Insights exists for APIM logging.
+
+<pre><code><h1>Command</h1>
+<p>az monitor app-insights component list \</p>
+<p>  --resource-group EsDAICoE-Sandbox \</p>
+<p>  --output json | Out-File -FilePath "i:/eva-foundation/14-az-finops/tools/finops/out/appinsights.json"</p>
+
+<h1>Expected Output: App Insights resource (if exists)</h1></code></pre>
+
+<strong>Validation Points</strong>:
+<ul><li>[ ] Component name: <code>marco-sandbox-appinsights</code> (or similar)</li>
+<li>[ ] Application type: web</li>
+<li>[ ] Instrumentation key: Non-empty</li>
+<li>[ ] Connection string: Available</li>
+
+</ul><strong>Evidence Artifact</strong>: <code>appinsights.json</code>
+
+<p>---</p>
+
+<h3>8.2 Query Sample Telemetry</h3>
+
+<strong>Purpose</strong>: Validate APIM request logs in App Insights (post-policy deployment).
+
+<strong>KQL Query</strong> (execute in Portal → App Insights → Logs):
+
+<pre><code>requests
+<p>| where timestamp > ago(24h)</p>
+<p>| where cloud_RoleName == "APIM-marco-sandbox-apim"</p>
+<p>| extend CostCenter = tostring(customDimensions["x-eva-costcenter"])</p>
+<p>| extend CallerApp = tostring(customDimensions["x-eva-caller-app"])</p>
+<p>| summarize RequestCount=count() by CostCenter, CallerApp</p>
+<p>| order by RequestCount desc</code></pre></p>
+
+<strong>Evidence</strong>: Export query result as CSV to <code>out/appinsights-apim-telemetry.csv</code>
+
+<strong>Validation Points</strong>: If query returns no results, cost attribution headers are NOT configured yet.
+
+<p>---</p>
+
+<h2>9. Summary Checklist</h2>
+
+<strong>Use this checklist to track evidence collection progress:</strong>
+
+<p>| Component | Evidence Artifact | Status | Notes |</p>
+<p>|-----------|-------------------|--------|-------|</p>
+<p>| Storage Accounts | <code>storage-accounts.json</code> | ⬜ Not Collected | Run command in section 1.1 |</p>
+<p>| Storage Containers | <code>storage-containers.json</code> | ⬜ Not Collected | Run command in section 1.2 |</p>
+<p>| Storage Network Rules | <code>storage-network.json</code> | ⬜ Not Collected | Run command in section 1.4 |</p>
+<p>| Event Grid Topics | <code>eventgrid-system-topics.json</code> | ⬜ Not Collected | Run command in section 2.1 |</p>
+<p>| Event Subscriptions | <code>eventgrid-subscriptions.json</code> | ⬜ Not Collected | Run command in section 2.2 |</p>
+<p>| ADF Factories | <code>adf-factories.json</code> | ⬜ Not Collected | Run command in section 3.1 |</p>
+<p>| ADF Pipelines | <code>adf-pipelines.json</code> | ⬜ Not Collected | Run command in section 3.2 |</p>
+<p>| ADF Triggers | <code>adf-triggers.json</code> | ⬜ Not Collected | Run command in section 3.3 |</p>
+<p>| ADX Clusters | <code>adx-clusters.json</code> | ⬜ Not Collected | Run command in section 4.1 |</p>
+<p>| ADX Databases | <code>adx-databases.json</code> | ⬜ Not Collected | Run command in section 4.2 (post-deploy) |</p>
+<p>| APIM Instances | <code>apim-instances.json</code> | ⬜ Not Collected | Run command in section 5.1 |</p>
+<p>| APIM APIs | <code>apim-apis.json</code> | ⬜ Not Collected | Run command in section 5.2 |</p>
+<p>| APIM Base Policy | <code>apim-base-policy.xml</code> | ⬜ Not Collected | Manual export (section 5.3) |</p>
+<p>| APIM Loggers | <code>apim-loggers.json</code> | ⬜ Not Collected | Run command in section 5.4 |</p>
+<p>| Cost Exports (Dev) | <code>cost-exports-dev.json</code> | ⬜ Not Collected | Run command in section 6.1 |</p>
+<p>| Cost Exports (Prod) | <code>cost-exports-prod.json</code> | ⬜ Not Collected | Run command in section 6.1 |</p>
+<p>| Storage RBAC | <code>storage-rbac.json</code> | ⬜ Not Collected | Run command in section 7.1 |</p>
+<p>| User RBAC | <code>user-rbac.json</code> | ⬜ Not Collected | Run command in section 7.3 |</p>
+<p>| App Insights | <code>appinsights.json</code> | ⬜ Not Collected | Run command in section 8.1 |</p>
+
+<p>---</p>
+
+<h2>10. Automation Script</h2>
+
+<strong>Convenience Script</strong>: Execute all CLI commands in batch.
+
+<p>See: <code>i:/eva-foundation/14-az-finops/tools/finops/az-inventory-finops.ps1</code></p>
+
+<strong>Usage</strong>:
+<pre><code>cd i:/eva-foundation/14-az-finops/tools/finops
+<p>.\az-inventory-finops.ps1</p>
+
+<h1>Output: All JSON files written to out/ directory</h1>
+<h1>Duration: ~2 minutes</h1></code></pre>
+
+<p>---</p>
+
+<h2>Change Log</h2>
+
+<p>| Date | Author | Change |</p>
+<p>|------|--------|--------|</p>
+<p>| 2026-02-17 08:20 AM ET | Marco Presta | Initial evidence pack with validation commands |</p>
+
+<p>---</p>
+
+<strong>Document Status</strong>: Ready for execution  
+<strong>Next Action</strong>: Run commands, collect artifacts, generate screenshots
+
+    </section>
+    
+    <footer>
+        <p><strong>Project:</strong> FinOps Hubs Implementation (marcosandbox)</p>
+        <p><em>Generated: 2026-02-17 13:06</em></p>
+        <p><em>SharePoint-compatible HTML package</em></p>
+    </footer>
+</body>
+</html>

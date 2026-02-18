@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 1200 800">
+  <title>FinOps Hub - High-Level Architecture</title>
+  <defs>
+    <style>
+      .mermaid { font-family: Arial, sans-serif; }
+    </style>
+  </defs>
+  
+  <!-- Embedded Mermaid Code -->
+  <foreignObject x="0" y="0" width="100%" height="100%">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="mermaid">
+flowchart TB
+    subgraph Azure_Subscriptions["Azure Subscriptions"]
+        ESDC_DEV["EsDAICoESub&lt;br/&gt;(Dev/Stage)&lt;br/&gt;$255K/mo"]
+        ESDC_PROD["EsPAICoESub&lt;br/&gt;(Production)&lt;br/&gt;$42K/mo"]
+    end
+    
+    subgraph Cost_Mgmt["Cost Management"]
+        EXPORT1["Daily Export&lt;br/&gt;EsDAICoESub-Daily"]
+        EXPORT2["Daily Export&lt;br/&gt;EsPAICoESub-Daily"]
+    end
+    
+    subgraph Landing_Zone["marcosandboxfinopshub (ADLS Gen2)"]
+        RAW["Container: raw/&lt;br/&gt;Landing zone for exports"]
+        PROCESSED["Container: processed/&lt;br/&gt;Normalized data"]
+        ARCHIVE["Container: archive/&lt;br/&gt;Long-term retention"]
+        CHECKPOINT["Container: checkpoint/&lt;br/&gt;Pipeline state"]
+    end
+    
+    subgraph Event_Orchestration["Event &amp; Orchestration"]
+        EVENTGRID["Event Grid&lt;br/&gt;System Topic"]
+        ADF["Azure Data Factory&lt;br/&gt;marco-sandbox-finops-adf"]
+    end
+    
+    subgraph Analytics["Analytics &amp; Storage"]
+        ADX["Azure Data Explorer&lt;br/&gt;marco-finops-adx"]
+        ADX_DB[("finopsdb&lt;br/&gt;- raw_costs&lt;br/&gt;- normalized_costs&lt;br/&gt;- apim_usage")]
+    end
+    
+    subgraph Usage_Tracking["Usage Attribution"]
+        APIM["Azure APIM&lt;br/&gt;marco-sandbox-apim&lt;br/&gt;(Policy: inject headers)"]
+        APPINS["App Insights&lt;br/&gt;marco-sandbox-appinsights"]
+    end
+    
+    subgraph Reporting["Reporting &amp; Visualization"]
+        PBI["Power BI&lt;br/&gt;KQL Direct Query"]
+        REPORTS["Dashboards:&lt;br/&gt;- Cost Trends&lt;br/&gt;- Allocation by App&lt;br/&gt;- Tag Compliance"]
+    end
+    
+    subgraph Governance["Governance"]
+        POLICY["Azure Policy&lt;br/&gt;- Require Tags&lt;br/&gt;- Enforce Exports"]
+        RBAC["RBAC&lt;br/&gt;Managed Identities"]
+        PRIVATE["Private Endpoints&lt;br/&gt;+ NSGs"]
+    end
+    
+    ESDC_DEV --&gt; EXPORT1
+    ESDC_PROD --&gt; EXPORT2
+    EXPORT1 --&gt;|"CSV (gzip)&lt;br/&gt;55+ columns"| RAW
+    EXPORT2 --&gt;|"CSV (gzip)&lt;br/&gt;55+ columns"| RAW
+    RAW --&gt;|"BlobCreated Event"| EVENTGRID
+    EVENTGRID --&gt;|"Trigger Pipeline"| ADF
+    ADF --&gt;|"1. Decompress&lt;br/&gt;2. Validate Schema&lt;br/&gt;3. Ingest"| ADX_DB
+    ADF --&gt;|"Move processed"| PROCESSED
+    ADF --&gt;|"Save Manifest"| CHECKPOINT
+    
+    APIM --&gt;|"x-costcenter&lt;br/&gt;x-caller-app&lt;br/&gt;x-environment"| APPINS
+    APPINS --&gt;|"Export Logs"| ADF
+    ADF --&gt;|"Ingest telemetry"| ADX_DB
+    
+    ADX --&gt;|"KQL Queries"| PBI
+    PBI --&gt; REPORTS
+    
+    POLICY -..-&gt;|"Enforce"| ESDC_DEV
+    POLICY -..-&gt;|"Enforce"| ESDC_PROD
+    RBAC -..-&gt;|"Authorize"| ADF
+    RBAC -..-&gt;|"Authorize"| ADX
+    PRIVATE -..-&gt;|"Secure"| Landing_Zone
+    PRIVATE -..-&gt;|"Secure"| ADX
+    
+    classDef costMgmt fill:#FFE5B4,stroke:#FF8C00,stroke-width:2px
+    classDef storage fill:#B4D7FF,stroke:#0078D4,stroke-width:2px
+    classDef compute fill:#D4F1D4,stroke:#107C10,stroke-width:2px
+    classDef reporting fill:#FFD4E5,stroke:#E81123,stroke-width:2px
+    classDef security fill:#E5E5E5,stroke:#605E5C,stroke-width:2px
+    
+    class EXPORT1,EXPORT2 costMgmt
+    class RAW,PROCESSED,ARCHIVE,CHECKPOINT storage
+    class ADF,ADX,ADX_DB compute
+    class PBI,REPORTS reporting
+    class POLICY,RBAC,PRIVATE security
+    </div>
+  </foreignObject>
+  
+  <text x="10" y="790" font-size="12" fill="#666">
+    Figure 1: FinOps Hub High-Level Architecture - marcosandbox Environment
+  </text>
+  
+  <script xlink:href="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad:true});</script>
+</svg>

@@ -1,0 +1,132 @@
+{
+  "name": "IngestDailyCosts",
+  "properties": {
+    "description": "Copy daily cost exports from blob storage to processing area",
+    "activities": [
+      {
+        "name": "CopyEsDAICoESubCosts",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.00:10:00",
+          "retry": 2,
+          "retryIntervalInSeconds": 30
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "storeSettings": {
+              "type": "AzureBlobStorageReadSettings",
+              "recursive": true,
+              "wildcardFolderPath": "esdaicoesub/exports",
+              "wildcardFileName": "*.csv",
+              "enablePartitionDiscovery": false
+            },
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings",
+              "skipLineCount": 0
+            }
+          },
+          "sink": {
+            "type": "DelimitedTextSink",
+            "storeSettings": {
+              "type": "AzureBlobStorageWriteSettings"
+            },
+            "formatSettings": {
+              "type": "DelimitedTextWriteSettings",
+              "quoteAllText": true,
+              "fileExtension": ".csv"
+            }
+          },
+          "enableStaging": false
+        },
+        "inputs": [
+          {
+            "referenceName": "CostExportSource",
+            "type": "DatasetReference",
+            "parameters": {
+              "folderPath": "esdaicoesub/exports"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "ProcessedCostData",
+            "type": "DatasetReference",
+            "parameters": {
+              "folderPath": "processed/esdaicoesub"
+            }
+          }
+        ]
+      },
+      {
+        "name": "CopyEsPAICoESubCosts",
+        "type": "Copy",
+        "dependsOn": [
+          {
+            "activity": "CopyEsDAICoESubCosts",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "timeout": "0.00:10:00",
+          "retry": 2,
+          "retryIntervalInSeconds": 30
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "storeSettings": {
+              "type": "AzureBlobStorageReadSettings",
+              "recursive": true,
+              "wildcardFolderPath": "espaicoesub/exports",
+              "wildcardFileName": "*.csv",
+              "enablePartitionDiscovery": false
+            },
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings",
+              "skipLineCount": 0
+            }
+          },
+          "sink": {
+            "type": "DelimitedTextSink",
+            "storeSettings": {
+              "type": "AzureBlobStorageWriteSettings"
+            },
+            "formatSettings": {
+              "type": "DelimitedTextWriteSettings",
+              "quoteAllText": true,
+              "fileExtension": ".csv"
+            }
+          },
+          "enableStaging": false
+        },
+        "inputs": [
+          {
+            "referenceName": "CostExportSource",
+            "type": "DatasetReference",
+            "parameters": {
+              "folderPath": "espaicoesub/exports"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "ProcessedCostData",
+            "type": "DatasetReference",
+            "parameters": {
+              "folderPath": "processed/espaicoesub"
+            }
+          }
+        ]
+      }
+    ],
+    "annotations": [],
+    "lastPublishTime": "2026-02-04T19:00:00Z"
+  },
+  "type": "Microsoft.DataFactory/factories/pipelines"
+}

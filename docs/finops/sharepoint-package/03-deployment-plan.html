@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 - Deployment Plan</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #323130;
+            background: #fff;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            background: #f3f2f1;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            border-left: 4px solid #0078d4;
+        }
+        
+        nav a {
+            color: #0078d4;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0078d4 0%, #107c10 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 { font-size: 2.5em; margin-bottom: 15px; }
+        h2 { color: #0078d4; font-size: 2em; margin: 30px 0 20px 0; padding-bottom: 10px; border-bottom: 3px solid #0078d4; }
+        h3 { color: #107c10; font-size: 1.5em; margin: 25px 0 15px 0; }
+        h4 { color: #ff8c00; font-size: 1.2em; margin: 20px 0 10px 0; }
+        
+        section {
+            margin-bottom: 30px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid #e1dfdd;
+        }
+        
+        p { margin-bottom: 15px; text-align: justify; }
+        
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 8px 0; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #e1dfdd;
+        }
+        
+        th {
+            background: #f8f8f8;
+            font-weight: 600;
+            color: #0078d4;
+        }
+        
+        tr:nth-child(even) { background: #fafafa; }
+        tr:hover { background: #f0f0f0; }
+        
+        code {
+            background: #f3f2f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #f3f2f1;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid #e1dfdd;
+        }
+        
+        pre code { background: none; padding: 0; }
+        
+        .callout {
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid;
+        }
+        
+        .callout.info { background: #e7f3ff; border-color: #0078d4; }
+        .callout.success { background: #dff6dd; border-color: #107c10; }
+        .callout.warning { background: #fff4ce; border-color: #ff8c00; }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #605e5c;
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding: 30px;
+            background: #f8f8f8;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e1dfdd;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" target="_parent">🏠 Home</a>
+        <a href="00-current-state-inventory.html" target="_parent">00 - Current State</a>
+        <a href="01-gap-analysis-finops-hubs.html" target="_parent">01 - Gap Analysis</a>
+        <a href="02-target-architecture-embedded.html" target="_parent">02 - Architecture</a>
+        <a href="03-deployment-plan.html" target="_parent">03 - Deployment Plan</a>
+        <a href="04-backlog.html" target="_parent">04 - Backlog</a>
+        <a href="05-evidence-pack.html" target="_parent">05 - Evidence</a>
+        <a href="PHASE1-DEPLOYMENT-CHECKLIST.html" target="_parent">Phase 1 Checklist</a>
+    </nav>
+    
+    <header>
+        <h1>03 - Deployment Plan</h1>
+        <p style="margin:0; opacity:0.95;">FinOps Hubs - marcosandbox Implementation</p>
+    </header>
+    
+    <section>
+<h1>03 - Deployment Plan (IaC-First, Phased Approach)</h1>
+
+<strong>Document Type</strong>: Deployment  
+<strong>Phase</strong>: Planning  
+<strong>Audience</strong>: [engineers, devops, architects]  
+<strong>Last Updated</strong>: 2026-02-17 08:20 AM ET  
+<strong>Author</strong>: Marco Presta (marco.presta@hrsdc-rhdcc.gc.ca)  
+<strong>Deployment Target</strong>: EsDAICoE-Sandbox (canadacentral)
+
+<p>---</p>
+
+<h2>Executive Summary</h2>
+
+<p>This deployment plan implements the FinOps Hubs target architecture over 4 phases (9 weeks total) using Infrastructure-as-Code (Bicep modules). Each phase has clear acceptance criteria, rollback procedures, and evidence requirements. Deployment follows enterprise best practices: least-privilege RBAC, private networking, and CI/CD automation.</p>
+
+<strong>Key Constraints</strong>:
+<ul><li>No Contributor/Owner on subscription → Deploy via Azure Portal + IaC templates (limited automation)</li>
+<li>Dev SKU resources to minimize cost during pilot</li>
+<li>Incremental approach to reduce risk and enable early validation</li>
+
+</ul><p>---</p>
+
+<h2>Resource Naming Convention</h2>
+
+<p>All resources follow the pattern: <code>marco-{purpose}-{resourceType}[-{suffix}]</code></p>
+
+<p>| Resource Type | Name | Resource Group | Location |</p>
+<p>|---------------|------|----------------|----------|</p>
+<p>| Storage Account | <code>marcosandboxfinopshub</code> | EsDAICoE-Sandbox | canadacentral |</p>
+<p>| Data Factory | <code>marco-sandbox-finops-adf</code> | EsDAICoE-Sandbox | canadacentral |</p>
+<p>| ADX Cluster | <code>marcofinopsadx</code> | EsDAICoE-Sandbox | canadacentral |</p>
+<p>| ADX Database | <code>finopsdb</code> | (within cluster) | canadacentral |</p>
+<p>| Event Grid Topic | <code>marcosandboxfinopshub-{guid}</code> | esdaicoe-sandbox | canadacentral |</p>
+<p>| Key Vault | <code>marcosandkv20260203</code> | EsDAICoE-Sandbox | canadacentral |</p>
+<p>| Managed Identity (ADF) | <code>mi-finops-adf</code> | EsDAICoE-Sandbox | canadacentral |</p>
+<p>| Managed Identity (PBI) | <code>mi-finops-powerbi</code> | EsDAICoE-Sandbox | canadacentral |</p>
+<p>| Private Endpoint (Storage) | <code>pe-marcosandbox-blob</code> | EsDAICoE-Sandbox | canadacentral |</p>
+<p>| Private Endpoint (ADX) | <code>pe-marcofinops-adx</code> | EsDAICoE-Sandbox | canadacentral |</p>
+
+<p>---</p>
+
+<h2>Phase 1: Foundation (Weeks 1-2)</h2>
+
+<strong>Objective</strong>: Establish storage hierarchy, event routing, and validation framework.
+
+<h3>Tasks</h3>
+
+<p>#### 1.1 Storage Container Structure</p>
+
+<strong>Action</strong>: Create additional containers in <code>marcosandboxfinopshub</code>.
+
+<pre><code><h1>Authenticate</h1>
+<p>az login --tenant 9ed55846-8a81-4246-acd8-b1a01abfc0d1 --use-device-code</p>
+<p>az account set --subscription d2d4e571-e0f2-4f6c-901a-f88f7669bcba</p>
+
+<h1>Create containers</h1>
+<p>az storage container create --account-name marcosandboxfinopshub --name raw --auth-mode login</p>
+<p>az storage container create --account-name marcosandboxfinopshub --name processed --auth-mode login</p>
+<p>az storage container create --account-name marcosandboxfinopshub --name archive --auth-mode login</p>
+<p>az storage container create --account-name marcosandboxfinopshub --name checkpoint --auth-mode login</p>
+
+<h1>Verify</h1>
+<p>az storage container list --account-name marcosandboxfinopshub --auth-mode login -o table</code></pre></p>
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] 4 new containers visible in <code>az storage container list</code> output</li>
+<li>[ ] Container permissions: Private (no anonymous access)</li>
+<li>[ ] Test file upload succeeds in each container</li>
+<li>[ ] Evidence: Screenshot of Portal → Storage Account → Containers blade</li>
+
+</ul><p>#### 1.2 Storage Lifecycle Policy</p>
+
+<strong>Action</strong>: Configure auto-tiering to Cool/Archive.
+
+<strong>Bicep Module</strong> (<code>storage-lifecycle.bicep</code>):
+<pre><code>param storageAccountName string = 'marcosandboxfinopshub'
+
+<p>resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' existing = {</p>
+<p>  name: storageAccountName</p>
+<p>}</p>
+
+<p>resource lifecyclePolicy 'Microsoft.Storage/storageAccounts/managementPolicies@2023-01-01' = {</p>
+<p>  parent: storageAccount</p>
+<p>  name: 'default'</p>
+<p>  properties: {</p>
+<p>    policy: {</p>
+<p>      rules: [</p>
+<p>        {</p>
+<p>          name: 'MoveRawToCool'</p>
+<p>          enabled: true</p>
+<p>          type: 'Lifecycle'</p>
+<p>          definition: {</p>
+<p>            filters: {</p>
+<p>              blobTypes: ['blockBlob']</p>
+<p>              prefixMatch: ['raw/']</p>
+<p>            }</p>
+<p>            actions: {</p>
+<p>              baseBlob: {</p>
+<p>                tierToCool: {</p>
+<p>                  daysAfterModificationGreaterThan: 90</p>
+<p>                }</p>
+<p>              }</p>
+<p>            }</p>
+<p>          }</p>
+<p>        }</p>
+<p>        {</p>
+<p>          name: 'MoveArchiveToArchive'</p>
+<p>          enabled: true</p>
+<p>          type: 'Lifecycle'</p>
+<p>          definition: {</p>
+<p>            filters: {</p>
+<p>              blobTypes: ['blockBlob']</p>
+<p>              prefixMatch: ['archive/']</p>
+<p>            }</p>
+<p>            actions: {</p>
+<p>              baseBlob: {</p>
+<p>                tierToArchive: {</p>
+<p>                  daysAfterModificationGreaterThan: 180</p>
+<p>                }</p>
+<p>                delete: {</p>
+<p>                  daysAfterModificationGreaterThan: 2555  // 7 years</p>
+<p>                }</p>
+<p>              }</p>
+<p>            }</p>
+<p>          }</p>
+<p>        }</p>
+<p>      ]</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<strong>Deployment</strong>:
+<pre><code>az deployment group create \
+<p>  --resource-group EsDAICoE-Sandbox \</p>
+<p>  --template-file storage-lifecycle.bicep \</p>
+<p>  --parameters storageAccountName=marcosandboxfinopshub</code></pre></p>
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Lifecycle policy visible in Portal → Storage Account → Lifecycle management</li>
+<li>[ ] Rule count: 2 (MoveRawToCool, MoveArchiveToArchive)</li>
+<li>[ ] Test: Upload file to <code>archive/</code>, verify tier change scheduled (check blob metadata)</li>
+
+</ul><p>#### 1.3 Migrate Existing Exports to Raw</p>
+
+<strong>Action</strong>: Reorganize current <code>costs/</code> blobs into <code>raw/costs/</code> hierarchy.
+
+<pre><code><h1>List existing blobs</h1>
+<p>az storage blob list \</p>
+<p>  --account-name marcosandboxfinopshub \</p>
+<p>  --container-name costs \</p>
+<p>  --auth-mode login \</p>
+<p>  --query "[].name" -o tsv > existing-blobs.txt</p>
+
+<h1>Copy to raw/ (example for EsDAICoESub)</h1>
+<p>while IFS= read -r blob; do</p>
+<p>  echo "Copying $blob to raw/$blob..."</p>
+<p>  az storage blob copy start \</p>
+<p>    --account-name marcosandboxfinopshub \</p>
+<p>    --destination-container raw \</p>
+<p>    --destination-blob "costs/$blob" \</p>
+<p>    --source-container costs \</p>
+<p>    --source-blob "$blob" \</p>
+<p>    --auth-mode login</p>
+<p>done < existing-blobs.txt</p>
+
+<h1>Verify copy completion (check for copyStatus=success)</h1>
+<h1>After verification, delete from costs/ (optional)</h1></code></pre>
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] All blobs from <code>costs/</code> present in <code>raw/costs/</code> with same structure</li>
+<li>[ ] Original <code>costs/</code> container can be deleted or renamed to <code>costs-old</code></li>
+<li>[ ] Export destinations updated to <code>raw/costs/</code> (Portal config update)</li>
+
+</ul><p>#### 1.4 Update Export Destinations (Portal)</p>
+
+<strong>Action</strong>: Reconfigure daily exports to target <code>raw/costs/</code> container.
+
+<strong>Portal Steps</strong>:
+<ul><li>Navigate to Cost Management → Exports</li>
+<li>Select <code>EsDAICoESub-Daily</code> → Edit</li>
+<li>Change Root Folder Path: <code>raw/costs/EsDAICoESub</code></li>
+<li>Save and trigger manual run</li>
+<li>Repeat for <code>EsPAICoESub-Daily</code></li>
+
+</ul><strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Next export lands in <code>raw/costs/EsDAICoESub/YYYY/MM/</code> (verify path)</li>
+<li>[ ] Event Grid receives <code>BlobCreated</code> event (check Event Grid Metrics)</li>
+<li>[ ] Evidence: Screenshot showing new export run history with updated path</li>
+
+</ul><p>---</p>
+
+<h2>Phase 2: Analytics Infrastructure (Weeks 3-4)</h2>
+
+<strong>Objective</strong>: Deploy ADX cluster, create schema, and implement ingestion pipelines.
+
+<h3>Tasks</h3>
+
+<p>#### 2.1 Deploy ADX Cluster</p>
+
+<strong>Bicep Module</strong> (<code>adx-cluster.bicep</code>):
+<pre><code>param clusterName string = 'marcofinopsadx'
+<p>param location string = 'canadacentral'</p>
+<p>param skuName string = 'Dev(No SLA)_Standard_E2a_v4'</p>
+<p>param skuCapacity int = 2</p>
+
+<p>resource adxCluster 'Microsoft.Kusto/clusters@2023-08-15' = {</p>
+<p>  name: clusterName</p>
+<p>  location: location</p>
+<p>  sku: {</p>
+<p>    name: skuName</p>
+<p>    tier: 'Basic'</p>
+<p>    capacity: skuCapacity</p>
+<p>  }</p>
+<p>  identity: {</p>
+<p>    type: 'SystemAssigned'</p>
+<p>  }</p>
+<p>  properties: {</p>
+<p>    enableStreamingIngest: true</p>
+<p>    enablePurge: true</p>
+<p>    publicNetworkAccess: 'Enabled'  // Phase 4: Change to 'Disabled' + private endpoint</p>
+<p>    trustedExternalTenants: []</p>
+<p>  }</p>
+<p>}</p>
+
+<p>resource adxDatabase 'Microsoft.Kusto/clusters/databases@2023-08-15' = {</p>
+<p>  parent: adxCluster</p>
+<p>  name: 'finopsdb'</p>
+<p>  location: location</p>
+<p>  kind: 'ReadWrite'</p>
+<p>  properties: {</p>
+<p>    softDeletePeriod: 'P1825D'  // 5 years</p>
+<p>    hotCachePeriod: 'P31D'      // 31 days hot cache</p>
+<p>  }</p>
+<p>}</p>
+
+<p>output clusterUri string = adxCluster.properties.uri</p>
+<p>output databaseName string = adxDatabase.name</p>
+<p>output principalId string = adxCluster.identity.principalId</code></pre></p>
+
+<strong>Deployment</strong>:
+<pre><code>az deployment group create \
+<p>  --resource-group EsDAICoE-Sandbox \</p>
+<p>  --template-file adx-cluster.bicep \</p>
+<p>  --parameters clusterName=marcofinopsadx location=canadacentral</code></pre></p>
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Cluster status: Running (Portal → Azure Data Explorer Clusters)</li>
+<li>[ ] Database <code>finopsdb</code> visible</li>
+<li>[ ] Query editor accessible: <code>https://dataexplorer.azure.com/clusters/marcofinopsadx</code></li>
+<li>[ ] Test query succeeds: <code>.show databases</code></li>
+<li>[ ] Evidence: Screenshot of cluster overview + query result</li>
+
+</ul><p>#### 2.2 Create ADX Schema</p>
+
+<strong>KQL Script</strong> (<code>create-schema.kql</code>):
+<pre><code>// Connect to marcofinopsadx.canadacentral
+<p>// Database: finopsdb</p>
+
+<p>// Table 1: raw_costs</p>
+<p>.create table raw_costs (</p>
+<p>    Date: datetime,</p>
+<p>    SubscriptionId: string,</p>
+<p>    SubscriptionName: string,</p>
+<p>    ResourceGroup: string,</p>
+<p>    ResourceId: string,</p>
+<p>    ResourceName: string,</p>
+<p>    ResourceLocation: string,</p>
+<p>    ResourceType: string,</p>
+<p>    MeterCategory: string,</p>
+<p>    MeterSubCategory: string,</p>
+<p>    MeterId: string,</p>
+<p>    MeterName: string,</p>
+<p>    Quantity: real,</p>
+<p>    EffectivePrice: real,</p>
+<p>    CostInBillingCurrency: real,</p>
+<p>    BillingCurrency: string,</p>
+<p>    Tags: dynamic,</p>
+<p>    ConsumedService: string,</p>
+<p>    IngestionTime: datetime</p>
+<p>)</p>
+
+<p>// Update policy: auto-add ingestion time</p>
+<p>.alter table raw_costs policy update</p>
+<p>  @'[{"IsEnabled": true, "Source": "IngestionTime", "Query": "raw_costs | extend IngestionTime = now()", "IsTransactional": true}]'</p>
+
+<p>// Partitioning by Date (1 day partitions)</p>
+<p>.alter table raw_costs policy partitioning</p>
+<p>  @'{"PartitionKeys":[{"ColumnName":"Date","Kind":"UniformRange","Properties":{"RangeSize":"1.00:00:00"}}]}'</p>
+
+<p>// Retention: 5 years</p>
+<p>.alter table raw_costs policy retention</p>
+<p>  @'{"SoftDeletePeriod":"1825.00:00:00","Recoverability":"Enabled"}'</p>
+
+<p>// Ingestion mapping for CSV</p>
+<p>.create table raw_costs ingestion csv mapping 'CostExportMapping'</p>
+<p>'['</p>
+<p>'{"column":"Date","DataType":"datetime","Properties":{"Ordinal":"0"}},'</p>
+<p>'{"column":"SubscriptionName","DataType":"string","Properties":{"Ordinal":"2"}},'</p>
+<p>'{"column":"ResourceGroup","DataType":"string","Properties":{"Ordinal":"3"}},'</p>
+<p>'{"column":"ResourceId","DataType":"string","Properties":{"Ordinal":"4"}},'</p>
+<p>'{"column":"ResourceName","DataType":"string","Properties":{"Ordinal":"5"}},'</p>
+<p>'{"column":"ResourceLocation","DataType":"string","Properties":{"Ordinal":"6"}},'</p>
+<p>'{"column":"MeterCategory","DataType":"string","Properties":{"Ordinal":"10"}},'</p>
+<p>'{"column":"MeterSubCategory","DataType":"string","Properties":{"Ordinal":"11"}},'</p>
+<p>'{"column":"MeterId","DataType":"string","Properties":{"Ordinal":"12"}},'</p>
+<p>'{"column":"MeterName","DataType":"string","Properties":{"Ordinal":"13"}},'</p>
+<p>'{"column":"Quantity","DataType":"real","Properties":{"Ordinal":"14"}},'</p>
+<p>'{"column":"EffectivePrice","DataType":"real","Properties":{"Ordinal":"15"}},'</p>
+<p>'{"column":"CostInBillingCurrency","DataType":"real","Properties":{"Ordinal":"20"}},'</p>
+<p>'{"column":"Tags","DataType":"dynamic","Properties":{"Ordinal":"25"}},'</p>
+<p>'{"column":"ConsumedService","DataType":"string","Properties":{"Ordinal":"30"}}'</p>
+<p>']'</p>
+
+<p>// Table 2: apim_usage</p>
+<p>.create table apim_usage (</p>
+<p>    Timestamp: datetime,</p>
+<p>    ApiId: string,</p>
+<p>    OperationId: string,</p>
+<p>    ProductId: string,</p>
+<p>    RequestId: string,</p>
+<p>    CallerApp: string,</p>
+<p>    CostCenter: string,</p>
+<p>    Environment: string,</p>
+<p>    HttpStatusCode: int,</p>
+<p>    DurationMs: real</p>
+<p>)</p>
+
+<p>.alter table apim_usage policy retention</p>
+<p>  @'{"SoftDeletePeriod":"365.00:00:00"}'</p>
+
+<p>// Materialized view: normalized_costs</p>
+<p>.create materialized-view normalized_costs on table raw_costs</p>
+<p>{</p>
+<p>    raw_costs</p>
+<p>    | extend CostCenter = tostring(Tags.CostCenter)</p>
+<p>    | extend Application = tostring(Tags.Application)</p>
+<p>    | extend Environment = tostring(Tags.Environment)</p>
+<p>    | extend Owner = tostring(Tags.owner)</p>
+<p>    | project-away Tags</p>
+<p>}</p>
+
+<p>// Allocation function</p>
+<p>.create-or-alter function AllocateCostByApp() {</p>
+<p>    let usage = apim_usage</p>
+<p>        | where Timestamp >= ago(1d)</p>
+<p>        | summarize RequestCount = count() by CallerApp, bin(Timestamp, 1h);</p>
+<p>    let costs = normalized_costs</p>
+<p>        | where Date >= ago(1d)</p>
+<p>        | where ResourceId has "/Microsoft.ApiManagement/"</p>
+<p>        | summarize TotalCost = sum(CostInBillingCurrency) by bin(Date, 1h);</p>
+<p>    usage</p>
+<p>    | join kind=inner (costs) on $left.Timestamp == $right.Date</p>
+<p>    | extend AllocatedCost = (RequestCount <em> 1.0 / toint(sum(RequestCount))) </em> TotalCost</p>
+<p>    | project CallerApp, Timestamp, AllocatedCost, RequestCount</p>
+<p>}</code></pre></p>
+
+<strong>Execution</strong>:
+<pre><code><h1>Via Azure Data Explorer portal or Kusto CLI</h1>
+<h1>Upload create-schema.kql and execute in finopsdb context</h1></code></pre>
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Tables created: <code>.show tables</code> returns <code>raw_costs</code>, <code>apim_usage</code></li>
+<li>[ ] Materialized view: <code>.show materialized-views</code> returns <code>normalized_costs</code></li>
+<li>[ ] Function exists: <code>.show functions</code> returns <code>AllocateCostByApp</code></li>
+<li>[ ] Test ingestion: Upload sample CSV (5 rows) and verify row count</li>
+
+</ul><p>#### 2.3 Create Managed Identity for ADF</p>
+
+<strong>Bicep Module</strong> (<code>managed-identity.bicep</code>):
+<pre><code>param identityName string = 'mi-finops-adf'
+<p>param location string = 'canadacentral'</p>
+
+<p>resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {</p>
+<p>  name: identityName</p>
+<p>  location: location</p>
+<p>}</p>
+
+<p>output principalId string = managedIdentity.properties.principalId</p>
+<p>output clientId string = managedIdentity.properties.clientId</code></pre></p>
+
+<strong>Assign Roles</strong>:
+<pre><code><h1>Get managed identity principal ID</h1>
+<p>MI_PRINCIPAL_ID=$(az deployment group show -g EsDAICoE-Sandbox -n managed-identity --query properties.outputs.principalId.value -o tsv)</p>
+
+<h1>Role 1: Storage Blob Data Contributor on marcosandboxfinopshub</h1>
+<p>az role assignment create \</p>
+<p>  --assignee $MI_PRINCIPAL_ID \</p>
+<p>  --role "Storage Blob Data Contributor" \</p>
+<p>  --scope "/subscriptions/d2d4e571-e0f2-4f6c-901a-f88f7669bcba/resourceGroups/EsDAICoE-Sandbox/providers/Microsoft.Storage/storageAccounts/marcosandboxfinopshub"</p>
+
+<h1>Role 2: ADX Database Ingestor on finopsdb</h1>
+<p>az kusto database-principal-assignment create \</p>
+<p>  --cluster-name marcofinopsadx \</p>
+<p>  --database-name finopsdb \</p>
+<p>  --principal-id $MI_PRINCIPAL_ID \</p>
+<p>  --principal-type App \</p>
+<p>  --role Ingestor \</p>
+<p>  --tenant-id $(az account show --query tenantId -o tsv) \</p>
+<p>  --resource-group EsDAICoE-Sandbox \</p>
+<p>  --principal-assignment-name adf-ingestor</code></pre></p>
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Managed identity created: <code>az identity show -n mi-finops-adf -g EsDAICoE-Sandbox</code></li>
+<li>[ ] Role assignments visible: <code>az role assignment list --assignee $MI_PRINCIPAL_ID -o table</code></li>
+<li>[ ] ADX principal: <code>.show database finopsdb principals</code> includes mi-finops-adf</li>
+
+</ul><p>#### 2.4 Deploy ADF Ingestion Pipeline</p>
+
+<strong>ADF Pipeline JSON</strong> (<code>ingest-costs-to-adx.json</code>):
+<pre><code>{
+<p>  "name": "ingest-costs-to-adx",</p>
+<p>  "properties": {</p>
+<p>    "activities": [</p>
+<p>      {</p>
+<p>        "name": "CopyBlobToADX",</p>
+<p>        "type": "Copy",</p>
+<p>        "inputs": [</p>
+<p>          {</p>
+<p>            "referenceName": "BlobCSV",</p>
+<p>            "type": "DatasetReference",</p>
+<p>            "parameters": {</p>
+<p>              "blobUrl": "@pipeline().parameters.blobUrl"</p>
+<p>            }</p>
+<p>          }</p>
+<p>        ],</p>
+<p>        "outputs": [</p>
+<p>          {</p>
+<p>            "referenceName": "ADXRawCosts",</p>
+<p>            "type": "DatasetReference"</p>
+<p>          }</p>
+<p>        ],</p>
+<p>        "typeProperties": {</p>
+<p>          "source": {</p>
+<p>            "type": "DelimitedTextSource",</p>
+<p>            "storeSettings": {</p>
+<p>              "type": "AzureBlobStorageReadSettings",</p>
+<p>              "recursive": false</p>
+<p>            },</p>
+<p>            "formatSettings": {</p>
+<p>              "type": "DelimitedTextReadSettings",</p>
+<p>              "compressionCodec": "gzip"</p>
+<p>            }</p>
+<p>          },</p>
+<p>          "sink": {</p>
+<p>            "type": "AzureDataExplorerSink",</p>
+<p>            "ingestionMappingName": "CostExportMapping"</p>
+<p>          }</p>
+<p>        }</p>
+<p>      }</p>
+<p>    ],</p>
+<p>    "parameters": {</p>
+<p>      "blobUrl": {</p>
+<p>        "type": "string"</p>
+<p>      }</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<strong>Deployment</strong> (via Portal or <code>az datafactory</code> commands):
+<ul><li>Open ADF Studio: <code>https://adf.azure.com/</code> → select <code>marco-sandbox-finops-adf</code></li>
+<li>Create datasets: <code>BlobCSV</code> (source), <code>ADXRawCosts</code> (sink)</li>
+<li>Import pipeline JSON</li>
+<li>Configure linked services (Storage + ADX) with managed identity auth</li>
+<li>Test with sample blob URL</li>
+
+</ul><strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Pipeline visible in ADF Studio → Pipelines blade</li>
+<li>[ ] Test run succeeds with sample CSV (5 rows)</li>
+<li>[ ] ADX query confirms ingestion: <code>raw_costs | count</code> returns 5</li>
+<li>[ ] Evidence: Screenshot of successful pipeline run + ADX query result</li>
+
+</ul><p>---</p>
+
+<h2>Phase 3: Attribution & Backfill (Weeks 5-7)</h2>
+
+<strong>Objective</strong>: Implement APIM cost headers, ingest telemetry, and backfill 12 months of cost data.
+
+<h3>Tasks</h3>
+
+<p>#### 3.1 Configure APIM Base Policy</p>
+
+<strong>Action</strong>: Add cost attribution headers to all APIs.
+
+<strong>Portal Steps</strong>:
+<ul><li>Navigate to APIM → marco-sandbox-apim → APIs</li>
+<li>Select "All APIs" → Policies → Inbound processing</li>
+<li>Add XML policy (see <a href="02-target-architecture.md#L600-L650">02-target-architecture.md</a>)</li>
+<li>Save and test with sample request (check App Insights for custom dimensions)</li>
+
+</ul><strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Policy visible in Portal → APIM → All APIs → Policies</li>
+<li>[ ] Test request includes header <code>x-costcenter: TESTVALUE</code></li>
+<li>[ ] App Insights logs show custom dimension <code>customDimensions.x-eva-costcenter = TESTVALUE</code></li>
+<li>[ ] Evidence: Screenshot of policy + App Insights log query result</li>
+
+</ul><p>#### 3.2 Configure APIM Diagnostics to App Insights</p>
+
+<strong>CLI Command</strong>:
+<pre><code>az apim logger create \
+<p>  --service-name marco-sandbox-apim \</p>
+<p>  --resource-group EsDAICoE-Sandbox \</p>
+<p>  --logger-id marco-sandbox-appinsights \</p>
+<p>  --logger-type applicationInsights \</p>
+<p>  --resource-id "/subscriptions/d2d4e571-e0f2-4f6c-901a-f88f7669bcba/resourceGroups/EsDAICoE-Sandbox/providers/Microsoft.Insights/components/marco-sandbox-appinsights"</p>
+
+<p>az apim diagnostic create \</p>
+<p>  --service-name marco-sandbox-apim \</p>
+<p>  --resource-group EsDAICoE-Sandbox \</p>
+<p>  --logger-id marco-sandbox-appinsights \</p>
+<p>  --api-id '*' \</p>
+<p>  --always-log allErrors \</p>
+<p>  --sampling-percentage 100.0 \</p>
+<p>  --verbosity information</code></pre></p>
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Diagnostics setting visible: <code>az apim diagnostic list</code> returns 1+ entry</li>
+<li>[ ] Test request generates App Insights event within 60 seconds</li>
+<li>[ ] Query confirms: <code>requests | where customDimensions['x-eva-costcenter'] != ""</code></li>
+
+</ul><p>#### 3.3 Create ADF Pipeline for APIM Telemetry Ingestion</p>
+
+<strong>High-Level Steps</strong>:
+<ul><li>Create dataset: App Insights export (Kusto query or Blob export)</li>
+<li>Create pipeline: <code>ingest-apim-telemetry</code> (scheduled daily)</li>
+<li>Copy activity: App Insights → ADX <code>apim_usage</code> table</li>
+<li>Enable and test</li>
+
+</ul><strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Pipeline runs daily at 3 AM UTC</li>
+<li>[ ] ADX table populated: <code>apim_usage | count</code> > 0</li>
+<li>[ ] Join test succeeds: <code>AllocateCostByApp() | take 10</code></li>
+
+</ul><p>#### 3.4 Historical Backfill (12 Months)</p>
+
+<strong>Action</strong>: Execute backfill pipeline for Feb 2025 - Jan 2026.
+
+<pre><code><h1>Trigger ADF pipeline: backfill-historical (manual)</h1>
+<p>az datafactory pipeline create-run \</p>
+<p>  --factory-name marco-sandbox-finops-adf \</p>
+<p>  --resource-group EsDAICoE-Sandbox \</p>
+<p>  --name backfill-historical</p>
+
+<h1>Monitor progress (check every 30 min)</h1>
+<p>az datafactory pipeline-run query-by-factory \</p>
+<p>  --factory-name marco-sandbox-finops-adf \</p>
+<p>  --resource-group EsDAICoE-Sandbox \</p>
+<p>  --last-updated-after "2026-02-17T00:00:00Z" \</p>
+<p>  --output table</code></pre></p>
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Backfill completes in <4 hours (500 blobs / 5 parallel = 100 batches × 2 min)</li>
+<li>[ ] Row count matches expected: <code>raw_costs | summarize count() by bin(Date, 1d) | where Date >= datetime(2025-02-01)</code></li>
+<li>[ ] No schema errors in pipeline logs</li>
+<li>[ ] Evidence: ADX query showing daily row counts (Feb 2025 - Jan 2026)</li>
+
+</ul><p>---</p>
+
+<h2>Phase 4: Governance & Hardening (Weeks 8-9)</h2>
+
+<strong>Objective</strong>: Enforce policies, enable private endpoints, and implement CI/CD.
+
+<h3>Tasks</h3>
+
+<p>#### 4.1 Deploy Azure Policy for Tag Enforcement</p>
+
+<strong>Policy Definition JSON</strong> (<code>require-costcenter-tag.json</code>):
+<pre><code>{
+<p>  "properties": {</p>
+<p>    "displayName": "Require CostCenter tag on resources",</p>
+<p>    "policyType": "Custom",</p>
+<p>    "mode": "Indexed",</p>
+<p>    "parameters": {},</p>
+<p>    "policyRule": {</p>
+<p>      "if": {</p>
+<p>        "field": "tags['CostCenter']",</p>
+<p>        "exists": "false"</p>
+<p>      },</p>
+<p>      "then": {</p>
+<p>        "effect": "deny"</p>
+<p>      }</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<strong>Deployment</strong>:
+<pre><code>az policy definition create \
+<p>  --name require-costcenter-tag \</p>
+<p>  --rules require-costcenter-tag.json \</p>
+<p>  --display-name "Require CostCenter tag" \</p>
+<p>  --subscription d2d4e571-e0f2-4f6c-901a-f88f7669bcba</p>
+
+<p>az policy assignment create \</p>
+<p>  --policy require-costcenter-tag \</p>
+<p>  --scope "/subscriptions/d2d4e571-e0f2-4f6c-901a-f88f7669bcba/resourceGroups/EsDAICoE-Sandbox" \</p>
+<p>  --name enforce-costcenter-sandbox</code></pre></p>
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Policy appears in Portal → Policy → Assignments</li>
+<li>[ ] Test: Create resource without CostCenter tag → Deployment blocked</li>
+<li>[ ] Compliance report shows non-compliant resources (if any)</li>
+
+</ul><p>#### 4.2 Enable Private Endpoint for Storage</p>
+
+<strong>Bicep Module</strong> (<code>private-endpoint-storage.bicep</code>):
+<pre><code>// Requires VNet creation first (or use existing VNet)
+<p>param storageAccountName string = 'marcosandboxfinopshub'</p>
+<p>param vnetName string = 'vnet-finops-canadacentral'</p>
+<p>param subnetName string = 'subnet-privatelink'</p>
+<p>param location string = 'canadacentral'</p>
+
+<p>resource vnet 'Microsoft.Network/virtualNetworks@2023-04-01' = {</p>
+<p>  name: vnetName</p>
+<p>  location: location</p>
+<p>  properties: {</p>
+<p>    addressSpace: {</p>
+<p>      addressPrefixes: ['10.100.0.0/16']</p>
+<p>    }</p>
+<p>    subnets: [</p>
+<p>      {</p>
+<p>        name: subnetName</p>
+<p>        properties: {</p>
+<p>          addressPrefix: '10.100.1.0/24'</p>
+<p>          privateEndpointNetworkPolicies: 'Disabled'</p>
+<p>        }</p>
+<p>      }</p>
+<p>    ]</p>
+<p>  }</p>
+<p>}</p>
+
+<p>resource privateEndpoint 'Microsoft.Network/privateEndpoints@2023-04-01' = {</p>
+<p>  name: 'pe-marcosandbox-blob'</p>
+<p>  location: location</p>
+<p>  properties: {</p>
+<p>    subnet: {</p>
+<p>      id: vnet.properties.subnets[0].id</p>
+<p>    }</p>
+<p>    privateLinkServiceConnections: [</p>
+<p>      {</p>
+<p>        name: 'plsc-marcosandbox-blob'</p>
+<p>        properties: {</p>
+<p>          privateLinkServiceId: resourceId('Microsoft.Storage/storageAccounts', storageAccountName)</p>
+<p>          groupIds: ['blob']</p>
+<p>        }</p>
+<p>      }</p>
+<p>    ]</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Private endpoint created and approved</li>
+<li>[ ] Storage firewall updated: Deny public access, allow VNet only</li>
+<li>[ ] Test: Access from DevBox (in VNet) succeeds, public access fails</li>
+
+</ul><p>#### 4.3 CI/CD Pipeline for IaC Modules</p>
+
+<strong>GitHub Actions Workflow</strong> (<code>.github/workflows/deploy-finops.yml</code>):
+<pre><code>name: Deploy FinOps Infrastructure
+
+<p>on:</p>
+<p>  push:</p>
+<p>    branches: [main]</p>
+<p>    paths:</p>
+<p>      - 'infra/finops/**'</p>
+<p>  pull_request:</p>
+<p>    branches: [main]</p>
+
+<p>jobs:</p>
+<p>  validate:</p>
+<p>    runs-on: ubuntu-latest</p>
+<p>    steps:</p>
+<p>      - uses: actions/checkout@v4</p>
+<p>      - name: Azure Login</p>
+<p>        uses: azure/login@v1</p>
+<p>        with:</p>
+<p>          creds: ${{ secrets.AZURE_CREDENTIALS }}</p>
+<p>      - name: Validate Bicep</p>
+<p>        run: |</p>
+<p>          az bicep build -f infra/finops/main.bicep</p>
+<p>          az deployment group validate \</p>
+<p>            --resource-group EsDAICoE-Sandbox \</p>
+<p>            --template-file infra/finops/main.bicep</p>
+<p>  </p>
+<p>  deploy:</p>
+<p>    needs: validate</p>
+<p>    if: github.ref == 'refs/heads/main'</p>
+<p>    runs-on: ubuntu-latest</p>
+<p>    steps:</p>
+<p>      - uses: actions/checkout@v4</p>
+<p>      - name: Azure Login</p>
+<p>        uses: azure/login@v1</p>
+<p>        with:</p>
+<p>          creds: ${{ secrets.AZURE_CREDENTIALS }}</p>
+<p>      - name: Deploy Infrastructure</p>
+<p>        run: |</p>
+<p>          az deployment group create \</p>
+<p>            --resource-group EsDAICoE-Sandbox \</p>
+<p>            --template-file infra/finops/main.bicep \</p>
+<p>            --parameters @infra/finops/parameters.json</code></pre></p>
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Workflow runs on PR and validates Bicep syntax</li>
+<li>[ ] Merge to main triggers deployment</li>
+<li>[ ] Deployment logs available in GitHub Actions</li>
+<li>[ ] Evidence: Screenshot of successful workflow run</li>
+
+</ul><p>---</p>
+
+<h2>Rollback Procedures</h2>
+
+<h3>Phase 1 Rollback</h3>
+<ul><li><strong>Issue</strong>: Lifecycle policy deletes active data</li>
+<li><strong>Action</strong>:</li>
+</ul><p>  1. Disable policy: Portal → Storage → Lifecycle management → Disable rules</p>
+<p>  2. Restore from GRS secondary (if within 14 days)</p>
+<p>  3. Revert export paths to original <code>costs/</code> container</p>
+
+<h3>Phase 2 Rollback</h3>
+<ul><li><strong>Issue</strong>: ADX cluster cost exceeds budget</li>
+<li><strong>Action</strong>:</li>
+</ul><p>  1. Stop ingestion: Disable ADF pipelines</p>
+<p>  2. Deallocate cluster: <code>az kusto cluster stop</code></p>
+<p>  3. Revert to manual CSV analysis (Power BI import mode)</p>
+
+<h3>Phase 3 Rollback</h3>
+<ul><li><strong>Issue</strong>: APIM policy breaks production traffic</li>
+<li><strong>Action</strong>:</li>
+</ul><p>  1. Remove policy: Portal → APIM → All APIs → Policies → Delete inbound section</p>
+<p>  2. Verify traffic restored (check APIM metrics)</p>
+<p>  3. Rollback diagnostics if causing latency</p>
+
+<h3>Phase 4 Rollback</h3>
+<ul><li><strong>Issue</strong>: Private endpoint blocks legitimate access</li>
+<li><strong>Action</strong>:</li>
+</ul><p>  1. Enable public access temporarily: <code>az storage account update --default-action Allow</code></p>
+<p>  2. Investigate firewall rules</p>
+<p>  3. Re-enable public access permanently if VNet integration fails</p>
+
+<p>---</p>
+
+<h2>Cost Summary (Incremental)</h2>
+
+<p>| Phase | New Resources | Monthly Cost (CAD) | One-Time Cost |</p>
+<p>|-------|---------------|-------------------|---------------|</p>
+<p>| Phase 1 | Containers + Lifecycle | $5 | {CONTENT} |</p>
+<p>| Phase 2 | ADX Dev + MI + ADF | $330 | {CONTENT} |</p>
+<p>| Phase 3 | APIM Diagnostics | {CONTENT} (existing) | {CONTENT} |</p>
+<p>| Phase 4 | Private Endpoints | $15 | {CONTENT} |</p>
+<p>| <strong>Total</strong> | | <strong>$350/month</strong> | <strong>{CONTENT}</strong> |</p>
+
+<strong>ROI Analysis</strong>: $297K/month spend × 0.5% optimization = $1,485/month savings → 4.2x ROI.
+
+<p>---</p>
+
+<h2>Change Log</h2>
+
+<p>| Date | Author | Change |</p>
+<p>|------|--------|--------|</p>
+<p>| 2026-02-17 08:20 AM ET | Marco Presta | Initial phased deployment plan with Bicep modules and acceptance criteria |</p>
+
+<p>---</p>
+
+<strong>Document Status</strong>: Ready for Phase 1 execution  
+<strong>Next Review</strong>: 2026-02-24 (after Phase 1 completion)
+
+    </section>
+    
+    <footer>
+        <p><strong>Project:</strong> FinOps Hubs Implementation (marcosandbox)</p>
+        <p><em>Generated: 2026-02-17 13:06</em></p>
+        <p><em>SharePoint-compatible HTML package</em></p>
+    </footer>
+</body>
+</html>

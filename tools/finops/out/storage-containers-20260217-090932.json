@@ -1,0 +1,140 @@
+[
+  {
+    "deleted": null,
+    "encryptionScope": {
+      "defaultEncryptionScope": "$account-encryption-key",
+      "preventEncryptionScopeOverride": false
+    },
+    "immutableStorageWithVersioningEnabled": false,
+    "metadata": null,
+    "name": "config",
+    "properties": {
+      "etag": "\"0x8DE6904689D7B39\"",
+      "hasImmutabilityPolicy": false,
+      "hasLegalHold": false,
+      "lastModified": "2026-02-10T19:27:58-05:00",
+      "lease": {
+        "duration": null,
+        "state": "available",
+        "status": "unlocked"
+      },
+      "publicAccess": null
+    },
+    "version": null
+  },
+  {
+    "deleted": null,
+    "encryptionScope": {
+      "defaultEncryptionScope": "$account-encryption-key",
+      "preventEncryptionScopeOverride": false
+    },
+    "immutableStorageWithVersioningEnabled": false,
+    "metadata": null,
+    "name": "costs",
+    "properties": {
+      "etag": "\"0x8DE63767E8149D8\"",
+      "hasImmutabilityPolicy": false,
+      "hasLegalHold": false,
+      "lastModified": "2026-02-03T17:49:31-05:00",
+      "lease": {
+        "duration": null,
+        "state": "available",
+        "status": "unlocked"
+      },
+      "publicAccess": null
+    },
+    "version": null
+  },
+  {
+    "deleted": null,
+    "encryptionScope": {
+      "defaultEncryptionScope": "$account-encryption-key",
+      "preventEncryptionScopeOverride": false
+    },
+    "immutableStorageWithVersioningEnabled": false,
+    "metadata": null,
+    "name": "ingestion",
+    "properties": {
+      "etag": "\"0x8DE690460EC44AC\"",
+      "hasImmutabilityPolicy": false,
+      "hasLegalHold": false,
+      "lastModified": "2026-02-10T19:27:46-05:00",
+      "lease": {
+        "duration": null,
+        "state": "available",
+        "status": "unlocked"
+      },
+      "publicAccess": null
+    },
+    "version": null
+  },
+  {
+    "deleted": null,
+    "encryptionScope": {
+      "defaultEncryptionScope": "$account-encryption-key",
+      "preventEncryptionScopeOverride": false
+    },
+    "immutableStorageWithVersioningEnabled": false,
+    "metadata": null,
+    "name": "msexports",
+    "properties": {
+      "etag": "\"0x8DE69045ADCD729\"",
+      "hasImmutabilityPolicy": false,
+      "hasLegalHold": false,
+      "lastModified": "2026-02-10T19:27:35-05:00",
+      "lease": {
+        "duration": null,
+        "state": "available",
+        "status": "unlocked"
+      },
+      "publicAccess": null
+    },
+    "version": null
+  },
+  {
+    "deleted": null,
+    "encryptionScope": {
+      "defaultEncryptionScope": "$account-encryption-key",
+      "preventEncryptionScopeOverride": false
+    },
+    "immutableStorageWithVersioningEnabled": false,
+    "metadata": null,
+    "name": "processed",
+    "properties": {
+      "etag": "\"0x8DE65D13B95F316\"",
+      "hasImmutabilityPolicy": false,
+      "hasLegalHold": false,
+      "lastModified": "2026-02-06T17:44:05-05:00",
+      "lease": {
+        "duration": null,
+        "state": "available",
+        "status": "unlocked"
+      },
+      "publicAccess": null
+    },
+    "version": null
+  },
+  {
+    "deleted": null,
+    "encryptionScope": {
+      "defaultEncryptionScope": "$account-encryption-key",
+      "preventEncryptionScopeOverride": false
+    },
+    "immutableStorageWithVersioningEnabled": false,
+    "metadata": null,
+    "name": "raw",
+    "properties": {
+      "etag": "\"0x8DE65D137288223\"",
+      "hasImmutabilityPolicy": false,
+      "hasLegalHold": false,
+      "lastModified": "2026-02-06T17:43:58-05:00",
+      "lease": {
+        "duration": null,
+        "state": "available",
+        "status": "unlocked"
+      },
+      "publicAccess": null
+    },
+    "version": null
+  }
+]

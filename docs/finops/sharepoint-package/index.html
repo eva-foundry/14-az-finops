@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinOps Hubs Documentation - Overview</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #323130;
+            background: #fff;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            background: #f3f2f1;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            border-left: 4px solid #0078d4;
+        }
+        
+        nav a {
+            color: #0078d4;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0078d4 0%, #107c10 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 { font-size: 2.5em; margin-bottom: 15px; }
+        h2 { color: #0078d4; font-size: 2em; margin: 30px 0 20px 0; padding-bottom: 10px; border-bottom: 3px solid #0078d4; }
+        h3 { color: #107c10; font-size: 1.5em; margin: 25px 0 15px 0; }
+        h4 { color: #ff8c00; font-size: 1.2em; margin: 20px 0 10px 0; }
+        
+        section {
+            margin-bottom: 30px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid #e1dfdd;
+        }
+        
+        p { margin-bottom: 15px; text-align: justify; }
+        
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 8px 0; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #e1dfdd;
+        }
+        
+        th {
+            background: #f8f8f8;
+            font-weight: 600;
+            color: #0078d4;
+        }
+        
+        tr:nth-child(even) { background: #fafafa; }
+        tr:hover { background: #f0f0f0; }
+        
+        code {
+            background: #f3f2f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #f3f2f1;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid #e1dfdd;
+        }
+        
+        pre code { background: none; padding: 0; }
+        
+        .callout {
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid;
+        }
+        
+        .callout.info { background: #e7f3ff; border-color: #0078d4; }
+        .callout.success { background: #dff6dd; border-color: #107c10; }
+        .callout.warning { background: #fff4ce; border-color: #ff8c00; }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #605e5c;
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding: 30px;
+            background: #f8f8f8;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e1dfdd;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" target="_parent">🏠 Home</a>
+        <a href="00-current-state-inventory.html" target="_parent">00 - Current State</a>
+        <a href="01-gap-analysis-finops-hubs.html" target="_parent">01 - Gap Analysis</a>
+        <a href="02-target-architecture-embedded.html" target="_parent">02 - Architecture</a>
+        <a href="03-deployment-plan.html" target="_parent">03 - Deployment Plan</a>
+        <a href="04-backlog.html" target="_parent">04 - Backlog</a>
+        <a href="05-evidence-pack.html" target="_parent">05 - Evidence</a>
+        <a href="PHASE1-DEPLOYMENT-CHECKLIST.html" target="_parent">Phase 1 Checklist</a>
+    </nav>
+    
+    <header>
+        <h1>FinOps Hubs Documentation - Overview</h1>
+        <p style="margin:0; opacity:0.95;">FinOps Hubs - marcosandbox Implementation</p>
+    </header>
+    
+    <section>
+<h1>FinOps Enterprise Roadmap - Documentation Index</h1>
+
+<strong>Project</strong>: Marcosandbox FinOps Hub Implementation  
+<strong>Location</strong>: <code>i:/eva-foundation/14-az-finops/docs/finops/</code>  
+<strong>Date</strong>: 2026-02-17 08:20 AM ET  
+<strong>Author</strong>: Marco Presta (marco.presta@hrsdc-rhdcc.gc.ca)  
+<strong>Status</strong>: Ready for Implementation
+
+<p>---</p>
+
+<h2>Executive Summary</h2>
+
+<p>This directory contains the <strong>complete evidence-based FinOps roadmap</strong> for deploying Microsoft FinOps Hubs with APIM cost attribution in the marcosandbox (EsDAICoE-Sandbox) Azure environment.</p>
+
+<strong>Key Deliverables</strong>:
+<ul><li>✅ Current state inventory with evidence links</li>
+<li>✅ Gap analysis against FinOps Hubs reference architecture</li>
+<li>✅ Target architecture with Mermaid diagrams and technical specs</li>
+<li>✅ Phased deployment plan with Bicep IaC modules</li>
+<li>✅ ADO-ready backlog (68 story points, 9 weeks)</li>
+<li>✅ Evidence pack with executable validation commands</li>
+<li>✅ Automated inventory script (PowerShell)</li>
+
+</ul><strong>Business Value</strong>:
+<ul><li><strong>Cost Visibility</strong>: Centralized analytics across EsDAICoESub + EsPAICoESub subscriptions</li>
+<li><strong>API Attribution</strong>: Chargeback for 50+ EVA-JP APIs (38+ active, expanding) via APIM telemetry</li>
+<li><strong>Application Mapping</strong>: Integration with EVA-JP-reference-0113 comprehensive API inventory</li>
+<li><strong>Compliance</strong>: Tag enforcement to eliminate cost allocation gaps</li>
+<li><strong>Optimization</strong>: Power BI dashboards for trend analysis and anomaly detection</li>
+
+</ul><p>---</p>
+
+<h2>Document Navigation</h2>
+
+<h3>📊 Phase 1: Discovery & Assessment</h3>
+
+<p>#### <a href="./00-current-state-inventory.md">00-current-state-inventory.md</a></p>
+<strong>Purpose</strong>: Evidence-based snapshot of existing Azure resources  
+<strong>Audience</strong>: Engineers, Architects, Auditors  
+<strong>Key Content</strong>:
+<ul><li>Executive summary (7 infrastructure components)</li>
+<li>Storage: <code>marcosandboxfinopshub</code> with daily exports from 2 subscriptions</li>
+<li>Event Grid: System topic <code>marcosandboxfinopshub-52dd...</code> active</li>
+<li>ADF: <code>marco-sandbox-finops-adf</code> exists (pipeline status UNKNOWN)</li>
+<li>APIM: <code>marco-sandbox-apim</code> (policy configuration UNKNOWN)</li>
+<li><strong>UNKNOWNs</strong>: ADX cluster status, ingestion pipeline configuration, APIM attribution headers</li>
+
+</ul><strong>Evidence Sources</strong>:
+<ul><li><code>i:/eva-foundation/system-analysis/inventory/.eva-cache/current/MARCO-INVENTORY-20260213-155026.md</code></li>
+<li><code>i:/eva-foundation/14-az-finops/README.md</code></li>
+<li>PowerShell scripts in <code>i:/eva-foundation/14-az-finops/scripts/</code></li>
+
+</ul><strong>When to Use</strong>: Starting point for any work; reference for current resource names
+
+<p>---</p>
+
+<p>#### <a href="./01-gap-analysis-finops-hubs.md">01-gap-analysis-finops-hubs.md</a></p>
+<strong>Purpose</strong>: Compare current state to Microsoft FinOps Hubs reference architecture  
+<strong>Audience</strong>: Project Managers, Cloud Architects  
+<strong>Key Content</strong>:
+<ul><li>FinOps Hubs 4-tier model (Storage, Ingestion, Analytics, Reporting)</li>
+<li><strong>7 Critical Gaps</strong>:</li>
+</ul><p>  1. ADX Cluster (CRITICAL - no analytics engine)</p>
+<p>  2. Storage Hierarchy (HIGH - need raw/processed/archive containers)</p>
+<p>  3. ADF Pipelines (CRITICAL - no automated ingestion)</p>
+<p>  4. APIM Attribution (CRITICAL - no cost allocation headers)</p>
+<p>  5. Ingestion Mappings (HIGH - ADX schema undefined)</p>
+<p>  6. Power BI Reports (MEDIUM - no self-service dashboards)</p>
+<p>  7. Governance (LOW - no tag enforcement)</p>
+<ul><li>Priority matrix: P0 (ADX, ADF, APIM), P1 (Storage, Power BI), P2 (Governance)</li>
+<li>4-phase remediation sequence (9 weeks)</li>
+<li>Cost estimate: $330/month incremental</li>
+
+</ul><strong>When to Use</strong>: Prioritization decisions, budget justification, stakeholder briefings
+
+<p>---</p>
+
+<h3>🎯 Phase 2: Solution Design</h3>
+
+<p>#### <a href="./02-target-architecture.md">02-target-architecture.md</a></p>
+<strong>Purpose</strong>: Detailed technical blueprint with code samples  
+<strong>Audience</strong>: Developers, Data Engineers, Cloud Architects  
+<strong>Key Content</strong>:
+<ul><li><strong>Mermaid Architecture Diagram</strong>: Full data flow (Cost Management → ADLS → Event Grid → ADF → ADX → Power BI)</li>
+<li>Component specifications:</li>
+</ul><p>  1. ADLS Gen2: Container hierarchy, lifecycle policy Bicep</p>
+<p>  2. Event Grid: System topic + ADF webhook subscription</p>
+<p>  3. ADF Pipelines: <code>ingest-costs-to-adx</code> (JSON definition), <code>backfill-historical</code> (parallel processing)</p>
+<p>  4. ADX Cluster: Dev SKU, <code>finopsdb</code> database, 900+ lines of KQL schema (raw_costs, apim_usage, normalized_costs)</p>
+<p>  5. APIM Policies: XML snippet for <code>x-eva-costcenter</code> header injection</p>
+<p>  6. App Insights: Telemetry collection for APIM requests</p>
+<p>  7. Power BI: 3 reports (cost trend, allocation, tag compliance)</p>
+<ul><li>Security architecture: RBAC matrix, private endpoints, managed identities</li>
+<li>Data lineage tracking: Blob metadata → ADX <code>IngestionTime</code> column</li>
+
+</ul><strong>Embedded Code</strong>:
+<ul><li>Bicep: Storage lifecycle policy, ADX cluster, managed identity</li>
+<li>KQL: Table schemas, materialized view, allocation function</li>
+<li>JSON: ADF pipeline definitions, datasets, linked services</li>
+<li>XML: APIM inbound policy for cost attribution</li>
+<li>KQL: Power BI queries</li>
+
+</ul><strong>When to Use</strong>: Implementation reference, code reviews, architecture validation
+
+<p>---</p>
+
+<h3>🚀 Phase 3: Execution Planning</h3>
+
+<p>#### <a href="./03-deployment-plan.md">03-deployment-plan.md</a></p>
+<strong>Purpose</strong>: Phased IaC-first deployment with acceptance criteria  
+<strong>Audience</strong>: DevOps Engineers, Cloud Architects, Project Managers  
+<strong>Key Content</strong>:
+<ul><li>Resource naming conventions (marcofinops* prefix, canadacentral region)</li>
+<li><strong>Phase 1 (Weeks 1-2)</strong>: Storage Foundation</li>
+</ul><p>  - Tasks: Create containers, lifecycle policy, migrate exports</p>
+<p>  - Deliverables: 4 containers (raw, processed, archive, checkpoint), 90-day tiering policy</p>
+<p>  - Acceptance: Manual CSV upload succeeds, Event Grid fires on blob creation</p>
+<ul><li><strong>Phase 2 (Weeks 3-4)</strong>: Analytics & Ingestion</li>
+</ul><p>  - Tasks: Deploy ADX cluster, create schema, ADF pipelines</p>
+<p>  - Deliverables: <code>marcofinopsadx</code> Dev SKU, <code>finopsdb</code> with 3 tables, <code>ingest-costs-to-adx</code> pipeline</p>
+<p>  - Acceptance: Daily exports land in ADX within 30 minutes, row counts match CSVs</p>
+<ul><li><strong>Phase 3 (Weeks 5-7)</strong>: APIM Attribution</li>
+</ul><p>  - Tasks: Implement APIM policies, App Insights integration, telemetry ingestion</p>
+<p>  - Deliverables: APIM base policy with cost headers, <code>AllocateCostByApp()</code> KQL function, 12-month backfill</p>
+<p>  - Acceptance: 80%+ requests have CostCenter dimension, allocated cost ±5% of invoice</p>
+<ul><li><strong>Phase 4 (Weeks 8-9)</strong>: Governance & Hardening</li>
+</ul><p>  - Tasks: Azure Policy for tags, private endpoints, CI/CD</p>
+<p>  - Deliverables: Tag compliance policy, VNet + private endpoints for storage/ADX, GitHub Actions workflow</p>
+<p>  - Acceptance: Resource creation blocked without CostCenter tag, public access disabled</p>
+<ul><li>Rollback procedures for each phase</li>
+<li>Cost summary: $350/month total infrastructure cost</li>
+
+</ul><strong>Embedded Code</strong>:
+<ul><li>Bicep: Complete modules for each phase (500+ lines)</li>
+<li>KQL: ADX schema creation scripts</li>
+<li>JSON: ADF pipeline definitions</li>
+<li>YAML: GitHub Actions workflow for CI/CD</li>
+
+</ul><strong>When to Use</strong>: Sprint planning, Bicep module implementation, deployment execution
+
+<p>---</p>
+
+<p>#### <a href="./PHASE1-DEPLOYMENT-CHECKLIST.md">PHASE1-DEPLOYMENT-CHECKLIST.md</a></p>
+<strong>Purpose</strong>: Step-by-step operational checklist for Phase 1 deployment (Storage Foundation)  
+<strong>Audience</strong>: DevOps Engineers, Cloud Engineers, Implementation Teams  
+<strong>Key Content</strong>:
+<ul><li><strong>Pre-Deployment Checklist</strong>: Authentication, permissions, baseline verification (completed 2026-02-17 09:09 AM ET)</li>
+<li><strong>6 Deployment Tasks</strong> (13 story points total):</li>
+</ul><p>  - Task 1.1.1: Create storage containers (raw, processed, archive, checkpoint) - XS=1pt</p>
+<p>  - Task 1.1.2: Configure lifecycle policy (Bicep deployment with 90d/180d tiering) - S=2pt</p>
+<p>  - Task 1.1.3: Migrate existing exports to raw/ hierarchy (PowerShell script with dry-run) - M=3pt</p>
+<p>  - Task 1.2.1: Update Cost Management export destinations (Portal configuration) - S=2pt</p>
+<p>  - Task 1.3.1: Verify Event Grid system topic (metrics, provisioning state) - S=2pt</p>
+<p>  - Task 1.3.2: Create Event Subscription to ADF (Phase 2 dependency, preparation only) - M=3pt</p>
+<ul><li><strong>Embedded Code</strong>: </li>
+</ul><p>  - PowerShell migration script <code>migrate-costs-to-raw.ps1</code> (60+ lines with dry-run support)</p>
+<p>  - Bicep lifecycle policy module (complete, ready to deploy)</p>
+<p>  - Azure CLI commands (copy-paste ready with validation)</p>
+<p>  - Bash Event Grid subscription script (Phase 2 execution)</p>
+<ul><li><strong>Acceptance Criteria</strong>: Per-task validation checklist with expected outputs</li>
+<li><strong>Evidence Collection</strong>: Commands to save JSON artifacts + screenshots after each task</li>
+<li><strong>Rollback Procedures</strong>: Safe recovery steps (no data loss, original containers preserved)</li>
+<li><strong>Phase 1 Completion Checklist</strong>: Technical validation + evidence artifacts + documentation updates</li>
+
+</ul><strong>Timeline</strong>: 2 weeks (10 business days)  
+<strong>Prerequisites</strong>: Azure CLI, Contributor on EsDAICoE-Sandbox, baseline captured  
+<strong>Critical Safety</strong>: Original <code>costs/</code> container preserved until Phase 1 validation complete
+
+<strong>When to Use</strong>: Execute Phase 1 deployment, validate storage foundation, collect evidence for Phase 2 planning
+
+<p>---</p>
+
+<p>#### <a href="./04-backlog.md">04-backlog.md</a></p>
+<strong>Purpose</strong>: ADO-ready backlog with epics, features, and tasks  
+<strong>Audience</strong>: Scrum Masters, Product Owners, Engineers  
+<strong>Key Content</strong>:
+<ul><li><strong>5 Epics, 68 Story Points, 9 Weeks</strong></li>
+</ul><p>  - Epic 1: FinOps Hubs Foundation (13 points, Sprints 1-2)</p>
+<p>  - Epic 2: Analytics & Ingestion (21 points, Sprints 3-4)</p>
+<p>  - Epic 3: APIM Attribution & Telemetry (13 points, Sprints 5-6)</p>
+<p>  - Epic 4: Reporting & Visualization (8 points, Sprint 7)</p>
+<p>  - Epic 5: Governance & Hardening (13 points, Sprints 8-9)</p>
+<ul><li>Task breakdown with acceptance criteria:</li>
+</ul><p>  - Example: "Task 2.1.2: Create ADX Schema and Tables (L=5 points)"</p>
+<p>    - AC: <code>.show tables</code> returns 2 rows (raw_costs, apim_usage)</p>
+<p>    - AC: Materialized view <code>normalized_costs</code> exists</p>
+<p>    - AC: Function <code>AllocateCostByApp</code> deployed</p>
+<ul><li>T-shirt sizing: XS=1pt, S=2pt, M=3pt, L=5pt, XL=8pt</li>
+<li>Sprint planning matrix: Velocity assumption 15 points/sprint</li>
+
+</ul><strong>Success Metrics (KPIs)</strong>:
+<ul><li>Cost Data Completeness: 100% (12 months backfilled)</li>
+<li>Ingestion Latency: <30 minutes</li>
+<li>APIM Attribution Coverage: >80% requests tagged</li>
+<li>Tag Compliance: >90% resources</li>
+<li>Cost Allocation Accuracy: ±5%</li>
+<li>Power BI Query Performance: <3 seconds</li>
+
+</ul><strong>When to Use</strong>: Sprint planning, work item creation in Azure DevOps, resource allocation
+
+<p>---</p>
+
+<h3>✅ Phase 4: Validation & Evidence</h3>
+
+<p>#### <a href="./05-evidence-pack.md">05-evidence-pack.md</a></p>
+<strong>Purpose</strong>: Executable commands for validation and audit artifacts  
+<strong>Audience</strong>: Engineers, QA, Auditors, Compliance Officers  
+<strong>Key Content</strong>:
+<ul><li><strong>9 Evidence Categories</strong>:</li>
+</ul><p>  1. Storage (accounts, containers, network rules)</p>
+<p>  2. Event Grid (system topics, subscriptions, metrics)</p>
+<p>  3. Azure Data Factory (factories, pipelines, triggers, run history)</p>
+<p>  4. Azure Data Explorer (clusters, databases, KQL validation queries)</p>
+<p>  5. APIM (instances, APIs, base policy XML, loggers)</p>
+<p>  6. Cost Management Exports (configuration, run history)</p>
+<p>  7. RBAC (role assignments on storage, ADX principals, user permissions)</p>
+<p>  8. Monitoring (App Insights, telemetry queries)</p>
+<p>  9. Summary checklist</p>
+<ul><li>Copy-paste Azure CLI commands with expected outputs</li>
+<li>Manual validation steps (screenshots, policy exports)</li>
+<li>Validation points for each command (checklist items)</li>
+
+</ul><strong>Output Artifacts</strong>: All JSON files saved to <code>i:/eva-foundation/14-az-finops/tools/finops/out/</code>
+
+<strong>KQL Queries</strong> (ADX validation):
+<ul><li><code>.show tables</code> → Verify raw_costs, apim_usage</li>
+<li><code>.show materialized-views</code> → Verify normalized_costs</li>
+<li><code>raw_costs | summarize count() by Date</code> → Daily row counts</li>
+<li><code>normalized_costs | where Date >= ago(30d) | summarize DailyCost=sum(Cost)</code> → Cost trends</li>
+
+</ul><strong>When to Use</strong>:
+<ul><li>After each deployment phase (validation)</li>
+<li>For audit/compliance evidence collection</li>
+<li>To generate baseline snapshots for comparison</li>
+<li>Before making infrastructure changes (pre-state capture)</li>
+
+</ul><p>---</p>
+
+<h3>🤖 Automation Scripts</h3>
+
+<p>#### <a href="../../tools/finops/az-inventory-finops.ps1">../tools/finops/az-inventory-finops.ps1</a></p>
+<strong>Purpose</strong>: Automated inventory collection for evidence gathering  
+<strong>Language</strong>: PowerShell 5.1+  
+<strong>Duration</strong>: 2-3 minutes  
+<strong>Key Features</strong>:
+<ul><li>Collects 15+ Azure resource types across 2 subscriptions</li>
+<li>Outputs JSON files with timestamps</li>
+<li>ASCII-only output (enterprise Windows safe)</li>
+<li>Error handling with continue-on-failure</li>
+<li>Skip flags for undeployed resources (<code>-SkipADX</code>)</li>
+
+</ul><strong>Usage</strong>:
+<pre><code><h1>Full inventory</h1>
+<p>cd i:/eva-foundation/14-az-finops/tools/finops</p>
+<p>.\az-inventory-finops.ps1</p>
+
+<h1>Skip ADX (pre-deployment)</h1>
+<p>.\az-inventory-finops.ps1 -SkipADX</p>
+
+<h1>Output: 15+ JSON files in ./out/ directory</h1></code></pre>
+
+<strong>Output Files</strong>:
+<ul><li><code>storage-accounts-{timestamp}.json</code></li>
+<li><code>storage-containers-{timestamp}.json</code></li>
+<li><code>eventgrid-system-topics-{timestamp}.json</code></li>
+<li><code>adf-factories-{timestamp}.json</code>, <code>adf-pipelines-{timestamp}.json</code>, <code>adf-triggers-{timestamp}.json</code></li>
+<li><code>adx-clusters-{timestamp}.json</code>, <code>adx-databases-{timestamp}.json</code></li>
+<li><code>apim-instances-{timestamp}.json</code>, <code>apim-apis-{timestamp}.json</code>, <code>apim-loggers-{timestamp}.json</code></li>
+<li><code>cost-exports-{subId}-{timestamp}.json</code></li>
+<li><code>appinsights-{timestamp}.json</code></li>
+<li><code>storage-rbac-{timestamp}.json</code></li>
+
+</ul><strong>When to Use</strong>:
+<ul><li>Before deployment (baseline inventory)</li>
+<li>After deployment (validation)</li>
+<li>For comparison over time (drift detection)</li>
+<li>As evidence for audits</li>
+
+</ul><p>---</p>
+
+<h2>Reading Order by Role</h2>
+
+<h3>Cloud Architect</h3>
+<ul><li><strong>Start</strong>: <a href="./00-current-state-inventory.md">00-current-state-inventory.md</a> (understand existing)</li>
+<li><strong>Next</strong>: <a href="./01-gap-analysis-finops-hubs.md">01-gap-analysis-finops-hubs.md</a> (identify gaps)</li>
+<li><strong>Design</strong>: <a href="./02-target-architecture.md">02-target-architecture.md</a> (solution design)</li>
+<li><strong>Plan</strong>: <a href="./03-deployment-plan.md">03-deployment-plan.md</a> (phased approach)</li>
+
+</ul><h3>Project Manager / Scrum Master</h3>
+<ul><li><strong>Start</strong>: <a href="./01-gap-analysis-finops-hubs.md">01-gap-analysis-finops-hubs.md</a> (priority matrix)</li>
+<li><strong>Backlog</strong>: <a href="./04-backlog.md">04-backlog.md</a> (sprint planning)</li>
+<li><strong>Timeline</strong>: <a href="./03-deployment-plan.md">03-deployment-plan.md</a> (9-week roadmap)</li>
+
+</ul><h3>DevOps Engineer / Developer</h3>
+<ul><li><strong>Current State</strong>: <a href="./00-current-state-inventory.md">00-current-state-inventory.md</a> (resource names)</li>
+<li><strong>Implementation</strong>: <a href="./02-target-architecture.md">02-target-architecture.md</a> (code samples)</li>
+<li><strong>Deployment</strong>: <a href="./03-deployment-plan.md">03-deployment-plan.md</a> (Bicep modules)</li>
+<li><strong>Validation</strong>: <a href="./05-evidence-pack.md">05-evidence-pack.md</a> (test commands)</li>
+<li><strong>Automation</strong>: Run <code>az-inventory-finops.ps1</code> script</li>
+
+</ul><h3>Data Engineer</h3>
+<ul><li><strong>Architecture</strong>: <a href="./02-target-architecture.md">02-target-architecture.md</a> (ADX schema, ADF pipelines)</li>
+<li><strong>Implementation</strong>: <a href="./03-deployment-plan.md">03-deployment-plan.md</a> → Phase 2 (Analytics & Ingestion)</li>
+<li><strong>Tasks</strong>: <a href="./04-backlog.md">04-backlog.md</a> → Epic 2 (21 story points)</li>
+<li><strong>Validation</strong>: <a href="./05-evidence-pack.md">05-evidence-pack.md</a> → Section 4 (ADX validation queries)</li>
+
+</ul><h3>QA / Auditor</h3>
+<ul><li><strong>Baseline</strong>: Run <code>az-inventory-finops.ps1</code> for current state</li>
+<li><strong>Test Cases</strong>: <a href="./05-evidence-pack.md">05-evidence-pack.md</a> (validation commands)</li>
+<li><strong>Acceptance Criteria</strong>: <a href="./04-backlog.md">04-backlog.md</a> (per-task AC)</li>
+<li><strong>Evidence Collection</strong>: Save JSON outputs from validation commands</li>
+
+</ul><p>---</p>
+
+<h2>Execution Workflow</h2>
+
+<h3>Pre-Deployment Checklist</h3>
+<ul><li>[ ] Read all 6 documentation files</li>
+<li>[ ] Run <code>az-inventory-finops.ps1</code> to capture baseline</li>
+<li>[ ] Verify Azure CLI authentication (<code>az account show</code>)</li>
+<li>[ ] Confirm permissions: Reader on subscriptions, Contributor on EsDAICoE-Sandbox</li>
+<li>[ ] Review cost estimate: $350/month incremental</li>
+<li>[ ] Get stakeholder approval for budget</li>
+
+</ul><h3>Deployment Sequence</h3>
+<ul><li><strong>Week 1-2</strong>: Phase 1 (Storage Foundation)</li>
+</ul><p>   - <strong>FOLLOW</strong>: <a href="./PHASE1-DEPLOYMENT-CHECKLIST.md">PHASE1-DEPLOYMENT-CHECKLIST.md</a> for step-by-step guide</p>
+<p>   - <strong>Key Tasks</strong>:</p>
+<p>     - Deploy storage containers (raw, processed, archive, checkpoint)</p>
+<p>     - Configure lifecycle policy (Bicep deployment)</p>
+<p>     - Migrate exports to new hierarchy (PowerShell script with dry-run)</p>
+<p>     - Update Cost Management export destinations (Portal)</p>
+<p>     - Verify Event Grid system topic metrics</p>
+<p>   - <strong>Validate</strong>: Manual CSV upload → Event Grid fires</p>
+<p>   - <strong>Evidence</strong>: Run inventory script after completion, save screenshots</p>
+<p>   </p>
+<ul><li><strong>Week 3-4</strong>: Phase 2 (Analytics & Ingestion)</li>
+</ul><p>   - Deploy ADX cluster with Bicep (<code>03-deployment-plan.md</code> → Phase 2)</p>
+<p>   - Execute ADX schema KQL script (<code>02-target-architecture.md</code> → Component 4)</p>
+<p>   - Deploy ADF pipelines (<code>03-deployment-plan.md</code> → Phase 2)</p>
+<p>   - Test: Manual pipeline trigger → CSV ingested to ADX</p>
+<p>   </p>
+<ul><li><strong>Week 5-7</strong>: Phase 3 (APIM Attribution)</li>
+</ul><p>   - Implement APIM base policy (<code>02-target-architecture.md</code> → Component 5)</p>
+<p>   - Configure App Insights diagnostics</p>
+<p>   - Deploy telemetry ingestion pipeline</p>
+<p>   - Run backfill pipeline (12 months historical)</p>
+<p>   - Validate: <code>AllocateCostByApp()</code> function returns accurate splits</p>
+<p>   </p>
+<ul><li><strong>Week 8-9</strong>: Phase 4 (Governance)</li>
+</ul><p>   - Deploy Azure Policy for tag enforcement</p>
+<p>   - Configure VNet and private endpoints</p>
+<p>   - Implement GitHub Actions CI/CD</p>
+<p>   - Final validation: Run all commands from <code>05-evidence-pack.md</code></p>
+
+<h3>Post-Deployment Validation</h3>
+<ul><li>[ ] Run <code>az-inventory-finops.ps1</code> to capture deployed state</li>
+<li>[ ] Compare output with baseline (diff JSON files)</li>
+<li>[ ] Execute all commands in <code>05-evidence-pack.md</code></li>
+<li>[ ] Verify KPIs meet targets (see <code>04-backlog.md</code> → Success Metrics)</li>
+<li>[ ] Generate screenshots for audit trail</li>
+<li>[ ] Update <code>00-current-state-inventory.md</code> with deployed resources</li>
+
+</ul><p>---</p>
+
+<h2>Related Resources</h2>
+
+<h3>External References</h3>
+<ul><li><strong>Microsoft FinOps Hubs</strong>: https://github.com/microsoft/finops-toolkit</li>
+<li><strong>Azure Cost Management</strong>: https://learn.microsoft.com/azure/cost-management-billing/</li>
+<li><strong>Azure Data Explorer</strong>: https://learn.microsoft.com/azure/data-explorer/</li>
+<li><strong>APIM Policies</strong>: https://learn.microsoft.com/azure/api-management/api-management-policies</li>
+
+</ul><h3>Internal Documentation</h3>
+<ul><li><strong>Project README</strong>: <code>i:/eva-foundation/14-az-finops/README.md</code></li>
+<li><strong>Marco Inventory</strong>: <code>i:/eva-foundation/system-analysis/inventory/.eva-cache/current/MARCO-INVENTORY-20260213-155026.md</code></li>
+<li><strong>Azure Best Practices</strong>: <code>i:/eva-foundation/18-azure-best/</code> (Azure REST API workarounds, cost optimization)</li>
+<li><strong>Foundation Layer</strong>: <code>i:/eva-foundation/07-foundation-layer/</code> (professional components, patterns)</li>
+
+</ul><h3>Script Locations</h3>
+<ul><li><strong>Inventory Script</strong>: <code>i:/eva-foundation/14-az-finops/tools/finops/az-inventory-finops.ps1</code></li>
+<li><strong>Output Directory</strong>: <code>i:/eva-foundation/14-az-finops/tools/finops/out/</code></li>
+<li><strong>Historical Scripts</strong>: <code>i:/eva-foundation/14-az-finops/scripts/</code> (export migration, cost analysis)</li>
+
+</ul><p>---</p>
+
+<h2>Change Log</h2>
+
+<p>| Date | Author | Change |</p>
+<p>|------|--------|--------|</p>
+<p>| 2026-02-17 08:20 AM ET | Marco Presta | Initial index created, 6 deliverables + inventory script |</p>
+
+<p>---</p>
+
+<h2>Document Metadata</h2>
+
+<strong>Version</strong>: 1.0.0  
+<strong>Status</strong>: Complete - Ready for Implementation  
+<strong>Total Documentation</strong>: 6 markdown files (2,890+ lines), 1 PowerShell script (650+ lines)  
+<strong>Embedded Code</strong>: 1,500+ lines (Bicep, KQL, JSON, XML, YAML)  
+<strong>Estimated Implementation Time</strong>: 9 weeks (4.5 sprints at 15 points/sprint)  
+<strong>Incremental Cost</strong>: $350/month (ADX Dev SKU $200/mo + storage/networking $150/mo)
+
+<p>---</p>
+
+<strong>Next Action</strong>: Begin Phase 1 deployment or run <code>az-inventory-finops.ps1</code> to capture baseline evidence.
+
+
+    </section>
+    
+    <footer>
+        <p><strong>Project:</strong> FinOps Hubs Implementation (marcosandbox)</p>
+        <p><em>Generated: 2026-02-17 13:06</em></p>
+        <p><em>SharePoint-compatible HTML package</em></p>
+    </footer>
+</body>
+</html>

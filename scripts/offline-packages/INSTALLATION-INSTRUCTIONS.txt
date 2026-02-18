@@ -1,0 +1,72 @@
+========================================
+OFFLINE INSTALLATION INSTRUCTIONS
+========================================
+
+1. TRANSFER FILES
+   Copy the entire 'offline-packages' folder to the restricted machine:
+   - Location: I:\EVA-JP-v1.2\docs\eva-foundation\projects\14-az-finops\offline-packages\
+
+2. INSTALL PACKAGES
+   Open PowerShell in the offline-packages directory and run:
+
+   # Option A: Install all packages at once
+   pip install --no-index --find-links . azure-mgmt-costmanagement azure-mgmt-resource
+
+   # Option B: Install from requirements.txt (if available)
+   pip install --no-index --find-links . -r ..\requirements.txt
+
+3. VERIFY INSTALLATION
+   Run the validation script:
+   
+   cd I:\EVA-JP-v1.2\docs\eva-foundation\projects\14-az-finops
+   python scripts\test_setup.py
+
+   Expected output:
+   [PASS] Python 3.13.5
+   [PASS] azure.identity
+   [PASS] azure.mgmt.costmanagement
+   [PASS] azure.mgmt.resource
+   [PASS] pandas
+
+4. RUN AZURE SDK SCRIPTS
+   Once validation passes:
+   
+   # Extract Azure costs
+   python scripts\extract_costs_sdk.py
+
+   # Extract resource inventory
+   python scripts\azure_inventory.py
+
+========================================
+TROUBLESHOOTING
+========================================
+
+Issue: "Could not find a version that satisfies the requirement"
+Solution: Ensure Python version matches (this package was downloaded for Python 3.10)
+
+Issue: "Access denied"
+Solution: Run PowerShell as Administrator or use --user flag:
+          pip install --user --no-index --find-links . azure-mgmt-costmanagement
+
+Issue: "No module named 'azure.mgmt.costmanagement'"
+Solution: Activate virtual environment first:
+          .\.venv\Scripts\Activate.ps1
+
+========================================
+PACKAGE CONTENTS
+========================================
+
+Downloaded on: 2026-01-30 16:44:40
+Python version: 3.10
+Total files: 25
+Total size: 29.92 MB
+
+Core packages:
+- azure-mgmt-costmanagement (Cost Management API)
+- azure-mgmt-resource (Resource Management API)
+- azure-identity (Authentication)
+- pandas (Data processing)
+
+All dependencies included.
+
+========================================

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 800 1000">
+  <title>Data Lineage and Quality Tracking</title>
+  <defs>
+    <style>
+      .mermaid { font-family: Arial, sans-serif; }
+    </style>
+  </defs>
+  
+  <!-- Embedded Mermaid Code -->
+  <foreignObject x="0" y="0" width="100%" height="100%">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="mermaid">
+flowchart TD
+    PORTAL["Azure Cost Export&lt;br/&gt;(Portal)"]
+    RAW["marcosandboxfinopshub/raw/&lt;br/&gt;CSV.gz, 55 columns, daily 7 AM UTC"]
+    EVENTGRID["Event Grid: BlobCreated"]
+    ADF_PIPELINE["ADF Pipeline:&lt;br/&gt;ingest-costs-to-adx"]
+    PROCESSED["marcosandboxfinopshub/processed/&lt;br/&gt;Decompress, Validate Schema"]
+    ADX_RAW["ADX raw_costs table&lt;br/&gt;(ingestion time recorded)"]
+    ADX_NORM["ADX normalized_costs&lt;br/&gt;Materialized View: parse tags&lt;br/&gt;CostCenter, Application extracted"]
+    ADX_FUNC["ADX AllocateCostByApp()&lt;br/&gt;function&lt;br/&gt;Join with apim_usage by timestamp"]
+    PBI["Power BI Reports&lt;br/&gt;KQL DirectQuery"]
+    
+    PORTAL --&gt;|"CSV.gz, 55 columns&lt;br/&gt;daily 7 AM UTC"| RAW
+    RAW --&gt;|"BlobCreated Event"| EVENTGRID
+    EVENTGRID --&gt;|"Trigger Pipeline"| ADF_PIPELINE
+    ADF_PIPELINE --&gt;|"Decompress&lt;br/&gt;Validate Schema"| PROCESSED
+    PROCESSED --&gt;|"Copy Activity&lt;br/&gt;with mapping"| ADX_RAW
+    ADX_RAW --&gt;|"Materialized View&lt;br/&gt;parse tags"| ADX_NORM
+    ADX_NORM --&gt;|"Join with apim_usage&lt;br/&gt;by timestamp"| ADX_FUNC
+    ADX_FUNC --&gt;|"KQL DirectQuery"| PBI
+    
+    classDef source fill:#FFE5B4,stroke:#FF8C00,stroke-width:2px
+    classDef storage fill:#B4D7FF,stroke:#0078D4,stroke-width:2px
+    classDef processing fill:#D4F1D4,stroke:#107C10,stroke-width:2px
+    classDef analytics fill:#E5D4FF,stroke:#8C00FF,stroke-width:2px
+    classDef reporting fill:#FFD4E5,stroke:#E81123,stroke-width:2px
+    
+    class PORTAL source
+    class RAW,PROCESSED storage
+    class EVENTGRID,ADF_PIPELINE processing
+    class ADX_RAW,ADX_NORM,ADX_FUNC analytics
+    class PBI reporting
+    </div>
+  </foreignObject>
+  
+  <text x="10" y="990" font-size="12" fill="#666">
+    Figure 3: Data Lineage and Quality Tracking - End-to-End Flow
+  </text>
+  
+  <script xlink:href="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad:true});</script>
+</svg>

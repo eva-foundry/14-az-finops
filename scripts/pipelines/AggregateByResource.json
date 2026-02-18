@@ -1,0 +1,267 @@
+{
+  "name": "AggregateByResource",
+  "properties": {
+    "description": "Aggregate cost data by resource type, resource group, and subscription for reporting",
+    "activities": [
+      {
+        "name": "AggregateByResourceType",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.00:15:00",
+          "retry": 1,
+          "retryIntervalInSeconds": 30
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "additionalColumns": [],
+            "storeSettings": {
+              "type": "AzureBlobStorageReadSettings",
+              "recursive": true,
+              "wildcardFolderPath": "transformed",
+              "wildcardFileName": "*.csv",
+              "enablePartitionDiscovery": false
+            },
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            }
+          },
+          "sink": {
+            "type": "DelimitedTextSink",
+            "storeSettings": {
+              "type": "AzureBlobStorageWriteSettings"
+            },
+            "formatSettings": {
+              "type": "DelimitedTextWriteSettings",
+              "quoteAllText": true,
+              "fileExtension": ".csv"
+            }
+          },
+          "enableStaging": false,
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "ResourceType",
+                  "type": "String"
+                },
+                "sink": {
+                  "name": "ResourceType",
+                  "type": "String"
+                }
+              },
+              {
+                "source": {
+                  "name": "ResourceGroupName",
+                  "type": "String"
+                },
+                "sink": {
+                  "name": "ResourceGroupName",
+                  "type": "String"
+                }
+              },
+              {
+                "source": {
+                  "name": "SubscriptionName",
+                  "type": "String"
+                },
+                "sink": {
+                  "name": "SubscriptionName",
+                  "type": "String"
+                }
+              },
+              {
+                "source": {
+                  "name": "Cost",
+                  "type": "Decimal",
+                  "physicalType": "Decimal"
+                },
+                "sink": {
+                  "name": "TotalCost",
+                  "type": "Decimal",
+                  "physicalType": "Decimal"
+                }
+              },
+              {
+                "source": {
+                  "name": "Date",
+                  "type": "DateTime"
+                },
+                "sink": {
+                  "name": "Date",
+                  "type": "DateTime"
+                }
+              }
+            ],
+            "collectionReference": "",
+            "mapComplexValuesToString": false
+          }
+        },
+        "inputs": [
+          {
+            "referenceName": "TransformedCostData",
+            "type": "DatasetReference",
+            "parameters": {
+              "folderPath": "transformed"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "AggregatedCostData",
+            "type": "DatasetReference",
+            "parameters": {
+              "folderPath": "aggregated/by-resource-type"
+            }
+          }
+        ]
+      },
+      {
+        "name": "AggregateByResourceGroup",
+        "type": "Copy",
+        "dependsOn": [
+          {
+            "activity": "AggregateByResourceType",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "timeout": "0.00:15:00",
+          "retry": 1,
+          "retryIntervalInSeconds": 30
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "storeSettings": {
+              "type": "AzureBlobStorageReadSettings",
+              "recursive": true,
+              "wildcardFolderPath": "transformed",
+              "wildcardFileName": "*.csv",
+              "enablePartitionDiscovery": false
+            },
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            }
+          },
+          "sink": {
+            "type": "DelimitedTextSink",
+            "storeSettings": {
+              "type": "AzureBlobStorageWriteSettings"
+            },
+            "formatSettings": {
+              "type": "DelimitedTextWriteSettings",
+              "quoteAllText": true,
+              "fileExtension": ".csv"
+            }
+          },
+          "enableStaging": false
+        },
+        "inputs": [
+          {
+            "referenceName": "TransformedCostData",
+            "type": "DatasetReference",
+            "parameters": {
+              "folderPath": "transformed"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "AggregatedCostData",
+            "type": "DatasetReference",
+            "parameters": {
+              "folderPath": "aggregated/by-resource-group"
+            }
+          }
+        ]
+      },
+      {
+        "name": "FilterSandboxCosts",
+        "type": "Copy",
+        "dependsOn": [
+          {
+            "activity": "AggregateByResourceGroup",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "timeout": "0.00:10:00",
+          "retry": 1,
+          "retryIntervalInSeconds": 30
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "additionalColumns": [
+              {
+                "name": "FilterApplied",
+                "value": "EsDAICoE-Sandbox"
+              }
+            ],
+            "storeSettings": {
+              "type": "AzureBlobStorageReadSettings",
+              "recursive": true,
+              "wildcardFolderPath": "transformed",
+              "wildcardFileName": "*.csv",
+              "enablePartitionDiscovery": false
+            },
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            }
+          },
+          "sink": {
+            "type": "DelimitedTextSink",
+            "storeSettings": {
+              "type": "AzureBlobStorageWriteSettings"
+            },
+            "formatSettings": {
+              "type": "DelimitedTextWriteSettings",
+              "quoteAllText": true,
+              "fileExtension": ".csv"
+            }
+          },
+          "enableStaging": false,
+          "enableSkipIncompatibleRow": true,
+          "dataIntegrationUnits": 2
+        },
+        "inputs": [
+          {
+            "referenceName": "TransformedCostData",
+            "type": "DatasetReference",
+            "parameters": {
+              "folderPath": "transformed"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "AggregatedCostData",
+            "type": "DatasetReference",
+            "parameters": {
+              "folderPath": "aggregated/sandbox-only"
+            }
+          }
+        ]
+      }
+    ],
+    "parameters": {
+      "FilterResourceGroup": {
+        "type": "string",
+        "defaultValue": "EsDAICoE-Sandbox"
+      }
+    },
+    "annotations": [],
+    "lastPublishTime": "2026-02-04T19:00:00Z"
+  },
+  "type": "Microsoft.DataFactory/factories/pipelines"
+}

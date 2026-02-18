@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04 - Backlog</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #323130;
+            background: #fff;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            background: #f3f2f1;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            border-left: 4px solid #0078d4;
+        }
+        
+        nav a {
+            color: #0078d4;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0078d4 0%, #107c10 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 { font-size: 2.5em; margin-bottom: 15px; }
+        h2 { color: #0078d4; font-size: 2em; margin: 30px 0 20px 0; padding-bottom: 10px; border-bottom: 3px solid #0078d4; }
+        h3 { color: #107c10; font-size: 1.5em; margin: 25px 0 15px 0; }
+        h4 { color: #ff8c00; font-size: 1.2em; margin: 20px 0 10px 0; }
+        
+        section {
+            margin-bottom: 30px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid #e1dfdd;
+        }
+        
+        p { margin-bottom: 15px; text-align: justify; }
+        
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 8px 0; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #e1dfdd;
+        }
+        
+        th {
+            background: #f8f8f8;
+            font-weight: 600;
+            color: #0078d4;
+        }
+        
+        tr:nth-child(even) { background: #fafafa; }
+        tr:hover { background: #f0f0f0; }
+        
+        code {
+            background: #f3f2f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #f3f2f1;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid #e1dfdd;
+        }
+        
+        pre code { background: none; padding: 0; }
+        
+        .callout {
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid;
+        }
+        
+        .callout.info { background: #e7f3ff; border-color: #0078d4; }
+        .callout.success { background: #dff6dd; border-color: #107c10; }
+        .callout.warning { background: #fff4ce; border-color: #ff8c00; }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #605e5c;
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding: 30px;
+            background: #f8f8f8;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e1dfdd;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" target="_parent">🏠 Home</a>
+        <a href="00-current-state-inventory.html" target="_parent">00 - Current State</a>
+        <a href="01-gap-analysis-finops-hubs.html" target="_parent">01 - Gap Analysis</a>
+        <a href="02-target-architecture-embedded.html" target="_parent">02 - Architecture</a>
+        <a href="03-deployment-plan.html" target="_parent">03 - Deployment Plan</a>
+        <a href="04-backlog.html" target="_parent">04 - Backlog</a>
+        <a href="05-evidence-pack.html" target="_parent">05 - Evidence</a>
+        <a href="PHASE1-DEPLOYMENT-CHECKLIST.html" target="_parent">Phase 1 Checklist</a>
+    </nav>
+    
+    <header>
+        <h1>04 - Backlog</h1>
+        <p style="margin:0; opacity:0.95;">FinOps Hubs - marcosandbox Implementation</p>
+    </header>
+    
+    <section>
+<h1>04 - Backlog (ADO-Ready Epics, Features, Tasks)</h1>
+
+<strong>Document Type</strong>: Operational  
+<strong>Phase</strong>: Planning  
+<strong>Audience</strong>: [project-managers, engineers, devops]  
+<strong>Last Updated</strong>: 2026-02-17 08:20 AM ET  
+<strong>Author</strong>: Marco Presta (marco.presta@hrsdc-rhdcc.gc.ca)  
+<strong>Sprint Duration</strong>: 2 weeks
+
+<p>---</p>
+
+<h2>Backlog Structure</h2>
+
+<p>This backlog follows Azure DevOps hierarchy: <strong>Epic</strong> → <strong>Feature</strong> → <strong>Task</strong>.  </p>
+<p>Each task includes clear acceptance criteria suitable for definition of done (DoD).</p>
+
+<strong>Estimation</strong>: T-shirt sizing (XS=1pt, S=2pt, M=3pt, L=5pt, XL=8pt)  
+<strong>Priority</strong>: P0 (Critical), P1 (High), P2 (Medium), P3 (Low)
+
+<p>---</p>
+
+<h2>Epic 1: FinOps Hubs Foundation</h2>
+
+<strong>Goal</strong>: Establish storage infrastructure, event routing, and validation framework.  
+<strong>Business Value</strong>: Enable centralized cost data collection with automated ingestion triggers.  
+<strong>Effort</strong>: 13 points (Sprints 1-2)
+
+<h3>Feature 1.1: ADLS Gen2 Landing Zone</h3>
+
+<strong>User Story</strong>: As a FinOps analyst, I need structured storage containers to organize raw, processed, and archived cost data for lifecycle management.
+
+<p>#### Task 1.1.1: Create Storage Containers (XS)</p>
+<strong>Description</strong>: Create 4 containers in <code>marcosandboxfinopshub</code>: raw, processed, archive, checkpoint.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] All 4 containers visible via <code>az storage container list</code></li>
+<li>[ ] Container access level: Private (no anonymous access)</li>
+<li>[ ] Test file upload succeeds in each container</li>
+<li>[ ] Documentation: Screenshot of Portal Containers blade</li>
+<li>[ ] Evidence artifact: <code>tools/finops/out/storage_containers.json</code></li>
+
+</ul><strong>Effort</strong>: 1 point  
+<strong>Priority</strong>: P0  
+<strong>Assigned To</strong>: DevOps Engineer
+
+<p>---</p>
+
+<p>#### Task 1.1.2: Configure Lifecycle Management Policy (S)</p>
+<strong>Description</strong>: Implement auto-tiering to Cool (90 days) and Archive (180 days) for cost optimization.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Bicep module <code>storage-lifecycle.bicep</code> deployed successfully</li>
+<li>[ ] Policy visible in Portal → Storage Account → Lifecycle management</li>
+<li>[ ] Rule count: 2 (MoveRawToCool, MoveArchiveToArchive)</li>
+<li>[ ] Test blob shows scheduled tier change in metadata</li>
+<li>[ ] Evidence: <code>az storage account management-policy show</code> output saved</li>
+
+</ul><strong>Effort</strong>: 2 points  
+<strong>Priority</strong>: P1  
+<strong>Assigned To</strong>: Cloud Architect
+
+<p>---</p>
+
+<p>#### Task 1.1.3: Migrate Existing Exports to Raw Container (M)</p>
+<strong>Description</strong>: Reorganize current <code>costs/</code> blobs into hierarchical <code>raw/costs/{subscription}/{YYYY}/{MM}/</code> structure.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Script <code>migrate-costs-to-raw.sh</code> creates copies in raw/ preserving hierarchy</li>
+<li>[ ] Validation: Row count spot-check for 5 sample CSVs (source vs. destination)</li>
+<li>[ ] Original <code>costs/</code> container renamed to <code>costs-old</code> (not deleted)</li>
+<li>[ ] Documentation: Migration log with blob count and total size</li>
+
+</ul><strong>Effort</strong>: 3 points  
+<strong>Priority</strong>: P0  
+<strong>Assigned To</strong>: Data Engineer
+
+<p>---</p>
+
+<h3>Feature 1.2: Export Configuration Update</h3>
+
+<strong>User Story</strong>: As a cost data engineer, I need exports to land in the correct raw/ container with proper event notifications.
+
+<p>#### Task 1.2.1: Update Cost Management Export Destinations (S)</p>
+<strong>Description</strong>: Reconfigure portal exports to target <code>raw/costs/{SubscriptionName}</code> path.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Both exports (EsDAICoESub-Daily, EsPAICoESub-Daily) updated in Portal</li>
+<li>[ ] Manual trigger succeeds and blob lands in <code>raw/costs/.../YYYY/MM/</code> path</li>
+<li>[ ] Export history shows updated root folder path</li>
+<li>[ ] Evidence: Screenshots of export configuration + successful run</li>
+
+</ul><strong>Effort</strong>: 2 points  
+<strong>Priority</strong>: P0  
+<strong>Assigned To</strong>: FinOps Administrator
+
+<p>---</p>
+
+<h3>Feature 1.3: Event Grid Integration</h3>
+
+<strong>User Story</strong>: As an automation engineer, I need blob creation events to trigger ingestion pipelines automatically.
+
+<p>#### Task 1.3.1: Verify Event Grid System Topic (S)</p>
+<strong>Description</strong>: Confirm existing system topic <code>marcosandboxfinopshub-52dd...</code> is active and receiving events.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] System topic status: Succeeded</li>
+<li>[ ] Metrics show events in last 24 hours (after export runs)</li>
+<li>[ ] Event types: <code>Microsoft.Storage.BlobCreated</code> for <code>/raw/costs/</code> prefix</li>
+<li>[ ] Evidence: Event Grid Metrics screenshot showing event count</li>
+
+</ul><strong>Effort</strong>: 2 points  
+<strong>Priority</strong>: P0  
+<strong>Assigned To</strong>: Cloud Architect
+
+<p>---</p>
+
+<p>#### Task 1.3.2: Create Event Subscription to ADF (M)</p>
+<strong>Description</strong>: Wire Event Grid to trigger ADF pipeline <code>ingest-costs-to-adx</code> on blob creation.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Event subscription created: <code>finops-ingest-trigger</code></li>
+<li>[ ] Filter: Prefix <code>/raw/costs/</code>, Suffix <code>.csv.gz</code></li>
+<li>[ ] Test: Upload sample CSV → ADF pipeline triggered within 2 minutes</li>
+<li>[ ] Delivery success rate: 100% (check Event Grid Metrics)</li>
+<li>[ ] Evidence: Event subscription JSON + ADF run history</li>
+
+</ul><strong>Effort</strong>: 3 points  
+<strong>Priority</strong>: P0  
+<strong>Assigned To</strong>: Data Engineer
+
+<p>---</p>
+
+<h2>Epic 2: Analytics & Ingestion</h2>
+
+<strong>Goal</strong>: Deploy ADX cluster, create schema, and automate CSV ingestion from Blob to ADX.  
+<strong>Business Value</strong>: Enable large-scale cost analytics with KQL queries and Power BI integration.  
+<strong>Effort</strong>: 21 points (Sprints 3-4)
+
+<h3>Feature 2.1: ADX Cluster Deployment</h3>
+
+<strong>User Story</strong>: As a FinOps analyst, I need a scalable analytics platform to query millions of cost records with sub-second response time.
+
+<p>#### Task 2.1.1: Deploy ADX Cluster (Dev SKU) (M)</p>
+<strong>Description</strong>: Deploy <code>marcofinopsadx</code> cluster in canadacentral with Dev SKU (2 nodes, D11_v2).
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Bicep module <code>adx-cluster.bicep</code> deploys without errors</li>
+<li>[ ] Cluster status: Running (Portal → Azure Data Explorer Clusters)</li>
+<li>[ ] Database <code>finopsdb</code> created with 31-day hot cache, 5-year retention</li>
+<li>[ ] Query editor accessible: <code>https://dataexplorer.azure.com/clusters/marcofinopsadx</code></li>
+<li>[ ] Test query succeeds: <code>.show databases | where DatabaseName == "finopsdb"</code></li>
+<li>[ ] Evidence: Cluster URI, database name, principal ID output saved</li>
+
+</ul><strong>Effort</strong>: 3 points  
+<strong>Priority</strong>: P0  
+<strong>Assigned To</strong>: Cloud Architect
+
+<p>---</p>
+
+<p>#### Task 2.1.2: Create ADX Schema and Tables (L)</p>
+<strong>Description</strong>: Execute KQL script to create <code>raw_costs</code>, <code>apim_usage</code> tables, materialized view, and ingestion mappings.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Tables created: <code>.show tables</code> returns 2 rows (raw_costs, apim_usage)</li>
+<li>[ ] Ingestion mapping: <code>.show table raw_costs ingestion csv mappings</code> returns CostExportMapping</li>
+<li>[ ] Materialized view: <code>.show materialized-views</code> returns normalized_costs</li>
+<li>[ ] Function: <code>.show functions</code> returns AllocateCostByApp</li>
+<li>[ ] Policies applied: partitioning (by Date), retention (5 years), update (IngestionTime)</li>
+<li>[ ] Evidence: Screenshots of KQL command results</li>
+
+</ul><strong>Effort</strong>: 5 points  
+<strong>Priority</strong>: P0  
+<strong>Assigned To</strong>: Data Architect
+
+<p>---</p>
+
+<p>#### Task 2.1.3: Test ADX Ingestion with Sample CSV (S)</p>
+<strong>Description</strong>: Validate ingestion mapping by manually uploading 5-row sample CSV.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Sample CSV ingested using <code>.ingest inline</code> or ADF test run</li>
+<li>[ ] Query validation: <code>raw_costs | count</code> returns 5</li>
+<li>[ ] Column types validated: <code>raw_costs | getschema</code> matches expected types</li>
+<li>[ ] No parsing errors in <code>.show ingestion failures</code></li>
+<li>[ ] Evidence: ADX query results screenshot</li>
+
+</ul><strong>Effort</strong>: 2 points  
+<strong>Priority</strong>: P0  
+<strong>Assigned To</strong>: Data Engineer
+
+<p>---</p>
+
+<h3>Feature 2.2: ADF Pipeline Development</h3>
+
+<strong>User Story</strong>: As a data engineer, I need automated pipelines to decompress, validate, and ingest cost CSVs into ADX without manual intervention.
+
+<p>#### Task 2.2.1: Create Managed Identity for ADF (XS)</p>
+<strong>Description</strong>: Deploy user-assigned managed identity <code>mi-finops-adf</code> with required RBAC roles.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Managed identity created: <code>az identity show -n mi-finops-adf</code></li>
+<li>[ ] Role 1: Storage Blob Data Contributor on marcosandboxfinopshub</li>
+<li>[ ] Role 2: ADX Database Ingestor on finopsdb</li>
+<li>[ ] Role assignments validated: <code>az role assignment list --assignee <principalId></code></li>
+<li>[ ] ADX principal check: <code>.show database finopsdb principals</code> includes mi-finops-adf</li>
+<li>[ ] Evidence: Role assignment outputs saved</li>
+
+</ul><strong>Effort</strong>: 1 point  
+<strong>Priority</strong>: P0  
+<strong>Assigned To</strong>: Cloud Architect
+
+<p>---</p>
+
+<p>#### Task 2.2.2: Create ADF Linked Services (S)</p>
+<strong>Description</strong>: Configure connections to Blob Storage and ADX using managed identity authentication.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Linked service: <code>ls_marcosandbox_blob</code> (Azure Blob Storage, managed identity auth)</li>
+<li>[ ] Linked service: <code>ls_marcofinops_adx</code> (Azure Data Explorer, managed identity auth)</li>
+<li>[ ] Test connection succeeds for both linked services</li>
+<li>[ ] Evidence: Screenshots of linked service configurations</li>
+
+</ul><strong>Effort</strong>: 2 points  
+<strong>Priority</strong>: P0  
+<strong>Assigned To</strong>: Data Engineer
+
+<p>---</p>
+
+<p>#### Task 2.2.3: Create ADF Datasets (S)</p>
+<strong>Description</strong>: Define datasets for source (Blob CSV) and sink (ADX table).
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Dataset: <code>ds_blob_cost_csv</code> (DelimitedText, gzip compression, parameterized blobUrl)</li>
+<li>[ ] Dataset: <code>ds_adx_raw_costs</code> (AzureDataExplorer, table=raw_costs, mapping=CostExportMapping)</li>
+<li>[ ] Preview data validates schema for both datasets</li>
+<li>[ ] Evidence: Dataset JSON definitions exported</li>
+
+</ul><strong>Effort</strong>: 2 points  
+<strong>Priority</strong>: P0  
+<strong>Assigned To</strong>: Data Engineer
+
+<p>---</p>
+
+<p>#### Task 2.2.4: Implement Pipeline: ingest-costs-to-adx (L)</p>
+<strong>Description</strong>: Build pipeline with decompression, validation, and copy activities.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Pipeline activities: Get Metadata → Copy Data → Update Checkpoint</li>
+<li>[ ] Parameters: blobUrl (string, passed from Event Grid)</li>
+<li>[ ] Copy activity: Source=ds_blob_cost_csv, Sink=ds_adx_raw_costs, Enable staging</li>
+<li>[ ] Error handling: Retry policy (3 attempts), failure alert (email/webhook)</li>
+<li>[ ] Test run with sample blob succeeds</li>
+<li>[ ] ADX validation: Row count matches CSV (minus header)</li>
+<li>[ ] Evidence: Pipeline JSON + successful debug run screenshot</li>
+
+</ul><strong>Effort</strong>: 5 points  
+<strong>Priority</strong>: P0  
+<strong>Assigned To</strong>: Data Engineer
+
+<p>---</p>
+
+<p>#### Task 2.2.5: Implement Pipeline: backfill-historical (L)</p>
+<strong>Description</strong>: Create pipeline to process 500+ historical blobs (12 months) in parallel.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Pipeline activities: Get Metadata (list blobs) → ForEach (parallelism=5) → Execute ingest pipeline</li>
+<li>[ ] Progress tracking: Update checkpoint every 100 blobs</li>
+<li>[ ] Manual trigger succeeds and completes within 4 hours</li>
+<li>[ ] Validation: Daily row counts match expected (spot-check 10 dates)</li>
+<li>[ ] Evidence: Pipeline run history + ADX validation query results</li>
+
+</ul><strong>Effort</strong>: 5 points  
+<strong>Priority</strong>: P1  
+<strong>Assigned To</strong>: Data Engineer
+
+<p>---</p>
+
+<h2>Epic 3: APIM Attribution & Telemetry</h2>
+
+<strong>Goal</strong>: Capture cost attribution headers from APIM and correlate with Azure spend.  
+<strong>Business Value</strong>: Enable chargeback/showback to consuming applications and cost centers.  
+<strong>Effort</strong>: 13 points (Sprints 5-6)
+
+<h3>Feature 3.1: APIM Policy Configuration</h3>
+
+<strong>User Story</strong>: As a FinOps analyst, I need to know which applications are driving Azure spend so I can allocate costs accurately.
+
+<p>#### Task 3.1.1: Implement APIM Cost Attribution Policy (M)</p>
+<strong>Description</strong>: Add base policy to inject/normalize <code>x-eva-costcenter</code>, <code>x-eva-caller-app</code>, <code>x-eva-environment</code> headers.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Policy added to "All APIs" base policy in Portal</li>
+<li>[ ] Inbound section extracts headers from JWT claims or request headers</li>
+<li>[ ] Default values applied for missing headers (UNKNOWN)</li>
+<li>[ ] Test request with curl includes header: <code>x-costcenter: TEST123</code></li>
+<li>[ ] Policy XML exported and saved to repo: <code>infra/apim/base-policy.xml</code></li>
+<li>[ ] Evidence: Screenshot of policy editor + test request with headers</li>
+
+</ul><strong>Effort</strong>: 3 points  
+<strong>Priority</strong>: P0  
+<strong>Assigned To</strong>: API Developer
+
+<p>---</p>
+
+<p>#### Task 3.1.2: Configure APIM Diagnostics to App Insights (S)</p>
+<strong>Description</strong>: Enable Application Insights logging for all APIs with 100% sampling.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Logger created: marco-sandbox-appinsights linked to APIM</li>
+<li>[ ] Diagnostics enabled: All APIs, verbosity=information, sampling=100%</li>
+<li>[ ] Custom dimensions captured: x-eva-costcenter, x-eva-caller-app, x-eva-environment</li>
+<li>[ ] Test request generates log entry in App Insights within 60 seconds</li>
+<li>[ ] KQL query validates: <code>requests | where customDimensions["x-eva-costcenter"] != ""</code></li>
+<li>[ ] Evidence: App Insights query screenshot showing custom dimensions</li>
+
+</ul><strong>Effort</strong>: 2 points  
+<strong>Priority</strong>: P0  
+<strong>Assigned To</strong>: DevOps Engineer
+
+<p>---</p>
+
+<h3>Feature 3.2: Telemetry Ingestion to ADX</h3>
+
+<strong>User Story</strong>: As a data engineer, I need APIM request logs in ADX to join with cost data by timestamp and resource.
+
+<p>#### Task 3.2.1: Create ADF Pipeline: ingest-apim-telemetry (L)</p>
+<strong>Description</strong>: Build pipeline to export App Insights logs and ingest into ADX <code>apim_usage</code> table.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Pipeline scheduled: Daily 3 AM UTC</li>
+<li>[ ] Data source: App Insights Analytics query (yesterday's requests)</li>
+<li>[ ] Sink: ADX table <code>apim_usage</code> with columns: Timestamp, ApiId, CallerApp, CostCenter, etc.</li>
+<li>[ ] First run succeeds and populates ADX: <code>apim_usage | count</code> > 0</li>
+<li>[ ] Evidence: Pipeline JSON + ADX query result showing sample rows</li>
+
+</ul><strong>Effort</strong>: 5 points  
+<strong>Priority</strong>: P0  
+<strong>Assigned To</strong>: Data Engineer
+
+<p>---</p>
+
+<p>#### Task 3.2.2: Validate Allocation Function (M)</p>
+<strong>Description</strong>: Test <code>AllocateCostByApp()</code> KQL function with sample data.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Sample data: 100 APIM requests, 10 cost records for APIM resource</li>
+<li>[ ] Function execution succeeds: <code>AllocateCostByApp() | take 10</code></li>
+<li>[ ] Validation: Total AllocatedCost == Total APIM cost (within 1% tolerance)</li>
+<li>[ ] Results show per-app breakdown with RequestCount and AllocatedCost columns</li>
+<li>[ ] Evidence: ADX query result screenshot</li>
+
+</ul><strong>Effort</strong>: 3 points  
+<strong>Priority</strong>: P1  
+<strong>Assigned To</strong>: Data Analyst
+
+<p>---</p>
+
+<h2>Epic 4: Reporting & Visualization</h2>
+
+<strong>Goal</strong>: Deploy Power BI reports and dashboards for executive cost visibility.  
+<strong>Business Value</strong>: Enable self-service cost analytics and trend monitoring.  
+<strong>Effort</strong>: 8 points (Sprint 7)
+
+<h3>Feature 4.1: Power BI Workspace Setup</h3>
+
+<strong>User Story</strong>: As a FinOps manager, I need interactive dashboards to monitor spending trends and identify optimization opportunities.
+
+<p>#### Task 4.1.1: Create Power BI Workspace (XS)</p>
+<strong>Description</strong>: Provision shared workspace <code>FinOps Analytics</code> with Pro licensing.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Workspace created: <code>FinOps Analytics</code> (shared capacity or Premium)</li>
+<li>[ ] Members added: FinOps team (Contributor), Executives (Viewer)</li>
+<li>[ ] Evidence: Workspace members list screenshot</li>
+
+</ul><strong>Effort</strong>: 1 point  
+<strong>Priority</strong>: P1  
+<strong>Assigned To</strong>: BI Administrator
+
+<p>---</p>
+
+<p>#### Task 4.1.2: Deploy Cost Trend Dashboard (M)</p>
+<strong>Description</strong>: Create PBIX with ADX DirectQuery connection showing daily/monthly cost trends.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Data source: ADX cluster <code>marcofinopsadx</code>, database <code>finopsdb</code>, table <code>normalized_costs</code></li>
+<li>[ ] Visuals: Line chart (90-day trend), cards (MTD spend, budget %), bar chart (top 10 RGs)</li>
+<li>[ ] Filters: Subscription, Date range, Resource Group</li>
+<li>[ ] Refresh: Auto (DirectQuery, no scheduled refresh needed)</li>
+<li>[ ] Published to workspace and pinned to dashboard</li>
+<li>[ ] Evidence: Dashboard screenshot + sample KQL queries used</li>
+
+</ul><strong>Effort</strong>: 3 points  
+<strong>Priority</strong>: P1  
+<strong>Assigned To</strong>: BI Developer
+
+<p>---</p>
+
+<p>#### Task 4.1.3: Deploy APIM Allocation Report (M)</p>
+<strong>Description</strong>: Create report showing cost allocation by caller app and cost center.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Data source: ADX function <code>AllocateCostByApp()</code></li>
+<li>[ ] Visuals: Table (CallerApp, Cost, Requests), Pie chart (by CostCenter)</li>
+<li>[ ] Date range parameter: Last 30 days (default)</li>
+<li>[ ] Published to workspace</li>
+<li>[ ] Evidence: Report screenshot with sample allocation data</li>
+
+</ul><strong>Effort</strong>: 3 points  
+<strong>Priority</strong>: P1  
+<strong>Assigned To</strong>: BI Developer
+
+<p>---</p>
+
+<p>#### Task 4.1.4: Deploy Tag Compliance Report (S)</p>
+<strong>Description</strong>: Create report showing untagged resources and compliance percentage.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Data source: ADX table <code>normalized_costs</code></li>
+<li>[ ] Visuals: Gauge (compliance %), table (untagged resources with cost)</li>
+<li>[ ] Filter: Date = Yesterday (latest full day)</li>
+<li>[ ] Published to workspace</li>
+<li>[ ] Evidence: Report screenshot showing compliance percentage</li>
+
+</ul><strong>Effort</strong>: 2 points  
+<strong>Priority</strong>: P2  
+<strong>Assigned To</strong>: BI Developer
+
+<p>---</p>
+
+<h2>Epic 5: Governance & Hardening</h2>
+
+<strong>Goal</strong>: Enforce policies, enable private endpoints, and implement CI/CD for infrastructure.  
+<strong>Business Value</strong>: Reduce security risk and improve compliance posture.  
+<strong>Effort</strong>: 13 points (Sprints 8-9)
+
+<h3>Feature 5.1: Azure Policy Enforcement</h3>
+
+<strong>User Story</strong>: As a security architect, I need to enforce tagging standards to prevent cost allocation gaps.
+
+<p>#### Task 5.1.1: Deploy Policy: Require CostCenter Tag (S)</p>
+<strong>Description</strong>: Create and assign custom policy that denies resource creation without CostCenter tag.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Policy definition JSON created: <code>require-costcenter-tag.json</code></li>
+<li>[ ] Policy assigned to scope: <code>/subscriptions/.../resourceGroups/EsDAICoE-Sandbox</code></li>
+<li>[ ] Test: Create resource without tag → Deployment fails with policy error</li>
+<li>[ ] Compliance scan shows non-compliant resources (if any)</li>
+<li>[ ] Evidence: Policy assignment + test deployment failure</li>
+
+</ul><strong>Effort</strong>: 2 points  
+<strong>Priority</strong>: P2  
+<strong>Assigned To</strong>: Cloud Architect
+
+<p>---</p>
+
+<h3>Feature 5.2: Private Endpoint Implementation</h3>
+
+<strong>User Story</strong>: As a security engineer, I need private connectivity to storage and ADX to eliminate public internet exposure.
+
+<p>#### Task 5.2.1: Deploy VNet for FinOps Resources (M)</p>
+<strong>Description</strong>: Create VNet <code>vnet-finops-canadacentral</code> with private endpoint subnet.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] VNet created: Address space 10.100.0.0/16</li>
+<li>[ ] Subnet: <code>subnet-privatelink</code> (10.100.1.0/24, private endpoint policies disabled)</li>
+<li>[ ] VNet peering (if needed): Connect to existing DevBox VNet</li>
+<li>[ ] Evidence: VNet properties screenshot</li>
+
+</ul><strong>Effort</strong>: 3 points  
+<strong>Priority</strong>: P2  
+<strong>Assigned To</strong>: Network Engineer
+
+<p>---</p>
+
+<p>#### Task 5.2.2: Enable Private Endpoint for Storage (M)</p>
+<strong>Description</strong>: Configure private endpoint for <code>marcosandboxfinopshub</code> blob service.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Private endpoint created: <code>pe-marcosandbox-blob</code></li>
+<li>[ ] Private DNS zone: privatelink.blob.core.windows.net</li>
+<li>[ ] Storage firewall: Deny public access, allow VNet subnet only</li>
+<li>[ ] Test from DevBox: <code>az storage blob list</code> succeeds</li>
+<li>[ ] Test from public IP: Connection refused</li>
+<li>[ ] Evidence: Private endpoint status + network test results</li>
+
+</ul><strong>Effort</strong>: 3 points  
+<strong>Priority</strong>: P2  
+<strong>Assigned To</strong>: Network Engineer
+
+<p>---</p>
+
+<p>#### Task 5.2.3: Enable Private Endpoint for ADX (M)</p>
+<strong>Description</strong>: Configure private endpoint for <code>marcofinopsadx</code> cluster.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Private endpoint created: <code>pe-marcofinops-adx</code></li>
+<li>[ ] Private DNS zone: privatelink.canadacentral.kusto.windows.net</li>
+<li>[ ] ADX public access: Disabled</li>
+<li>[ ] Test from DevBox: KQL query succeeds</li>
+<li>[ ] Evidence: Private endpoint status screenshot</li>
+
+</ul><strong>Effort</strong>: 3 points  
+<strong>Priority</strong>: P2  
+<strong>Assigned To</strong>: Network Engineer
+
+<p>---</p>
+
+<h3>Feature 5.3: CI/CD Automation</h3>
+
+<strong>User Story</strong>: As a DevOps engineer, I need automated deployment pipelines to avoid manual errors and ensure consistency.
+
+<p>#### Task 5.3.1: Create GitHub Actions Workflow (S)</p>
+<strong>Description</strong>: Implement workflow to validate and deploy Bicep templates on PR/merge.
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>[ ] Workflow file: <code>.github/workflows/deploy-finops.yml</code></li>
+<li>[ ] Triggers: PR to main (validate only), merge to main (validate + deploy)</li>
+<li>[ ] Jobs: Bicep build, ARM validation, deployment to EsDAICoE-Sandbox</li>
+<li>[ ] Secrets configured: AZURE_CREDENTIALS (service principal)</li>
+<li>[ ] Test run: PR triggers validation, merge triggers deployment</li>
+<li>[ ] Evidence: Workflow run history screenshot</li>
+
+</ul><strong>Effort</strong>: 2 points  
+<strong>Priority</strong>: P2  
+<strong>Assigned To</strong>: DevOps Engineer
+
+<p>---</p>
+
+<h2>Sprint Planning Summary</h2>
+
+<p>| Sprint | Epics/Features | Total Points | Key Deliverables |</p>
+<p>|--------|----------------|--------------|------------------|</p>
+<p>| Sprint 1-2 | Epic 1 (Foundation) | 13 | Storage hierarchy, Event Grid wired |</p>
+<p>| Sprint 3-4 | Epic 2 (Analytics) | 21 | ADX deployed, ingestion pipeline live |</p>
+<p>| Sprint 5-6 | Epic 3 (Attribution) | 13 | APIM headers, telemetry in ADX |</p>
+<p>| Sprint 7 | Epic 4 (Reporting) | 8 | Power BI dashboards published |</p>
+<p>| Sprint 8-9 | Epic 5 (Governance) | 13 | Policies enforced, private endpoints enabled |</p>
+<p>| <strong>Total</strong> | <strong>5 Epics</strong> | <strong>68 points</strong> | <strong>Full FinOps Hubs implementation</strong> |</p>
+
+<strong>Velocity Assumption</strong>: 15 points/sprint (2-week sprints)  
+<strong>Estimated Timeline</strong>: 9 weeks (4.5 sprints)
+
+<p>---</p>
+
+<h2>Success Metrics (KPIs)</h2>
+
+<p>| Metric | Target | Measured By |</p>
+<p>|--------|--------|-------------|</p>
+<p>| Cost Data Completeness | 100% (12 months backfilled) | ADX query: daily row counts |</p>
+<p>| Ingestion Latency | <30 minutes (export → ADX) | ADF pipeline duration |</p>
+<p>| APIM Attribution Coverage | >80% of requests have CostCenter | App Insights query: % with custom dimension |</p>
+<p>| Tag Compliance | >90% of resources tagged | ADX query: untagged resource count |</p>
+<p>| Cost Allocation Accuracy | ±5% (APIM allocated vs. actual) | Validation query comparing allocation to invoice |</p>
+<p>| Power BI Query Performance | <3 seconds (for 90-day trend) | Power BI Performance Analyzer |</p>
+
+<p>---</p>
+
+<h2>Change Log</h2>
+
+<p>| Date | Author | Change |</p>
+<p>|------|--------|--------|</p>
+<p>| 2026-02-17 08:20 AM ET | Marco Presta | Initial ADO-ready backlog with epics, features, and tasks |</p>
+
+<p>---</p>
+
+<strong>Document Status</strong>: Ready for sprint planning  
+<strong>Next Review</strong>: Sprint 0 planning session (2026-02-20)
+
+    </section>
+    
+    <footer>
+        <p><strong>Project:</strong> FinOps Hubs Implementation (marcosandbox)</p>
+        <p><em>Generated: 2026-02-17 13:06</em></p>
+        <p><em>SharePoint-compatible HTML package</em></p>
+    </footer>
+</body>
+</html>

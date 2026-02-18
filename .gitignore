@@ -1,0 +1,32 @@
+# Python virtual environment
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Output / exports (large data files)
+output/
+portal-exports/
+temp-export.csv
+temp-export.csv.gz
+temp-sum.txt
+temp-verify/
+test-daily-export/
+verify-export-format/
+row-count.txt
+*.gz
+*.zip
+
+# Archive
+archive/
+
+# Logs and temp
+logs/
+*.log
+*.tmp
+
+# OS / IDE
+.DS_Store
+Thumbs.db

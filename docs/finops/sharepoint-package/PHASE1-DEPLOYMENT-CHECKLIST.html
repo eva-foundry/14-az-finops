@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 1 - Deployment Checklist</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #323130;
+            background: #fff;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            background: #f3f2f1;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            border-left: 4px solid #0078d4;
+        }
+        
+        nav a {
+            color: #0078d4;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0078d4 0%, #107c10 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 { font-size: 2.5em; margin-bottom: 15px; }
+        h2 { color: #0078d4; font-size: 2em; margin: 30px 0 20px 0; padding-bottom: 10px; border-bottom: 3px solid #0078d4; }
+        h3 { color: #107c10; font-size: 1.5em; margin: 25px 0 15px 0; }
+        h4 { color: #ff8c00; font-size: 1.2em; margin: 20px 0 10px 0; }
+        
+        section {
+            margin-bottom: 30px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid #e1dfdd;
+        }
+        
+        p { margin-bottom: 15px; text-align: justify; }
+        
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 8px 0; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #e1dfdd;
+        }
+        
+        th {
+            background: #f8f8f8;
+            font-weight: 600;
+            color: #0078d4;
+        }
+        
+        tr:nth-child(even) { background: #fafafa; }
+        tr:hover { background: #f0f0f0; }
+        
+        code {
+            background: #f3f2f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #f3f2f1;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid #e1dfdd;
+        }
+        
+        pre code { background: none; padding: 0; }
+        
+        .callout {
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid;
+        }
+        
+        .callout.info { background: #e7f3ff; border-color: #0078d4; }
+        .callout.success { background: #dff6dd; border-color: #107c10; }
+        .callout.warning { background: #fff4ce; border-color: #ff8c00; }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #605e5c;
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding: 30px;
+            background: #f8f8f8;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e1dfdd;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" target="_parent">🏠 Home</a>
+        <a href="00-current-state-inventory.html" target="_parent">00 - Current State</a>
+        <a href="01-gap-analysis-finops-hubs.html" target="_parent">01 - Gap Analysis</a>
+        <a href="02-target-architecture-embedded.html" target="_parent">02 - Architecture</a>
+        <a href="03-deployment-plan.html" target="_parent">03 - Deployment Plan</a>
+        <a href="04-backlog.html" target="_parent">04 - Backlog</a>
+        <a href="05-evidence-pack.html" target="_parent">05 - Evidence</a>
+        <a href="PHASE1-DEPLOYMENT-CHECKLIST.html" target="_parent">Phase 1 Checklist</a>
+    </nav>
+    
+    <header>
+        <h1>Phase 1 - Deployment Checklist</h1>
+        <p style="margin:0; opacity:0.95;">FinOps Hubs - marcosandbox Implementation</p>
+    </header>
+    
+    <section>
+<h1>Phase 1 Deployment Checklist - FinOps Hub Foundation</h1>
+
+<strong>Document Type</strong>: Operational  
+<strong>Phase</strong>: Implementation - Phase 1 (Weeks 1-2)  
+<strong>Audience</strong>: [devops-engineers, cloud-architects]  
+<strong>Date</strong>: 2026-02-17 08:20 AM ET  
+<strong>Author</strong>: Marco Presta (marco.presta@hrsdc-rhdcc.gc.ca)  
+<strong>Status</strong>: Ready for Execution
+
+<p>---</p>
+
+<h2>Phase 1 Overview</h2>
+
+<strong>Goal</strong>: Establish storage infrastructure, event routing, and validation framework for FinOps Hub data ingestion.
+
+<strong>Duration</strong>: 2 weeks (Sprint 1-2)  
+<strong>Story Points</strong>: 13 points  
+<strong>Prerequisites</strong>: Azure CLI authenticated, Contributor access on EsDAICoE-Sandbox RG  
+<strong>Dependencies</strong>: None (foundational phase)
+
+<strong>Deliverables</strong>:
+<ul><li>✅ Structured storage containers (raw, processed, archive, checkpoint)</li>
+<li>✅ Lifecycle management policy (90-day Cool tier, 180-day Archive tier)</li>
+<li>✅ Cost export migration to new hierarchy</li>
+<li>✅ Event Grid subscription to ADF webhook</li>
+<li>✅ Pre-deployment baseline captured (completed 2026-02-17 09:09 AM ET)</li>
+
+</ul><p>---</p>
+
+<h2>Pre-Deployment Checklist</h2>
+
+<h3>Environment Preparation</h3>
+
+<ul><li>[x] <strong>Baseline Inventory Captured</strong>: 2026-02-17 09:09:32 AM ET</li>
+</ul><p>  - Location: <code>i:\eva-foundation\14-az-finops\tools\finops\out\</code></p>
+<p>  - Files: 12 JSON artifacts (storage, APIM, Event Grid, RBAC)</p>
+<p>  </p>
+<ul><li>[ ] <strong>Azure CLI Authentication</strong></li>
+</ul><p>  <pre><code>  # Verify authentication</p>
+<p>  az account show --query "{User: user.name, Subscription: name}" --output table</p>
+<p>  </p>
+<p>  # Expected: marco.presta@hrsdc-rhdcc.gc.ca, EsDAICoESub</p>
+<p>  # If not: az login --use-device-code --tenant bfb12ca1-7f37-47d5-9cf5-8aa52214a0d8</p>
+<p>  ``<code></p>
+
+<ul><li>[ ] <strong>Set Target Subscription</strong></li>
+</ul><p>  </code>`<code>powershell</p>
+<p>  az account set --subscription d2d4e571-e0f2-4f6c-901a-f88f7669bcba</p>
+<p>  az account show --query name</p>
+<p>  # Expected output: EsDAICoESub</p>
+<p>  </code>`<code></p>
+
+<ul><li>[ ] <strong>Verify Permissions</strong></li>
+</ul><p>  </code>`<code>powershell</p>
+<p>  az role assignment list \</p>
+<p>    --assignee marco.presta@hrsdc-rhdcc.gc.ca \</p>
+<p>    --resource-group EsDAICoE-Sandbox \</p>
+<p>    --query "[?roleDefinitionName=='Contributor' || roleDefinitionName=='Owner']"</p>
+<p>  </p>
+<p>  # Required: Contributor or Owner on EsDAICoE-Sandbox RG</p>
+<p>  </code>`<code></p>
+
+<ul><li>[ ] <strong>Review Deployment Plan</strong></li>
+</ul><p>  - Read: </code>i:\eva-foundation\14-az-finops\docs\finops\03-deployment-plan.md<code> → Phase 1</p>
+<p>  - Understand: Bicep modules, acceptance criteria, rollback procedures</p>
+
+<p>---</p>
+
+<h2>Task 1.1.1: Create Storage Containers (XS - 1 point)</h2>
+
+<strong>Objective</strong>: Create 4 containers in </code>marcosandboxfinopshub<code> for structured cost data storage.
+
+<h3>Implementation Steps</h3>
+
+<ul><li><strong>Navigate to Project Directory</strong></li>
+</ul><p>   </code>`<code>powershell</p>
+<p>   cd i:\eva-foundation\14-az-finops\infra</p>
+<p>   </code>`<code></p>
+
+<ul><li><strong>Create Storage Containers</strong></li>
+</ul><p>   </code>`<code>powershell</p>
+<p>   # Set variables</p>
+<p>   $storageAccount = "marcosandboxfinopshub"</p>
+<p>   $resourceGroup = "EsDAICoE-Sandbox"</p>
+<p>   </p>
+<p>   # Create containers</p>
+<p>   $containers = @("raw", "processed", "archive", "checkpoint")</p>
+<p>   </p>
+<p>   foreach ($container in $containers) {</p>
+<p>       Write-Host "[INFO] Creating container: $container" -ForegroundColor Cyan</p>
+<p>       az storage container create </code></p>
+<p>         --account-name $storageAccount <code></p>
+<p>         --name $container </code></p>
+<p>         --auth-mode login <code></p>
+<p>         --public-access off</p>
+<p>   }</p>
+<p>   </code>`<code></p>
+
+<ul><li><strong>Verify Container Creation</strong></li>
+</ul><p>   </code>`<code>powershell</p>
+<p>   # List all containers</p>
+<p>   az storage container list </code></p>
+<p>     --account-name $storageAccount <code></p>
+<p>     --auth-mode login </code></p>
+<p>     --query "[].name" --output table</p>
+<p>   </p>
+<p>   # Expected: config, costs, ingestion, raw, processed, archive, checkpoint (7+ containers)</p>
+<p>   ``<code></p>
+
+<ul><li><strong>Test File Upload</strong></li>
+</ul><p>   </code>`<code>powershell</p>
+<p>   # Create test file</p>
+<p>   "Test content for FinOps Hub - Phase 1 validation" | Out-File -FilePath "test-upload.txt"</p>
+<p>   </p>
+<p>   # Upload to each new container</p>
+<p>   foreach ($container in @("raw", "processed", "archive", "checkpoint")) {</p>
+<p>       az storage blob upload </code></p>
+<p>         --account-name $storageAccount <code></p>
+<p>         --container-name $container </code></p>
+<p>         --name "test-phase1.txt" <code></p>
+<p>         --file "test-upload.txt" </code></p>
+<p>         --auth-mode login</p>
+<p>       </p>
+<p>       Write-Host "[PASS] Upload succeeded for $container" -ForegroundColor Green</p>
+<p>   }</p>
+<p>   </p>
+<p>   # Cleanup test file</p>
+<p>   Remove-Item "test-upload.txt"</p>
+<p>   ``<code></p>
+
+<h3>Acceptance Criteria</h3>
+
+<ul><li>[ ] All 4 containers visible via </code>az storage container list<code></li>
+<li>[ ] Container access level: Private (no anonymous access)</li>
+<li>[ ] Test file upload succeeds in each container</li>
+<li>[ ] Screenshot saved: Portal → Storage Account → Containers blade → </code>phase1-containers-created.png<code></li>
+
+</ul><h3>Evidence Artifacts</h3>
+</code></pre>powershell
+<h1>Save container inventory</h1>
+<p>az storage container list </code></p>
+<p>  --account-name marcosandboxfinopshub <code></p>
+<p>  --auth-mode login </code></p>
+<p>  --output json | Out-File -FilePath "i:\eva-foundation\14-az-finops\tools\finops\out\containers-after-phase1-task1.json"</p>
+<pre><code>
+<p>---</p>
+
+<h2>Task 1.1.2: Configure Lifecycle Management Policy (S - 2 points)</h2>
+
+<strong>Objective</strong>: Implement auto-tiering to Cool (90 days) and Archive (180 days) for cost optimization.
+
+<h3>Implementation Steps</h3>
+
+<ul><li><strong>Create Bicep Module</strong> (already provided in 03-deployment-plan.md)</li>
+</ul><p>   </p>
+<p>   Create file: <code>i:\eva-foundation\14-az-finops\infra\bicep\storage-lifecycle.bicep</code></p>
+<p>   ``<code>bicep</p>
+<p>   param storageAccountName string = 'marcosandboxfinopshub'</p>
+<p>   param location string = 'canadacentral'</p>
+<p>   </p>
+<p>   resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' existing = {</p>
+<p>     name: storageAccountName</p>
+<p>   }</p>
+<p>   </p>
+<p>   resource lifecyclePolicy 'Microsoft.Storage/storageAccounts/managementPolicies@2023-01-01' = {</p>
+<p>     name: 'default'</p>
+<p>     parent: storageAccount</p>
+<p>     properties: {</p>
+<p>       policy: {</p>
+<p>         rules: [</p>
+<p>           {</p>
+<p>             enabled: true</p>
+<p>             name: 'MoveRawToCool'</p>
+<p>             type: 'Lifecycle'</p>
+<p>             definition: {</p>
+<p>               actions: {</p>
+<p>                 baseBlob: {</p>
+<p>                   tierToCool: {</p>
+<p>                     daysAfterModificationGreaterThan: 90</p>
+<p>                   }</p>
+<p>                   tierToArchive: {</p>
+<p>                     daysAfterModificationGreaterThan: 180</p>
+<p>                   }</p>
+<p>                 }</p>
+<p>               }</p>
+<p>               filters: {</p>
+<p>                 blobTypes: [ 'blockBlob' ]</p>
+<p>                 prefixMatch: [ 'raw/' ]</p>
+<p>               }</p>
+<p>             }</p>
+<p>           }</p>
+<p>           {</p>
+<p>             enabled: true</p>
+<p>             name: 'MoveProcessedToArchive'</p>
+<p>             type: 'Lifecycle'</p>
+<p>             definition: {</p>
+<p>               actions: {</p>
+<p>                 baseBlob: {</p>
+<p>                   tierToArchive: {</p>
+<p>                     daysAfterModificationGreaterThan: 180</p>
+<p>                   }</p>
+<p>                 }</p>
+<p>               }</p>
+<p>               filters: {</p>
+<p>                 blobTypes: [ 'blockBlob' ]</p>
+<p>                 prefixMatch: [ 'processed/' ]</p>
+<p>               }</p>
+<p>             }</p>
+<p>           }</p>
+<p>         ]</p>
+<p>       }</p>
+<p>     }</p>
+<p>   }</p>
+<p>   </code>`<code></p>
+
+<ul><li><strong>Deploy Bicep Module</strong></li>
+</ul><p>   </code>`<code>powershell</p>
+<p>   cd i:\eva-foundation\14-az-finops\infra\bicep</p>
+<p>   </p>
+<p>   az deployment group create </code></p>
+<p>     --resource-group EsDAICoE-Sandbox <code></p>
+<p>     --template-file storage-lifecycle.bicep </code></p>
+<p>     --parameters storageAccountName=marcosandboxfinopshub location=canadacentral</p>
+<p>   ``<code></p>
+
+<ul><li><strong>Verify Deployment</strong></li>
+</ul><p>   </code>`<code>powershell</p>
+<p>   # Check lifecycle policy</p>
+<p>   az storage account management-policy show </code></p>
+<p>     --account-name marcosandboxfinopshub <code></p>
+<p>     --resource-group EsDAICoE-Sandbox </code></p>
+<p>     --output json</p>
+<p>   ``<code></p>
+
+<ul><li><strong>Validate in Portal</strong></li>
+</ul><p>   - Navigate to: Portal → marcosandboxfinopshub → Lifecycle management</p>
+<p>   - Verify: 2 rules visible (MoveRawToCool, MoveProcessedToArchive)</p>
+<p>   - Screenshot: Save as </code>phase1-lifecycle-policy.png<code></p>
+
+<h3>Acceptance Criteria</h3>
+
+<ul><li>[ ] Bicep module deploys successfully (no errors)</li>
+<li>[ ] Policy visible in Portal → Storage Account → Lifecycle management</li>
+<li>[ ] Rule count: 2 (MoveRawToCool, MoveProcessedToArchive)</li>
+<li>[ ] Rule details match expected tiers (90 days Cool, 180 days Archive)</li>
+<li>[ ] Evidence saved: </code>az storage account management-policy show<code> output</li>
+
+</ul><h3>Rollback Procedure</h3>
+</code></pre>powershell
+<h1>If policy causes issues, delete it</h1>
+<p>az storage account management-policy delete </code></p>
+<p>  --account-name marcosandboxfinopshub <code></p>
+<p>  --resource-group EsDAICoE-Sandbox</p>
+<pre><code>
+<p>---</p>
+
+<h2>Task 1.1.3: Migrate Existing Exports to Raw Container (M - 3 points)</h2>
+
+<strong>Objective</strong>: Reorganize current </code>costs/<code> blobs into hierarchical </code>raw/costs/{subscription}/{YYYY}/{MM}/<code> structure.
+
+<h3>Implementation Steps</h3>
+
+<ul><li><strong>Analyze Current Blob Structure</strong></li>
+</ul><p>   </code>`<code>powershell</p>
+<p>   # List current costs container structure</p>
+<p>   az storage blob list </code></p>
+<p>     --container-name costs <code></p>
+<p>     --account-name marcosandboxfinopshub </code></p>
+<p>     --auth-mode login <code></p>
+<p>     --query "[].{Name:name, Size:properties.contentLength, Modified:properties.lastModified}" </code></p>
+<p>     --output table | Out-File -FilePath "costs-container-before-migration.txt"</p>
+<p>   </p>
+<p>   # Count blobs</p>
+<p>   $blobCount = (az storage blob list --container-name costs --account-name marcosandboxfinopshub --auth-mode login --query "length(@)")</p>
+<p>   Write-Host "[INFO] Total blobs to migrate: $blobCount"</p>
+<p>   ``<code></p>
+
+<ul><li><strong>Create Migration Script</strong></li>
+</ul><p>   </p>
+<p>   Create file: </code>i:\eva-foundation\14-az-finops\scripts\migrate-costs-to-raw.ps1<code></p>
+<p>   </code>`<code>powershell</p>
+<p>   #Requires -Version 5.1</p>
+<p>   <#</p>
+<p>   .SYNOPSIS</p>
+<p>       Migrate cost export blobs from costs/ to raw/costs/ with hierarchy</p>
+<p>   #></p>
+<p>   </p>
+<p>   param(</p>
+<p>       [string]$StorageAccount = "marcosandboxfinopshub",</p>
+<p>       [string]$SourceContainer = "costs",</p>
+<p>       [string]$DestinationContainer = "raw",</p>
+<p>       [switch]$DryRun</p>
+<p>   )</p>
+<p>   </p>
+<p>   Write-Host "================================================================" -ForegroundColor Cyan</p>
+<p>   Write-Host "  Cost Export Migration Script" -ForegroundColor Cyan</p>
+<p>   Write-Host "  Source: $SourceContainer" -ForegroundColor Cyan</p>
+<p>   Write-Host "  Destination: $DestinationContainer/costs/" -ForegroundColor Cyan</p>
+<p>   Write-Host "================================================================" -ForegroundColor Cyan</p>
+<p>   </p>
+<p>   # Get all blobs from source container</p>
+<p>   $blobs = az storage blob list </code></p>
+<p>     --container-name $SourceContainer <code></p>
+<p>     --account-name $StorageAccount </code></p>
+<p>     --auth-mode login <code></p>
+<p>     --output json | ConvertFrom-Json</p>
+<p>   </p>
+<p>   Write-Host "[INFO] Found $($blobs.Count) blobs to migrate"</p>
+<p>   </p>
+<p>   $migratedCount = 0</p>
+<p>   $skippedCount = 0</p>
+<p>   $errorCount = 0</p>
+<p>   </p>
+<p>   foreach ($blob in $blobs) {</p>
+<p>       $sourceName = $blob.name</p>
+<p>       </p>
+<p>       # Parse subscription and date from blob name</p>
+<p>       # Expected pattern: EsDAICoESub_xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ActualCost/YYYYMMDD-YYYYMMDD/exports_export-name_xxxxxxxx-xxxx-xxxx.csv.gz</p>
+<p>       if ($sourceName -match '^([^_]+)_([^/]+)/.*?/(\d{4})(\d{2})\d{2}-\d{8}/') {</p>
+<p>           $subscriptionName = $Matches[1]</p>
+<p>           $year = $Matches[3]</p>
+<p>           $month = $Matches[4]</p>
+<p>           </p>
+<p>           $destinationName = "$DestinationContainer/costs/$subscriptionName/$year/$month/$sourceName"</p>
+<p>           </p>
+<p>           if ($DryRun) {</p>
+<p>               Write-Host "[DRY-RUN] Would copy: $sourceName -> $destinationName" -ForegroundColor Yellow</p>
+<p>               $migratedCount++</p>
+<p>           } else {</p>
+<p>               try {</p>
+<p>                   # Copy blob (preserves original)</p>
+<p>                   az storage blob copy start </code></p>
+<p>                     --account-name $StorageAccount <code></p>
+<p>                     --destination-blob $destinationName </code></p>
+<p>                     --destination-container $DestinationContainer <code></p>
+<p>                     --source-container $SourceContainer </code></p>
+<p>                     --source-blob $sourceName <code></p>
+<p>                     --auth-mode login | Out-Null</p>
+<p>                   </p>
+<p>                   Write-Host "[PASS] Copied: $sourceName" -ForegroundColor Green</p>
+<p>                   $migratedCount++</p>
+<p>               } catch {</p>
+<p>                   Write-Host "[ERROR] Failed to copy $sourceName : <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 1 - Deployment Checklist</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #323130;
+            background: #fff;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            background: #f3f2f1;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            border-left: 4px solid #0078d4;
+        }
+        
+        nav a {
+            color: #0078d4;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0078d4 0%, #107c10 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 { font-size: 2.5em; margin-bottom: 15px; }
+        h2 { color: #0078d4; font-size: 2em; margin: 30px 0 20px 0; padding-bottom: 10px; border-bottom: 3px solid #0078d4; }
+        h3 { color: #107c10; font-size: 1.5em; margin: 25px 0 15px 0; }
+        h4 { color: #ff8c00; font-size: 1.2em; margin: 20px 0 10px 0; }
+        
+        section {
+            margin-bottom: 30px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid #e1dfdd;
+        }
+        
+        p { margin-bottom: 15px; text-align: justify; }
+        
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 8px 0; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #e1dfdd;
+        }
+        
+        th {
+            background: #f8f8f8;
+            font-weight: 600;
+            color: #0078d4;
+        }
+        
+        tr:nth-child(even) { background: #fafafa; }
+        tr:hover { background: #f0f0f0; }
+        
+        code {
+            background: #f3f2f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #f3f2f1;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid #e1dfdd;
+        }
+        
+        pre code { background: none; padding: 0; }
+        
+        .callout {
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid;
+        }
+        
+        .callout.info { background: #e7f3ff; border-color: #0078d4; }
+        .callout.success { background: #dff6dd; border-color: #107c10; }
+        .callout.warning { background: #fff4ce; border-color: #ff8c00; }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #605e5c;
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding: 30px;
+            background: #f8f8f8;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e1dfdd;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" target="_parent">🏠 Home</a>
+        <a href="00-current-state-inventory.html" target="_parent">00 - Current State</a>
+        <a href="01-gap-analysis-finops-hubs.html" target="_parent">01 - Gap Analysis</a>
+        <a href="02-target-architecture-embedded.html" target="_parent">02 - Architecture</a>
+        <a href="03-deployment-plan.html" target="_parent">03 - Deployment Plan</a>
+        <a href="04-backlog.html" target="_parent">04 - Backlog</a>
+        <a href="05-evidence-pack.html" target="_parent">05 - Evidence</a>
+        <a href="PHASE1-DEPLOYMENT-CHECKLIST.html" target="_parent">Phase 1 Checklist</a>
+    </nav>
+    
+    <header>
+        <h1>Phase 1 - Deployment Checklist</h1>
+        <p style="margin:0; opacity:0.95;">FinOps Hubs - marcosandbox Implementation</p>
+    </header>
+    
+    <section>
+{CONTENT}
+    </section>
+    
+    <footer>
+        <p><strong>Project:</strong> FinOps Hubs Implementation (marcosandbox)</p>
+        <p><em>Generated: 2026-02-17 13:06</em></p>
+        <p><em>SharePoint-compatible HTML package</em></p>
+    </footer>
+</body>
+</html>" -ForegroundColor Red</p>
+<p>                   $errorCount++</p>
+<p>               }</p>
+<p>           }</p>
+<p>       } else {</p>
+<p>           Write-Host "[WARN] Skipping blob (unrecognized pattern): $sourceName" -ForegroundColor Yellow</p>
+<p>           $skippedCount++</p>
+<p>       }</p>
+<p>   }</p>
+<p>   </p>
+<p>   Write-Host "</code>n================================================================" -ForegroundColor Cyan</p>
+<p>   Write-Host "  Migration Summary" -ForegroundColor Cyan</p>
+<p>   Write-Host "================================================================" -ForegroundColor Cyan</p>
+<p>   Write-Host "  Migrated: $migratedCount" -ForegroundColor Green</p>
+<p>   Write-Host "  Skipped:  $skippedCount" -ForegroundColor Yellow</p>
+<p>   Write-Host "  Errors:   $errorCount" -ForegroundColor Red</p>
+<p>   Write-Host "================================================================" -ForegroundColor Cyan</p>
+<p>   ``<code></p>
+
+<ul><li><strong>Execute Migration (Dry Run First)</strong></li>
+</ul><p>   </code>`<code>powershell</p>
+<p>   cd i:\eva-foundation\14-az-finops\scripts</p>
+<p>   </p>
+<p>   # Dry run to validate logic</p>
+<p>   .\migrate-costs-to-raw.ps1 -DryRun</p>
+<p>   </p>
+<p>   # Review output, then execute for real</p>
+<p>   .\migrate-costs-to-raw.ps1</p>
+<p>   </code>`<code></p>
+
+<ul><li><strong>Validation</strong></li>
+</ul><p>   </code>`<code>powershell</p>
+<p>   # Check raw container structure</p>
+<p>   az storage blob list </code></p>
+<p>     --container-name raw <code></p>
+<p>     --account-name marcosandboxfinopshub </code></p>
+<p>     --auth-mode login <code></p>
+<p>     --prefix "costs/" </code></p>
+<p>     --query "[].name" <code></p>
+<p>     --output table | Out-File -FilePath "raw-container-after-migration.txt"</p>
+<p>   </p>
+<p>   # Compare blob counts</p>
+<p>   $sourceCount = (az storage blob list --container-name costs --account-name marcosandboxfinopshub --auth-mode login --query "length(@)")</p>
+<p>   $destCount = (az storage blob list --container-name raw --account-name marcosandboxfinopshub --auth-mode login --prefix "costs/" --query "length(@)")</p>
+<p>   </p>
+<p>   Write-Host "[INFO] Source blobs: $sourceCount"</p>
+<p>   Write-Host "[INFO] Destination blobs: $destCount"</p>
+<p>   </p>
+<p>   if ($sourceCount -eq $destCount) {</p>
+<p>       Write-Host "[PASS] Blob count matches" -ForegroundColor Green</p>
+<p>   } else {</p>
+<p>       Write-Host "[WARN] Blob count mismatch - review migration log" -ForegroundColor Yellow</p>
+<p>   }</p>
+<p>   </code>`<code></p>
+
+<ul><li><strong>Rename Original Container</strong> (retain for safety)</li>
+</ul><p>   </code>`<code>powershell</p>
+<p>   # Rename costs container to costs-old (manual in Portal for safety)</p>
+<p>   # Do NOT delete original container until Phase 1 validation complete</p>
+<p>   </code>`<code></p>
+
+<h3>Acceptance Criteria</h3>
+
+<ul><li>[ ] Migration script completes without critical errors</li>
+<li>[ ] Blob count in </code>raw/costs/<code> matches original </code>costs/<code> container</li>
+<li>[ ] Hierarchical structure validated: </code>raw/costs/{subscription}/{YYYY}/{MM}/<code></li>
+<li>[ ] Spot-check: Download and compare 5 random CSVs (row count match)</li>
+<li>[ ] Original </code>costs/<code> container renamed to </code>costs-old<code> (not deleted)</li>
+<li>[ ] Migration log saved: </code>migration-log-YYYYMMDD-HHMMSS.txt<code></li>
+
+</ul><h3>Rollback Procedure</h3>
+</code></pre>powershell
+<h1>If migration issues found, original costs/ container is preserved as costs-old</h1>
+<h1>Can continue using costs-old until issues resolved</h1>
+<h1>Delete raw/costs/ prefix and retry migration</h1>
+</code>`<code>
+
+<p>---</p>
+
+<h2>Task 1.2.1: Update Cost Management Export Destinations (S - 2 points)</h2>
+
+<strong>Objective</strong>: Reconfigure portal exports to target </code>raw/costs/{SubscriptionName}<code> path.
+
+<h3>Implementation Steps</h3>
+
+<ul><li><strong>Portal Configuration</strong> (Manual - Azure CLI not supported for this operation)</li>
+</ul><p>   </p>
+<p>   <strong>For EsDAICoESub-Daily Export</strong>:</p>
+<p>   - Navigate to: Portal → Cost Management → Exports</p>
+<p>   - Select: </code>EsDAICoESub-Daily<code></p>
+<p>   - Edit → Destination settings</p>
+<p>   - Update:</p>
+<p>     - Storage account: </code>marcosandboxfinopshub<code></p>
+<p>     - Container: </code>raw<code></p>
+<p>     - Directory: </code>costs/EsDAICoESub<code></p>
+<p>   - Save</p>
+<p>   </p>
+<p>   <strong>For EsPAICoESub-Daily Export</strong>:</p>
+<p>   - Navigate to: Portal → Cost Management → Exports</p>
+<p>   - Select: </code>EsPAICoESub-Daily<code></p>
+<p>   - Edit → Destination settings</p>
+<p>   - Update:</p>
+<p>     - Storage account: </code>marcosandboxfinopshub<code></p>
+<p>     - Container: </code>raw<code></p>
+<p>     - Directory: </code>costs/EsPAICoESub<code></p>
+<p>   - Save</p>
+
+<ul><li><strong>Trigger Manual Export</strong> (Test)</li>
+</ul><p>   </code>`<code>powershell</p>
+<p>   # Portal: Select export → Run now</p>
+<p>   # Wait 2-5 minutes for export to complete</p>
+<p>   </code>`<code></p>
+
+<ul><li><strong>Verify New Blob Location</strong></li>
+</ul><p>   </code>`<code>powershell</p>
+<p>   # Check for blobs in new location</p>
+<p>   az storage blob list </code></p>
+<p>     --container-name raw <code></p>
+<p>     --account-name marcosandboxfinopshub </code></p>
+<p>     --auth-mode login <code></p>
+<p>     --prefix "costs/EsDAICoESub" </code></p>
+<p>     --query "[0].name" <code></p>
+<p>     --output tsv</p>
+<p>   </p>
+<p>   # Expected: raw/costs/EsDAICoESub/ActualCost/YYYYMMDD-YYYYMMDD/...csv.gz</p>
+<p>   </code>`<code></p>
+
+<h3>Acceptance Criteria</h3>
+
+<ul><li>[ ] Both exports (EsDAICoESub-Daily, EsPAICoESub-Daily) updated in Portal</li>
+<li>[ ] Manual trigger succeeds for both exports</li>
+<li>[ ] New blobs land in </code>raw/costs/{SubscriptionName}/<code> path</li>
+<li>[ ] Export history shows updated root folder path</li>
+<li>[ ] Screenshots saved: Export configuration + successful run history</li>
+
+</ul><p>---</p>
+
+<h2>Task 1.3.1: Verify Event Grid System Topic (S - 2 points)</h2>
+
+<strong>Objective</strong>: Confirm existing system topic is active and receiving events.
+
+<h3>Implementation Steps</h3>
+
+<ul><li><strong>Verify System Topic Existence</strong></li>
+</ul><p>   </code>`<code>powershell</p>
+<p>   # Get system topic details</p>
+<p>   az eventgrid system-topic list </code></p>
+<p>     --resource-group EsDAICoE-Sandbox <code></p>
+<p>     --query "[?contains(source,'marcosandboxfinopshub')]" </code></p>
+<p>     --output table</p>
+<p>   </p>
+<p>   # Save topic name for next task</p>
+<p>   $topicName = (az eventgrid system-topic list --resource-group EsDAICoE-Sandbox --query "[?contains(source,'marcosandboxfinopshub')].name" --output tsv)</p>
+<p>   Write-Host "[INFO] System topic name: $topicName"</p>
+<p>   ``<code></p>
+
+<ul><li><strong>Check Provisioning State</strong></li>
+</ul><p>   </code>`<code>powershell</p>
+<p>   az eventgrid system-topic show </code></p>
+<p>     --name $topicName <code></p>
+<p>     --resource-group EsDAICoE-Sandbox </code></p>
+<p>     --query "{Name:name, State:provisioningState, TopicType:topicType}" <code></p>
+<p>     --output table</p>
+<p>   </p>
+<p>   # Expected: State = Succeeded</p>
+<p>   </code>`<code></p>
+
+<ul><li><strong>Verify Metrics</strong> (Portal)</li>
+</ul><p>   - Navigate to: Portal → Event Grid System Topic → $topicName → Metrics</p>
+<p>   - Chart: Published Events (last 24 hours)</p>
+<p>   - Expected: Events visible after next cost export run</p>
+<p>   - Screenshot: Save as </code>phase1-eventgrid-metrics.png<code></p>
+
+<h3>Acceptance Criteria</h3>
+
+<ul><li>[ ] System topic status: Succeeded</li>
+<li>[ ] Topic type: </code>Microsoft.Storage.StorageAccounts<code></li>
+<li>[ ] Source: </code>/subscriptions/.../marcosandboxfinopshub<code></li>
+<li>[ ] Metrics show events (or 0 if no exports ran recently)</li>
+<li>[ ] Evidence saved: </code>az eventgrid system-topic show<code> output</li>
+
+</ul><p>---</p>
+
+<h2>Task 1.3.2: Create Event Subscription to ADF (M - 3 points)</h2>
+
+<strong>Objective</strong>: Wire Event Grid to trigger ADF pipeline on blob creation in </code>raw/costs/<code> prefix.
+
+<h3>Implementation Steps</h3>
+
+<ul><li><strong>Get ADF Webhook URL</strong> (Manual - requires ADF pipeline creation in Phase 2)</li>
+</ul><p>   </p>
+<p>   <strong>Note</strong>: This task has a dependency on Phase 2 Task 2.2.4 (ADF pipeline creation). For now, we'll prepare the Event Grid infrastructure.</p>
+<p>   </p>
+<p>   </code>`<code>powershell</p>
+<p>   # Placeholder for Phase 2</p>
+<p>   Write-Host "[INFO] ADF webhook URL will be configured in Phase 2 after pipeline deployment"</p>
+<p>   Write-Host "[INFO] Preparing Event Grid subscription configuration..."</p>
+<p>   </code>`<code></p>
+
+<ul><li><strong>Create Event Subscription</strong> (Execute during Phase 2)</li>
+</ul><p>   </p>
+<p>   Create file: </code>i:\eva-foundation\14-az-finops\infra\azure-cli\create-eventgrid-subscription.sh<code></p>
+<p>   </code>`<code>bash</p>
+<p>   #!/bin/bash</p>
+<p>   # Create Event Grid subscription for FinOps ingestion</p>
+<p>   </p>
+<p>   SUBSCRIPTION_NAME="finops-ingest-trigger"</p>
+<p>   SYSTEM_TOPIC_NAME="<topic-name-from-task-1.3.1>"</p>
+<p>   RESOURCE_GROUP="EsDAICoE-Sandbox"</p>
+<p>   ADF_WEBHOOK_URL="<adf-webhook-url-from-phase2>"</p>
+<p>   </p>
+<p>   az eventgrid system-topic event-subscription create \</p>
+<p>     --name "$SUBSCRIPTION_NAME" \</p>
+<p>     --resource-group "$RESOURCE_GROUP" \</p>
+<p>     --system-topic-name "$SYSTEM_TOPIC_NAME" \</p>
+<p>     --endpoint-type webhook \</p>
+<p>     --endpoint "$ADF_WEBHOOK_URL" \</p>
+<p>     --included-event-types "Microsoft.Storage.BlobCreated" \</p>
+<p>     --subject-begins-with "/blobServices/default/containers/raw/blobs/costs/" \</p>
+<p>     --subject-ends-with ".csv.gz"</p>
+<p>   </p>
+<p>   echo "[INFO] Event subscription created: $SUBSCRIPTION_NAME"</p>
+<p>   </code>`<code></p>
+
+<ul><li><strong>Validation</strong> (Phase 2)</li>
+</ul><p>   </code>`<code>powershell</p>
+<p>   # Test: Upload sample CSV → ADF pipeline triggered within 2 minutes</p>
+<p>   # Check Event Grid Metrics: Delivery success rate = 100%</p>
+<p>   </code>`<code></p>
+
+<h3>Acceptance Criteria (Phase 2)</h3>
+
+<ul><li>[ ] Event subscription created: </code>finops-ingest-trigger<code></li>
+<li>[ ] Filter: Prefix </code>/raw/costs/<code>, Suffix </code>.csv.gz<code></li>
+<li>[ ] Test: Upload sample CSV → ADF pipeline triggered within 2 minutes</li>
+<li>[ ] Delivery success rate: 100% (check Event Grid Metrics)</li>
+<li>[ ] Evidence: Event subscription JSON + ADF run history</li>
+
+</ul><strong>Phase 1 Status</strong>: Preparation only (defer to Phase 2)
+
+<p>---</p>
+
+<h2>Phase 1 Completion Checklist</h2>
+
+<h3>Technical Validation</h3>
+
+<ul><li>[ ] <strong>Storage</strong>: 4 new containers (raw, processed, archive, checkpoint) created</li>
+<li>[ ] <strong>Lifecycle Policy</strong>: Deployed via Bicep, visible in Portal</li>
+<li>[ ] <strong>Migration</strong>: Blobs copied to </code>raw/costs/<code> hierarchy, original preserved</li>
+<li>[ ] <strong>Cost Exports</strong>: Reconfigured to new destination, manual test successful</li>
+<li>[ ] <strong>Event Grid</strong>: System topic verified, metrics accessible</li>
+
+</ul><h3>Evidence Collection</h3>
+
+<ul><li>[ ] <strong>Baseline (Pre)</strong>: Captured 2026-02-17 09:09:32 AM ET</li>
+<li>[ ] <strong>Post-Task Screenshots</strong>: 5 screenshots (containers, lifecycle, migration, exports, Event Grid)</li>
+<li>[ ] <strong>JSON Artifacts</strong>: Updated inventory after Phase 1 tasks</li>
+<li>[ ] <strong>Migration Log</strong>: Blob count comparison, sample validation</li>
+
+</ul><h3>Documentation Updates</h3>
+
+<ul><li>[ ] <strong>Update 00-current-state-inventory.md</strong>: Add Phase 1 completion notes</li>
+<li>[ ] <strong>Update README.md</strong>: Mark Phase 1 as complete</li>
+<li>[ ] <strong>Create Phase 1 Evidence Pack</strong>: Folder with all screenshots + logs</li>
+
+</ul><p>---</p>
+
+<h2>Rollback Plan</h2>
+
+<p>If critical issues arise during Phase 1:</p>
+
+<ul><li><strong>Containers</strong>: Can delete newly created containers (no impact to existing data)</li>
+<li><strong>Lifecycle Policy</strong>: Can delete policy without affecting blobs</li>
+<li><strong>Migration</strong>: Original </code>costs/<code> container preserved as </code>costs-old<code></li>
+<li><strong>Exports</strong>: Can revert to original destination in Portal</li>
+
+</ul><strong>Critical Data Protection</strong>: Original </code>costs/<code> container is NEVER deleted until Phase 1 fully validated.
+
+<p>---</p>
+
+<h2>Next Steps After Phase 1</h2>
+
+<ul><li><strong>Phase 2 Planning</strong>: Schedule ADX cluster deployment (Epic 2, 21 story points)</li>
+<li><strong>Stakeholder Update</strong>: Present Phase 1 completion evidence</li>
+<li><strong>Backlog Refinement</strong>: Review Phase 2 tasks in </code>04-backlog.md`</li>
+<li><strong>Budget Tracking</strong>: Document Phase 1 costs (storage only, no new services)</li>
+
+</ul><p>---</p>
+
+<h2>Change Log</h2>
+
+<p>| Date | Author | Change |</p>
+<p>|------|--------|--------|</p>
+<p>| 2026-02-17 08:20 AM ET | Marco Presta | Initial Phase 1 deployment checklist |</p>
+<p>| 2026-02-17 09:30 AM ET | Marco Presta | Updated with baseline inventory completion |</p>
+
+<p>---</p>
+
+<strong>Phase 1 Status</strong>: ✅ Ready for Execution  
+<strong>Estimated Duration</strong>: 2 weeks (10 business days)  
+<strong>Next Review</strong>: After Task 1.1.3 (migration) completion
+
+    </section>
+    
+    <footer>
+        <p><strong>Project:</strong> FinOps Hubs Implementation (marcosandbox)</p>
+        <p><em>Generated: 2026-02-17 13:06</em></p>
+        <p><em>SharePoint-compatible HTML package</em></p>
+    </footer>
+</body>
+</html>

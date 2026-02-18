@@ -1,0 +1,31 @@
+flowchart TD
+    PORTAL["Azure Cost Export<br/>(Portal)"]
+    RAW["marcosandboxfinopshub/raw/<br/>CSV.gz, 55 columns, daily 7 AM UTC"]
+    EVENTGRID["Event Grid: BlobCreated"]
+    ADF_PIPELINE["ADF Pipeline:<br/>ingest-costs-to-adx"]
+    PROCESSED["marcosandboxfinopshub/processed/<br/>Decompress, Validate Schema"]
+    ADX_RAW["ADX raw_costs table<br/>(ingestion time recorded)"]
+    ADX_NORM["ADX normalized_costs<br/>Materialized View: parse tags<br/>CostCenter, Application extracted"]
+    ADX_FUNC["ADX AllocateCostByApp()<br/>function<br/>Join with apim_usage by timestamp"]
+    PBI["Power BI Reports<br/>KQL DirectQuery"]
+    
+    PORTAL -->|"CSV.gz, 55 columns<br/>daily 7 AM UTC"| RAW
+    RAW -->|"BlobCreated Event"| EVENTGRID
+    EVENTGRID -->|"Trigger Pipeline"| ADF_PIPELINE
+    ADF_PIPELINE -->|"Decompress<br/>Validate Schema"| PROCESSED
+    PROCESSED -->|"Copy Activity<br/>with mapping"| ADX_RAW
+    ADX_RAW -->|"Materialized View<br/>parse tags"| ADX_NORM
+    ADX_NORM -->|"Join with apim_usage<br/>by timestamp"| ADX_FUNC
+    ADX_FUNC -->|"KQL DirectQuery"| PBI
+    
+    classDef source fill:#FFE5B4,stroke:#FF8C00,stroke-width:2px
+    classDef storage fill:#B4D7FF,stroke:#0078D4,stroke-width:2px
+    classDef processing fill:#D4F1D4,stroke:#107C10,stroke-width:2px
+    classDef analytics fill:#E5D4FF,stroke:#8C00FF,stroke-width:2px
+    classDef reporting fill:#FFD4E5,stroke:#E81123,stroke-width:2px
+    
+    class PORTAL source
+    class RAW,PROCESSED storage
+    class EVENTGRID,ADF_PIPELINE processing
+    class ADX_RAW,ADX_NORM,ADX_FUNC analytics
+    class PBI reporting

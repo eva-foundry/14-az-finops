@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 - Gap Analysis: FinOps Hubs</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #323130;
+            background: #fff;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            background: #f3f2f1;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            border-left: 4px solid #0078d4;
+        }
+        
+        nav a {
+            color: #0078d4;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0078d4 0%, #107c10 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 { font-size: 2.5em; margin-bottom: 15px; }
+        h2 { color: #0078d4; font-size: 2em; margin: 30px 0 20px 0; padding-bottom: 10px; border-bottom: 3px solid #0078d4; }
+        h3 { color: #107c10; font-size: 1.5em; margin: 25px 0 15px 0; }
+        h4 { color: #ff8c00; font-size: 1.2em; margin: 20px 0 10px 0; }
+        
+        section {
+            margin-bottom: 30px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid #e1dfdd;
+        }
+        
+        p { margin-bottom: 15px; text-align: justify; }
+        
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 8px 0; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #e1dfdd;
+        }
+        
+        th {
+            background: #f8f8f8;
+            font-weight: 600;
+            color: #0078d4;
+        }
+        
+        tr:nth-child(even) { background: #fafafa; }
+        tr:hover { background: #f0f0f0; }
+        
+        code {
+            background: #f3f2f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #f3f2f1;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid #e1dfdd;
+        }
+        
+        pre code { background: none; padding: 0; }
+        
+        .callout {
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid;
+        }
+        
+        .callout.info { background: #e7f3ff; border-color: #0078d4; }
+        .callout.success { background: #dff6dd; border-color: #107c10; }
+        .callout.warning { background: #fff4ce; border-color: #ff8c00; }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #605e5c;
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding: 30px;
+            background: #f8f8f8;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e1dfdd;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" target="_parent">🏠 Home</a>
+        <a href="00-current-state-inventory.html" target="_parent">00 - Current State</a>
+        <a href="01-gap-analysis-finops-hubs.html" target="_parent">01 - Gap Analysis</a>
+        <a href="02-target-architecture-embedded.html" target="_parent">02 - Architecture</a>
+        <a href="03-deployment-plan.html" target="_parent">03 - Deployment Plan</a>
+        <a href="04-backlog.html" target="_parent">04 - Backlog</a>
+        <a href="05-evidence-pack.html" target="_parent">05 - Evidence</a>
+        <a href="PHASE1-DEPLOYMENT-CHECKLIST.html" target="_parent">Phase 1 Checklist</a>
+    </nav>
+    
+    <header>
+        <h1>01 - Gap Analysis: FinOps Hubs</h1>
+        <p style="margin:0; opacity:0.95;">FinOps Hubs - marcosandbox Implementation</p>
+    </header>
+    
+    <section>
+<h1>01 - Gap Analysis: marcosandbox vs FinOps Hubs Reference</h1>
+
+<strong>Document Type</strong>: Architecture  
+<strong>Phase</strong>: Assessment  
+<strong>Audience</strong>: [architects, finops-analysts, engineers]  
+<strong>Last Updated</strong>: 2026-02-17 08:20 AM ET  
+<strong>Author</strong>: Marco Presta (marco.presta@hrsdc-rhdcc.gc.ca)  
+<strong>Reference</strong>: <a href="https://aka.ms/finops/toolkit">Microsoft FinOps Toolkit</a>
+
+<p>---</p>
+
+<h2>Overview</h2>
+
+<p>This document compares the current marcosandbox FinOps infrastructure against the Microsoft FinOps Hubs reference architecture to identify gaps and prioritize remediation efforts. The FinOps Hubs pattern provides enterprise-grade cost management with centralized data ingestion, normalization, allocation, and reporting.</p>
+
+<strong>Gap Summary</strong>: 7 critical components identified, 3 present, 4 missing or partial.
+
+<p>---</p>
+
+<h2>FinOps Hubs Reference Architecture (Minimum Components)</h2>
+
+<h3>Tier 1: Data Collection & Landing</h3>
+<ul><li><strong>ADLS Gen2 Storage</strong> with hierarchical namespace</li>
+</ul><p>  - Container: <code>raw/</code> (landing zone for exports)</p>
+<p>  - Container: <code>processed/</code> (normalized/enriched data)</p>
+<p>  - Container: <code>archive/</code> (long-term retention)</p>
+<ul><li><strong>Event Grid</strong> integration (Storage → trigger ingestion)</li>
+<li><strong>Cost Management Exports</strong> (daily/monthly, ActualCost + Amortized)</li>
+
+</ul><h3>Tier 2: Ingestion & Transformation</h3>
+<ul><li><strong>Azure Data Factory</strong> (or Synapse/Fabric) pipelines</li>
+</ul><p>  - Copy activity: Export CSV → Raw storage</p>
+<p>  - Data flow: Normalize, enrich, tag parsing</p>
+<ul><li><strong>Azure Data Explorer (ADX)</strong> cluster + database</li>
+</ul><p>  - Table: <code>raw_costs</code> (direct CSV ingestion)</p>
+<p>  - Table: <code>normalized_costs</code> (cleansed, typed columns)</p>
+<p>  - Table: <code>apim_usage</code> (for attribution)</p>
+<ul><li><strong>Ingestion Mappings</strong> (CSV → ADX schema)</li>
+
+</ul><h3>Tier 3: Attribution & Allocation</h3>
+<ul><li><strong>APIM Integration</strong> (telemetry with custom headers)</li>
+</ul><p>  - Policy: Inject <code>x-costcenter</code>, <code>x-caller-app</code>, <code>x-environment</code></p>
+<p>  - Diagnostics: Forward to Log Analytics/App Insights</p>
+<ul><li><strong>ADX Allocation Views</strong> (KQL functions)</li>
+</ul><p>  - Join cost data with usage telemetry by timestamp/resource</p>
+<p>  - Allocate spend to consuming applications/cost centers</p>
+
+<h3>Tier 4: Reporting & Governance</h3>
+<ul><li><strong>Power BI Workspace</strong> with KQL direct query</li>
+</ul><p>  - Template: Cost trends, resource group breakdown, tag compliance</p>
+<ul><li><strong>Azure Policy</strong> enforcement</li>
+</ul><p>  - Require tags: <code>CostCenter</code>, <code>Application</code>, <code>Environment</code></p>
+<p>  - Enforce export configuration at subscription level</p>
+<ul><li><strong>RBAC/Private Endpoints</strong> (enterprise security)</li>
+</ul><p>  - Managed identities with least-privilege roles</p>
+<p>  - Private endpoints for storage, ADX, ADF</p>
+
+<p>---</p>
+
+<h2>Current State Mapping (Evidence-Based)</h2>
+
+<h3>✅ Components Present</h3>
+
+<p>| Component | Status | Evidence | Notes |</p>
+<p>|-----------|--------|----------|-------|</p>
+<p>| <strong>ADLS Gen2 Storage</strong> | ✅ Present | <a href="i:/eva-foundation/system-analysis/inventory/.eva-cache/current/MARCO-INVENTORY-20260213-155026.md#L107">MARCO-INVENTORY L107</a> | marcosandboxfinopshub (StorageV2, dfs endpoint enabled) |</p>
+<p>| <strong>Event Grid systemTopic</strong> | ✅ Present | <a href="i:/eva-foundation/system-analysis/inventory/.eva-cache/current/MARCO-INVENTORY-20260213-155026.md#L157">MARCO-INVENTORY L157</a> | marcosandboxfinopshub-52dd1c15... configured |</p>
+<p>| <strong>Cost Exports (Active)</strong> | ✅ Active | <a href="i:/eva-foundation/14-az-finops/README.md#L35-L36">14-az-finops README L35-36</a> | Daily exports for both subscriptions (Feb 16, 2026) |</p>
+<p>| <strong>Data Factory</strong> | ⚠️ Partial | <a href="i:/eva-foundation/system-analysis/inventory/.eva-cache/current/MARCO-INVENTORY-20260213-155026.md#L145">MARCO-INVENTORY L145</a> | marco-sandbox-finops-adf exists, pipelines UNKNOWN |</p>
+<p>| <strong>APIM</strong> | ⚠️ Partial | <a href="i:/eva-foundation/system-analysis/inventory/.eva-cache/current/MARCO-INVENTORY-20260213-155026.md#L136">MARCO-INVENTORY L136</a> | marco-sandbox-apim exists, policies UNKNOWN |</p>
+<p>| <strong>App Insights</strong> | ✅ Present | <a href="i:/eva-foundation/system-analysis/inventory/.eva-cache/current/MARCO-INVENTORY-20260213-155026.md#L137">MARCO-INVENTORY L137</a> | marco-sandbox-appinsights configured |</p>
+
+<h3>❌ Components Missing</h3>
+
+<p>| Component | Status | Impact | Priority |</p>
+<p>|-----------|--------|--------|----------|</p>
+<p>| <strong>ADX Cluster + Database</strong> | ❌ Missing | Cannot perform analytics, KQL queries, or Power BI integration | CRITICAL |</p>
+<p>| <strong>Storage Container Structure</strong> | ⚠️ Incomplete | Only <code>costs/</code> present, need <code>raw/</code>, <code>processed/</code>, <code>archive/</code> | HIGH |</p>
+<p>| <strong>ADF Ingestion Pipelines</strong> | ❌ Unknown/Missing | No automated CSV → ADX ingestion | CRITICAL |</p>
+<p>| <strong>APIM Attribution Policies</strong> | ❌ Unknown | No cost allocation by caller/app | CRITICAL |</p>
+<p>| <strong>ADX Ingestion Mappings</strong> | ❌ Missing | Cannot ingest cost CSV into ADX tables | CRITICAL |</p>
+<p>| <strong>Power BI Integration</strong> | ❌ Missing | No reporting capability | HIGH |</p>
+<p>| <strong>Azure Policy (Tags)</strong> | ❌ Missing | No tag enforcement | MEDIUM |</p>
+<p>| <strong>Private Endpoints</strong> | ⚠️ Unknown | Network security posture unclear | MEDIUM |</p>
+
+<p>---</p>
+
+<h2>Detailed Gap Analysis</h2>
+
+<h3>Gap 1: Azure Data Explorer (ADX) Cluster [CRITICAL]</h3>
+
+<strong>Current State</strong>: No ADX cluster found in inventory snapshot.
+
+<strong>Evidence</strong>: <a href="i:/eva-foundation/system-analysis/inventory/.eva-cache/current/MARCO-INVENTORY-20260213-155026.md">MARCO-INVENTORY</a> lists 24 marco-sandbox resources; no ADX/Kusto resources present.
+
+<strong>Impact</strong>:
+<ul><li>Cannot perform large-scale cost analytics (CSV exports not queryable at scale)</li>
+<li>Power BI cannot use KQL direct query (forced to import mode with refresh limits)</li>
+<li>No near-real-time allocation views (joins must be done in Power BI desktop)</li>
+
+</ul><strong>Recommended Action</strong>:
+<ul><li>Deploy ADX cluster in canadacentral (Dev SKU: 2 nodes, Engine D11_v2 ~$300/month)</li>
+<li>Create database <code>finopsdb</code> with tables: <code>raw_costs</code>, <code>normalized_costs</code>, <code>apim_usage</code></li>
+<li>Configure ingestion endpoint and managed identity</li>
+
+</ul><strong>Acceptance Criteria</strong>:
+<ul><li>ADX cluster provisioned and query endpoint accessible</li>
+<li>Database and schema created via IaC (Bicep/Terraform)</li>
+<li>Sample CSV ingested successfully and KQL query returns results</li>
+
+</ul><p>---</p>
+
+<h3>Gap 2: Storage Container Hierarchy [HIGH]</h3>
+
+<strong>Current State</strong>: Single container <code>costs/</code> with subscription subdirectories.
+
+<strong>Evidence</strong>: Export paths documented in <a href="i:/eva-foundation/14-az-finops/README.md#L167">14-az-finops README</a>: <code>marcosandboxfinopshub, container=costs, directory={SubscriptionName}</code>
+
+<strong>Impact</strong>:
+<ul><li>No separation between raw landing zone and processed data</li>
+<li>Cannot implement lifecycle policies per processing stage</li>
+<li>Difficult to track data lineage (raw → processed → aggregated)</li>
+
+</ul><strong>Recommended Structure</strong>:
+<pre><code>marcosandboxfinopshub/
+<p>├── raw/costs/{subscription}/{YYYY}/{MM}/         # Landing zone for exports</p>
+<p>├── processed/costs/{subscription}/{YYYY}/{MM}/   # Normalized, enriched CSVs</p>
+<p>├── archive/costs/{subscription}/{YYYY}/          # Archived after ADX ingestion</p>
+<p>└── checkpoint/                                   # ADF pipeline state/manifest</code></pre></p>
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>Containers created and accessible via <code>az storage container list</code></li>
+<li>Lifecycle policy configured: move to Cool after 90 days, Archive after 180 days</li>
+<li>ADF pipeline writes manifest to <code>checkpoint/</code> after successful ingestion</li>
+
+</ul><p>---</p>
+
+<h3>Gap 3: ADF Ingestion Pipelines [CRITICAL]</h3>
+
+<strong>Current State</strong>: ADF factory <code>marco-sandbox-finops-adf</code> exists but pipeline configuration unknown.
+
+<strong>Evidence</strong>: <a href="i:/eva-foundation/system-analysis/inventory/.eva-cache/current/MARCO-INVENTORY-20260213-155026.md#L145">MARCO-INVENTORY L145</a>
+
+<strong>Impact</strong>:
+<ul><li>No automated ingestion from Blob → ADX</li>
+<li>Manual effort required to download and process exports</li>
+<li>Event Grid triggers have no consumer (wasted events)</li>
+
+</ul><strong>Required Pipelines</strong>:
+
+<p>| Pipeline Name | Trigger | Activities | Output |</p>
+<p>|---------------|---------|------------|--------|</p>
+<p>| <code>ingest-costs-to-adx</code> | Event Grid (blob created) | 1. Decompress CSV<br>2. Validate schema<br>3. ADX copy activity<br>4. Move to processed/ | ADX table populated |</p>
+<p>| <code>backfill-historical</code> | Manual/Scheduled | 1. List blobs in raw/<br>2. Iterate and ingest<br>3. Track progress in checkpoint/ | Historical data in ADX |</p>
+<p>| <code>enrich-and-normalize</code> | Scheduled (daily 2 AM) | 1. Read processed/<br>2. Parse tags<br>3. Apply enrichment rules<br>4. Write to normalized_costs | Enriched dataset |</p>
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>Pipelines deployed via IaC (ARM template in repo)</li>
+<li>Test execution with sample CSV successful</li>
+<li>Monitoring alerts configured for pipeline failures</li>
+
+</ul><p>---</p>
+
+<h3>Gap 4: APIM Cost Attribution [CRITICAL]</h3>
+
+<strong>Current State</strong>: APIM resource <code>marco-sandbox-apim</code> exists with 2 deployed APIs (echo-api, eva-jp-query-api at path <code>/eva-jp/v1</code>), but comprehensive policy configuration for cost attribution headers is UNKNOWN. An <strong>EVA-JP API Inventory Project</strong> is underway to catalog and attribute <strong>50+ APIs</strong> (38+ active endpoints confirmed) from <code>I:\EVA-JP-reference-0113\app\backend\</code>.
+
+<strong>Evidence</strong>: 
+<ul><li><a href="i:/eva-foundation/system-analysis/inventory/.eva-cache/current/MARCO-INVENTORY-20260213-155026.md#L136">MARCO-INVENTORY L136</a></li>
+<li>Inventory baseline (2026-02-17 09:09:32): 2 APIs deployed (echo-api, eva-jp-query-api)</li>
+<li>EVA-JP Backend: 38+ active endpoints (33 @app.get/post/put/delete + 5 @router endpoints in sessions.py)</li>
+<li>Source: <code>I:\EVA-JP-reference-0113\app\backend\app.py</code> (FastAPI application, 2144 lines)</li>
+
+</ul><strong>Impact</strong>:
+<ul><li>No ability to allocate Azure spend to consuming applications</li>
+<li>Cannot implement showback/chargeback to internal teams (50+ APIs require cost visibility)</li>
+<li>Usage telemetry not correlated with cost data</li>
+<li><strong>50+ EVA-JP APIs</strong> lack granular cost attribution across environments (dev/test/production)</li>
+
+</ul><strong>Required Implementation</strong>:
+
+<strong>APIM Policy Snippet</strong> (inbound):
+<pre><code><policies>
+<p>    <inbound></p>
+<p>        <!-- Extract cost center from JWT claim or header --></p>
+<p>        <set-variable name="costCenter" value="@(context.Request.Headers.GetValueOrDefault("x-costcenter", "UNKNOWN"))" /></p>
+<p>        <set-variable name="callerApp" value="@(context.Request.Headers.GetValueOrDefault("x-caller-app", context.Request.Headers.GetValueOrDefault("x-client-id", "UNKNOWN")))" /></p>
+<p>        <set-variable name="environment" value="@(context.Request.Headers.GetValueOrDefault("x-environment", "production"))" /></p>
+<p>        </p>
+<p>        <!-- Add to App Insights custom dimensions --></p>
+<p>        <set-header name="x-eva-costcenter" exists-action="override"></p>
+<p>            <value>@((string)context.Variables["costCenter"])</value></p>
+<p>        </set-header></p>
+<p>        <set-header name="x-eva-caller-app" exists-action="override"></p>
+<p>            <value>@((string)context.Variables["callerApp"])</value></p>
+<p>        </set-header></p>
+<p>    </inbound></p>
+<p>    <backend></p>
+<p>        <base /></p>
+<p>    </backend></p>
+<p>    <outbound></p>
+<p>        <base /></p>
+<p>    </outbound></p>
+</policies></code></pre>
+
+<strong>Diagnostic Configuration</strong>:
+<ul><li>Enable diagnostics for <strong>all APIs</strong> (50+ EVA-JP APIs from inventory project) → App Insights <code>marco-sandbox-appinsights</code></li>
+<li>Include custom dimensions (headers) in telemetry</li>
+<li>Configure sampling (100% for cost attribution accuracy)</li>
+<li><strong>EVA-JP API Catalog Integration</strong>: Map 38+ active endpoints to cost center tags</li>
+
+</ul><strong>Acceptance Criteria</strong>:
+<ul><li>Policy applied to all APIs (or base policy covering 50+ APIs)</li>
+<li>Test request shows custom dimensions in App Insights logs</li>
+<li>ADX ingestion pipeline extracts headers from telemetry</li>
+<li><strong>80%+ of EVA-JP API requests</strong> have cost center attribution (per KPI in 04-backlog.md)</li>
+
+</ul><p>---</p>
+
+<h3>Gap 5: ADX Ingestion Mappings [CRITICAL]</h3>
+
+<strong>Current State</strong>: No ADX cluster means no ingestion mappings.
+
+<strong>Required Schema</strong> (Cost CSV → ADX):
+
+<pre><code>.create table raw_costs (
+<p>    BillingAccountId: string,</p>
+<p>    BillingAccountName: string,</p>
+<p>    BillingPeriodStartDate: datetime,</p>
+<p>    BillingPeriodEndDate: datetime,</p>
+<p>    BillingProfileId: string,</p>
+<p>    BillingProfileName: string,</p>
+<p>    AccountOwnerId: string,</p>
+<p>    AccountOwnerName: string,</p>
+<p>    SubscriptionId: string,</p>
+<p>    SubscriptionName: string,</p>
+<p>    ResourceGroup: string,</p>
+<p>    ResourceLocation: string,</p>
+<p>    Date: datetime,</p>
+<p>    ProductName: string,</p>
+<p>    MeterCategory: string,</p>
+<p>    MeterSubCategory: string,</p>
+<p>    MeterId: string,</p>
+<p>    MeterName: string,</p>
+<p>    MeterRegion: string,</p>
+<p>    UnitOfMeasure: string,</p>
+<p>    Quantity: real,</p>
+<p>    EffectivePrice: real,</p>
+<p>    CostInBillingCurrency: real,</p>
+<p>    CostCenter: string,</p>
+<p>    ConsumedService: string,</p>
+<p>    ResourceId: string,</p>
+<p>    Tags: dynamic,</p>
+<p>    OfferId: string,</p>
+<p>    IsAzureCreditEligible: string,</p>
+<p>    PartNumber: string,</p>
+<p>    PayGPrice: real,</p>
+<p>    PricingModel: string,</p>
+<p>    ResourceName: string,</p>
+<p>    ServiceFamily: string,</p>
+<p>    UnitPrice: real,</p>
+<p>    // Additional columns as needed</p>
+<p>    IngestionTime: datetime</p>
+<p>)</p>
+
+<p>.create table raw_costs ingestion csv mapping 'CostExportMapping'</p>
+<p>'['</p>
+<p>'{"column":"Date","DataType":"datetime","Properties":{"Ordinal":"0"}},'</p>
+<p>'{"column":"SubscriptionName","DataType":"string","Properties":{"Ordinal":"1"}},'</p>
+<p>'{"column":"ResourceGroup","DataType":"string","Properties":{"Ordinal":"2"}},'</p>
+<p>// ... (continue for all 55+ columns)</p>
+<p>']'</code></pre></p>
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>Schema created in ADX database</li>
+<li>CSV ingestion mapping tested with sample export</li>
+<li>Data types validated (no conversion errors)</li>
+
+</ul><p>---</p>
+
+<h3>Gap 6: Power BI Integration [HIGH]</h3>
+
+<strong>Current State</strong>: No Power BI workspace or reports configured.
+
+<strong>Required Components</strong>:
+<ul><li>Power BI workspace (shared capacity or Premium)</li>
+<li>ADX connection (KQL direct query, not import mode)</li>
+<li>Report templates:</li>
+</ul><p>  1. <strong>Cost Trend Dashboard</strong> (daily/weekly/monthly aggregates)</p>
+<p>  2. <strong>Resource Group Breakdown</strong> (top 10 by spend)</p>
+<p>  3. <strong>Tag Compliance Report</strong> (untagged resources, missing cost center)</p>
+<p>  4. <strong>APIM Allocation Report</strong> (spend by caller app/cost center)</p>
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>Workspace created and access granted to FinOps team</li>
+<li>Sample PBIX connected to ADX and renders data</li>
+<li>Scheduled refresh configured (if using import mode for aggregates)</li>
+
+</ul><p>---</p>
+
+<h3>Gap 7: Governance (Policies & RBAC) [MEDIUM]</h3>
+
+<strong>Current State</strong>: Tags present on marco-sandbox resources but enforcement unknown.
+
+<strong>Required Azure Policies</strong>:
+
+<p>| Policy | Effect | Scope | Parameters |</p>
+<p>|--------|--------|-------|------------|</p>
+<p>| Require CostCenter tag | Deny | Subscription | List of resource types |</p>
+<p>| Require Environment tag | Audit | Subscription | Valid values: dev,stage,prod |</p>
+<p>| Enforce Cost Export | DeployIfNotExists | Subscription | Export to marcosandboxfinopshub |</p>
+<p>| Restrict Storage Firewall | Deny | Sandbox RG | Allow only VNet/Private Endpoints |</p>
+
+<strong>RBAC Requirements</strong> (Managed Identities):
+
+<p>| Identity | Scope | Role | Purpose |</p>
+<p>|----------|-------|------|---------|</p>
+<p>| <code>mi-finops-adf</code> | marcosandboxfinopshub | Storage Blob Data Contributor | Read exports, write processed |</p>
+<p>| <code>mi-finops-adf</code> | marco-finops-adx | Database Ingestor | Ingest to ADX tables |</p>
+<p>| <code>mi-finops-powerbi</code> | marco-finops-adx | Database Viewer | Power BI query access |</p>
+
+<strong>Acceptance Criteria</strong>:
+<ul><li>Policies assigned and compliance dashboard shows results</li>
+<li>Managed identities created and role assignments validated</li>
+<li>Test: Create resource without CostCenter tag → denied</li>
+
+</ul><p>---</p>
+
+<h2>Priority Matrix</h2>
+
+<p>| Gap | Impact | Effort | Priority | Start Phase |</p>
+<p>|-----|--------|--------|----------|-------------|</p>
+<p>| ADX Cluster | CRITICAL | HIGH | 🔴 P0 | Phase 2 |</p>
+<p>| ADF Pipelines | CRITICAL | HIGH | 🔴 P0 | Phase 2 |</p>
+<p>| APIM Attribution | CRITICAL | MEDIUM | 🔴 P0 | Phase 3 |</p>
+<p>| Ingestion Mappings | CRITICAL | MEDIUM | 🔴 P0 | Phase 2 |</p>
+<p>| Storage Hierarchy | HIGH | LOW | 🟡 P1 | Phase 1 |</p>
+<p>| Power BI | HIGH | MEDIUM | 🟡 P1 | Phase 3 |</p>
+<p>| Governance | MEDIUM | MEDIUM | 🟢 P2 | Phase 4 |</p>
+
+<p>---</p>
+
+<h2>Recommended Remediation Sequence</h2>
+
+<h3>Phase 1: Foundation (Weeks 1-2)</h3>
+<ul><li>Create storage container structure (<code>raw/</code>, <code>processed/</code>, <code>archive/</code>)</li>
+<li>Configure Event Grid subscription to ADF (if not present)</li>
+<li>Validate current exports landing correctly</li>
+
+</ul><h3>Phase 2: Analytics Infrastructure (Weeks 3-4)</h3>
+<ul><li>Deploy ADX cluster + database</li>
+<li>Create ingestion mappings and schema</li>
+<li>Deploy ADF pipelines for ingestion</li>
+<li>Test end-to-end: Export → Blob → ADF → ADX</li>
+
+</ul><h3>Phase 3: Attribution & Reports (Weeks 5-7)</h3>
+<ul><li>Implement APIM attribution policies and diagnostics</li>
+<li>Create ADX telemetry ingestion pipeline</li>
+<li>Backfill historical cost data (12 months)</li>
+<li>Deploy Power BI reports</li>
+
+</ul><h3>Phase 4: Hardening (Weeks 8-9)</h3>
+<ul><li>Deploy Azure Policies for tag enforcement</li>
+<li>Enable private endpoints for storage and ADX</li>
+<li>Implement CI/CD for IaC modules</li>
+<li>Conduct security review</li>
+
+</ul><p>---</p>
+
+<h2>Cost Estimate (Incremental Monthly)</h2>
+
+<p>| Resource | SKU/Config | Monthly Cost (CAD) |</p>
+<p>|----------|------------|-------------------|</p>
+<p>| ADX Cluster | Dev (2 nodes D11_v2) | ~$300 |</p>
+<p>| ADF | ~10 pipeline runs/day | ~$20 |</p>
+<p>| Storage (additional) | Processed/Archive containers | ~$10 |</p>
+<p>| Power BI | Shared workspace (existing) | {CONTENT} |</p>
+<p>| <strong>Total Incremental</strong> | | <strong>~$330/month</strong> |</p>
+
+<strong>ROI</strong>: With $297K/month combined spend, even 0.5% optimization (~$1,485/month) pays for infrastructure 4.5x over.
+
+<p>---</p>
+
+<h2>Change Log</h2>
+
+<p>| Date | Author | Change |</p>
+<p>|------|--------|--------|</p>
+<p>| 2026-02-17 08:20 AM ET | Marco Presta | Initial gap analysis with evidence mapping and remediation plan |</p>
+
+<p>---</p>
+
+<strong>Document Status</strong>: Draft (pending inventory script execution for UNKNOWN validation)  
+<strong>Next Review</strong>: 2026-02-24 (after Phase 1 completion)
+
+    </section>
+    
+    <footer>
+        <p><strong>Project:</strong> FinOps Hubs Implementation (marcosandbox)</p>
+        <p><em>Generated: 2026-02-17 13:06</em></p>
+        <p><em>SharePoint-compatible HTML package</em></p>
+    </footer>
+</body>
+</html>

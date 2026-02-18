@@ -1,0 +1,78 @@
+[
+  {
+    "apiRevision": "1",
+    "apiRevisionDescription": null,
+    "apiType": null,
+    "apiVersion": null,
+    "apiVersionDescription": null,
+    "apiVersionSet": null,
+    "apiVersionSetId": null,
+    "authenticationSettings": {
+      "oAuth2": null,
+      "oAuth2AuthenticationSettings": [],
+      "openid": null,
+      "openidAuthenticationSettings": [],
+      "returnProtectedResourceMetadata": false
+    },
+    "contact": null,
+    "description": null,
+    "displayName": "Echo API",
+    "id": "/subscriptions/d2d4e571-e0f2-4f6c-901a-f88f7669bcba/resourceGroups/EsDAICoE-Sandbox/providers/Microsoft.ApiManagement/service/marco-sandbox-apim/apis/echo-api",
+    "isCurrent": true,
+    "isOnline": null,
+    "license": null,
+    "name": "echo-api",
+    "path": "echo",
+    "protocols": [
+      "https"
+    ],
+    "resourceGroup": "EsDAICoE-Sandbox",
+    "serviceUrl": "https://echo.playground.azure-api.net/api",
+    "sourceApiId": null,
+    "subscriptionKeyParameterNames": {
+      "header": "Ocp-Apim-Subscription-Key",
+      "query": "subscription-key"
+    },
+    "subscriptionRequired": true,
+    "termsOfServiceUrl": null,
+    "type": "Microsoft.ApiManagement/service/apis"
+  },
+  {
+    "apiRevision": "1",
+    "apiRevisionDescription": null,
+    "apiType": null,
+    "apiVersion": null,
+    "apiVersionDescription": null,
+    "apiVersionSet": null,
+    "apiVersionSetId": null,
+    "authenticationSettings": {
+      "oAuth2": null,
+      "oAuth2AuthenticationSettings": [],
+      "openid": null,
+      "openidAuthenticationSettings": [],
+      "returnProtectedResourceMetadata": false
+    },
+    "contact": null,
+    "description": null,
+    "displayName": "EVA JP Query API",
+    "id": "/subscriptions/d2d4e571-e0f2-4f6c-901a-f88f7669bcba/resourceGroups/EsDAICoE-Sandbox/providers/Microsoft.ApiManagement/service/marco-sandbox-apim/apis/eva-jp-query-api",
+    "isCurrent": true,
+    "isOnline": null,
+    "license": null,
+    "name": "eva-jp-query-api",
+    "path": "eva-jp/v1",
+    "protocols": [
+      "https"
+    ],
+    "resourceGroup": "EsDAICoE-Sandbox",
+    "serviceUrl": "https://marco-sandbox-backend.azurewebsites.net",
+    "sourceApiId": null,
+    "subscriptionKeyParameterNames": {
+      "header": "Ocp-Apim-Subscription-Key",
+      "query": "subscription-key"
+    },
+    "subscriptionRequired": true,
+    "termsOfServiceUrl": null,
+    "type": "Microsoft.ApiManagement/service/apis"
+  }
+]

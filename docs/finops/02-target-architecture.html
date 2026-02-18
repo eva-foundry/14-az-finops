@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 - Target Architecture (marcosandbox FinOps Hubs)</title>
+    
+    <!-- Mermaid.js for diagram rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+    
+    <style>
+        :root {
+            --primary-color: #0078d4;
+            --secondary-color: #107c10;
+            --accent-color: #ff8c00;
+            --text-color: #323130;
+            --bg-color: #ffffff;
+            --border-color: #e1dfdd;
+            --code-bg: #f3f2f1;
+            --header-bg: #f8f8f8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .metadata {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 6px;
+        }
+        
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .metadata-label {
+            font-size: 0.85em;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        
+        .metadata-value {
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        
+        nav {
+            background: var(--header-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+        }
+        
+        nav h2 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-size: 1.3em;
+        }
+        
+        nav ul {
+            list-style: none;
+            margin-left: 20px;
+        }
+        
+        nav li {
+            margin: 8px 0;
+        }
+        
+        nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        
+        section {
+            margin-bottom: 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-color);
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        h4 {
+            color: var(--accent-color);
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+        
+        th {
+            background: var(--header-bg);
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+            overflow-x: auto;
+        }
+        
+        .diagram-container h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .diagram-container pre.mermaid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+            background: #fafafa;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 20px;
+            text-align: center;
+            overflow: visible;
+        }
+        
+        .diagram-container svg {
+            max-width: 100%;
+            height: autory-color);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .diagram-container object {
+            width: 100%;
+            min-height: 600px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+        
+        .diagram-container img {
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+        
+        code {
+            background: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: var(--code-bg);
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid var(--border-color);
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+        }
+        
+        .design-principles {
+            background: #e7f3ff;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid var(--primary-color);
+            margin: 20px 0;
+        }
+        
+        .design-principles ol {
+            margin-top: 10px;
+        }
+        
+        .design-principles li {
+            margin: 10px 0;
+            font-weight: 500;
+        }
+        
+        .callout {
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid;
+        }
+        
+        .callout.info {
+            background: #e7f3ff;
+            border-color: var(--primary-color);
+        }
+        
+        .callout.success {
+            background: #dff6dd;
+            border-color: var(--secondary-color);
+        }
+        
+        .callout.warning {
+            background: #fff4ce;
+            border-color: var(--accent-color);
+        }
+        
+        .container-structure {
+            background: #f3f2f1;
+            padding: 20px;
+            border-radius: 6px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            white-space: pre;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        .changelog {
+            background: var(--header-bg);
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 30px;
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding: 30px;
+            background: var(--header-bg);
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+                max-width: 100%;
+            }
+            
+            section {
+                page-break-inside: avoid;
+            }
+            
+            .diagram-container {
+                page-break-inside: avoid;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .metadata {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>02 - Target Architecture (marcosandbox FinOps Hubs)</h1>
+        <div class="metadata">
+            <div class="metadata-item">
+                <span class="metadata-label">Document Type</span>
+                <span class="metadata-value">Architecture</span>
+            </div>
+            <div class="metadata-item">
+                <span class="metadata-label">Phase</span>
+                <span class="metadata-value">Design</span>
+            </div>
+            <div class="metadata-item">
+                <span class="metadata-label">Audience</span>
+                <span class="metadata-value">Architects, Engineers, Security</span>
+            </div>
+            <div class="metadata-item">
+                <span class="metadata-label">Last Updated</span>
+                <span class="metadata-value">2026-02-17 08:20 AM ET</span>
+            </div>
+            <div class="metadata-item">
+                <span class="metadata-label">Author</span>
+                <span class="metadata-value">Marco Presta</span>
+            </div>
+            <div class="metadata-item">
+                <span class="metadata-label">Reference</span>
+                <span class="metadata-value">Microsoft FinOps Toolkit v0.3</span>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#overview">Architecture Overview</a></li>
+            <li><a href="#diagram-highlevel">High-Level Architecture Diagram</a></li>
+            <li><a href="#components">Component Details</a>
+                <ul>
+                    <li><a href="#cost-mgmt">Azure Cost Management Exports</a></li>
+                    <li><a href="#storage">ADLS Gen2 Storage</a></li>
+                    <li><a href="#eventgrid">Event Grid System Topic</a></li>
+                    <li><a href="#adf">Azure Data Factory</a></li>
+                    <li><a href="#adx">Azure Data Explorer (ADX)</a></li>
+                    <li><a href="#apim">APIM Attribution Configuration</a></li>
+                    <li><a href="#powerbi">Power BI Reporting</a></li>
+                </ul>
+            </li>
+            <li><a href="#security">Security Architecture</a>
+                <ul>
+                    <li><a href="#diagram-network">Network Isolation Diagram</a></li>
+                    <li><a href="#rbac">RBAC Matrix</a></li>
+                </ul>
+            </li>
+            <li><a href="#lineage">Data Lineage & Quality</a>
+                <ul>
+                    <li><a href="#diagram-lineage">Data Lineage Diagram</a></li>
+                </ul>
+            </li>
+            <li><a href="#dr">Disaster Recovery & Business Continuity</a></li>
+            <li><a href="#cost-opt">Cost Optimization</a></li>
+        </ul>
+    </nav>
+
+    <section id="overview">
+        <h2>Architecture Overview</h2>
+        <p>The target architecture implements a centralized FinOps Hubs pattern with cost data ingestion, normalization, usage attribution via APIM telemetry, and Power BI reporting—all following enterprise security best practices (least-privilege RBAC, private networking, audit logging).</p>
+        
+        <div class="design-principles">
+            <strong>Design Principles:</strong>
+            <ol>
+                <li><strong>Event-Driven:</strong> Storage events trigger automated ingestion (no scheduled polling)</li>
+                <li><strong>Scalable:</strong> ADX handles millions of cost records with sub-second KQL queries</li>
+                <li><strong>Attributable:</strong> APIM policies inject caller identity for chargeback/showback</li>
+                <li><strong>Auditable:</strong> All transformations logged; lineage tracked via checkpoint manifests</li>
+                <li><strong>Secure:</strong> Private endpoints, managed identities, no exposed credentials</li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="diagram-highlevel">
+        <h2>Hdiv class="mermaid">
+flowchart TB
+    subgraph Azure_Subscriptions["Azure Subscriptions"]
+        ESDC_DEV["EsDAICoESub<br/>(Dev/Stage)<br/>$255K/mo"]
+        ESDC_PROD["EsPAICoESub<br/>(Production)<br/>$42K/mo"]
+    end
+    
+    subgraph Cost_Mgmt["Cost Management"]
+        EXPORT1["Daily Export<br/>EsDAICoESub-Daily"]
+        EXPORT2["Daily Export<br/>EsPAICoESub-Daily"]
+    end
+    
+    subgraph Landing_Zone["marcosandboxfinopshub (ADLS Gen2)"]
+        RAW["Container: raw/<br/>Landing zone for exports"]
+        PROCESSED["Container: processed/<br/>Normalized data"]
+        ARCHIVE["Container: archive/<br/>Long-term retention"]
+        CHECKPOINT["Container: checkpoint/<br/>Pipeline state"]
+    end
+    
+    subgraph Event_Orchestration["Event & Orchestration"]
+        EVENTGRID["Event Grid<br/>System Topic"]
+        ADF["Azure Data Factory<br/>marco-sandbox-finops-adf"]
+    end
+    
+    subgraph Analytics["Analytics & Storage"]
+        ADX["Azure Data Explorer<br/>marco-finops-adx"]
+        ADX_DB[("finopsdb<br/>- raw_costs<br/>- normalized_costs<br/>- apim_usage")]
+    end
+    
+    subgraph Usage_Tracking["Usage Attribution"]
+        APIM["Azure APIM<br/>marco-sandbox-apim<br/>(Policy: inject headers)"]
+        APPINS["App Insights<br/>marco-sandbox-appinsights"]
+    end
+    
+    subgraph Reporting["Reporting & Visualization"]
+        PBI["Power BI<br/>KQL Direct Query"]
+        REPORTS["Dashboards:<br/>- Cost Trends<br/>- Allocation by App<br/>- Tag Compliance"]
+    end
+    
+    subgraph Governance["Governance"]
+        POLICY["Azure Policy<br/>- Require Tags<br/>- Enforce Exports"]
+        RBAC["RBAC<br/>Managed Identities"]
+        PRIVATE["Private Endpoints<br/>+ NSGs"]
+    end
+    
+    ESDC_DEV --> EXPORT1
+    ESDC_PROD --> EXPORT2
+    EXPORT1 -->|"CSV (gzip)<br/>55+ columns"| RAW
+    EXPORT2 -->|"CSV (gzip)<br/>55+ columns"| RAW
+    RAW -->|"BlobCreated Event"| EVENTGRID
+    EVENTGRID -->|"Trigger Pipeline"| ADF
+    ADF -->|"1. Decompress<br/>2. Validate Schema<br/>3. Ingest"| ADX_DB
+    ADF -->|"Move processed"| PROCESSED
+    ADF -->|"Save Manifest"| CHECKPOINT
+    
+    APIM -->|"x-costcenter<br/>x-caller-app<br/>x-environment"| APPINS
+    APPINS -->|"Export Logs"| ADF
+    ADF -->|"Ingest telemetry"| ADX_DB
+    
+    ADX -->|"KQL Queries"| PBI
+    PBI --> REPORTS
+    
+    POLICY -.->|"Enforce"| ESDC_DEV
+    POLICY -.->|"Enforce"| ESDC_PROD
+    RBAC -.->|"Authorize"| ADF
+    RBAC -.->|"Authorize"| ADX
+    PRIVATE -.->|"Secure"| Landing_Zone
+    PRIVATE -.->|"Secure"| ADX
+    
+    classDef costMgmt fill:#FFE5B4,stroke:#FF8C00,stroke-width:2px
+    classDef storage fill:#B4D7FF,stroke:#0078D4,stroke-width:2px
+    classDef compute fill:#D4F1D4,stroke:#107C10,stroke-width:2px
+    classDef reporting fill:#FFD4E5,stroke:#E81123,stroke-width:2px
+    classDef security fill:#E5E5E5,stroke:#605E5C,stroke-width:2px
+    
+    class EXPORT1,EXPORT2 costMgmt
+    class RAW,PROCESSED,ARCHIVE,CHECKPOINT storage
+    class ADF,ADX,ADX_DB compute
+    class PBI,REPORTS reporting
+    class POLICY,RBAC,PRIVATE security
+            </divre 1: Complete FinOps Architecture</h3>
+            <object data="02-target-architecture-figure1.svg" type="image/svg+xml">
+                <img src="02-target-architecture-figure1.svg" alt="High-Level Architecture Diagram" />
+            </object>
+        </div>
+        <p>The diagram above illustrates the complete end-to-end flow from Azure Cost Management exports through storage, event orchestration, analytics, and reporting layers, with governance controls applied across all components.</p>
+    </section>
+
+    <section id="components">
+        <h2>Component Details</h2>
+
+        <article id="cost-mgmt">
+            <h3>1. Azure Cost Management Exports</h3>
+            <p><strong>Purpose:</strong> Generate daily cost and usage data at resource-level granularity.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Export</th>
+                        <th>Subscription</th>
+                        <th>Frequency</th>
+                        <th>Format</th>
+                        <th>Destination</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>EsDAICoESub-Daily</td>
+                        <td>d2d4e571-...</td>
+                        <td>Daily 7 AM UTC</td>
+                        <td>CSV (gzip)</td>
+                        <td>marcosandboxfinopshub/raw/costs/EsDAICoESub/{YYYY}/{MM}/</td>
+                    </tr>
+                    <tr>
+                        <td>EsPAICoESub-Daily</td>
+                        <td>802d84ab-...</td>
+                        <td>Daily 7 AM UTC</td>
+                        <td>CSV (gzip)</td>
+                        <td>marcosandboxfinopshub/raw/costs/EsPAICoESub/{YYYY}/{MM}/</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Configuration</h4>
+            <ul>
+                <li><strong>Type:</strong> ActualCost (includes taxes, reservations, Marketplace)</li>
+                <li><strong>Schema Version:</strong> 2024-08-01 (55+ columns)</li>
+                <li><strong>Partition:</strong> Daily (one file per day)</li>
+                <li><strong>Retention:</strong> In-place (no auto-delete; managed by lifecycle policy)</li>
+            </ul>
+
+            <h4>Schema Highlights (key columns)</h4>
+            <ul>
+                <li><code>Date</code>, <code>SubscriptionName</code>, <code>ResourceGroup</code>, <code>ResourceId</code></li>
+                <li><code>CostInBillingCurrency</code>, <code>EffectivePrice</code>, <code>Quantity</code></li>
+                <li><code>MeterCategory</code>, <code>MeterSubCategory</code>, <code>MeterName</code></li>
+                <li><code>Tags</code> (JSON string: <code>{"CostCenter":"X","Application":"Y"}</code>)</li>
+                <li><code>ConsumedService</code>, <code>ResourceLocation</code>, <code>PricingModel</code></li>
+            </ul>
+        </article>
+
+        <article id="storage">
+            <h3>2. ADLS Gen2 Storage (marcosandboxfinopshub)</h3>
+            <p><strong>Purpose:</strong> Centralized landing zone with hierarchical namespace for cost data at multiple processing stages.</p>
+            
+            <h4>Container Structure</h4>
+            <div class="container-structure">marcosandboxfinopshub/
+│
+├── raw/costs/
+│   ├── EsDAICoESub/
+│   │   ├── 2025/
+│   │   │   ├── 02/
+│   │   │   │   ├── 20250201-20250201/{guid}/part_0_0001.csv.gz
+│   │   │   │   ├── 20250202-20250202/{guid}/part_0_0001.csv.gz
+│   │   │   │   └── ...
+│   │   │   ├── 03/
+│   │   │   └── ...
+│   │   └── 2026/
+│   │       └── ...
+│   └── EsPAICoESub/
+│       └── (same structure)
+│
+├── processed/costs/
+│   ├── EsDAICoESub_{YYYY}{MM}{DD}.csv  (decompressed, validated)
+│   └── EsPAICoESub_{YYYY}{MM}{DD}.csv
+│
+├── archive/costs/
+│   └── (moved after 180 days via lifecycle policy)
+│
+└── checkpoint/
+    ├── ingestion_manifest.json  (last processed blob URL + timestamp)
+    └── pipeline_state.json      (high-water mark for backfill)</div>
+
+            <h4>Network Configuration (target)</h4>
+            <ul>
+                <li>Public access: Disabled</li>
+                <li>Private endpoint: Enabled (VNet: vnet-finops-canadacentral)</li>
+                <li>Firewall: Allow only ADF managed identity, DevBox subnet, Power BI service</li>
+                <li>Encryption: Microsoft-managed keys (or Customer-managed key if required)</li>
+            </ul>
+
+            <h4>Lifecycle Management</h4>
+            <ul>
+                <li>Tier <code>raw/</code> to Cool after 90 days</li>
+                <li>Move <code>archive/</code> to Archive tier after 180 days</li>
+                <li>Delete after 7 years (compliance requirement)</li>
+            </ul>
+        </article>
+
+        <article id="eventgrid">
+            <h3>3. Event Grid System Topic</h3>
+            <p><strong>Purpose:</strong> React to blob creation events and trigger ADF ingestion pipeline.</p>
+            
+            <h4>Configuration</h4>
+            <ul>
+                <li><strong>Name:</strong> <code>marcosandboxfinopshub-52dd1c15-63a9-48a2-842e-97bda61d811f</code> (existing)</li>
+                <li><strong>Source:</strong> Microsoft.Storage.StorageAccounts (marcosandboxfinopshub)</li>
+                <li><strong>Event Types:</strong> <code>Microsoft.Storage.BlobCreated</code></li>
+                <li><strong>Filter:</strong> Prefix <code>/raw/costs/</code>, Suffix <code>.csv.gz</code></li>
+            </ul>
+
+            <h4>Event Subscription (to create)</h4>
+            <ul>
+                <li><strong>Name:</strong> <code>finops-ingest-trigger</code></li>
+                <li><strong>Endpoint Type:</strong> Azure Data Factory pipeline webhook</li>
+                <li><strong>Destination:</strong> Pipeline <code>ingest-costs-to-adx</code>, parameter <code>blobUrl</code></li>
+                <li><strong>Retry Policy:</strong> Max 10 retries, 24-hour event TTL</li>
+            </ul>
+        </article>
+
+        <article id="adf">
+            <h3>4. Azure Data Factory (marco-sandbox-finops-adf)</h3>
+            <p><strong>Purpose:</strong> Orchestrate data movement, transformation, and quality checks.</p>
+            
+            <h4>Pipeline 1: ingest-costs-to-adx</h4>
+            <p><strong>Trigger:</strong> Event Grid (blob created)</p>
+            
+            <p><strong>Activities:</strong></p>
+            <ol>
+                <li><strong>Get Blob Metadata</strong> (Web activity)
+                    <ul>
+                        <li>Retrieve blob size, ETag, creation time</li>
+                        <li>Log to checkpoint for idempotency</li>
+                    </ul>
+                </li>
+                <li><strong>Decompress CSV</strong> (Custom activity / Azure Function)
+                    <ul>
+                        <li>Extract .gz to memory stream</li>
+                        <li>Write decompressed CSV to <code>processed/</code></li>
+                    </ul>
+                </li>
+                <li><strong>Validate Schema</strong> (Data flow / Python activity)
+                    <ul>
+                        <li>Check column count (expected 55+)</li>
+                        <li>Validate date format, numeric columns</li>
+                        <li>Abort if validation fails</li>
+                    </ul>
+                </li>
+                <li><strong>Copy to ADX</strong> (Copy activity)
+                    <ul>
+                        <li>Source: Processed CSV blob</li>
+                        <li>Sink: ADX table <code>raw_costs</code></li>
+                        <li>Mapping: Use ingestion mapping <code>CostExportMapping</code></li>
+                    </ul>
+                </li>
+                <li><strong>Update Checkpoint</strong> (Set variable + Blob write)
+                    <ul>
+                        <li>Write manifest: <code>{blobUrl, ingestTime, rowCount, status}</code></li>
+                        <li>Increment high-water mark</li>
+                    </ul>
+                </li>
+                <li><strong>Move to Archive</strong> (Delete activity, conditional)
+                    <ul>
+                        <li>If blob age &gt; 180 days, move to <code>archive/</code> container</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <div class="callout info">
+                <strong>Error Handling:</strong>
+                <ul>
+                    <li>On failure: Log to App Insights, send email alert</li>
+                    <li>Retry: 3 attempts with exponential backoff</li>
+                    <li>Dead-letter: Write failed blobs to <code>checkpoint/failed/</code></li>
+                </ul>
+            </div>
+
+            <h4>Pipeline 2: backfill-historical</h4>
+            <p><strong>Trigger:</strong> Manual or scheduled (one-time)</p>
+            <p><strong>Performance:</strong> ~500 blobs (1 year daily exports × 2 subs) in ~2 hours</p>
+
+            <h4>Pipeline 3: enrich-and-normalize (Optional)</h4>
+            <p><strong>Trigger:</strong> Scheduled (daily 2 AM, after exports complete)</p>
+            <p>Extracts tags, applies business rules, and writes to <code>normalized_costs</code> table.</p>
+        </articlediv class="mermaid">
+graph LR
+    DEVBOX["DevBox<br/>(Subnet: devbox)"]
+    ADF_MI["ADF Managed<br/>Identity"]
+    PBI["Power BI<br/>Service"]
+    
+    PE_STORAGE["Private Endpoint<br/>marcosandboxfinopshub"]
+    PE_ADX["Private Endpoint<br/>marco-finops-adx"]
+    
+    STORAGE["Storage Account"]
+    ADX["ADX Cluster"]
+    
+    DEVBOX -->|"Private DNS"| PE_STORAGE
+    DEVBOX -->|"Private DNS"| PE_ADX
+    ADF_MI -->|"Private Link"| PE_STORAGE
+    ADF_MI -->|"Private Link"| PE_ADX
+    PBI -->|"VNet Integration /<br/>Service Tag"| PE_ADX
+    
+    PE_STORAGE --> STORAGE
+    PE_ADX --> ADX
+    
+    style PE_STORAGE fill:#90EE90
+    style PE_ADX fill:#90EE90
+                </div">
+            <h3>5. Azure Data Explorer (ADX)</h3>
+            <p><strong>Purpose:</strong> High-performance analytics engine for cost data with KQL query interface.</p>
+            
+            <h4>Cluster Configuration</h4>
+            <ul>
+                <li><strong>Name:</strong> <code>marco-finops-adx</code></li>
+                <li><strong>Location:</strong> canadacentral</li>
+                <li><strong>SKU:</strong> Dev (No SLA) - 2 nodes, Engine type D11_v2
+                    <ul>
+                        <li>2 vCPU, 14 GB RAM per node</li>
+                        <li>~$300 CAD/month</li>
+                    </ul>
+                </li>
+                <li><strong>Scaling:</strong> Auto-scale disabled (Dev SKU fixed)</li>
+                <li><strong>Upgrade:</strong> To Standard (SKU E16ads_v5) when query load increases</li>
+            </ul>
+
+            <h4>Database: finopsdb</h4>
+            <p>Contains three main tables:</p>
+            <ul>
+                <li><code>raw_costs</code> - Ingestion target (55+ columns, partitioned by Date)</li>
+                <li><code>normalized_costs</code> - Materialized view with parsed tags</li>
+                <li><code>apim_usage</code> - Telemetry from API Management</li>
+            </ul>
+
+            <div class="callout success">
+                <strong>Key Features:</strong>
+                <ul>
+                    <li>Sub-second KQL queries on millions of records</li>
+                    <li>Continuous export for disaster recovery</li>
+                    <li>Time-based partitioning for efficient queries</li>
+                    <li>5-year retention policy for compliance</li>
+                </ul>
+            </div>
+        </article>
+
+        <article id="apim">
+            <h3>6. APIM Attribution Configuration</h3>
+            <p><strong>Purpose:</strong> Inject caller identification headers and forward to telemetry for cost allocation.</p>
+            
+            <h4>Policy Implementation</h4>
+            <p>Custom policies extract cost center, caller app, and environment from JWT claims or request headers:</p>
+            <ul>
+                <div class="mermaid">
+flowchart TD
+    PORTAL["Azure Cost Export<br/>(Portal)"]
+    RAW["marcosandboxfinopshub/raw/<br/>CSV.gz, 55 columns, daily 7 AM UTC"]
+    EVENTGRID["Event Grid: BlobCreated"]
+    ADF_PIPELINE["ADF Pipeline:<br/>ingest-costs-to-adx"]
+    PROCESSED["marcosandboxfinopshub/processed/<br/>Decompress, Validate Schema"]
+    ADX_RAW["ADX raw_costs table<br/>(ingestion time recorded)"]
+    ADX_NORM["ADX normalized_costs<br/>Materialized View: parse tags<br/>CostCenter, Application extracted"]
+    ADX_FUNC["ADX AllocateCostByApp()<br/>function<br/>Join with apim_usage by timestamp"]
+    PBI["Power BI Reports<br/>KQL DirectQuery"]
+    
+    PORTAL -->|"CSV.gz, 55 columns<br/>daily 7 AM UTC"| RAW
+    RAW -->|"BlobCreated Event"| EVENTGRID
+    EVENTGRID -->|"Trigger Pipeline"| ADF_PIPELINE
+    ADF_PIPELINE -->|"Decompress<br/>Validate Schema"| PROCESSED
+    PROCESSED -->|"Copy Activity<br/>with mapping"| ADX_RAW
+    ADX_RAW -->|"Materialized View<br/>parse tags"| ADX_NORM
+    ADX_NORM -->|"Join with apim_usage<br/>by timestamp"| ADX_FUNC
+    ADX_FUNC -->|"KQL DirectQuery"| PBI
+    
+    classDef source fill:#FFE5B4,stroke:#FF8C00,stroke-width:2px
+    classDef storage fill:#B4D7FF,stroke:#0078D4,stroke-width:2px
+    classDef processing fill:#D4F1D4,stroke:#107C10,stroke-width:2px
+    classDef analytics fill:#E5D4FF,stroke:#8C00FF,stroke-width:2px
+    classDef reporting fill:#FFD4E5,stroke:#E81123,stroke-width:2px
+    
+    class PORTAL source
+    class RAW,PROCESSED storage
+    class EVENTGRID,ADF_PIPELINE processing
+    class ADX_RAW,ADX_NORM,ADX_FUNC analytics
+    class PBI reporting
+                </dive>x-eva-environment</code> - Environment tag (dev/test/prod)</li>
+            </ul>
+
+            <h4>Diagnostics Configuration</h4>
+            <p>Application Insights integration with 100% sampling captures all API calls with custom dimensions for cost allocation queries.</p>
+        </article>
+
+        <article id="powerbi">
+            <h3>7. Power BI Reporting</h3>
+            <p><strong>Purpose:</strong> Executive dashboards and self-service cost analytics.</p>
+            
+            <h4>Workspace: FinOps Analytics</h4>
+            <ul>
+                <li><strong>Data Source:</strong> ADX cluster <code>marco-finops-adx</code>, database <code>finopsdb</code></li>
+                <li><strong>Connection Mode:</strong> DirectQuery (KQL live queries, no import/refresh limits)</li>
+            </ul>
+
+            <h4>Report Categories</h4>
+            <ol>
+                <li><strong>Cost Trend Dashboard</strong> - Daily trends, budget tracking, top spenders</li>
+                <li><strong>APIM Allocation Report</strong> - Cost by caller app, request volume analysis</li>
+                <li><strong>Tag Compliance</strong> - Resource tagging status, untagged resource tracking</li>
+            </ol>
+        </article>
+    </section>
+
+    <section id="security">
+        <h2>Security Architecture</h2>
+
+        <article id="diagram-network">
+            <h3>Network Isolation</h3>
+            <div class="diagram-container">
+                <h3>Figure 2: Private Endpoint Security Model</h3>
+                <object data="02-target-architecture-figure2.svg" type="image/svg+xml">
+                    <img src="02-target-architecture-figure2.svg" alt="Network Isolation Diagram" />
+                </object>
+            </div>
+            <p>All data access flows through private endpoints, eliminating public internet exposure. DevBox, ADF managed identity, and Power BI service access resources exclusively via private links.</p>
+        </article>
+
+        <article id="rbac">
+            <h3>RBAC Matrix</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Identity</th>
+                        <th>Resource</th>
+                        <th>Role</th>
+                        <th>Justification</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>marco.presta@hrsdc-rhdcc.gc.ca</td>
+                        <td>marcosandboxfinopshub</td>
+                        <td>Storage Blob Data Contributor</td>
+                        <td>Manual operations, troubleshooting</td>
+                    </tr>
+                    <tr>
+                        <td>mi-finops-adf</td>
+                        <td>marcosandboxfinopshub</td>
+                        <td>Storage Blob Data Contributor</td>
+                        <td>Read exports, write processed/checkpoint</td>
+                    </tr>
+                    <tr>
+                        <td>mi-finops-adf</td>
+                        <td>marco-finops-adx</td>
+                        <td>Database Ingestor</td>
+                        <td>Write to raw_costs, apim_usage tables</td>
+                    </tr>
+                    <tr>
+                        <td>mi-finops-powerbi</td>
+                        <td>marco-finops-adx</td>
+                        <td>Database Viewer</td>
+                        <td>Read-only query access for reports</td>
+                    </tr>
+                    <tr>
+                        <td>sg-finops-analysts</td>
+                        <td>Power BI Workspace</td>
+                        <td>Contributor</td>
+                        <td>Create and publish reports</td>
+                    </tr>
+                    <tr>
+                        <td>sg-finops-viewers</td>
+                        <td>Power BI Workspace</td>
+                        <td>Viewer</td>
+                        <td>Read-only dashboard access</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+    </section>
+
+    <section id="lineage">
+        <h2>Data Lineage & Quality</h2>
+
+        <article id="diagram-lineage">
+            <h3>Lineage Tracking</h3>
+            <div class="diagram-container">
+                <h3>Figure 3: End-to-End Data Flow with Quality Gates</h3>
+                <object data="02-target-architecture-figure3.svg" type="image/svg+xml">
+                    <img src="02-target-architecture-figure3.svg" alt="Data Lineage Diagram" />
+                </object>
+            </div>
+            <p>Complete audit trail from Azure Portal cost exports through normalization, allocation, and visualization, with quality checkpoints at each transformation stage.</p>
+        </article>
+
+        <h3>Quality Gates</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Stage</th>
+                    <th>Check</th>
+                    <th>Abort Condition</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Export</td>
+                    <td>File size &gt; 0 KB</td>
+                    <td>Empty file (holiday, no usage) → Skip</td>
+                </tr>
+                <tr>
+                    <td>Decompression</td>
+                    <td>Uncompressed size &lt; 10x</td>
+                    <td>Corrupt .gz → Dead-letter</td>
+                </tr>
+                <tr>
+                    <td>Schema Validation</td>
+                    <td>Column count == 55±5</td>
+                    <td>Schema mismatch → Alert & Skip</td>
+                </tr>
+                <tr>
+                    <td>ADX Ingestion</td>
+                    <td>Row count &gt; 0</td>
+                    <td>Zero rows after mapping → Investigation</td>
+                </tr>
+                <tr>
+                    <td>Allocation</td>
+                    <td>APIM telemetry join yield &lt; 80%</td>
+                    <td>Missing headers → Policy audit</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="dr">
+        <h2>Disaster Recovery & Business Continuity</h2>
+
+        <h3>Backup Strategy</h3>
+        <ul>
+            <li><strong>ADX:</strong> Continuous export enabled → Backup to <code>marcosandboxfinopshub/backup/adx/</code>
+                <ul>
+                    <li>Frequency: Every 6 hours</li>
+                    <li>Retention: 90 days</li>
+                </ul>
+            </li>
+            <li><strong>Storage:</strong> GRS (Geo-Redundant Storage) → Auto-replicated to canadaeast</li>
+            <li><strong>ADF Pipelines:</strong> Source-controlled in Git → Redeploy via IaC</li>
+        </ul>
+
+        <div class="callout warning">
+            <strong>Recovery Objectives:</strong>
+            <ul>
+                <li><strong>RPO (Recovery Point Objective):</strong> 6 hours (ADX continuous export interval)</li>
+                <li><strong>RTO (Recovery Time Objective):</strong> 4 hours (redeploy ADX + backfill last 7 days)</li>
+            </ul>
+        </div>
+
+        <h3>Failover Procedures</h3>
+        <h4>ADX Cluster Failure</h4>
+        <ol>
+            <li>Provision new Dev cluster in canadaeast</li>
+            <li>Restore from continuous export backup</li>
+            <li>Update ADF linked service to new cluster</li>
+            <li>Resume ingestion</li>
+        </ol>
+
+        <h4>Storage Failure</h4>
+        <ol>
+            <li>Failover to GRS secondary (read-only until manual failover)</li>
+            <li>Update export destinations to new primary</li>
+            <li>Backfill missing days from secondary</li>
+        </ol>
+    </section>
+
+    <section id="cost-opt">
+        <h2>Cost Optimization</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Optimization</th>
+                    <th>Savings (Monthly)</th>
+                    <th>Implementation Effort</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ADX Dev SKU (vs. Standard)</td>
+                    <td>$700 CAD</td>
+                    <td>Already planned</td>
+                </tr>
+                <tr>
+                    <td>Storage lifecycle (Cool/Archive tiers)</td>
+                    <td>$15-30 CAD</td>
+                    <td>Phase 1 (low effort)</td>
+                </tr>
+                <tr>
+                    <td>ADF pipeline batching (vs. per-blob trigger)</td>
+                    <td>$10 CAD</td>
+                    <td>Phase 2 (medium)</td>
+                </tr>
+                <tr>
+                    <td>APIM caching (reduce call volume)</td>
+                    <td>$5 CAD</td>
+                    <td>Phase 3 (low)</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <div class="changelog">
+        <h2>Change Log</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Author</th>
+                    <th>Change</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2026-02-17 08:20 AM ET</td>
+                    <td>Marco Presta</td>
+                    <td>Initial target architecture with detailed component specs</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p><strong>Document Status:</strong> Approved for implementation</p>
+        <p><strong>Next Review:</strong> 2026-03-17 (after Phase 2 completion)</p>
+        <p><em>Generated from Markdown source: 02-target-architecture.md</em></p>
+        <p><em>HTML version created: 2026-02-17</em></p>
+    </footer>
+</body>
+</html>
