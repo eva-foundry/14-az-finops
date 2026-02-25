@@ -1,4 +1,4 @@
-﻿# GitHub Copilot Instructions Template
+# GitHub Copilot Instructions Template
 
 **Template Version**: 2.1.0  
 **Generated**: January 30, 2026, 2:00 PM EST  
@@ -21,7 +21,7 @@
 - Enhanced placeholder syntax with examples: `[TODO: Add X - e.g., value format]`
 - Quick Commands Table (action-oriented lookup)
 - Azure Resource Inventory (subscription IDs, resource groups)
-- Anti-Patterns sections (❌ FORBIDDEN patterns with explanations)
+- Anti-Patterns sections ([x] FORBIDDEN patterns with explanations)
 - Success Criteria / Testable Goals
 - Performance/Timing Expectations
 - Deployment Status & Known Issues tracking
@@ -149,9 +149,9 @@
 **Examples**:
 ```python
 # [FORBIDDEN] Will crash in enterprise Windows
-print("✓ Success")  # Unicode checkmark - NEVER
-print("❌ Failed")   # Unicode X - NEVER
-print("⏳ Wait…")    # Unicode symbols - NEVER
+print(" Success")  # Unicode checkmark - NEVER
+print("[x] Failed")   # Unicode X - NEVER
+print(" Wait...")    # Unicode symbols - NEVER
 
 # [REQUIRED] ASCII-only alternatives
 print("[PASS] Success")
@@ -971,13 +971,13 @@ def get_available_http_client():
 **Virtual Environment Best Practice**: One .venv per project root (not per subproject)
 ```
 project-root/
-├── .venv/                    # ✅ Single venv at root
-├── scripts/
-│   └── Download-Offline-Packages.ps1
-└── offline-packages/         # ✅ Portable package cache
-    ├── *.whl
-    ├── Install-Offline.ps1
-    └── INSTALLATION-INSTRUCTIONS.txt
+ .venv/                    # [x] Single venv at root
+ scripts/
+    Download-Offline-Packages.ps1
+ offline-packages/         # [x] Portable package cache
+     *.whl
+     Install-Offline.ps1
+     INSTALLATION-INSTRUCTIONS.txt
 ```
 
 ### Workspace Housekeeping Principles
@@ -993,25 +993,25 @@ project-root/
   - `comparison-reports/` - Automated comparison outputs
   - `automation/` - Code generation scripts
 
-**Pattern**: If referenced in copilot-instructions.md or used for AI context → belongs in `docs/eva-foundation/`
+**Pattern**: If referenced in copilot-instructions.md or used for AI context -> belongs in `docs/eva-foundation/`
 
 **File Organization Rules**:
-1. **Logs** → `logs/{category}/`
+1. **Logs** -> `logs/{category}/`
    - `logs/deployment/terraform/` - Terraform logs
    - `logs/deployment/` - Deployment logs
    - `logs/tests/` - Test output
 
-2. **Scripts** → `scripts/{category}/`
+2. **Scripts** -> `scripts/{category}/`
    - `scripts/deployment/` - Deploy, build, infrastructure
    - `scripts/testing/` - Test runners, evidence capture
    - `scripts/setup/` - Installation, configuration
    - `scripts/diagnostics/` - Health checks, validation
    - `scripts/housekeeping/` - Workspace organization
 
-3. **Documentation** → `docs/{category}/`
-   - Implementation docs → `docs/eva-foundation/projects/{project-name}/`
-   - Deployment guides → `docs/deployment/`
-   - Debug sessions → `docs/eva-foundation/projects/{session-name}-debug/`
+3. **Documentation** -> `docs/{category}/`
+   - Implementation docs -> `docs/eva-foundation/projects/{project-name}/`
+   - Deployment guides -> `docs/deployment/`
+   - Debug sessions -> `docs/eva-foundation/projects/{session-name}-debug/`
 
 **Naming Conventions**:
 - **Scripts**: `verb-noun.ps1` (lowercase-with-dashes)
@@ -1183,22 +1183,22 @@ See [PART 2: {PROJECT_NAME} Project Specific](#part-2-project-name-project-speci
 
 ```
 14-az-finops/
-├── scripts/
-│   ├── extract_costs_sdk.py       # Azure SDK cost extraction (267 lines, <1 min)
-│   ├── azure_inventory.py         # Resource inventory + tag compliance (214 lines)
-│   ├── Deploy-FinOpsHub.ps1       # Microsoft FinOpsToolkit deployment
-│   ├── Validate-Prerequisites.ps1 # Pre-flight environment validation
-│   └── test_setup.py              # Dependency testing
-├── portal-exports/
-│   ├── api-extracted/             # SDK output (CSV + JSON)
-│   └── inventory/                 # Resource inventory data
-├── archive/
-│   └── v1-manual-approach/        # Legacy 883-line PowerShell scripts (superseded)
-├── README.md                      # Project status and quick start (402 lines)
-├── requirements.txt               # Python dependencies (Azure SDK)
-├── WHEN-TO-USE-WHAT.md           # Tool selection decision matrix
-├── DEPLOYMENT-SUCCESS-20260129.md # FinOps Hub deployment evidence
-└── PERMISSION-BLOCKER-20260129.md # EsDAICoESub credential escalation tracker
+ scripts/
+    extract_costs_sdk.py       # Azure SDK cost extraction (267 lines, <1 min)
+    azure_inventory.py         # Resource inventory + tag compliance (214 lines)
+    Deploy-FinOpsHub.ps1       # Microsoft FinOpsToolkit deployment
+    Validate-Prerequisites.ps1 # Pre-flight environment validation
+    test_setup.py              # Dependency testing
+ portal-exports/
+    api-extracted/             # SDK output (CSV + JSON)
+    inventory/                 # Resource inventory data
+ archive/
+    v1-manual-approach/        # Legacy 883-line PowerShell scripts (superseded)
+ README.md                      # Project status and quick start (402 lines)
+ requirements.txt               # Python dependencies (Azure SDK)
+ WHEN-TO-USE-WHAT.md           # Tool selection decision matrix
+ DEPLOYMENT-SUCCESS-20260129.md # FinOps Hub deployment evidence
+ PERMISSION-BLOCKER-20260129.md # EsDAICoESub credential escalation tracker
 ```
 
 ### Development Workflows
@@ -1331,8 +1331,8 @@ df.to_csv("portal-exports/api-extracted/costs_YYYYMMDD.csv", index=False)
 ```
 
 **Key Benefits**:
-- 64% code reduction (1,321 lines → 481 lines)
-- 95% time savings (12-19 minutes → 1 minute)
+- 64% code reduction (1,321 lines -> 481 lines)
+- 95% time savings (12-19 minutes -> 1 minute)
 - Zero manual portal interaction
 - Programmatic date range selection
 
@@ -1368,29 +1368,29 @@ az costmanagement export execute `
 ```
 
 **Data Coverage**:
-- Seed Data (SDK): Feb 1, 2025 → Dec 31, 2025 (~11 months, one-time bulk)
-- Daily Export: Jan 1, 2026 → ongoing (automated daily updates)
+- Seed Data (SDK): Feb 1, 2025 -> Dec 31, 2025 (~11 months, one-time bulk)
+- Daily Export: Jan 1, 2026 -> ongoing (automated daily updates)
 - Total: ~13 months continuous MarcoSub data
 
 **Storage Structure**:
 ```
 evafinopshueodbqqq6g72kc/
-├── msexports/
-│   └── MarcoSub/                    # Daily exports
-│       ├── 20260130/ActualCost_*.csv
-│       └── 20260131/ActualCost_*.csv
-├── ingestion/
-│   ├── FocusCost/                   # FOCUS normalized data
-│   │   ├── year=2026/month=01/*.parquet
-│   │   └── year=2025/month=02-12/*.parquet
-│   └── Costs/                       # Merged seed + daily
-└── seed-data/                       # Historical bulk load archive
-    └── costs_20260130_seed.csv
+ msexports/
+    MarcoSub/                    # Daily exports
+        20260130/ActualCost_*.csv
+        20260131/ActualCost_*.csv
+ ingestion/
+    FocusCost/                   # FOCUS normalized data
+       year=2026/month=01/*.parquet
+       year=2025/month=02-12/*.parquet
+    Costs/                       # Merged seed + daily
+ seed-data/                       # Historical bulk load archive
+     costs_20260130_seed.csv
 ```
 
-#### Pattern 3: Multi-Subscription Management (Dev → Prod Replication)
+#### Pattern 3: Multi-Subscription Management (Dev -> Prod Replication)
 
-⚠️ **DEPRECATED (2026-01-31):** Cross-tenant data transfer not supported. Current scope is **MarcoSub-only** development and validation.
+[WARN] **DEPRECATED (2026-01-31):** Cross-tenant data transfer not supported. Current scope is **MarcoSub-only** development and validation.
 
 **User Decision (2026-01-31):** "we are not doing daicoesub or paicoesub. that is old. i cannot transfer data across tenant. decision is to leave dev and prod costs in the backlog and do it all in marcosub"
 
@@ -1713,8 +1713,8 @@ az storage blob list `
 **Performance Metrics**:
 - **SDK Extraction**: <1 minute for 30 days, 1-2 minutes for 11 months
 - **FinOps Hub Pipeline**: 5-10 minutes (ingestion + transformation + FOCUS normalization)
-- **Code Efficiency**: 64% reduction (883 lines PowerShell → 267 lines Python)
-- **Time Savings**: 95% faster (12-19 min manual → 1 min SDK)
+- **Code Efficiency**: 64% reduction (883 lines PowerShell -> 267 lines Python)
+- **Time Savings**: 95% faster (12-19 min manual -> 1 min SDK)
 
 **Optimization Tips**:
 1. Use SDK for exploratory analysis, FinOps Hub for recurring reporting

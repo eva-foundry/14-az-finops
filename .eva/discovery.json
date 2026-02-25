@@ -1,0 +1,1272 @@
+{
+  "meta": {
+    "schema": "eva.discovery.v2",
+    "generated_at": "2026-02-25T21:00:36.576Z",
+    "repo": "C:\\AICOE\\eva-foundation\\14-az-finops"
+  },
+  "project": null,
+  "planned": {
+    "epic": {
+      "title": "Azure FinOps - ESDC Cost Management",
+      "source": "README.md"
+    },
+    "features": [
+      {
+        "id": "F14-01",
+        "title": "?? **NEW: Phase 1 FinOps Enterprise Roadmap (February 17, 2026)**",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-02",
+        "title": "Current Status (February 17, 2026)",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-03",
+        "title": "Subscriptions",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-04",
+        "title": "Permission Model",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-05",
+        "title": "Project Structure",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-06",
+        "title": "Deployment Roadmap",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-07",
+        "title": "Quick Start",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-08",
+        "title": "Lessons Learned (Audit Summary)",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-09",
+        "title": "?? Documentation Quick Links",
+        "source": "veritas-plan.json"
+      }
+    ],
+    "stories": [
+      {
+        "id": "F14-01-001",
+        "title": "Comprehensive Documentation Delivered",
+        "feature_id": "F14-01",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-02-001",
+        "title": "What Works",
+        "feature_id": "F14-02",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-02-002",
+        "title": "What Does NOT Work",
+        "feature_id": "F14-02",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-02-003",
+        "title": "Active Exports",
+        "feature_id": "F14-02",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-06-001",
+        "title": "? Phase 0: Data Collection Foundation (COMPLETE - Feb 16, 2026)",
+        "feature_id": "F14-06",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-06-002",
+        "title": "?? Phase 1: Storage Foundation (Weeks 1-2, 13 Story Points)",
+        "feature_id": "F14-06",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-06-003",
+        "title": "?? Phase 2: Analytics & Ingestion (Weeks 3-4, 21 Story Points)",
+        "feature_id": "F14-06",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-06-004",
+        "title": "?? Phase 3: APIM Attribution & Telemetry (Weeks 5-7, 13 Story Points)",
+        "feature_id": "F14-06",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-06-005",
+        "title": "?? Phase 4: Reporting & Governance (Weeks 8-9, 21 Story Points)",
+        "feature_id": "F14-06",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-06-006",
+        "title": "?? Deployment Timeline Summary",
+        "feature_id": "F14-06",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-07-001",
+        "title": "Ad-Hoc Cost Query (Small Date Ranges)",
+        "feature_id": "F14-07",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-07-002",
+        "title": "Configure Daily Export (Portal)",
+        "feature_id": "F14-07",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-07-003",
+        "title": "Historical Backfill (REST API)",
+        "feature_id": "F14-07",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-08-001",
+        "title": "Extraction Attempt Timeline",
+        "feature_id": "F14-08",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-09-001",
+        "title": "For Implementation Teams",
+        "feature_id": "F14-09",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-09-002",
+        "title": "For Executives",
+        "feature_id": "F14-09",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F14-09-003",
+        "title": "For Auditors",
+        "feature_id": "F14-09",
+        "source": "veritas-plan.json"
+      }
+    ],
+    "tasks": [],
+    "acceptance": [],
+    "declared_status": {}
+  },
+  "actual": {
+    "artifacts": [
+      {
+        "path": ".gitignore",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "BEST-PRACTICES.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "PLAN.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "README.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "requirements.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": ".github/.project07-compliance-report.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/.project07-deployment-report.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/copilot-instructions.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/BACKFILL-TEST-RESULTS.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/EXPORTATION-BEST-PRACTICES.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/RATE-LIMITING-BEST-PRACTICES.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/azure_inventory.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/Backfill-Costs-PowerShell.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/Backfill-Costs-REST.ps1",
+        "type": "code",
+        "story_tags": [
+          "F14-07-003"
+        ]
+      },
+      {
+        "path": "scripts/Configure-EsDAICoESub-CostExport.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/Configure-EsPAICoESub-CostExport.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/Create-Monthly-Exports-EsPAICoESub.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/Create-Monthly-Exports.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/Download-Monthly-Exports-EsPAICoESub.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/Download-Monthly-Exports.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/extract_costs_sdk.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/README-MONTHLY-EXPORTS.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/README.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/.project07-backups/copilot-instructions.md.backup_20260130_081244",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": ".github/.project07-backups/copilot-instructions.md.backup_20260130_082747",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": ".github/.project07-backups/copilot-instructions.md.backup_20260130_082754",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": ".github/.project07-backups/copilot-instructions.md.backup_20260130_082928",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": ".github/.project07-backups/copilot-instructions.md.backup_20260130_163225",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/00-0-chatgpt-comparison.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/00-0-chatgpt-prompt.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/00-0-chatgpt-skills-FinOps-Implementation.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/00-current-state-inventory.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/00-current-state-inventory.pdf",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/01-gap-analysis-finops-hubs.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/01-gap-analysis-finops-hubs.pdf",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/02-target-architecture-diagrams-README.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/02-target-architecture-embedded.html",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/02-target-architecture-figure1.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/02-target-architecture-figure1.mmd",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/02-target-architecture-figure1.png",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/02-target-architecture-figure1.svg",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/02-target-architecture-figure2.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/02-target-architecture-figure2.mmd",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/02-target-architecture-figure2.png",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/02-target-architecture-figure2.svg",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/02-target-architecture-figure3.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/02-target-architecture-figure3.mmd",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/02-target-architecture-figure3.png",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/02-target-architecture-figure3.svg",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/02-target-architecture-fixed.html",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/02-target-architecture-sharepoint.html",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/02-target-architecture.html",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/02-target-architecture.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/02-target-architecture.pdf",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/03-deployment-plan.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/03-deployment-plan.pdf",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/04-backlog.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/04-backlog.pdf",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/05-evidence-pack.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/05-evidence-pack.pdf",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/create-embedded-html.ps1",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/create-sharepoint-package.ps1",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/images-base64.json",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/PHASE1-DEPLOYMENT-CHECKLIST.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/README.html",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/README.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/README.pdf",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/azure_common-1.1.28-py2.py3-none-any.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/azure_core-1.38.0-py3-none-any.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/azure_identity-1.25.1-py3-none-any.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/azure_mgmt_core-1.6.0-py3-none-any.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/azure_mgmt_costmanagement-4.0.1-py3-none-any.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/azure_mgmt_resource-24.0.0-py3-none-any.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/certifi-2026.1.4-py3-none-any.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/cffi-2.0.0-cp313-cp313-win_amd64.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/charset_normalizer-3.4.4-cp313-cp313-win_amd64.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/cryptography-46.0.4-cp311-abi3-win_amd64.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/idna-3.11-py3-none-any.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/Install-Offline.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/INSTALLATION-INSTRUCTIONS.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/isodate-0.7.2-py3-none-any.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/msal-1.34.0-py3-none-any.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/msal_extensions-1.3.1-py3-none-any.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/numpy-2.4.1-cp313-cp313-win_amd64.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/pandas-3.0.0-cp313-cp313-win_amd64.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/pycparser-3.0-py3-none-any.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/PyJWT-2.10.1-py3-none-any.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/pyjwt-2.11.0-py3-none-any.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/python_dateutil-2.9.0.post0-py2.py3-none-any.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/requests-2.32.5-py3-none-any.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/six-1.17.0-py2.py3-none-any.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/typing_extensions-4.15.0-py3-none-any.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/tzdata-2025.3-py2.py3-none-any.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/offline-packages/urllib3-2.6.3-py3-none-any.whl",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/pipelines/AggregateByResource.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/pipelines/IngestDailyCosts.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/pipelines/README-PIPELINES.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/pipelines/TransformCostData.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "tools/finops/az-inventory-finops.ps1",
+        "type": "code",
+        "story_tags": [
+          "F14-01-001",
+          "F14-02-001",
+          "F14-02-002",
+          "F14-02-003",
+          "F14-06-001",
+          "F14-06-002",
+          "F14-06-003",
+          "F14-06-004",
+          "F14-06-005",
+          "F14-06-006",
+          "F14-07-001",
+          "F14-07-002",
+          "F14-08-001",
+          "F14-09-001",
+          "F14-09-002",
+          "F14-09-003"
+        ]
+      },
+      {
+        "path": "docs/finops/sharepoint-package/00-current-state-inventory.html",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/sharepoint-package/01-gap-analysis-finops-hubs.html",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/sharepoint-package/02-target-architecture-embedded.html",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/sharepoint-package/03-deployment-plan.html",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/sharepoint-package/04-backlog.html",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/sharepoint-package/05-evidence-pack.html",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/sharepoint-package/create-single-page.ps1",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/sharepoint-package/FinOps-Documentation-SinglePage.html",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/sharepoint-package/fix-sharepoint-links.ps1",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/sharepoint-package/IMPLEMENTATION-SUMMARY.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/sharepoint-package/index.html",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/sharepoint-package/NAVIGATION-FIX-GUIDE.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/sharepoint-package/PDCA-EVIDENCE-REPORT.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/sharepoint-package/PHASE1-DEPLOYMENT-CHECKLIST.html",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/sharepoint-package/README.txt",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/sharepoint-package/SHAREPOINT-DEPLOYMENT-CHECKLIST.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/sharepoint-package/test-navigation.ps1",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "tools/finops/out/adf-factories-20260217-090932.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "tools/finops/out/apim-apis-20260217-090932.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "tools/finops/out/apim-instances-20260217-090932.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "tools/finops/out/apim-loggers-20260217-090932.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "tools/finops/out/appinsights-20260217-090932.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "tools/finops/out/cost-exports-802d84ab-3189-4221-8453-fcc30c8dc8ea-20260217-090932.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "tools/finops/out/cost-exports-d2d4e571-e0f2-4f6c-901a-f88f7669bcba-20260217-090932.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "tools/finops/out/eventgrid-subscriptions-20260217-090932.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "tools/finops/out/eventgrid-system-topics-20260217-090932.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "tools/finops/out/storage-accounts-20260217-090932.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "tools/finops/out/storage-containers-20260217-090932.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "tools/finops/out/storage-rbac-20260217-090932.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/sharepoint-package/test-evidence/test-results-20260217-133603.csv",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops/sharepoint-package/test-evidence/test-results-20260217-133650.csv",
+        "type": "doc",
+        "story_tags": []
+      }
+    ],
+    "story_artifact_map": {
+      "F14-07-003": {
+        "artifacts": [
+          {
+            "path": "scripts/Backfill-Costs-REST.ps1",
+            "type": "code",
+            "story_tags": [
+              "F14-07-003"
+            ]
+          }
+        ]
+      },
+      "F14-01-001": {
+        "artifacts": [
+          {
+            "path": "tools/finops/az-inventory-finops.ps1",
+            "type": "code",
+            "story_tags": [
+              "F14-01-001",
+              "F14-02-001",
+              "F14-02-002",
+              "F14-02-003",
+              "F14-06-001",
+              "F14-06-002",
+              "F14-06-003",
+              "F14-06-004",
+              "F14-06-005",
+              "F14-06-006",
+              "F14-07-001",
+              "F14-07-002",
+              "F14-08-001",
+              "F14-09-001",
+              "F14-09-002",
+              "F14-09-003"
+            ]
+          }
+        ]
+      },
+      "F14-02-001": {
+        "artifacts": [
+          {
+            "path": "tools/finops/az-inventory-finops.ps1",
+            "type": "code",
+            "story_tags": [
+              "F14-01-001",
+              "F14-02-001",
+              "F14-02-002",
+              "F14-02-003",
+              "F14-06-001",
+              "F14-06-002",
+              "F14-06-003",
+              "F14-06-004",
+              "F14-06-005",
+              "F14-06-006",
+              "F14-07-001",
+              "F14-07-002",
+              "F14-08-001",
+              "F14-09-001",
+              "F14-09-002",
+              "F14-09-003"
+            ]
+          }
+        ]
+      },
+      "F14-02-002": {
+        "artifacts": [
+          {
+            "path": "tools/finops/az-inventory-finops.ps1",
+            "type": "code",
+            "story_tags": [
+              "F14-01-001",
+              "F14-02-001",
+              "F14-02-002",
+              "F14-02-003",
+              "F14-06-001",
+              "F14-06-002",
+              "F14-06-003",
+              "F14-06-004",
+              "F14-06-005",
+              "F14-06-006",
+              "F14-07-001",
+              "F14-07-002",
+              "F14-08-001",
+              "F14-09-001",
+              "F14-09-002",
+              "F14-09-003"
+            ]
+          }
+        ]
+      },
+      "F14-02-003": {
+        "artifacts": [
+          {
+            "path": "tools/finops/az-inventory-finops.ps1",
+            "type": "code",
+            "story_tags": [
+              "F14-01-001",
+              "F14-02-001",
+              "F14-02-002",
+              "F14-02-003",
+              "F14-06-001",
+              "F14-06-002",
+              "F14-06-003",
+              "F14-06-004",
+              "F14-06-005",
+              "F14-06-006",
+              "F14-07-001",
+              "F14-07-002",
+              "F14-08-001",
+              "F14-09-001",
+              "F14-09-002",
+              "F14-09-003"
+            ]
+          }
+        ]
+      },
+      "F14-06-001": {
+        "artifacts": [
+          {
+            "path": "tools/finops/az-inventory-finops.ps1",
+            "type": "code",
+            "story_tags": [
+              "F14-01-001",
+              "F14-02-001",
+              "F14-02-002",
+              "F14-02-003",
+              "F14-06-001",
+              "F14-06-002",
+              "F14-06-003",
+              "F14-06-004",
+              "F14-06-005",
+              "F14-06-006",
+              "F14-07-001",
+              "F14-07-002",
+              "F14-08-001",
+              "F14-09-001",
+              "F14-09-002",
+              "F14-09-003"
+            ]
+          }
+        ]
+      },
+      "F14-06-002": {
+        "artifacts": [
+          {
+            "path": "tools/finops/az-inventory-finops.ps1",
+            "type": "code",
+            "story_tags": [
+              "F14-01-001",
+              "F14-02-001",
+              "F14-02-002",
+              "F14-02-003",
+              "F14-06-001",
+              "F14-06-002",
+              "F14-06-003",
+              "F14-06-004",
+              "F14-06-005",
+              "F14-06-006",
+              "F14-07-001",
+              "F14-07-002",
+              "F14-08-001",
+              "F14-09-001",
+              "F14-09-002",
+              "F14-09-003"
+            ]
+          }
+        ]
+      },
+      "F14-06-003": {
+        "artifacts": [
+          {
+            "path": "tools/finops/az-inventory-finops.ps1",
+            "type": "code",
+            "story_tags": [
+              "F14-01-001",
+              "F14-02-001",
+              "F14-02-002",
+              "F14-02-003",
+              "F14-06-001",
+              "F14-06-002",
+              "F14-06-003",
+              "F14-06-004",
+              "F14-06-005",
+              "F14-06-006",
+              "F14-07-001",
+              "F14-07-002",
+              "F14-08-001",
+              "F14-09-001",
+              "F14-09-002",
+              "F14-09-003"
+            ]
+          }
+        ]
+      },
+      "F14-06-004": {
+        "artifacts": [
+          {
+            "path": "tools/finops/az-inventory-finops.ps1",
+            "type": "code",
+            "story_tags": [
+              "F14-01-001",
+              "F14-02-001",
+              "F14-02-002",
+              "F14-02-003",
+              "F14-06-001",
+              "F14-06-002",
+              "F14-06-003",
+              "F14-06-004",
+              "F14-06-005",
+              "F14-06-006",
+              "F14-07-001",
+              "F14-07-002",
+              "F14-08-001",
+              "F14-09-001",
+              "F14-09-002",
+              "F14-09-003"
+            ]
+          }
+        ]
+      },
+      "F14-06-005": {
+        "artifacts": [
+          {
+            "path": "tools/finops/az-inventory-finops.ps1",
+            "type": "code",
+            "story_tags": [
+              "F14-01-001",
+              "F14-02-001",
+              "F14-02-002",
+              "F14-02-003",
+              "F14-06-001",
+              "F14-06-002",
+              "F14-06-003",
+              "F14-06-004",
+              "F14-06-005",
+              "F14-06-006",
+              "F14-07-001",
+              "F14-07-002",
+              "F14-08-001",
+              "F14-09-001",
+              "F14-09-002",
+              "F14-09-003"
+            ]
+          }
+        ]
+      },
+      "F14-06-006": {
+        "artifacts": [
+          {
+            "path": "tools/finops/az-inventory-finops.ps1",
+            "type": "code",
+            "story_tags": [
+              "F14-01-001",
+              "F14-02-001",
+              "F14-02-002",
+              "F14-02-003",
+              "F14-06-001",
+              "F14-06-002",
+              "F14-06-003",
+              "F14-06-004",
+              "F14-06-005",
+              "F14-06-006",
+              "F14-07-001",
+              "F14-07-002",
+              "F14-08-001",
+              "F14-09-001",
+              "F14-09-002",
+              "F14-09-003"
+            ]
+          }
+        ]
+      },
+      "F14-07-001": {
+        "artifacts": [
+          {
+            "path": "tools/finops/az-inventory-finops.ps1",
+            "type": "code",
+            "story_tags": [
+              "F14-01-001",
+              "F14-02-001",
+              "F14-02-002",
+              "F14-02-003",
+              "F14-06-001",
+              "F14-06-002",
+              "F14-06-003",
+              "F14-06-004",
+              "F14-06-005",
+              "F14-06-006",
+              "F14-07-001",
+              "F14-07-002",
+              "F14-08-001",
+              "F14-09-001",
+              "F14-09-002",
+              "F14-09-003"
+            ]
+          }
+        ]
+      },
+      "F14-07-002": {
+        "artifacts": [
+          {
+            "path": "tools/finops/az-inventory-finops.ps1",
+            "type": "code",
+            "story_tags": [
+              "F14-01-001",
+              "F14-02-001",
+              "F14-02-002",
+              "F14-02-003",
+              "F14-06-001",
+              "F14-06-002",
+              "F14-06-003",
+              "F14-06-004",
+              "F14-06-005",
+              "F14-06-006",
+              "F14-07-001",
+              "F14-07-002",
+              "F14-08-001",
+              "F14-09-001",
+              "F14-09-002",
+              "F14-09-003"
+            ]
+          }
+        ]
+      },
+      "F14-08-001": {
+        "artifacts": [
+          {
+            "path": "tools/finops/az-inventory-finops.ps1",
+            "type": "code",
+            "story_tags": [
+              "F14-01-001",
+              "F14-02-001",
+              "F14-02-002",
+              "F14-02-003",
+              "F14-06-001",
+              "F14-06-002",
+              "F14-06-003",
+              "F14-06-004",
+              "F14-06-005",
+              "F14-06-006",
+              "F14-07-001",
+              "F14-07-002",
+              "F14-08-001",
+              "F14-09-001",
+              "F14-09-002",
+              "F14-09-003"
+            ]
+          }
+        ]
+      },
+      "F14-09-001": {
+        "artifacts": [
+          {
+            "path": "tools/finops/az-inventory-finops.ps1",
+            "type": "code",
+            "story_tags": [
+              "F14-01-001",
+              "F14-02-001",
+              "F14-02-002",
+              "F14-02-003",
+              "F14-06-001",
+              "F14-06-002",
+              "F14-06-003",
+              "F14-06-004",
+              "F14-06-005",
+              "F14-06-006",
+              "F14-07-001",
+              "F14-07-002",
+              "F14-08-001",
+              "F14-09-001",
+              "F14-09-002",
+              "F14-09-003"
+            ]
+          }
+        ]
+      },
+      "F14-09-002": {
+        "artifacts": [
+          {
+            "path": "tools/finops/az-inventory-finops.ps1",
+            "type": "code",
+            "story_tags": [
+              "F14-01-001",
+              "F14-02-001",
+              "F14-02-002",
+              "F14-02-003",
+              "F14-06-001",
+              "F14-06-002",
+              "F14-06-003",
+              "F14-06-004",
+              "F14-06-005",
+              "F14-06-006",
+              "F14-07-001",
+              "F14-07-002",
+              "F14-08-001",
+              "F14-09-001",
+              "F14-09-002",
+              "F14-09-003"
+            ]
+          }
+        ]
+      },
+      "F14-09-003": {
+        "artifacts": [
+          {
+            "path": "tools/finops/az-inventory-finops.ps1",
+            "type": "code",
+            "story_tags": [
+              "F14-01-001",
+              "F14-02-001",
+              "F14-02-002",
+              "F14-02-003",
+              "F14-06-001",
+              "F14-06-002",
+              "F14-06-003",
+              "F14-06-004",
+              "F14-06-005",
+              "F14-06-006",
+              "F14-07-001",
+              "F14-07-002",
+              "F14-08-001",
+              "F14-09-001",
+              "F14-09-002",
+              "F14-09-003"
+            ]
+          }
+        ]
+      }
+    },
+    "commit_evidence_map": {},
+    "code_complexity": {}
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "schema": "eva.veritas-plan.v1",
+  "generated_at": "2026-02-25T06:37:07.845Z",
+  "generated_from": [
+    "PLAN.md"
+  ],
+  "format_detected": "veritas",
+  "prefix": "F14",
+  "features": [
+    {
+      "id": "F14-01",
+      "title": "?? **NEW: Phase 1 FinOps Enterprise Roadmap (February 17, 2026)**",
+      "source_heading": "## Feature: ?? **NEW: Phase 1 FinOps Enterprise Roadmap (February 17, 2026)** [ID=F14-01]",
+      "stories": [
+        {
+          "id": "F14-01-001",
+          "title": "Comprehensive Documentation Delivered",
+          "feature_id": "F14-01",
+          "source": "heading",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "F14-02",
+      "title": "Current Status (February 17, 2026)",
+      "source_heading": "## Feature: Current Status (February 17, 2026) [ID=F14-02]",
+      "stories": [
+        {
+          "id": "F14-02-001",
+          "title": "What Works",
+          "feature_id": "F14-02",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F14-02-002",
+          "title": "What Does NOT Work",
+          "feature_id": "F14-02",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F14-02-003",
+          "title": "Active Exports",
+          "feature_id": "F14-02",
+          "source": "heading",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "F14-03",
+      "title": "Subscriptions",
+      "source_heading": "## Feature: Subscriptions [ID=F14-03]",
+      "stories": []
+    },
+    {
+      "id": "F14-04",
+      "title": "Permission Model",
+      "source_heading": "## Feature: Permission Model [ID=F14-04]",
+      "stories": []
+    },
+    {
+      "id": "F14-05",
+      "title": "Project Structure",
+      "source_heading": "## Feature: Project Structure [ID=F14-05]",
+      "stories": []
+    },
+    {
+      "id": "F14-06",
+      "title": "Deployment Roadmap",
+      "source_heading": "## Feature: Deployment Roadmap [ID=F14-06]",
+      "stories": [
+        {
+          "id": "F14-06-001",
+          "title": "? Phase 0: Data Collection Foundation (COMPLETE - Feb 16, 2026)",
+          "feature_id": "F14-06",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F14-06-002",
+          "title": "?? Phase 1: Storage Foundation (Weeks 1-2, 13 Story Points)",
+          "feature_id": "F14-06",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F14-06-003",
+          "title": "?? Phase 2: Analytics & Ingestion (Weeks 3-4, 21 Story Points)",
+          "feature_id": "F14-06",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F14-06-004",
+          "title": "?? Phase 3: APIM Attribution & Telemetry (Weeks 5-7, 13 Story Points)",
+          "feature_id": "F14-06",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F14-06-005",
+          "title": "?? Phase 4: Reporting & Governance (Weeks 8-9, 21 Story Points)",
+          "feature_id": "F14-06",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F14-06-006",
+          "title": "?? Deployment Timeline Summary",
+          "feature_id": "F14-06",
+          "source": "heading",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "F14-07",
+      "title": "Quick Start",
+      "source_heading": "## Feature: Quick Start [ID=F14-07]",
+      "stories": [
+        {
+          "id": "F14-07-001",
+          "title": "Ad-Hoc Cost Query (Small Date Ranges)",
+          "feature_id": "F14-07",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F14-07-002",
+          "title": "Configure Daily Export (Portal)",
+          "feature_id": "F14-07",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F14-07-003",
+          "title": "Historical Backfill (REST API)",
+          "feature_id": "F14-07",
+          "source": "heading",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "F14-08",
+      "title": "Lessons Learned (Audit Summary)",
+      "source_heading": "## Feature: Lessons Learned (Audit Summary) [ID=F14-08]",
+      "stories": [
+        {
+          "id": "F14-08-001",
+          "title": "Extraction Attempt Timeline",
+          "feature_id": "F14-08",
+          "source": "heading",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "F14-09",
+      "title": "?? Documentation Quick Links",
+      "source_heading": "## Feature: ?? Documentation Quick Links [ID=F14-09]",
+      "stories": [
+        {
+          "id": "F14-09-001",
+          "title": "For Implementation Teams",
+          "feature_id": "F14-09",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F14-09-002",
+          "title": "For Executives",
+          "feature_id": "F14-09",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F14-09-003",
+          "title": "For Auditors",
+          "feature_id": "F14-09",
+          "source": "heading",
+          "tasks": []
+        }
+      ]
+    }
+  ]
+}

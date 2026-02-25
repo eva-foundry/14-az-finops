@@ -1,7 +1,7 @@
 # Azure FinOps - ESDC Cost Management
 
-> **Last Updated**: February 17, 2026 (Phase 1 FinOps Enterprise Roadmap COMPLETE)
-> **Status**: ✅ Daily exports active | ✅ Comprehensive roadmap documented | ✅ Phase 1 deployment guide ready | 📊 Evidence-based inventory complete
+> **Last Updated**: February 25, 2026 (Daily exports Portal-verified | Data model updated to active)
+> **Status**: [PASS] Daily exports confirmed active (10 runs Feb 16-25, Portal-verified) | [PASS] Comprehensive roadmap documented | [PASS] Phase 1 deployment guide ready | [INFO] Evidence-based inventory complete
 > **Scope**: EsDAICoESub + EsPAICoESub (ESDC Production) + 50+ EVA-JP APIs (cost attribution)
 > **Tenant**: 9ed55846-8a81-4246-acd8-b1a01abfc0d1
 > **User**: marco.presta@hrsdc-rhdcc.gc.ca (Cost Management Contributor + Reader)
@@ -94,10 +94,10 @@
 
 ### Active Exports
 
-| Export | Subscription | Status | Storage | Configured Via |
-|--------|-------------|--------|---------|---------------|
-| EsDAICoESub-Daily | d2d4e571-e0f2-4f6c-901a-f88f7669bcba | ✅ [ACTIVE] 2 successful runs (Feb 16) | marcosandboxfinopshub/costs/EsDAICoESub/ | Azure Portal |
-| EsPAICoESub-Daily | 802d84ab-3189-4221-8453-fcc30c8dc8ea | ✅ [ACTIVE] Succeeded (Feb 16, 11:36 AM) | marcosandboxfinopshub/costs/EsPAICoESub/ | Azure Portal |
+| Export | Subscription | Status | Storage | Configured Via | Evidence |
+|--------|-------------|--------|---------|---------------|----------|
+| EsDAICoESub-Daily | d2d4e571-e0f2-4f6c-901a-f88f7669bcba | [PASS] ACTIVE -- 10 consecutive runs Feb 16-25 | marcosandboxfinopshub/costs/EsDAICoESub/ | Azure Portal | Portal run history verified 2026-02-25 ~3:28 PM UTC daily |
+| EsPAICoESub-Daily | 802d84ab-3189-4221-8453-fcc30c8dc8ea | [WARN] NOT YET VERIFIED -- Portal check pending | marcosandboxfinopshub/costs/EsPAICoESub/ | Azure Portal | CLI SA query: EmailAlert only (disabled) -- see portal |
 
 ---
 
@@ -185,22 +185,36 @@
 
 ## Deployment Roadmap
 
-### ✅ Phase 0: Data Collection Foundation (COMPLETE - Feb 16, 2026)
+### [PASS] Phase 0: Data Collection Foundation (COMPLETE - Feb 16, 2026 -- Re-verified Feb 25, 2026)
 
 | Task | Status | Notes |
 |------|--------|-------|
-| Configure EsDAICoESub daily export (Portal) | ✅ [DONE] | Active, 2 successful runs (Feb 16) |
-| Configure EsPAICoESub daily export (Portal) | ✅ [DONE] | Active, succeeded (Feb 16, 11:36 AM) |
-| Test Backfill-Costs-REST.ps1 for historical data | ✅ [DONE] | 1-month test successful (January 2026) |
-| Verify export data landing in Blob storage | ✅ [DONE] | Confirmed 2.3MB + 371KB exports present |
-| **Capture baseline inventory** | ✅ [DONE] | 12 JSON artifacts, 2026-02-17 09:09:32 AM ET |
-| **Create comprehensive roadmap** | ✅ [DONE] | 8 deliverables, 4,000+ lines, 1,800+ lines code |
+| Configure EsDAICoESub daily export (Portal) | [PASS] CONFIRMED | 10 consecutive runs Feb 16-25, Portal run history verified 2026-02-25 |
+| Configure EsPAICoESub daily export (Portal) | [PASS] DONE | Active, succeeded (Feb 16, 11:36 AM) -- Portal verification pending |
+| Test Backfill-Costs-REST.ps1 for historical data | [PASS] DONE | 1-month test successful (January 2026) |
+| Verify export data landing in Blob storage | [PASS] DONE | Confirmed 2.3MB + 371KB exports present |
+| **Capture baseline inventory** | [PASS] DONE | 12 JSON artifacts, 2026-02-17 09:09:32 AM ET |
+| **Create comprehensive roadmap** | [PASS] DONE | 8 deliverables, 4,000+ lines, 1,800+ lines code |
+| **Data model updated** | [PASS] DONE 2026-02-25 | maturity=active phase=Phase 1 - Storage Foundation rv=10 |
 
 ---
 
-### 🚀 Phase 1: Storage Foundation (Weeks 1-2, 13 Story Points)
+### [READY] Phase 1: Storage Foundation (Weeks 1-2, 13 Story Points)
 
-**Status**: 📋 [READY TO EXECUTE] - Follow **[PHASE1-DEPLOYMENT-CHECKLIST.md](docs/finops/PHASE1-DEPLOYMENT-CHECKLIST.md)**
+**Status**: [READY TO EXECUTE] - Follow **[PHASE1-DEPLOYMENT-CHECKLIST.md](docs/finops/PHASE1-DEPLOYMENT-CHECKLIST.md)**
+
+**Storage Audit (2026-02-25 via management API)**:
+
+| Container | Exists | Required by Phase 1 | Task |
+|-----------|--------|---------------------|------|
+| `costs` | [PASS] (since Feb 3) | Preserved (original) | -- |
+| `processed` | [PASS] (since Feb 6) | Partial match | -- |
+| `config` | [PASS] (since Feb 11) | Not in spec | -- |
+| `ingestion` | [PASS] (since Feb 11) | Not in spec | -- |
+| `msexports` | [PASS] (since Feb 11) | Not in spec | -- |
+| `raw` | [FAIL] MISSING | YES | Task 1.1.1 |
+| `archive` | [FAIL] MISSING | YES | Task 1.1.1 |
+| `checkpoint` | [FAIL] MISSING | YES | Task 1.1.1 |
 
 **6 Deployment Tasks**:
 
