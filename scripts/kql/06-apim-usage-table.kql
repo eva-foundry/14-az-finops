@@ -1,0 +1,1 @@
+.create-merge table apim_usage (Timestamp:datetime, ApiId:string, OperationId:string, ProductId:string, RequestId:string, CallerApp:string, CostCenter:string, Environment:string, HttpStatusCode:int, DurationMs:real)

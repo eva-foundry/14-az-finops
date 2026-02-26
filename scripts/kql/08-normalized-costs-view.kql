@@ -1,0 +1,11 @@
+.create materialized-view with (backfill=false) normalized_costs on table raw_costs
+{
+    raw_costs
+    | extend
+        CostCenterTag = tostring(parse_json(tostring(Tags)).CostCenter),
+        Application   = tostring(parse_json(tostring(Tags)).Application),
+        Environment   = tostring(parse_json(tostring(Tags)).Environment),
+        Owner         = tostring(parse_json(tostring(Tags)).owner)
+    | extend EffectiveCostCenter = iff(isnotempty(CostCenter), CostCenter, CostCenterTag)
+    | project-away CostCenterTag, Tags
+}

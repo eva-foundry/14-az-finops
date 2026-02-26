@@ -1,0 +1,17 @@
+.create-or-alter function with (folder="FinOps", skipvalidation=false) AllocateCostByApp() {
+    let usage = apim_usage
+        | where Timestamp >= ago(1d)
+        | summarize RequestCount = count() by CallerApp, bin(Timestamp, 1h);
+    let costs = (
+        normalized_costs
+        | where Date >= ago(1d)
+        | where ResourceId has '/Microsoft.ApiManagement/'
+        | summarize TotalCost = sum(CostInBillingCurrency) by bin(Date, 1h)
+    );
+    let totals = usage | summarize TotalRequests = sum(RequestCount) by bin(Timestamp, 1h);
+    usage
+    | join kind=inner (costs) on $left.Timestamp == $right.Date
+    | join kind=inner (totals) on Timestamp
+    | extend AllocatedCost = (RequestCount * 1.0 / TotalRequests) * TotalCost
+    | project CallerApp, Timestamp, AllocatedCost, RequestCount, TotalCost
+}

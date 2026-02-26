@@ -1,0 +1,1 @@
+.alter table raw_costs policy retention '{"SoftDeletePeriod":"1825.00:00:00","Recoverability":"Enabled"}'

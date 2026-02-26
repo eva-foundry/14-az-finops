@@ -1,0 +1,1 @@
+.alter table raw_costs policy partitioning '{"PartitionKeys":[{"ColumnName":"Date","Kind":"UniformRange","Properties":{"RangeSize":"1.00:00:00","OverrideCreationTime":false}}]}'

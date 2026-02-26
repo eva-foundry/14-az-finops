@@ -1,0 +1,1 @@
+.alter table raw_costs policy update '[{"IsEnabled":true,"Source":"raw_costs","Query":"raw_costs | extend IngestionTime = ingestion_time()","IsTransactional":false,"PropagateIngestionProperties":false}]'
