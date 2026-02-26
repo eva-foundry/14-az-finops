@@ -122,6 +122,60 @@ BILLING ANOMALY INVESTIGATION (Feb 26, 2026):
     2026-02: $42,556 | $6,486
     NOTE: EsPAICoESub includes $90K PTU commitment spread across all months
 
+  DEV vs PROD SPLIT (anomaly-free, 12-month run-rate):
+    EsDAICoESub (DEV):   CAD 261,866  (82% of total)
+    EsPAICoESub (PROD):  CAD  56,243  (18% of total)
+    GRAND TOTAL:         CAD 318,109
+    RATIO:               Dev is 4.7× more expensive than Prod
+
+    DEV BREAKDOWN BY SERVICE:
+      Azure App Service              CAD  60,681   ← LARGEST: 14 InfoAssist dev/stg environments
+      Azure Cognitive Search         CAD  33,854   ← 8.7× more than Prod ($3.9K); 1 index per env
+      Foundry Tools                  CAD  29,697   ← AI services (CogSvc, lang, doc intel)
+      Azure Container Apps           CAD  29,449   ← EVAChat + InfoAssist per env
+      Microsoft Dev Box              CAD  24,204   ← 100% idle nights/weekends
+      Azure DNS                      CAD  18,163
+      Microsoft Defender for Cloud   CAD  16,242
+      Virtual Network                CAD  13,003
+      Container Registry             CAD  10,346
+      Virtual Machines               CAD  10,321
+      Log Analytics                  CAD   6,444
+      Azure Database for PostgreSQL  CAD   2,899
+      Storage                        CAD   2,549
+      + minor services               CAD   4,013
+      ─────────────────────────────────────────
+      TOTAL DEV                      CAD 261,866
+
+    PROD BREAKDOWN BY SERVICE:
+      Azure App Service              CAD  11,320
+      Microsoft Defender for Cloud   CAD  11,121   ← same cost as dev despite far fewer resources
+      Azure Container Apps           CAD   9,662
+      Azure Cognitive Search         CAD   3,891
+      Azure DNS                      CAD   3,780
+      Foundry Tools                  CAD   3,779
+      Redis Cache                    CAD   3,454
+      Virtual Network                CAD   2,560
+      Container Registry             CAD   1,806
+      Azure Database for PostgreSQL  CAD   1,589
+      Virtual Machines               CAD   1,424
+      Log Analytics                  CAD   1,081
+      + minor services               CAD     776
+      ─────────────────────────────────────────
+      TOTAL PROD                     CAD  56,243
+
+  STOPPABLE DEV COMPUTE (App Service + Container Apps + VMs + Dev Box):
+    Total stoppable:                   CAD 124,655
+    Night shutdown saving (8h off/24h = 33%):  CAD  41,136/year
+    Night + weekend saving (~47%):             CAD  58,588/year
+
+  KEY OBSERVATIONS:
+    - Dev App Service alone ($60K) exceeds the entire Prod sub ($56K)
+    - 14 InfoAssist environments running: dev0–dev4, stg1–stg5, hccld2, securemode variants
+      Each has its own App Service Plan + Cognitive Search S1 instance = ~$500/month/env
+    - Cognitive Search: Dev $33,854 vs Prod $3,891 — 8.7× ratio (should be ~2×)
+    - Dev Box $24,204 is 100% idle 8pm–8am and all weekends; zero night/weekend usage possible
+    - Defender for Cloud: Dev $16,242 vs Prod $11,121 — Dev costs 46% more than Prod
+
 DATA QUALITY ISSUES FOUND:
   DQ-01: EffectiveCallerApp — fin_csdid tag contains comma-separated multi-app IDs ("1101, 1100") → need split+trim
   DQ-02: EffectiveCallerApp — " 1101, 1100" has leading space variant (20K rows, $14K) → need trim()
@@ -137,6 +191,111 @@ PHASE 4A — Chargeback Statements (Highest ROI, 2-3 days):
   - KQL: SharedCostAllocation() — $471K shared cost split by ClientBu / project weight
   - Script: export-chargeback.ps1 → CSV per FinancialAuthority (todd.whitley, poma.ilambo)
   - Fix DQ-01/02/03 in NormalizedCosts() first (split callerapp, tolower FA, trim)
+
+COST SAVINGS CATALOGUE (Feb 26, 2026):
+  IMMEDIATE — no FinOps or APIM needed, pure infrastructure decisions:
+
+  SAVING-01: Night + Weekend Compute Shutdown (NO-BRAINER, ~1 day effort)
+    Target:    Dev App Service + Container Apps + VMs in EsDAICoESub
+    Mechanism: Azure Automation / Logic App schedule → Stop/Start all non-prod App Service Plans
+               and Container Apps on a 6am–10pm Mon–Fri schedule
+    Savings:   CAD 41,136/year (nights only, 33%) → CAD 58,588/year (nights + weekends, 47%)
+    Effort:    1 day — Azure Automation runbook or GitHub Actions cron job
+    Risk:      Zero — dev teams don't work 10pm–6am; weekend is already dead time
+    Blocker:   None. No FinOps approval needed. No APIM. Just a schedule.
+
+  SAVING-02: Delete Stale InfoAssist Dev/Stg Environments (HIGH-IMPACT)
+    Finding:   14 InfoAssist environments active in EsDAICoESub:
+                 dev0, dev1, dev2, dev3, dev4
+                 stg1, stg2, stg3, stg4, stg5
+                 hccld2, esdc-eva-dev-4, esdc-eva-stg-securemode-1, esdc-eva-dev-securemode-2
+               Each env = App Service Plan (~$2.5K/yr) + Cognitive Search S1 (~$3.1K/yr)
+               = ~$5.5–7K/year per environment
+    Savings:   If 6 of 14 envs are stale → CAD 33,000–42,000/year
+               If 9 of 14 envs are stale → CAD 49,500–63,000/year
+    Effort:    1 afternoon: inventory who uses each env, delete unused ones
+    Risk:      Low — teams know which envs they use; deleted RGs can be recreated from IaC
+    Blocker:   None. No FinOps. No approvals beyond team lead.
+
+  SAVING-03: Dev Box Idle Shutdown (EASY WIN)
+    Finding:   Microsoft Dev Box = CAD 24,204/year from EsDCAICoE-DevRg
+               Dev Box VMs are priced hourly; they run 24/7 unless explicitly stopped
+               Zero usage 10pm–6am (confirmed: no APIM calls, no AI service calls)
+    Savings:   CAD 7,987/year (33% night shutdown) → CAD 11,375/year (47% night+weekend)
+    Effort:    30 minutes — enable Auto-stop in Dev Box project settings (built-in feature)
+               Portal → Dev Center → Dev Box Policies → Auto-stop schedule
+    Risk:      Zero. Dev Box has native auto-stop. Work in progress saves via Hibernate.
+    Blocker:   None. Already a built-in platform feature.
+
+  SAVING-04: Cognitive Search Right-Sizing (MEDIUM EFFORT)
+    Finding:   Dev has CAD 33,854 in Cognitive Search vs Prod CAD 3,891 (8.7× ratio)
+               All instances are Standard S1 (~CAD 259/month each)
+               Dev/test workloads with <1M documents should use Basic (~CAD 73/month = 3.5× cheaper)
+    Savings:   Downgrade 8 dev/stg instances S1→Basic: 8 × (259-73) × 12 = CAD 17,856/year
+    Effort:    1 day — Recreation: export index schema, recreate at Basic tier, re-index
+    Risk:      Medium — Basic has 2 replicas max vs S1's 12; fine for dev/test
+    Blocker:   None. Dev team decision only. No FinOps governance needed.
+
+  SAVING-05: Defender for Cloud Plan Review (QUICK REVIEW)
+    Finding:   Dev CAD 16,242 + Prod CAD 11,121 = CAD 27,363/year total
+               Dev Defender costs 46% MORE than Prod despite lower risk profile
+               Likely Defender for Servers P2 ($15/server/month) running on dev VMs
+    Savings:   Downgrade dev VMs to Defender for Servers P1 ($8/server/month) or Free:
+               Estimated CAD 5,000–8,000/year
+    Effort:    2-3 hours — Defender for Cloud portal → Plans → per-resource override
+    Risk:      Low — dev VMs don't need P2 features (Qualys vulnerability scanning, JIT)
+    Blocker:   Security team sign-off (1 conversation, standard practice)
+
+  MEDIUM-TERM — with light FinOps tooling, no APIM required:
+
+  SAVING-06: Container Registry Deduplication
+    Finding:   Dev CAD 10,346 in Container Registry (likely multiple registries per env)
+               Prod CAD 1,806 — Dev is 5.7× more expensive
+    Savings:   Consolidate to 1–2 dev/stg registries: estimated CAD 4,000–6,000/year
+    Effort:    1 week — retag and push images to consolidated registry
+    Blocker:   Light FinOps: need registry inventory (which teams own which)
+
+  SAVING-07: Log Analytics Tier + Retention Right-Sizing
+    Finding:   Dev CAD 6,444 in Log Analytics
+               Dev environments likely ingesting at same retention as prod (90 days)
+               Dev log retention should be 7–14 days; ingestion tier should be Basic
+    Savings:   Estimated CAD 2,000–3,500/year
+    Effort:    2-3 hours — change workspace retention per env via ARM/Bicep
+    Blocker:   None. Log workspace is per-subscription; no cross-team negotiation.
+
+  SAVING-08: Azure DNS Zone Reduction (LOW EFFORT)
+    Finding:   Dev CAD 18,163 DNS — extremely high for DNS (Prod is only CAD 3,780)
+               Dev/stg environments each likely create private DNS zones (charged per zone per query)
+               Ratio 4.8× suggests many duplicate private DNS zones across dev envs
+    Savings:   Consolidate or use a shared private DNS hub: estimated CAD 6,000–10,000/year
+    Effort:    1 week — DNS zone inventory, move to hub-spoke model
+    Blocker:   Networking team decision. No FinOps.
+
+  WITH APIM/FINOPS — longer-term but higher ROI:
+
+  SAVING-09: Shared Cognitive Services Endpoint (vs per-env)
+    Finding:   Foundry Tools (AI CogSvc) Dev = CAD 29,697 — each env has dedicated endpoint
+               Shared APIM gateway → single CogSvc endpoint with app-level quotas
+    Savings:   Eliminate duplicated base costs; enforce per-app token budgets via APIM
+    Effort:    Phase 3 APIM work (already planned)
+    Blocker:   APIM completion + app team migration
+
+  SUMMARY TABLE:
+    ID  | Description                          | Saving/yr CAD | Effort   | Needs FinOps?
+    ----|--------------------------------------|---------------|----------|---------------
+    S-01| Night+weekend shutdown, Dev compute  | 41K–58K       | 1 day    | NO
+    S-02| Delete stale InfoAssist envs (6–9)   | 33K–63K       | 1 day    | NO
+    S-03| Dev Box auto-stop (native feature)   | 8K–11K        | 30 min   | NO
+    S-04| Search S1→Basic on dev/stg           | 17K–18K       | 1 day    | NO
+    S-05| Defender plan downgrade on dev VMs   | 5K–8K         | 2 hrs    | MINOR
+    S-06| Container Registry consolidation      | 4K–6K         | 1 week   | LIGHT
+    S-07| Log Analytics retention/tier dev      | 2K–3.5K       | 2 hrs    | NO
+    S-08| DNS zone hub-spoke                   | 6K–10K        | 1 week   | NO
+    S-09| Shared CogSvc via APIM               | TBD           | Phase 3  | YES
+    ----|--------------------------------------|---------------|----------|---------------
+    TOTAL NO-FINOPS SAVINGS (S01–S04+S07):    | 99K–152K/yr   | ~4 days  | NO
+
+
 
 PHASE 4B — Tag Governance Scorecard (1 day):
   - KQL: TagCoverageScore() — % coverage per tag key, spend-weighted
