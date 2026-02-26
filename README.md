@@ -1,7 +1,7 @@
 # Azure FinOps - ESDC Cost Management
 
 > **Last Updated**: February 26, 2026 (Phase 1 COMPLETE Feb 25 | Phase 2 COMPLETE Feb 26 | Phase 3 IN PROGRESS)
-> **Status**: [PASS] Phase 1 COMPLETE — containers, lifecycle policy, 28 blobs migrated | [PASS] Phase 2 COMPLETE — ADX cluster, ADF pipeline, schema deployed, backfill triggered | [IN PROGRESS] Phase 3 — AllocateCostByApp() + NormalizedCosts() deployed; APIM policy + telemetry pipeline pending
+> **Status**: [PASS] Phase 1 COMPLETE — containers, lifecycle policy, 28 blobs migrated | [PASS] Phase 2 COMPLETE — ADX cluster, ADF pipeline, schema deployed, backfill triggered | [IN PROGRESS] Phase 3 — NormalizedCosts() v2 deployed (tag bug fixed, dual-schema SSC+Legacy, CanonicalEnvironment, 6 ESDC dimensions, 460K rows clean); APIM policy + telemetry pipeline pending
 > **Scope**: EsDAICoESub + EsPAICoESub (ESDC Production) + 50+ EVA-JP APIs (cost attribution)
 > **Tenant**: 9ed55846-8a81-4246-acd8-b1a01abfc0d1
 > **User**: marco.presta@hrsdc-rhdcc.gc.ca (Cost Management Contributor + Reader)
@@ -82,7 +82,7 @@
 | **Python SDK (extract_costs_sdk.py)** | ✅ [WORKS] | Ad-hoc queries <5,000 rows | Pagination broken >5,000 rows |
 | **REST API via az rest** | ✅ [TESTED] | Historical backfill with pagination | Daily aggregated totals only (no resource details) |
 | **ADF Pipeline (ingest-costs-to-adx)** | ✅ [DEPLOYED] | Blob CSV → ADX raw_costs via Event Grid trigger | marco-sandbox-finops-adf deployed Feb 26 |
-| **ADX (marcofinopsadx)** | ✅ [DEPLOYED] | KQL analytics — NormalizedCosts(), AllocateCostByApp() | Dev(No SLA) SKU, canadacentral, finopsdb |
+| **ADX (marcofinopsadx)** | ✅ [DEPLOYED] | KQL analytics — NormalizedCosts() v2 (tag bug-fix, dual-schema, CanonicalEnvironment, 6 ESDC dims), AllocateCostByApp() v2 | Dev(No SLA) SKU, canadacentral, finopsdb — 460,609 rows, 99.997% tagged |
 
 ### What Does NOT Work
 
@@ -275,15 +275,16 @@
 
 ### 🚧 Phase 3: APIM Attribution & Telemetry — IN PROGRESS (Feb 26, 2026)
 
-**Status**: [IN PROGRESS] — Attribution KQL layer complete with Pre-APIM fallbacks; APIM policy + telemetry pipeline pending
+**Status**: [IN PROGRESS] — Attribution KQL layer v2 complete (tag bug fixed, ESDC dimensions live); APIM policy + telemetry pipeline pending
 
 **Completed (Feb 26)**:
 
 | Task | Description | Artifact | Result |
 |------|-------------|----------|--------|
-| 3.3 | `NormalizedCosts()` — tag parsing + attribution fallbacks (CostCenter→AiCoE, CallerApp→Pre-APIM, Environment→SubscriptionName) | `scripts/kql/08-normalized-costs-function.kql` | [PASS] Deployed |
-| 3.3 | `AllocateCostByApp()` — 3-tier: header (APIM telemetry) → tag → pre-apim fallback | `scripts/kql/09-allocate-cost-function.kql` | [PASS] Deployed |
-| 3.3 | Deploy + smoke-test functions | `scripts/deploy-functions.ps1` | [PASS] |
+| 3.3a | **Critical bug-fix**: Tags exported WITHOUT `{}` — `parse_json()` returned null for 100% of rows. Fixed with `iif(… !startswith "{", strcat("{",…,"}"), …)`. | `08-normalized-costs-function.kql` | [PASS] 460,594 rows now parsed |
+| 3.3b | `NormalizedCosts()` v2 — dual-schema (SSC Standard 77.8% + Legacy 22.2%), `CanonicalEnvironment` (Dev/Stage/Prod), 6 new ESDC dimensions: `SscBillingCode`, `FinancialAuthority`, `OwnerManager`, `ClientBu`, `ProjectDisplayName`, `IsSharedCost` | `scripts/kql/08-normalized-costs-function.kql` | [PASS] Deployed |
+| 3.3c | `AllocateCostByApp()` v2 — 3-tier: header (APIM telemetry) → tag → pre-apim; outputs `SscBillingCode` + `CanonicalEnvironment` | `scripts/kql/09-allocate-cost-function.kql` | [PASS] Deployed |
+| 3.3d | Deploy + smoke-test (6 validation queries) — 460,609 rows: Dev 72.5% / Prod 15.4% / Stage 12% | `scripts/deploy-functions.ps1`, `smoke-test-v2.ps1` | [PASS] Evidence saved |
 
 **Remaining Tasks**:
 

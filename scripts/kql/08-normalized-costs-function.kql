@@ -1,24 +1,77 @@
-.create-or-alter function with (folder="FinOps", docstring="Normalized cost rows — tags parsed, attribution resolved with fallbacks (CostCenter→AiCoE, CallerApp→Pre-APIM, Environment→SubscriptionName)") NormalizedCosts() {
+// NormalizedCosts() v2 — 2026-02-26
+// Bug-fix: Azure Cost Management exports Tags WITHOUT outer {} braces.
+//   Raw CSV value: "key": "val","key2": "val2"
+//   parse_json() on this string returns null silently — ALL tag extraction was broken.
+//   Fix: wrap in {} before parse_json().
+//
+// Dual-schema support:
+//   SSC Standard (77.8% rows, Feb 2025): fin_financialauthority, ssc_cbrid,
+//     environment (lower), team (lower), fin_projectname, ops_projectacronym
+//   Legacy (22.2% rows): Fin_FinancialAuthority, Environment, Team,
+//     ProjectName, Ops_ProjectAcronym  (same ssc_cbrid key)
+//
+// New first-class chargeback dimensions:
+//   SscBillingCode, FinancialAuthority, OwnerManager, ClientBu,
+//   ProjectDisplayName, IsSharedCost, SecurityClass, CanonicalEnvironment
+.create-or-alter function with (folder="FinOps", docstring="Normalized cost rows v2 — tag {} bug-fix, SSC Standard + Legacy dual-schema, environment canonicalized, ESDC chargeback dimensions") NormalizedCosts() {
     raw_costs
-    | extend TagsParsed = parse_json(tostring(Tags))
+    // ── Tag fix: wrap bare key:value string in {} before parse_json() ─────────
+    | extend _TagsStr   = tostring(Tags)
+    | extend _TagsFixed = iif(
+        isnotempty(_TagsStr)
+        and not(_TagsStr startswith "{")
+        and not(_TagsStr startswith "["),
+        strcat("{", _TagsStr, "}"),
+        _TagsStr
+      )
+    | extend _T = parse_json(_TagsFixed)
+    // ── Extract with dual-schema fallback (SSC Standard → Legacy → empty) ────
     | extend
-        Application         = tostring(TagsParsed.Application),
-        CostCenterTag       = tostring(TagsParsed.CostCenter),
-        EnvTag              = tostring(TagsParsed.Environment),
-        Owner               = tostring(TagsParsed.owner)
+        _EnvRaw   = coalesce(tostring(_T.environment),              tostring(_T.Environment),              ""),
+        _TeamRaw  = coalesce(tostring(_T.team),                     tostring(_T.Team),                     ""),
+        _Project  = coalesce(tostring(_T.fin_projectname),          tostring(_T.ProjectName),              ""),
+        _FinAuth  = coalesce(tostring(_T.fin_financialauthority),   tostring(_T.Fin_FinancialAuthority),   ""),
+        _MgrRaw   = coalesce(tostring(_T.manager),                  tostring(_T.Manager),                  ""),
+        _Client   = tostring(_T.client),
+        _SscCbrid = tostring(_T.ssc_cbrid),
+        _AppId    = coalesce(tostring(_T.fin_csdid),                tostring(_T.app_id),                   ""),
+        _Shared   = coalesce(tostring(_T.shared_cost),              "FALSE"),
+        _SecClass = coalesce(tostring(_T.sec_classification),       tostring(_T.Classification),           ""),
+        _OpsProj  = coalesce(tostring(_T.ops_projectacronym),       tostring(_T.Ops_ProjectAcronym),       "")
+    // ── Environment canonicalization ─────────────────────────────────────────
+    // Observed: Development/Dev1/Dev2/Dev4 → Dev
+    //           Stg1/Stg2/Stage/Staging/Staging2 → Stage
+    //           Prod/Prod1/Production/Prd/Prd1 → Prod
+    | extend CanonicalEnvironment = case(
+        _EnvRaw in~ ("development", "dev", "dev1", "dev2", "dev3", "dev4", "dev5"), "Dev",
+        _EnvRaw in~ ("stg1", "stg2", "stage", "staging", "staging1", "staging2"),   "Stage",
+        _EnvRaw in~ ("prod", "prod1", "prod2", "production", "prd", "prd1"),        "Prod",
+        isnotempty(_EnvRaw), _EnvRaw,
+        SubscriptionName
+      )
+    // ── CostCenter: billing column > SSC code > ops acronym > fallback ───────
+    | extend EffectiveCostCenter = case(
+        isnotempty(CostCenter),  CostCenter,
+        isnotempty(_SscCbrid),   strcat("SSC-", _SscCbrid),
+        isnotempty(_OpsProj),    _OpsProj,
+        "AiCoE"
+      )
+    // ── CallerApp: CSDID app_id > project name > pre-APIM placeholder ────────
+    | extend EffectiveCallerApp = case(
+        isnotempty(_AppId),   _AppId,
+        isnotempty(_Project), _Project,
+        "Pre-APIM"
+      )
+    // ── ESDC chargeback first-class dimensions ────────────────────────────────
     | extend
-        EffectiveCostCenter  = coalesce(
-            iff(isnotempty(CostCenter),    CostCenter,    ""),
-            iff(isnotempty(CostCenterTag), CostCenterTag, ""),
-            "AiCoE"
-        ),
-        EffectiveCallerApp   = coalesce(
-            iff(isnotempty(Application), Application, ""),
-            "Pre-APIM"
-        ),
-        EffectiveEnvironment = coalesce(
-            iff(isnotempty(EnvTag), EnvTag, ""),
-            SubscriptionName
-        )
-    | project-away TagsParsed, CostCenterTag, EnvTag, Tags
+        SscBillingCode     = _SscCbrid,
+        FinancialAuthority = _FinAuth,
+        OwnerManager       = _MgrRaw,
+        ClientBu           = iif(isnotempty(_Client), _Client, _TeamRaw),
+        ProjectDisplayName = _Project,
+        IsSharedCost       = (_Shared =~ "TRUE"),
+        SecurityClass      = _SecClass
+    | project-away _TagsStr, _TagsFixed, _T, _EnvRaw, _TeamRaw, _Project,
+                   _FinAuth, _MgrRaw, _Client, _SscCbrid, _AppId, _Shared,
+                   _SecClass, _OpsProj, Tags
 }

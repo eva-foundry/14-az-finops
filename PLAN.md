@@ -1,7 +1,7 @@
 # Project Plan
 
 <!-- veritas-normalized 2026-02-26 prefix=F14 source=README.md -->
-<!-- Last updated: 2026-02-26 | Phase 3 IN PROGRESS -->
+<!-- Last updated: 2026-02-26 | Phase 3 IN PROGRESS — NormalizedCosts v2 + AllocateCostByApp v2 deployed (tag bug fixed, ESDC dims live) -->
 
 ## Feature: [DONE] Phase 1 FinOps Enterprise Roadmap [ID=F14-01]
 
@@ -47,10 +47,18 @@
      Backfill: backfill-historical.ps1 — 28 historical blobs triggered Feb 26 -->
 
 ### Story: [IN PROGRESS] Phase 3: APIM Attribution & Telemetry (Weeks 5-7, 13 Story Points) [ID=F14-06-004]
-<!-- DONE Feb 26:
-       - NormalizedCosts() — tag parsing + pre-apim fallbacks (CostCenter->AiCoE, CallerApp->Pre-APIM, Environment->SubscriptionName)
-       - AllocateCostByApp() — 3-tier: header (APIM telemetry) -> tag -> pre-apim
+<!-- DONE Feb 26 (v1):
+       - NormalizedCosts() v1 + AllocateCostByApp() v1 deployed (pre-apim fallbacks, 3-tier)
        - deploy-functions.ps1 + exec-kql.ps1 tooling
+     DONE Feb 26 (v2 — tag deep-dive):
+       - CRITICAL BUG FIXED: Tags stored without {} — parse_json() returned null for 100% of rows
+       - NormalizedCosts() v2: dual-schema (SSC Standard 77.8% + Legacy 22.2%), CanonicalEnvironment
+         (Dev/Stage/Prod canonicalized from 7 raw variants), 6 new ESDC chargeback dimensions
+         (SscBillingCode, FinancialAuthority, OwnerManager, ClientBu, ProjectDisplayName, IsSharedCost)
+       - AllocateCostByApp() v2: uses CanonicalEnvironment + SscBillingCode
+       - smoke-test-v2.ps1: 6 queries, evidence saved to evidence/smoke-test-v2-*.json
+       - Discovery: ssc_cbrid=2133 (460,208 rows, $477,879), ssc_cbrid=0696 (386 rows, $112)
+       - Row coverage: 460,594 of 460,609 rows (99.997%) tagged
      PENDING:
        - 3.1 APIM base policy: inject x-caller-app / x-costcenter / x-eva-environment on 50+ EVA-JP APIs
        - 3.2 App Insights diagnostics: 100% sampling, log all APIM requests
@@ -60,7 +68,7 @@
 <!-- Power BI reports, Azure Policy tag enforcement, VNet + private endpoints, CI/CD -->
 
 ### Story: [DONE] Deployment Timeline Summary [ID=F14-06-006]
-<!-- Phase 0: COMPLETE | Phase 1: COMPLETE | Phase 2: COMPLETE | Phase 3: IN PROGRESS | Phase 4: PLANNED -->
+<!-- Phase 0: COMPLETE | Phase 1: COMPLETE | Phase 2: COMPLETE | Phase 3: IN PROGRESS (KQL v2 complete; APIM policy + telemetry pending) | Phase 4: PLANNED -->
 
 ## Feature: Quick Start [ID=F14-07]
 

@@ -1,0 +1,67 @@
+{
+  "T1_RowCount": {
+    "TotalRows": 460609,
+    "TaggedRows": 460594,
+    "SscStandardRows": 446152
+  },
+  "T2_CanonicalEnvironment": [
+    {
+      "CanonicalEnvironment": "Dev",
+      "Rows": 334095
+    },
+    {
+      "CanonicalEnvironment": "Prod",
+      "Rows": 71094
+    },
+    {
+      "CanonicalEnvironment": "Stage",
+      "Rows": 55408
+    },
+    {
+      "CanonicalEnvironment": "EsPAICoESub",
+      "Rows": 12
+    }
+  ],
+  "T3_SscBillingCode": [
+    {
+      "SscBillingCode": "2133",
+      "Rows": 460208,
+      "TotalCost": 477879.36
+    },
+    {
+      "SscBillingCode": "",
+      "Rows": 15,
+      "TotalCost": 90000.0
+    },
+    {
+      "SscBillingCode": "0696",
+      "Rows": 386,
+      "TotalCost": 112.78
+    }
+  ],
+  "T4_IsSharedCost": [
+    {
+      "IsSharedCost": true,
+      "Rows": 447412,
+      "TotalCost": 470919.3
+    },
+    {
+      "IsSharedCost": false,
+      "Rows": 13197,
+      "TotalCost": 97072.84
+    }
+  ],
+  "T5_EffectiveCostCenter": {
+    "EffectiveCostCenter": "00014",
+    "Rows": 460609,
+    "TotalCost": 567992.14
+  },
+  "T6_AllocateCostByApp": {
+    "CallerApp": "1101, 1100",
+    "CostCenter": "00014",
+    "Environment": "Dev",
+    "AttributionSource": "tag",
+    "Rows": 288,
+    "TotalCost": 400.44
+  }
+}

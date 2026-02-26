@@ -1,4 +1,9 @@
-.create-or-alter function with (folder="FinOps", skipvalidation=false, docstring="Allocate APIM cost by caller app — 3-tier fallback: (1) x-caller-app header via apim_usage, (2) Azure resource tag, (3) Pre-APIM/AiCoE/{SubscriptionName}") AllocateCostByApp() {
+// AllocateCostByApp() v2 — 2026-02-26
+// Uses NormalizedCosts() v2 which now correctly parses tags.
+// CostCenter and Environment use new EffectiveCostCenter / CanonicalEnvironment.
+// Tier 3 fallback uses SscBillingCode for CostCenter (ESDC SSC billing code, e.g. 2133)
+// instead of hardcoded 'AiCoE'.
+.create-or-alter function with (folder="FinOps", skipvalidation=false, docstring="Allocate APIM cost by caller app v2 — 3-tier: (1) APIM header telemetry, (2) tag-derived, (3) Pre-APIM/SscBillingCode/CanonicalEnvironment") AllocateCostByApp() {
     //
     // Tier 1: header-attributed telemetry rows in apim_usage
     //   Used once apps inject x-caller-app / x-costcenter headers.
@@ -43,7 +48,8 @@
           by
             CallerApp      = EffectiveCallerApp,
             CostCenter     = EffectiveCostCenter,
-            Environment    = EffectiveEnvironment,
+            Environment    = CanonicalEnvironment,
+            SscBillingCode = SscBillingCode,
             Date           = bin(Date, 1h)
         | extend AttributionSource = iff(CallerApp == "Pre-APIM", "pre-apim", "tag");
     // Emit Tier 1 when telemetry exists, Tier 2/3 otherwise
@@ -51,3 +57,8 @@
         (tier1   | where has_telemetry > 0),
         (tier2_3 | where has_telemetry == 0)
 }
+// ── Column mapping for NormalizedCosts() v2 ─────────────────────────────────
+// Tier 2/3 attribution now surfaces from the enriched NormalizedCosts() columns:
+//   CallerApp      = EffectiveCallerApp   (fin_csdid / app_id / ProjectName / Pre-APIM)
+//   CostCenter     = EffectiveCostCenter  (billing col > SSC-{ssc_cbrid} > ops_projectacronym > AiCoE)
+//   Environment    = CanonicalEnvironment (Dev/Stage/Prod — canonicalized from 5 raw variants)
