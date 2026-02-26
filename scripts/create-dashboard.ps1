@@ -85,7 +85,9 @@ function New-CostTile {
         position = New-Position $x $y 6 4
         metadata = @{
             type    = 'Extension/Microsoft_Azure_CostManagement/PartType/CostAnalysisPart'
-            inputs  = @()
+            inputs  = @(
+                @{ name = 'id'; value = $SCOPE }
+            )
             settings = @{
                 content = @{
                     scope       = $SCOPE
@@ -113,7 +115,7 @@ function New-MarkdownTile {
     return @{
         position = New-Position $x $y $colSpan $rowSpan
         metadata = @{
-            type    = 'Extension[Microsoft_Azure].HubsExtension/PartType/MarkdownPart'
+            type    = 'Extension/HubsExtension/PartType/MarkdownPart'
             inputs  = @()
             settings = @{
                 content = @{
@@ -134,7 +136,9 @@ function New-BudgetTile {
         position = New-Position $x $y 12 2
         metadata = @{
             type    = 'Extension/Microsoft_Azure_CostManagement/PartType/BudgetsPart'
-            inputs  = @()
+            inputs  = @(
+                @{ name = 'id'; value = $SCOPE }
+            )
             settings = @{
                 content = @{
                     scope             = $SCOPE
