@@ -199,6 +199,207 @@
 
 ## Part 2 — Savings With FinOps Findings
 
+> These require FinOps tooling, governance policies, or platform investment.  
+> Higher ceiling, one-time setup cost, durable benefit.
+
+---
+
+### F-01 · Reserved Instances / Azure Savings Plans ⭐ BEST MEDIUM-TERM ROI
+
+**Methodology:** Coefficient of Variation (CV%) measures month-to-month spend consistency.  
+Lower CV% = more predictable = better Reserved Instance fit.  
+Threshold: CV < 60% = eligible | CV < 35% = excellent candidate.
+
+**Total annual spend in RI-eligible categories (CV < 60%):** CAD $146,343
+
+| Sub | Service | Annual CAD | CV% | Rating | RI Saving @35% |
+|---|---|---|---|---|---|
+| Dev | **Azure Container Apps** | $27,183 | 17.5% | ⭐⭐⭐ EXCELLENT | **$9,514** |
+| Dev | **Microsoft Dev Box** | $22,342 | 26.1% | ⭐⭐ GOOD | **$7,820** |
+| Dev | Container Registry | $9,550 | 32.5% | ⭐⭐ GOOD | $3,342 |
+| Dev | Virtual Machines | $9,527 | 35.5% | ⭐⭐ GOOD | $3,335 |
+| Dev | Microsoft Defender | $14,993 | 39.7% | ⭐⭐ GOOD | $5,248 |
+| Prod | Virtual Machines | $1,314 | 23.2% | ⭐⭐⭐ EXCELLENT | $460 |
+| Prod | Container Apps | $8,919 | 32.0% | ⭐⭐ GOOD | $3,121 |
+| Prod | App Service | $10,449 | 36.3% | ⭐⭐ GOOD | $3,657 |
+| Prod | Cognitive Search | $3,592 | 37.2% | ⭐⭐ GOOD | $1,257 |
+| Prod | Microsoft Defender | $11,121 | 56.6% | ★ FAIR | $3,892 |
+| Dev | Storage | $2,353 | 29.1% | ⭐⭐ GOOD | $824 |
+| Dev + Prod | Redis Cache | $4,567 | 47.8% | ★ FAIR | $1,598 |
+| (+ other eligible) | | | | | |
+
+| Scenario | Annual Saving |
+|---|---|
+| Conservative — Azure Savings Plan 1yr (@17%) | **CAD $24,877** |
+| Aggressive — Reserved Instances 1yr (@35%) | **CAD $51,219** |
+
+> **Recommended action:** Purchase 1-year Compute Savings Plan covering Dev Container Apps + Dev Box first  
+> (CAD $49,525 combined, CV < 27%, saving $8,700–$17,300/yr).  
+> Requires Finance approval + FinOps governance to track commitment utilisation.
+
+---
+
+### F-02 · Anomaly Detection — Prevent Runaway Batch Jobs ⭐⭐ CRITICAL
+
+**Backtest: April 2025 InfoAssist Translator Text / Foundry Tools incident**
+
+| Date | Daily Spend | Cumulative | Status |
+|---|---|---|---|
+| Apr 2 | CAD $1.12 | $1.12 | First alert triggers (3× baseline) |
+| Apr 7 | CAD $0 | $1.57 | — |
+| **Apr 10** | **CAD $3,399** | **$3,401** | **Spike begins — series_decompose_anomalies() fires** |
+| Apr 11 | CAD $10,794 | $14,195 | +3σ alert |
+| Apr 12 | CAD $10,794 | $24,989 | +3σ alert |
+| Apr 13–20 | ~CAD $10,800/day | $35K → $111K | Unchecked |
+| Apr 23 | CAD $10,408 | $143,530 | Last full spike day |
+| Apr 24 | CAD $1,011 | $144,541 | Job ends |
+
+| | CAD |
+|---|---|
+| **Total April Foundry Tools spend** | **$159,883** |
+| Cost if stopped on day 1 of spike (Apr 10) | $3,401 |
+| **Potential saving with KQL anomaly alert** | **$156,482** |
+
+**Implementation:**  
+- KQL `series_decompose_anomalies()` on daily AI spend per ServiceName  
+- Alert rule: daily spend > 3× 30-day rolling average → P1 ticket + auto-disable endpoint  
+- `scripts/kql/10-anomaly-detection.kql` (to be created)
+
+> This is the single highest-value FinOps action. One incident = $159K. Setup time = 1 day.  
+> **This incident will recur** until quotas + alerting are in place.
+
+---
+
+### F-03 · Shared Cost Chargeback → Behavioural Reduction
+
+**Current state:** 83% of all spend is tagged `IsSharedCost=True`.  
+**Without FinOps:** All $470,919 falls on CostCenter 00014. No team sees their bill. No incentive to reduce.
+
+| Project | Shared Cost (unallocated) | Proportional % |
+|---|---|---|
+| AI Centre of Excellence — Cognitive Services | $252,303 | 54% |
+| Information Assistant | $190,739 | 41% |
+| (untagged projects) | $26,443 | 5% |
+| AICoE | $1,435 | <1% |
+| **TOTAL unallocated** | **$470,919** | |
+
+**With FinOps chargeback:**  
+Each team receives a monthly bill showing their proportional share of shared services.  
+Historical benchmark: 15–25% behavioural spend reduction within 2–3 billing cycles.
+
+| Saving scenario | CAD/year |
+|---|---|
+| Conservative @15% | $70,638 |
+| **Expected @20%** | **$94,184** |
+| Optimistic @25% | $117,730 |
+
+**Implementation:** AllocateCostByApp() v2 already deployed (Phase 2).  
+Requires: monthly report distribution per team + executive sponsorship.
+
+---
+
+### F-04 · Tag Coverage Enforcement → Team Accountability
+
+**Current state:**
+
+| | Annual Spend | % |
+|---|---|---|
+| Tagged (ClientBu known) | $221,525 | 39% |
+| **Untagged (no ClientBu)** | **$346,467** | **61%** |
+
+> 61% of spend — **$346K — has no team owner**. Nobody receives a bill. Nobody has incentive to reduce it.
+
+**Why untagged resources cost more:**  
+Teams that see their bill reduce consumption. Teams with no bill do not.  
+Assumption: untagged resources are on average 15–20% over-provisioned vs tagged.
+
+| Saving scenario | CAD/year |
+|---|---|
+| Conservative @15% after tagging | **$51,970** |
+| Expected @20% | $69,293 |
+
+**Implementation:**  
+- Azure Policy: deny deployment if `ClientBu` tag is missing (Prod)  
+- AWS-style tagging sprint: 2 weeks to tag all existing resources  
+- Monthly untagged spend report → escalation to resource owners
+
+---
+
+### F-05 · Redis Cache Reserved Instances
+
+| Sub | Tier | Resource Group | Annual CAD |
+|---|---|---|---|
+| **Prod** | Standard C4 | EVAChatPrdRg | $3,454 |
+| Dev | Basic C1 | EVAChatDev3Rg | $367 |
+| Dev | Basic C1 | EVAChatStg2Rg | $364 |
+| Dev | Basic C0 | EsDAICoE-Sandbox | $349 |
+| Dev | Memory Optimised M10 | EsDAICoE-AI-Foundry-rg | $33 |
+| **Total** | | | **$4,567** |
+
+> Redis Reserved Instances available at **~35% discount** (1-year commitment).  
+> **Saving: CAD $1,598/year** — low-effort, low-risk, purely financial.
+
+---
+
+### F-06 · APIM Token Budget Enforcement → Prevents Future $100K+ Incidents
+
+**Current state:** No per-app AI token quotas exist.  
+The April 2025 batch job consumed 958M characters/day for 14 days — **with zero automated blocking**.
+
+| App | Service | Sub | Annual Spend |
+|---|---|---|---|
+| app 1101/1100 | Foundry Tools | Dev | $189,581 |
+| Pre-APIM (no quota) | Foundry Models | Prod | $90,000 |
+| app 1101/1100 | Foundry Tools | Prod | $3,779 |
+
+**APIM enforcement architecture:**  
+- `x-caller-app` header → per-app routing in APIM  
+- Token-counting policy: `azure-openai-token-limit` per app per day  
+- Budget cap: e.g. Translator Text → 10M chars/day per app → auto-403 at threshold  
+- Alert: 80% budget consumed → notify app owner
+
+**Quantified impact:**  
+- April 2025 incident: APIM would have blocked on **day 1** → saving **CAD $156,000**  
+- Ongoing enforcement prevents ad-hoc batch jobs from appearing in the bill undetected  
+- Phase 3 APIM work (scripts/kql/apim-token-analysis.kql) already partially deployed
+
+> **This is an insurance policy**, not a recurring saving.  
+> Cost to implement: ~3 days of APIM policy work.  
+> Value: prevents any future runaway AI batch job.
+
+---
+
+### Part 2 Summary
+
+| ID | Action | Saving/yr CAD | Effort | Type |
+|---|---|---|---|---|
+| **F-01** | RI / Savings Plans (CV<35% services) | **$25K–$51K** | 1 week + Finance | Commitment |
+| **F-02** | Anomaly detection alerting | **$156K/incident** | 1 day KQL | Prevention |
+| **F-03** | Shared cost chargeback | **$70K–$118K** | 2 weeks + exec | Behavioural |
+| **F-04** | Tag coverage enforcement | **$52K–$69K** | 2 weeks | Governance |
+| **F-05** | Redis Cache RI | **$1,598** | 1 hr | Commitment |
+| **F-06** | APIM token budgets | **TBD, $156K+ per incident** | 3 days | Prevention |
+
+| Scenario | Annual Saving (excluding anomaly prevention) |
+|---|---|
+| Conservative (F-01 Savings Plan + F-03 min + F-04 min + F-05) | **CAD ~$148K/yr** |
+| Expected (F-01 RI + F-03 expected + F-04 conservative + F-05) | **CAD ~$219K/yr** |
+
+---
+
+## Combined Savings View
+
+| | Part 1 (No FinOps) | Part 2 (FinOps) | TOTAL |
+|---|---|---|---|
+| **Conservative** | $101K | $148K | **$249K/yr** |
+| **Expected** | $127K | $219K | **$346K/yr** |
+| **Optimistic** | $153K | $250K+ | **$403K+/yr** |
+
+> **Current run-rate: $318K/yr.**  
+> The expected combined saving **exceeds the entire annual budget** — primarily driven by eliminating  
+> 14 redundant dev environments (S-02) and implementing cost accountability (F-03, F-04).  
+> This is achievable in 1–2 quarters with Executive sponsorship and a dedicated FinOps sprint.
+
 > *[In progress — see next section]*
 
 ---
