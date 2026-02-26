@@ -109,7 +109,7 @@ function New-CostTile {
         position = New-Position $x $y 6 4
         metadata = @{
             type     = 'Extension/Microsoft_Azure_CostManagement/PartType/CostAnalysisPinPart'
-            deepLink = "#@hrsdc-rhdcc.gc.ca/resource/subscriptions/$SubscriptionId/costmanagement/costanalysis"
+            deepLink = "#@hrsdc-rhdcc.gc.ca/resource/subscriptions/$SubscriptionId/costByResource"
             inputs   = @(
                 @{ name = 'scope';         value = $SCOPE }
                 @{ name = 'scopeName';     value = 'EsDAICoESub' }
@@ -145,7 +145,7 @@ $headerMd = @"
 ## FinOps – EsDAICoESub Cost Dashboard
 **Scope**: EsDAICoESub (d2d4e571-e0f2-4f6c-901a-f88f7669bcba)
 **ADX**: [Open in Data Explorer](https://dataexplorer.azure.com/clusters/marcofinopsadx.canadacentral/databases/finopsdb)
-**Cost Analysis**: [Open in Portal](https://portal.azure.com/#@hrsdc-rhdcc.gc.ca/resource/subscriptions/d2d4e571-e0f2-4f6c-901a-f88f7669bcba/costmanagement/costanalysis)
+**Cost Analysis**: [Open in Portal](https://portal.azure.com/#@hrsdc-rhdcc.gc.ca/resource/subscriptions/d2d4e571-e0f2-4f6c-901a-f88f7669bcba/costByResource)
 
 Key tag dimensions: ``ssc_cbrid`` · ``fin_financialauthority`` · ``environment`` · ``owner`` · ``project`` · ``sec_classification``
 "@
