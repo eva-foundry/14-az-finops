@@ -6,14 +6,17 @@
 
 .DESCRIPTION
     Uses `az rest` to PUT a portal dashboard named "FinOps-EsDAICoESub" in the
-    EsDAICoE-Sandbox resource group.  The dashboard contains six tiles:
+    EsDAICoE-Sandbox resource group.  The dashboard contains five tiles:
 
       Row 0  [full width]   Markdown header with scope + documentation link
-      Row 1  [left]         Cost by SSC Billing Code (bar chart, MTD)
-      Row 1  [right]        Cost by Financial Authority (bar chart, MTD)
-      Row 2  [left]         Cost by Environment (bar chart, MTD, GHCP-Sandbox filter)
-      Row 2  [right]        Cost by Owner/Manager (bar chart, MTD)
-      Row 3  [full width]   Budget status tile – FinOps-Budget-EsDAICoESub-Total
+      Row 1  [left]         Cost by SSC Billing Code (tag bar chart, MTD)
+      Row 1  [right]        Cost by Financial Authority (tag bar chart, MTD)
+      Row 2  [left]         Cost by Environment – GHCP-Sandbox (tag bar chart, MTD)
+      Row 2  [right]        Cost by Owner (tag bar chart, MTD)
+
+    Tiles use CostAnalysisPinPart with inline view config (same pattern as the
+    native EVA dashboard).  Budgets are NOT pinned here — they require explicit
+    Financial Authority sign-off before creation.
 
     Dashboard is shared at resource-group scope; anyone with Contributor or
     Dashboard Contributor on EsDAICoE-Sandbox can view and pin it.
@@ -74,38 +77,45 @@ function New-CostTile {
     )
 
     $dataSet = @{
-        granularity  = 'Monthly'
-        aggregation  = @{ totalCost = @{ name = 'PreTaxCost'; function = 'Sum' } }
+        granularity  = 'None'
+        aggregation  = @{ totalCost = @{ name = 'Cost'; function = 'Sum' } }
         grouping     = @( @{ type = 'TagKey'; name = $groupTagKey } )
-        sorting      = @( @{ name = 'PreTaxCost'; direction = 'Descending' } )
+        sorting      = @( @{ name = 'Cost'; direction = 'Descending' } )
     }
     if ($filter.Count -gt 0) { $dataSet['filter'] = $filter }
+
+    # Inline view — required by CostAnalysisPinPart (same pattern as the working EVA dashboard)
+    $view = @{
+        accumulated  = 'false'
+        chart        = 'GroupedColumn'
+        currency     = 'CAD'
+        displayName  = $title
+        kpis         = @(
+            @{ id = 'actualCost';     enabled = $true;  type = 'Number' }
+            @{ id = 'forecastedCost'; enabled = $false; type = 'Number' }
+        )
+        pivots       = @(
+            @{ name = $groupTagKey; type = 'TagKey' }
+        )
+        query        = @{
+            type      = 'ActualCost'
+            timeframe = 'MonthToDate'
+            dataSet   = $dataSet
+        }
+        scope        = "subscriptions/$SubscriptionId"
+    }
 
     return @{
         position = New-Position $x $y 6 4
         metadata = @{
-            type    = 'Extension/Microsoft_Azure_CostManagement/PartType/CostAnalysisPart'
-            inputs  = @(
-                @{ name = 'id'; value = $SCOPE }
+            type     = 'Extension/Microsoft_Azure_CostManagement/PartType/CostAnalysisPinPart'
+            deepLink = "#@hrsdc-rhdcc.gc.ca/resource/subscriptions/$SubscriptionId/costmanagement/costanalysis"
+            inputs   = @(
+                @{ name = 'scope';         value = $SCOPE }
+                @{ name = 'scopeName';     value = 'EsDAICoESub' }
+                @{ name = 'view';          isOptional = $true; value = $view }
+                @{ name = 'externalState'; isOptional = $true }
             )
-            settings = @{
-                content = @{
-                    scope       = $SCOPE
-                    view        = @{
-                        displayName = $title
-                        chart       = 'GroupedColumn'
-                        accumulated = 'false'
-                        metric      = 'ActualCost'
-                        query       = @{
-                            type      = 'ActualCost'
-                            dataSet   = $dataSet
-                            timeframe = 'MonthToDate'
-                        }
-                        kpis        = @()
-                        pivots      = @()
-                    }
-                }
-            }
         }
     }
 }
@@ -124,25 +134,6 @@ function New-MarkdownTile {
                         title    = ''
                         subtitle = ''
                     }
-                }
-            }
-        }
-    }
-}
-
-function New-BudgetTile {
-    param([int]$x, [int]$y)
-    return @{
-        position = New-Position $x $y 12 2
-        metadata = @{
-            type    = 'Extension/Microsoft_Azure_CostManagement/PartType/BudgetsPart'
-            inputs  = @(
-                @{ name = 'id'; value = $SCOPE }
-            )
-            settings = @{
-                content = @{
-                    scope             = $SCOPE
-                    budgetDisplayMode = 'CurrentMonthActualSpend'
                 }
             }
         }
