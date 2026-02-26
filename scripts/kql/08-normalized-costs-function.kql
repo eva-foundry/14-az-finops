@@ -1,0 +1,10 @@
+.create-or-alter function with (folder="FinOps", docstring="Normalized cost rows — tags parsed, effective cost-centre resolved") NormalizedCosts() {
+    raw_costs
+    | extend
+        CostCenterTag       = tostring(parse_json(tostring(Tags)).CostCenter),
+        Application         = tostring(parse_json(tostring(Tags)).Application),
+        Environment         = tostring(parse_json(tostring(Tags)).Environment),
+        Owner               = tostring(parse_json(tostring(Tags)).owner)
+    | extend EffectiveCostCenter = iff(isnotempty(CostCenter), CostCenter, CostCenterTag)
+    | project-away CostCenterTag, Tags
+}

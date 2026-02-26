@@ -25,8 +25,10 @@ Write-Host "KQL dir : $KqlDir"
 Write-Host ""
 
 # Acquire ADX bearer token
-$token = az account get-access-token --resource "https://kusto.windows.net" --query accessToken -o tsv 2>&1
-if ($LASTEXITCODE -ne 0) { throw "Token acquisition failed - run 'az login' first." }
+# Note: generic https://kusto.windows.net SP may not be registered in enterprise tenants.
+# Using the cluster URI directly as the resource works universally.
+$token = az account get-access-token --resource $ClusterUri --query accessToken -o tsv 2>&1
+if ($LASTEXITCODE -ne 0) { throw "Token acquisition failed - run 'az login' first. Detail: $token" }
 
 function Invoke-KqlFile {
     param([string]$FilePath)

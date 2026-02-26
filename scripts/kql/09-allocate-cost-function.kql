@@ -1,9 +1,9 @@
-.create-or-alter function with (folder="FinOps", skipvalidation=false) AllocateCostByApp() {
+.create-or-alter function with (folder="FinOps", skipvalidation=false, docstring="Allocate APIM cost proportionally by caller application") AllocateCostByApp() {
     let usage = apim_usage
         | where Timestamp >= ago(1d)
         | summarize RequestCount = count() by CallerApp, bin(Timestamp, 1h);
     let costs = (
-        normalized_costs
+        NormalizedCosts()
         | where Date >= ago(1d)
         | where ResourceId has '/Microsoft.ApiManagement/'
         | summarize TotalCost = sum(CostInBillingCurrency) by bin(Date, 1h)
