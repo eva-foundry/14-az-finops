@@ -4,7 +4,7 @@
 
 param clusterName string = 'marcofinopsadx'
 param location string = 'canadacentral'
-param skuName string = 'Dev(No SLA)_Standard_E2a_v4'
+param skuName string = 'Dev(No SLA)_Standard_D11_v2'  // only Dev SKU available in canadacentral
 param skuCapacity int = 1  // Dev SKU requires exactly 1 instance
 param databaseName string = 'finopsdb'
 
