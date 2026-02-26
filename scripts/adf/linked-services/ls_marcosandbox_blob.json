@@ -1,0 +1,20 @@
+{
+  "name": "ls_marcosandbox_blob",
+  "type": "Microsoft.DataFactory/factories/linkedservices",
+  "properties": {
+    "description": "Azure Blob Storage - marcosandboxfinopshub - managed identity auth",
+    "type": "AzureBlobStorage",
+    "typeProperties": {
+      "serviceEndpoint": "https://marcosandboxfinopshub.blob.core.windows.net/",
+      "credential": {
+        "referenceName": "mi-finops-adf",
+        "type": "CredentialReference"
+      },
+      "accountKind": "StorageV2"
+    },
+    "connectVia": {
+      "referenceName": "AutoResolveIntegrationRuntime",
+      "type": "IntegrationRuntimeReference"
+    }
+  }
+}

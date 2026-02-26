@@ -1,0 +1,20 @@
+{
+  "name": "ls_marcofinops_adx",
+  "type": "Microsoft.DataFactory/factories/linkedservices",
+  "properties": {
+    "description": "Azure Data Explorer - marcofinopsadx - managed identity auth",
+    "type": "AzureDataExplorer",
+    "typeProperties": {
+      "endpoint": "https://marcofinopsadx.canadacentral.kusto.windows.net",
+      "database": "finopsdb",
+      "credential": {
+        "referenceName": "mi-finops-adf",
+        "type": "CredentialReference"
+      }
+    },
+    "connectVia": {
+      "referenceName": "AutoResolveIntegrationRuntime",
+      "type": "IntegrationRuntimeReference"
+    }
+  }
+}

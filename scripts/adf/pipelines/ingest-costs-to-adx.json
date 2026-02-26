@@ -1,0 +1,176 @@
+{
+  "name": "ingest-costs-to-adx",
+  "type": "Microsoft.DataFactory/factories/pipelines",
+  "properties": {
+    "description": "Phase 2 - Ingest cost export CSVs from raw/ blob storage into ADX finopsdb.raw_costs. Triggered by Event Grid on BlobCreated events matching raw/costs/**/*.csv.gz",
+    "parameters": {
+      "blobUrl": {
+        "type": "string",
+        "description": "Full blob URL from Event Grid BlobCreated event"
+      },
+      "containerName": {
+        "type": "string",
+        "defaultValue": "raw"
+      },
+      "subscriptionTag": {
+        "type": "string",
+        "defaultValue": ""
+      }
+    },
+    "variables": {
+      "blobPath": {
+        "type": "String"
+      },
+      "ingestionStatus": {
+        "type": "String",
+        "defaultValue": "pending"
+      }
+    },
+    "activities": [
+      {
+        "name": "ExtractBlobPath",
+        "description": "Extract container-relative path from full blob URL",
+        "type": "SetVariable",
+        "typeProperties": {
+          "variableName": "blobPath",
+          "value": {
+            "value": "@replace(pipeline().parameters.blobUrl, concat('https://marcosandboxfinopshub.blob.core.windows.net/', pipeline().parameters.containerName, '/'), '')",
+            "type": "Expression"
+          }
+        }
+      },
+      {
+        "name": "CopyBlobToADX",
+        "description": "Decompress and ingest CSV into ADX raw_costs using CostExportMapping",
+        "type": "Copy",
+        "dependsOn": [
+          {
+            "activity": "ExtractBlobPath",
+            "dependencyConditions": ["Succeeded"]
+          }
+        ],
+        "inputs": [
+          {
+            "referenceName": "ds_blob_cost_csv",
+            "type": "DatasetReference",
+            "parameters": {
+              "containerName": {
+                "value": "@pipeline().parameters.containerName",
+                "type": "Expression"
+              },
+              "blobPath": {
+                "value": "@variables('blobPath')",
+                "type": "Expression"
+              }
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "ds_adx_raw_costs",
+            "type": "DatasetReference"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "storeSettings": {
+              "type": "AzureBlobStorageReadSettings",
+              "recursive": false,
+              "enablePartitionDiscovery": false
+            },
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            }
+          },
+          "sink": {
+            "type": "AzureDataExplorerSink",
+            "ingestionMappingName": "CostExportMapping",
+            "ingestionMappingType": "Csv",
+            "flushImmediately": false
+          },
+          "enableStaging": false,
+          "validateDataConsistency": false
+        },
+        "policy": {
+          "timeout": "0.01:00:00",
+          "retry": 2,
+          "retryIntervalInSeconds": 60,
+          "secureOutput": false,
+          "secureInput": false
+        }
+      },
+      {
+        "name": "WriteCheckpoint",
+        "description": "Record successful ingestion in checkpoint container",
+        "type": "Copy",
+        "dependsOn": [
+          {
+            "activity": "CopyBlobToADX",
+            "dependencyConditions": ["Succeeded"]
+          }
+        ],
+        "inputs": [
+          {
+            "referenceName": "ds_blob_cost_csv",
+            "type": "DatasetReference",
+            "parameters": {
+              "containerName": {
+                "value": "@pipeline().parameters.containerName",
+                "type": "Expression"
+              },
+              "blobPath": {
+                "value": "@variables('blobPath')",
+                "type": "Expression"
+              }
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "ds_blob_cost_csv",
+            "type": "DatasetReference",
+            "parameters": {
+              "containerName": "checkpoint",
+              "blobPath": {
+                "value": "@concat('ingested/', formatDateTime(utcNow(), 'yyyy/MM/dd'), '/', replace(variables('blobPath'), '/', '_'), '.done')",
+                "type": "Expression"
+              }
+            }
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "storeSettings": {
+              "type": "AzureBlobStorageReadSettings"
+            },
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            }
+          },
+          "sink": {
+            "type": "DelimitedTextSink",
+            "storeSettings": {
+              "type": "AzureBlobStorageWriteSettings"
+            },
+            "formatSettings": {
+              "type": "DelimitedTextWriteSettings",
+              "fileExtension": ".done"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.00:05:00",
+          "retry": 1,
+          "retryIntervalInSeconds": 30
+        }
+      }
+    ],
+    "annotations": [
+      "finops",
+      "phase2",
+      "adx-ingestion"
+    ]
+  }
+}

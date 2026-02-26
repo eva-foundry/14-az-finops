@@ -1,0 +1,45 @@
+{
+  "name": "ds_blob_cost_csv",
+  "type": "Microsoft.DataFactory/factories/datasets",
+  "properties": {
+    "description": "Source: gzip-compressed CSV cost exports in raw/costs/",
+    "linkedServiceName": {
+      "referenceName": "ls_marcosandbox_blob",
+      "type": "LinkedServiceReference"
+    },
+    "parameters": {
+      "containerName": {
+        "type": "string",
+        "defaultValue": "raw"
+      },
+      "blobPath": {
+        "type": "string"
+      }
+    },
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "container": {
+          "value": "@dataset().containerName",
+          "type": "Expression"
+        },
+        "fileName": {
+          "value": "@last(split(dataset().blobPath, '/'))",
+          "type": "Expression"
+        },
+        "folderPath": {
+          "value": "@string(join(take(split(dataset().blobPath, '/'), sub(length(split(dataset().blobPath, '/')), 1)), '/'))",
+          "type": "Expression"
+        }
+      },
+      "columnDelimiter": ",",
+      "rowDelimiter": "\n",
+      "encodingName": "UTF-8",
+      "compressionCodec": "gzip",
+      "firstRowAsHeader": true,
+      "nullValue": ""
+    },
+    "schema": []
+  }
+}

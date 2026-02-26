@@ -1,0 +1,16 @@
+{
+  "name": "ds_adx_raw_costs",
+  "type": "Microsoft.DataFactory/factories/datasets",
+  "properties": {
+    "description": "Sink: ADX finopsdb.raw_costs table",
+    "linkedServiceName": {
+      "referenceName": "ls_marcofinops_adx",
+      "type": "LinkedServiceReference"
+    },
+    "type": "AzureDataExplorerTable",
+    "typeProperties": {
+      "table": "raw_costs"
+    },
+    "schema": []
+  }
+}

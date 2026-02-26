@@ -1,0 +1,133 @@
+// create-schema.kql
+// Phase 2 Task 2.1.2 - ADX schema for FinOps Hub
+// Target: marcofinopsadx.canadacentral | Database: finopsdb
+//
+// VERIFIED column ordinals from EsDAICoESub-Daily export (2026-02-25):
+// 0:InvoiceSectionName 1:AccountName 2:AccountOwnerId 3:SubscriptionId
+// 4:SubscriptionName 5:ResourceGroup 6:ResourceLocation 7:Date
+// 8:ProductName 9:MeterCategory 10:MeterSubCategory 11:MeterId
+// 12:MeterName 13:MeterRegion 14:UnitOfMeasure 15:Quantity
+// 16:EffectivePrice 17:CostInBillingCurrency 18:CostCenter 19:ConsumedService
+// 20:ResourceId 21:Tags 22:OfferId 23:AdditionalInfo 24:ServiceInfo1
+// 25:ServiceInfo2 26:ResourceName 27:ReservationId 28:ReservationName
+// 29:UnitPrice 30:ProductOrderId 31:ProductOrderName 32:Term
+// 33:PublisherType 34:PublisherName 35:ChargeType 36:Frequency
+// 37:PricingModel 38:AvailabilityZone 39:BillingAccountId
+// 40:BillingAccountName 41:BillingCurrencyCode 42:BillingPeriodStartDate
+// 43:BillingPeriodEndDate ... 56:AccountId
+// ---------------------------------------------------------------------------
+
+// Step 1: Create raw_costs table
+.create table raw_costs (
+    Date: datetime,
+    SubscriptionId: string,
+    SubscriptionName: string,
+    ResourceGroup: string,
+    ResourceId: string,
+    ResourceName: string,
+    ResourceLocation: string,
+    ResourceType: string,
+    MeterCategory: string,
+    MeterSubCategory: string,
+    MeterId: string,
+    MeterName: string,
+    Quantity: real,
+    EffectivePrice: real,
+    CostInBillingCurrency: real,
+    BillingCurrency: string,
+    Tags: dynamic,
+    ConsumedService: string,
+    CostCenter: string,
+    IngestionTime: datetime
+)
+
+// Step 2: Ingestion mapping - ordinals verified against actual export CSV header
+.create table raw_costs ingestion csv mapping 'CostExportMapping'
+'['
+'{"column":"Date","DataType":"datetime","Properties":{"Ordinal":"7"}},'
+'{"column":"SubscriptionId","DataType":"string","Properties":{"Ordinal":"3"}},'
+'{"column":"SubscriptionName","DataType":"string","Properties":{"Ordinal":"4"}},'
+'{"column":"ResourceGroup","DataType":"string","Properties":{"Ordinal":"5"}},'
+'{"column":"ResourceId","DataType":"string","Properties":{"Ordinal":"20"}},'
+'{"column":"ResourceName","DataType":"string","Properties":{"Ordinal":"26"}},'
+'{"column":"ResourceLocation","DataType":"string","Properties":{"Ordinal":"6"}},'
+'{"column":"MeterCategory","DataType":"string","Properties":{"Ordinal":"9"}},'
+'{"column":"MeterSubCategory","DataType":"string","Properties":{"Ordinal":"10"}},'
+'{"column":"MeterId","DataType":"string","Properties":{"Ordinal":"11"}},'
+'{"column":"MeterName","DataType":"string","Properties":{"Ordinal":"12"}},'
+'{"column":"Quantity","DataType":"real","Properties":{"Ordinal":"15"}},'
+'{"column":"EffectivePrice","DataType":"real","Properties":{"Ordinal":"16"}},'
+'{"column":"CostInBillingCurrency","DataType":"real","Properties":{"Ordinal":"17"}},'
+'{"column":"BillingCurrency","DataType":"string","Properties":{"Ordinal":"41"}},'
+'{"column":"Tags","DataType":"dynamic","Properties":{"Ordinal":"21"}},'
+'{"column":"ConsumedService","DataType":"string","Properties":{"Ordinal":"19"}},'
+'{"column":"CostCenter","DataType":"string","Properties":{"Ordinal":"18"}}'
+']'
+
+// Step 3: Retention policy (5 years)
+.alter table raw_costs policy retention
+  @'{"SoftDeletePeriod":"1825.00:00:00","Recoverability":"Enabled"}'
+
+// Step 4: Partitioning by Date (1-day partitions, improves scan performance)
+.alter table raw_costs policy partitioning
+  @'{"PartitionKeys":[{"ColumnName":"Date","Kind":"UniformRange","Properties":{"RangeSize":"1.00:00:00","OverrideCreationTime":false}}]}'
+
+// Step 5: Update policy to populate IngestionTime automatically
+.alter table raw_costs policy update
+  @'[{"IsEnabled":true,"Source":"raw_costs","Query":"raw_costs | extend IngestionTime = ingestion_time()","IsTransactional":false,"PropagateIngestionProperties":false}]'
+
+// Step 6: Create apim_usage table
+.create table apim_usage (
+    Timestamp: datetime,
+    ApiId: string,
+    OperationId: string,
+    ProductId: string,
+    RequestId: string,
+    CallerApp: string,
+    CostCenter: string,
+    Environment: string,
+    HttpStatusCode: int,
+    DurationMs: real
+)
+
+.alter table apim_usage policy retention
+  @'{"SoftDeletePeriod":"365.00:00:00","Recoverability":"Enabled"}'
+
+// Step 7: Materialized view - normalized_costs (tag expansion)
+.create materialized-view with (backfill=false) normalized_costs on table raw_costs
+{
+    raw_costs
+    | extend
+        CostCenterTag  = tostring(parse_json(tostring(Tags)).CostCenter),
+        Application    = tostring(parse_json(tostring(Tags)).Application),
+        Environment    = tostring(parse_json(tostring(Tags)).Environment),
+        Owner          = tostring(parse_json(tostring(Tags)).owner)
+    | extend EffectiveCostCenter = iff(isnotempty(CostCenter), CostCenter, CostCenterTag)
+    | project-away CostCenterTag, Tags
+}
+
+// Step 8: Cost allocation function (APIM chargeback)
+.create-or-alter function with (folder="FinOps", skipvalidation=false) AllocateCostByApp() {
+    let usage = apim_usage
+        | where Timestamp >= ago(1d)
+        | summarize RequestCount = count() by CallerApp, bin(Timestamp, 1h);
+    let costs = (
+        normalized_costs
+        | where Date >= ago(1d)
+        | where ResourceId has "/Microsoft.ApiManagement/"
+        | summarize TotalCost = sum(CostInBillingCurrency) by bin(Date, 1h)
+    );
+    let totals = usage
+        | summarize TotalRequests = sum(RequestCount) by bin(Timestamp, 1h);
+    usage
+    | join kind=inner (costs) on $left.Timestamp == $right.Date
+    | join kind=inner (totals) on Timestamp
+    | extend AllocatedCost = (RequestCount * 1.0 / TotalRequests) * TotalCost
+    | project CallerApp, Timestamp, AllocatedCost, RequestCount, TotalCost
+}
+
+// Verification queries (run manually after schema creation):
+// .show tables | where TableName in ("raw_costs", "apim_usage")
+// .show table raw_costs ingestion csv mappings
+// .show materialized-views | where Name == "normalized_costs"
+// .show functions | where Name == "AllocateCostByApp"
