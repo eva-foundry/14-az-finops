@@ -2,6 +2,11 @@
 // Phase 2 Task 2.1.2 - ADX schema for FinOps Hub
 // Target: marcofinopsadx.canadacentral | Database: finopsdb
 //
+// HOW TO RUN IN ADX WEB UI:
+//   Option A: Click inside each block, press Shift+Enter to run that block only
+//   Option B: Select all (Ctrl+A), then click Run
+//   NOTE: Clicking Run while cursor is on a comment = "No query was found" error
+//
 // VERIFIED column ordinals from EsDAICoESub-Daily export (2026-02-25):
 // 0:InvoiceSectionName 1:AccountName 2:AccountOwnerId 3:SubscriptionId
 // 4:SubscriptionName 5:ResourceGroup 6:ResourceLocation 7:Date
@@ -17,67 +22,23 @@
 // 43:BillingPeriodEndDate ... 56:AccountId
 // ---------------------------------------------------------------------------
 
-// Step 1: Create raw_costs table
-.create table raw_costs (
-    Date: datetime,
-    SubscriptionId: string,
-    SubscriptionName: string,
-    ResourceGroup: string,
-    ResourceId: string,
-    ResourceName: string,
-    ResourceLocation: string,
-    ResourceType: string,
-    MeterCategory: string,
-    MeterSubCategory: string,
-    MeterId: string,
-    MeterName: string,
-    Quantity: real,
-    EffectivePrice: real,
-    CostInBillingCurrency: real,
-    BillingCurrency: string,
-    Tags: dynamic,
-    ConsumedService: string,
-    CostCenter: string,
-    IngestionTime: datetime
-)
+// === BLOCK 1: Create raw_costs table (.create-merge is idempotent) ===
+.create-merge table raw_costs (Date:datetime, SubscriptionId:string, SubscriptionName:string, ResourceGroup:string, ResourceId:string, ResourceName:string, ResourceLocation:string, ResourceType:string, MeterCategory:string, MeterSubCategory:string, MeterId:string, MeterName:string, Quantity:real, EffectivePrice:real, CostInBillingCurrency:real, BillingCurrency:string, Tags:dynamic, ConsumedService:string, CostCenter:string, IngestionTime:datetime)
 
-// Step 2: Ingestion mapping - ordinals verified against actual export CSV header
-.create table raw_costs ingestion csv mapping 'CostExportMapping'
-'['
-'{"column":"Date","DataType":"datetime","Properties":{"Ordinal":"7"}},'
-'{"column":"SubscriptionId","DataType":"string","Properties":{"Ordinal":"3"}},'
-'{"column":"SubscriptionName","DataType":"string","Properties":{"Ordinal":"4"}},'
-'{"column":"ResourceGroup","DataType":"string","Properties":{"Ordinal":"5"}},'
-'{"column":"ResourceId","DataType":"string","Properties":{"Ordinal":"20"}},'
-'{"column":"ResourceName","DataType":"string","Properties":{"Ordinal":"26"}},'
-'{"column":"ResourceLocation","DataType":"string","Properties":{"Ordinal":"6"}},'
-'{"column":"MeterCategory","DataType":"string","Properties":{"Ordinal":"9"}},'
-'{"column":"MeterSubCategory","DataType":"string","Properties":{"Ordinal":"10"}},'
-'{"column":"MeterId","DataType":"string","Properties":{"Ordinal":"11"}},'
-'{"column":"MeterName","DataType":"string","Properties":{"Ordinal":"12"}},'
-'{"column":"Quantity","DataType":"real","Properties":{"Ordinal":"15"}},'
-'{"column":"EffectivePrice","DataType":"real","Properties":{"Ordinal":"16"}},'
-'{"column":"CostInBillingCurrency","DataType":"real","Properties":{"Ordinal":"17"}},'
-'{"column":"BillingCurrency","DataType":"string","Properties":{"Ordinal":"41"}},'
-'{"column":"Tags","DataType":"dynamic","Properties":{"Ordinal":"21"}},'
-'{"column":"ConsumedService","DataType":"string","Properties":{"Ordinal":"19"}},'
-'{"column":"CostCenter","DataType":"string","Properties":{"Ordinal":"18"}}'
-']'
+// === BLOCK 2: Ingestion mapping - ordinals verified from live CSV ===
+.create-or-replace table raw_costs ingestion csv mapping 'CostExportMapping' '[{"column":"Date","DataType":"datetime","Properties":{"Ordinal":"7"}},{"column":"SubscriptionId","DataType":"string","Properties":{"Ordinal":"3"}},{"column":"SubscriptionName","DataType":"string","Properties":{"Ordinal":"4"}},{"column":"ResourceGroup","DataType":"string","Properties":{"Ordinal":"5"}},{"column":"ResourceId","DataType":"string","Properties":{"Ordinal":"20"}},{"column":"ResourceName","DataType":"string","Properties":{"Ordinal":"26"}},{"column":"ResourceLocation","DataType":"string","Properties":{"Ordinal":"6"}},{"column":"MeterCategory","DataType":"string","Properties":{"Ordinal":"9"}},{"column":"MeterSubCategory","DataType":"string","Properties":{"Ordinal":"10"}},{"column":"MeterId","DataType":"string","Properties":{"Ordinal":"11"}},{"column":"MeterName","DataType":"string","Properties":{"Ordinal":"12"}},{"column":"Quantity","DataType":"real","Properties":{"Ordinal":"15"}},{"column":"EffectivePrice","DataType":"real","Properties":{"Ordinal":"16"}},{"column":"CostInBillingCurrency","DataType":"real","Properties":{"Ordinal":"17"}},{"column":"BillingCurrency","DataType":"string","Properties":{"Ordinal":"41"}},{"column":"Tags","DataType":"dynamic","Properties":{"Ordinal":"21"}},{"column":"ConsumedService","DataType":"string","Properties":{"Ordinal":"19"}},{"column":"CostCenter","DataType":"string","Properties":{"Ordinal":"18"}}]'
 
-// Step 3: Retention policy (5 years)
-.alter table raw_costs policy retention
-  @'{"SoftDeletePeriod":"1825.00:00:00","Recoverability":"Enabled"}'
+// === BLOCK 3: Retention policy - 5 years ===
+.alter table raw_costs policy retention @'{"SoftDeletePeriod":"1825.00:00:00","Recoverability":"Enabled"}'
 
-// Step 4: Partitioning by Date (1-day partitions, improves scan performance)
-.alter table raw_costs policy partitioning
-  @'{"PartitionKeys":[{"ColumnName":"Date","Kind":"UniformRange","Properties":{"RangeSize":"1.00:00:00","OverrideCreationTime":false}}]}'
+// === BLOCK 4: Partitioning by Date (1-day buckets) ===
+.alter table raw_costs policy partitioning @'{"PartitionKeys":[{"ColumnName":"Date","Kind":"UniformRange","Properties":{"RangeSize":"1.00:00:00","OverrideCreationTime":false}}]}'
 
-// Step 5: Update policy to populate IngestionTime automatically
-.alter table raw_costs policy update
-  @'[{"IsEnabled":true,"Source":"raw_costs","Query":"raw_costs | extend IngestionTime = ingestion_time()","IsTransactional":false,"PropagateIngestionProperties":false}]'
+// === BLOCK 5: Auto-populate IngestionTime on ingest ===
+.alter table raw_costs policy update @'[{"IsEnabled":true,"Source":"raw_costs","Query":"raw_costs | extend IngestionTime = ingestion_time()","IsTransactional":false,"PropagateIngestionProperties":false}]'
 
-// Step 6: Create apim_usage table
-.create table apim_usage (
+// === BLOCK 6: Create apim_usage table ===
+.create-merge table apim_usage (
     Timestamp: datetime,
     ApiId: string,
     OperationId: string,
@@ -90,10 +51,10 @@
     DurationMs: real
 )
 
-.alter table apim_usage policy retention
-  @'{"SoftDeletePeriod":"365.00:00:00","Recoverability":"Enabled"}'
+// === BLOCK 7: apim_usage retention - 1 year ===
+.alter table apim_usage policy retention @'{"SoftDeletePeriod":"365.00:00:00","Recoverability":"Enabled"}'
 
-// Step 7: Materialized view - normalized_costs (tag expansion)
+// === BLOCK 8: Materialized view - tag expansion ===
 .create materialized-view with (backfill=false) normalized_costs on table raw_costs
 {
     raw_costs
@@ -106,7 +67,7 @@
     | project-away CostCenterTag, Tags
 }
 
-// Step 8: Cost allocation function (APIM chargeback)
+// === BLOCK 9: APIM cost allocation function ===
 .create-or-alter function with (folder="FinOps", skipvalidation=false) AllocateCostByApp() {
     let usage = apim_usage
         | where Timestamp >= ago(1d)
