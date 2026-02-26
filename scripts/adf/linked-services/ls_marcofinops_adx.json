@@ -11,10 +11,6 @@
         "referenceName": "mi-finops-adf",
         "type": "CredentialReference"
       }
-    },
-    "connectVia": {
-      "referenceName": "AutoResolveIntegrationRuntime",
-      "type": "IntegrationRuntimeReference"
     }
   }
 }

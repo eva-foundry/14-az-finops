@@ -11,10 +11,6 @@
         "type": "CredentialReference"
       },
       "accountKind": "StorageV2"
-    },
-    "connectVia": {
-      "referenceName": "AutoResolveIntegrationRuntime",
-      "type": "IntegrationRuntimeReference"
     }
   }
 }
