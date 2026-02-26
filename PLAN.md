@@ -80,6 +80,48 @@ TAG DOMAIN VALUES (Feb 26, 2026 — 460,609 rows, $567,992 total spend):
   EffectiveCallerApp:    "1101, 1100"=440K $464K | " 1101, 1100"(leading space)=20K $14K | Pre-APIM=12 $90K
   SecurityClass:         (empty)=428K $562K (93% unclassified) | PROTECTEDB=32K $6.3K
 
+BILLING ANOMALY INVESTIGATION (Feb 26, 2026):
+  HEADLINE: Total $567,992 is technically accurate but includes two non-recurring events.
+
+  ANOMALY-01 — Runaway Batch Job: EsDAICoESub, April 2025
+    Resource:  infoasst-aisvc-hccld (InfoAssistant AI Service, RG infoasst-cog-svc / no RG)
+    What:      Foundry Tools / Translator Text — 958M characters/day × 14 days (Apr 10–24)
+               + Azure Language / Standard Text Records (same resource, same period)
+    Cost:      Translator Text $144,540 + Azure Language $14,382 = $158,922 CAD
+    Nature:    Real consumption — one-time runaway batch translation/NLP job, NOT steady-state
+    Evidence:  24 rows × ~$10,794/day | EffectivePrice $11.26/million chars | MeterName "S1 Characters"
+    Action:    Exclude from steady-state OpEx baseline; investigate who triggered the batch job
+
+  ANOMALY-02 — PTU Commitment Purchase: EsPAICoESub
+    Meter:     Azure OpenAI / Provisioned Managed Regional Unit (rg=empty, ResourceName=empty)
+    What:      Provisioned Throughput Unit (PTU) reservation purchase — pre-paid capacity, NOT token consumption
+    Cost:      $90,000 CAD (12 rows, spread across months)
+    Nature:    Commitment/reservation amortization — CapEx-style, not OpEx run-rate
+    Evidence:  rg=empty for all 12 rows; other Provisioned Managed rows (rg set) = $5.16 (360 rows)
+
+  TRUE STEADY-STATE OPEX BASELINE (after removing anomalies):
+    Total billed:                         $567,992
+    − April 2025 InfoAssist batch job:   −$158,922
+    − PTU commitment purchase:            −$90,000
+    ─────────────────────────────────────────────
+    True operational run-rate:            ~$319,070 CAD/year (~$26,600/month)
+
+  MONTHLY BREAKDOWN (EsDAICoESub | EsPAICoESub):
+    2025-02: $8,665  | $7,768
+    2025-03: $14,212 | $10,059
+    2025-04: $174,044| $10,192  ← SPIKE (Anomaly-01: $158,922 batch job)
+    2025-05: $12,408 | $11,264
+    2025-06: $12,219 | $11,834
+    2025-07: $12,216 | $12,332
+    2025-08: $17,686 | $11,533
+    2025-09: $19,240 | $11,422
+    2025-10: $28,484 | $12,660
+    2025-11: $33,765 | $13,006
+    2025-12: $23,990 | $14,417
+    2026-01: $22,257 | $13,264
+    2026-02: $42,556 | $6,486
+    NOTE: EsPAICoESub includes $90K PTU commitment spread across all months
+
 DATA QUALITY ISSUES FOUND:
   DQ-01: EffectiveCallerApp — fin_csdid tag contains comma-separated multi-app IDs ("1101, 1100") → need split+trim
   DQ-02: EffectiveCallerApp — " 1101, 1100" has leading space variant (20K rows, $14K) → need trim()
