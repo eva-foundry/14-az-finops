@@ -30,3 +30,6 @@ logs/
 # OS / IDE
 .DS_Store
 Thumbs.db
+
+temp/
+*.bak

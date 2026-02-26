@@ -1,0 +1,132 @@
+FinOps Analysis — EsDAICoESub (Dev)
+Generated : 2026-02-26 15:31
+Period    : 2025-11-27 → 2026-02-26  (4 months)
+Total 4mo : CAD 78,419.75
+Avg/month : CAD 19,604.94
+Run-rate  : CAD 235,259.24/year
+
+====================================================================
+  TOP 15 SERVICES — Annual Run-Rate
+====================================================================
+     64,287.02 CAD/yr  CV= 55.9%  FAIR          trend +1342.02/mo  Azure App Service
+     37,234.75 CAD/yr  CV= 55.2%  FAIR          trend  +936.89/mo  Azure Cognitive Search
+     25,845.97 CAD/yr  CV=184.8%  INELIGIBLE    trend +2449.03/mo  Foundry Tools
+     22,752.59 CAD/yr  CV= 55.3%  FAIR          trend  +584.21/mo  Azure DNS
+     16,812.84 CAD/yr  CV= 62.8%  INELIGIBLE    trend  +507.24/mo  Microsoft Dev Box
+     14,470.55 CAD/yr  CV= 48.9%  FAIR          trend  +297.34/mo  Azure Container Apps
+     14,283.59 CAD/yr  CV= 54.8%  FAIR          trend  +344.62/mo  Microsoft Defender for Cloud
+     13,648.97 CAD/yr  CV= 56.2%  FAIR          trend  +270.67/mo  Virtual Network
+      8,291.52 CAD/yr  CV= 55.6%  FAIR          trend  +153.78/mo  Container Registry
+      6,744.25 CAD/yr  CV= 71.6%  INELIGIBLE    trend  +304.39/mo  Virtual Machines
+      3,855.48 CAD/yr  CV= 64.7%  INELIGIBLE    trend  +155.45/mo  Log Analytics
+      2,411.29 CAD/yr  CV= 55.2%  FAIR          trend   +56.42/mo  Azure Database for PostgreSQL
+      1,417.10 CAD/yr  CV= 57.8%  FAIR          trend   +47.71/mo  Storage
+      1,253.65 CAD/yr  CV= 56.4%  FAIR          trend   +38.09/mo  Redis Cache
+        610.88 CAD/yr  CV= 64.2%  INELIGIBLE    trend   +23.74/mo  API Management
+
+====================================================================
+  MONTHLY COST BREAKDOWN BY SERVICE
+====================================================================
+                                        2025-11     2025-12     2026-01     2026-02
+  Foundry Tools                              36         113         344       8,122
+  Azure App Service                       1,029       7,752       6,842       5,806
+  Azure Cognitive Search                    555       4,270       3,727       3,859
+  Azure DNS                                 331       2,487       2,487       2,279
+  Microsoft Dev Box                          85       1,922       1,772       1,826
+  Microsoft Defender for Cloud              222       1,629       1,495       1,415
+  Azure Container Apps                      339       1,584       1,565       1,336
+  Virtual Network                           224       1,678       1,444       1,204
+  Virtual Machines                           70         513         615       1,051
+  Container Registry                        149       1,035         861         719
+  Log Analytics                              42         322         382         540
+  Azure Database for PostgreSQL              37         271         270         226
+  Storage                                    20         136         136         180
+  Redis Cache                                17         129         129         144
+  Foundry Models                              1           7          66         122
+
+====================================================================
+  TOP 20 RESOURCE GROUPS — Monthly Cost
+====================================================================
+  [Dev   ]  infoasst-dev2                        total=    12,781         156       1,262       1,701       9,662
+  [Shared]  esdcaicoe-devrg                      total=     5,606          87       1,922       1,772       1,826
+  [Stg   ]  infoasst-stg2                        total=     4,602         201       1,550       1,550       1,302
+  [Stg   ]  infoasst-stg3                        total=     4,602         201       1,550       1,550       1,301
+  [Stg   ]  infoasst-stg5                        total=     4,524         189       1,466       1,655       1,215
+  [Stg   ]  infoasst-stg1                        total=     4,517         188       1,515       1,446       1,367
+  [Stg   ]  infoasst-stg4                        total=     4,296         189       1,452       1,443       1,213
+  [Dev   ]  infoasst-hccld2                      total=     4,030         154       1,263       1,517       1,096
+  [Dev   ]  infoasst-dev1                        total=     4,028         189       1,271       1,300       1,269
+  [Dev   ]  infoasst-dev0                        total=     4,024         154       1,241       1,448       1,182
+  [Dev   ]  infoasst-dev3                        total=     3,704         154       1,250       1,190       1,110
+  [Shared]  evachatdev3rg                        total=     2,638         115         892         892         740
+  [Shared]  esdcaicoe-corg                       total=     2,408          73         532         645       1,157
+  [Stg   ]  evachatstg2rg                        total=     2,249          98         760         760         631
+  [Stg   ]  evachatstgrg                         total=     2,191          96         741         741         613
+  [Stg   ]  infoasst-esdc-eva-stg-securemode-1   total=     2,031         231       1,380         220         200
+  [Shared]  esdaicoe-sandbox                     total=     1,981          76         591         591         722
+  [Shared]  esdaicoe-ai-foundry-rg               total=     1,897          22         172         497       1,206
+  [Dev   ]  infoasst-infoasst-esdc-eva-dev-secu  total=     1,809         180       1,208         220         201
+  [Shared]  esdcaicoe-costarg                    total=       976          43         329         329         275
+
+====================================================================
+  RI / SAVINGS PLAN CANDIDATES
+====================================================================
+  Service                               Annual CAD    CV%  Rating            SP@17%      RI@35%
+  -----------------------------------------------------------------------------------------------
+  Azure App Service                      64,287.02   55.9  FAIR           10,928.79        0.00
+  Azure Cognitive Search                 37,234.75   55.2  FAIR            6,329.91        0.00
+  Azure DNS                              22,752.59   55.3  FAIR            3,867.94        0.00
+  Azure Container Apps                   14,470.55   48.9  FAIR            2,459.99        0.00
+  Microsoft Defender for Cloud           14,283.59   54.8  FAIR            2,428.21        0.00
+  Virtual Network                        13,648.97   56.2  FAIR            2,320.33        0.00
+  Container Registry                      8,291.52   55.6  FAIR            1,409.56        0.00
+  Azure Database for PostgreSQL           2,411.29   55.2  FAIR              409.92        0.00
+  Storage                                 1,417.10   57.8  FAIR              240.91        0.00
+  Redis Cache                             1,253.65   56.4  FAIR              213.12        0.00
+  Load Balancer                             581.51   49.5  FAIR               98.86        0.00
+
+  TOTAL potential saving — Savings Plan @17% : CAD  30,707.54/yr
+  TOTAL potential saving — Reserved 1yr @35%  : CAD       0.00/yr
+
+====================================================================
+  SHUTDOWN SAVING ESTIMATE (Stoppable Compute)
+====================================================================
+  Service                               Annual CAD    Nights 33%    N+Wknd 47%
+  ---------------------------------------------------------------------------
+  Azure App Service                      64,287.02     21,214.72     30,214.90
+  Microsoft Dev Box                      16,812.84      5,548.24      7,902.03
+  Azure Container Apps                   14,470.55      4,775.28      6,801.16
+  Virtual Machines                        6,744.25      2,225.60      3,169.80
+
+  TOTAL stoppable compute               102,314.66
+  Saving — nights only (33%)             33,763.84
+  Saving — nights + weekends (47%)       48,087.89
+
+====================================================================
+  ANOMALY DETECTION — Daily Total Spend
+====================================================================
+  Method: Z-score (>3σ on 30-day rolling baseline) + IQR (>Q3+3×IQR)
+  Anomaly days detected: 4
+
+  Date              Cost CAD      Baseline   Z-score  IQR flag
+  ------------------------------------------------------------
+  2026-01-07          957.54        742.49      3.08  
+  2026-02-01        2,210.68        770.61      5.17  YES
+  2026-02-17        3,929.15        928.03      4.78  YES
+  2026-02-18        4,499.20      1,054.96      3.81  YES
+
+====================================================================
+  DATABASE TABLES
+====================================================================
+  raw_daily_service                     2083 rows
+  raw_daily_rg                          3163 rows
+  raw_daily_meter                       2083 rows
+  raw_monthly_service_rg                1011 rows
+  v_service_monthly                       95 rows
+  analysis_cv                             27 rows
+  analysis_rg_monthly                    148 rows
+  analysis_anomalies                      92 rows
+  analysis_ri                             11 rows
+  analysis_shutdown                        4 rows
+
+DB path: C:\eva-foundry-local\14-az-finops\tools\finops\dev-costs.db

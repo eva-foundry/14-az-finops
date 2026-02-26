@@ -1,0 +1,7112 @@
+{
+  "eTag": null,
+  "id": "subscriptions/d2d4e571-e0f2-4f6c-901a-f88f7669bcba/providers/Microsoft.CostManagement/query/461b4e82-cd81-49f4-ad0b-9dd9f0f0b536",
+  "location": null,
+  "name": "461b4e82-cd81-49f4-ad0b-9dd9f0f0b536",
+  "properties": {
+    "columns": [
+      {
+        "name": "Cost",
+        "type": "Number"
+      },
+      {
+        "name": "BillingMonth",
+        "type": "Datetime"
+      },
+      {
+        "name": "MeterCategory",
+        "type": "String"
+      },
+      {
+        "name": "ResourceGroupName",
+        "type": "String"
+      },
+      {
+        "name": "Currency",
+        "type": "String"
+      }
+    ],
+    "nextLink": null,
+    "rows": [
+      [
+        7.1136,
+        "2025-11-01T00:00:00",
+        "API Management",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        8.62656,
+        "2025-11-01T00:00:00",
+        "Azure App Service",
+        "esdaicoe-maxpocadorg",
+        "CAD"
+      ],
+      [
+        13.6128,
+        "2025-11-01T00:00:00",
+        "Azure App Service",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        17.25312,
+        "2025-11-01T00:00:00",
+        "Azure App Service",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        8.62656,
+        "2025-11-01T00:00:00",
+        "Azure App Service",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        55.8528,
+        "2025-11-01T00:00:00",
+        "Azure App Service",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        84.6528,
+        "2025-11-01T00:00:00",
+        "Azure App Service",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        55.8528,
+        "2025-11-01T00:00:00",
+        "Azure App Service",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        55.8528,
+        "2025-11-01T00:00:00",
+        "Azure App Service",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        55.8528,
+        "2025-11-01T00:00:00",
+        "Azure App Service",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        85.1454506,
+        "2025-11-01T00:00:00",
+        "Azure App Service",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        55.8528,
+        "2025-11-01T00:00:00",
+        "Azure App Service",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        75.0528,
+        "2025-11-01T00:00:00",
+        "Azure App Service",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        89.3952,
+        "2025-11-01T00:00:00",
+        "Azure App Service",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        94.2528,
+        "2025-11-01T00:00:00",
+        "Azure App Service",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        94.2528,
+        "2025-11-01T00:00:00",
+        "Azure App Service",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        89.3952,
+        "2025-11-01T00:00:00",
+        "Azure App Service",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        89.3952,
+        "2025-11-01T00:00:00",
+        "Azure App Service",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        36.288,
+        "2025-11-01T00:00:00",
+        "Azure Cognitive Search",
+        "esdaicoe-aiops-learningsandbox",
+        "CAD"
+      ],
+      [
+        47.232,
+        "2025-11-01T00:00:00",
+        "Azure Cognitive Search",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        36.288,
+        "2025-11-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        36.288,
+        "2025-11-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        36.288,
+        "2025-11-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        36.288,
+        "2025-11-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        36.288,
+        "2025-11-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        36.288,
+        "2025-11-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        36.288,
+        "2025-11-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        36.288,
+        "2025-11-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        36.288,
+        "2025-11-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        36.288,
+        "2025-11-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        36.288,
+        "2025-11-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        36.288,
+        "2025-11-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        36.288,
+        "2025-11-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        9.6432534,
+        "2025-11-01T00:00:00",
+        "Azure Container Apps",
+        "evachatdev2apprg",
+        "CAD"
+      ],
+      [
+        57.2488121422222,
+        "2025-11-01T00:00:00",
+        "Azure Container Apps",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        14.4653868,
+        "2025-11-01T00:00:00",
+        "Azure Container Apps",
+        "evachatdev3apprg",
+        "CAD"
+      ],
+      [
+        57.2443390222222,
+        "2025-11-01T00:00:00",
+        "Azure Container Apps",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        8.85878566,
+        "2025-11-01T00:00:00",
+        "Azure Container Apps",
+        "evachatdevapprg",
+        "CAD"
+      ],
+      [
+        57.2383748622222,
+        "2025-11-01T00:00:00",
+        "Azure Container Apps",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        9.697977,
+        "2025-11-01T00:00:00",
+        "Azure Container Apps",
+        "evachatstg2apprg",
+        "CAD"
+      ],
+      [
+        57.23953456,
+        "2025-11-01T00:00:00",
+        "Azure Container Apps",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        9.6432534,
+        "2025-11-01T00:00:00",
+        "Azure Container Apps",
+        "evachatstgapprg",
+        "CAD"
+      ],
+      [
+        57.2388718755556,
+        "2025-11-01T00:00:00",
+        "Azure Container Apps",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        0.00183725822949219,
+        "2025-11-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        0.00182979170683594,
+        "2025-11-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        0.000951769067871094,
+        "2025-11-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        0.00181864250683594,
+        "2025-11-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        0.0105925948800812,
+        "2025-11-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        0.0338062932713226,
+        "2025-11-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        0.0102825257997243,
+        "2025-11-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        0.00637631701569926,
+        "2025-11-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        0.0036236374983134,
+        "2025-11-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        0.0102168200780273,
+        "2025-11-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        0.00886838627802734,
+        "2025-11-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        0.00102742934031677,
+        "2025-11-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        0.000933936497832235,
+        "2025-11-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        0.364518829032258,
+        "2025-11-01T00:00:00",
+        "Azure DNS",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        0.0729032258064516,
+        "2025-11-01T00:00:00",
+        "Azure DNS",
+        "esdaicoe-aiservices-stg",
+        "CAD"
+      ],
+      [
+        0.0788540258064516,
+        "2025-11-01T00:00:00",
+        "Azure DNS",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        0.0729072758064516,
+        "2025-11-01T00:00:00",
+        "Azure DNS",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        0.0729176258064516,
+        "2025-11-01T00:00:00",
+        "Azure DNS",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        0.0729324758064516,
+        "2025-11-01T00:00:00",
+        "Azure DNS",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        0.365964229032258,
+        "2025-11-01T00:00:00",
+        "Azure DNS",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        0.309873003225806,
+        "2025-11-01T00:00:00",
+        "Azure DNS",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        27.3196516198925,
+        "2025-11-01T00:00:00",
+        "Azure DNS",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        27.3196862698925,
+        "2025-11-01T00:00:00",
+        "Azure DNS",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        27.3194522698925,
+        "2025-11-01T00:00:00",
+        "Azure DNS",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        27.3194680198925,
+        "2025-11-01T00:00:00",
+        "Azure DNS",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        0.364516129032258,
+        "2025-11-01T00:00:00",
+        "Azure DNS",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        28.1674344537634,
+        "2025-11-01T00:00:00",
+        "Azure DNS",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        27.3203774698925,
+        "2025-11-01T00:00:00",
+        "Azure DNS",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        28.2335822795699,
+        "2025-11-01T00:00:00",
+        "Azure DNS",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        27.3196565698925,
+        "2025-11-01T00:00:00",
+        "Azure DNS",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        27.3229091698925,
+        "2025-11-01T00:00:00",
+        "Azure DNS",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        27.3223790698925,
+        "2025-11-01T00:00:00",
+        "Azure DNS",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        27.3196412698925,
+        "2025-11-01T00:00:00",
+        "Azure DNS",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        27.3196642198925,
+        "2025-11-01T00:00:00",
+        "Azure DNS",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        2.60725333333333,
+        "2025-11-01T00:00:00",
+        "Azure Database for PostgreSQL",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        8.60821333333333,
+        "2025-11-01T00:00:00",
+        "Azure Database for PostgreSQL",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        2.60725333333333,
+        "2025-11-01T00:00:00",
+        "Azure Database for PostgreSQL",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        2.60725333333333,
+        "2025-11-01T00:00:00",
+        "Azure Database for PostgreSQL",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        21.0402133333333,
+        "2025-11-01T00:00:00",
+        "Azure Database for PostgreSQL",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        0.497776142473118,
+        "2025-11-01T00:00:00",
+        "Azure Monitor",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        1.28249097222222,
+        "2025-11-01T00:00:00",
+        "Azure Monitor",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        0.427900694444444,
+        "2025-11-01T00:00:00",
+        "Azure Monitor",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        0.479458064515995,
+        "2025-11-01T00:00:00",
+        "Backup",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        1.372e-06,
+        "2025-11-01T00:00:00",
+        "Bandwidth",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        2.7024e-07,
+        "2025-11-01T00:00:00",
+        "Bandwidth",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        1.297152e-05,
+        "2025-11-01T00:00:00",
+        "Bandwidth",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        1.297152e-05,
+        "2025-11-01T00:00:00",
+        "Bandwidth",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        0.038125136,
+        "2025-11-01T00:00:00",
+        "Bandwidth",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        0.026886398,
+        "2025-11-01T00:00:00",
+        "Bandwidth",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        0.00021217,
+        "2025-11-01T00:00:00",
+        "Bandwidth",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        7.50539336266656,
+        "2025-11-01T00:00:00",
+        "Container Registry",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        6.00271466133312,
+        "2025-11-01T00:00:00",
+        "Container Registry",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        7.50539336266656,
+        "2025-11-01T00:00:00",
+        "Container Registry",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        7.50539336266656,
+        "2025-11-01T00:00:00",
+        "Container Registry",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        7.50539336266656,
+        "2025-11-01T00:00:00",
+        "Container Registry",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        7.50539336266656,
+        "2025-11-01T00:00:00",
+        "Container Registry",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        7.50539336266656,
+        "2025-11-01T00:00:00",
+        "Container Registry",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        7.50539336266656,
+        "2025-11-01T00:00:00",
+        "Container Registry",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        7.50539336266656,
+        "2025-11-01T00:00:00",
+        "Container Registry",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        7.50539336266656,
+        "2025-11-01T00:00:00",
+        "Container Registry",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        7.50539336266656,
+        "2025-11-01T00:00:00",
+        "Container Registry",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        7.50539336266656,
+        "2025-11-01T00:00:00",
+        "Container Registry",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        7.50539336266656,
+        "2025-11-01T00:00:00",
+        "Container Registry",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        7.50539336266656,
+        "2025-11-01T00:00:00",
+        "Container Registry",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        7.50539336266656,
+        "2025-11-01T00:00:00",
+        "Container Registry",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        7.50539336266656,
+        "2025-11-01T00:00:00",
+        "Container Registry",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        7.50539336266656,
+        "2025-11-01T00:00:00",
+        "Container Registry",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        7.50539336266656,
+        "2025-11-01T00:00:00",
+        "Container Registry",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        7.50539336266656,
+        "2025-11-01T00:00:00",
+        "Container Registry",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        7.50539336266656,
+        "2025-11-01T00:00:00",
+        "Container Registry",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        1.8928e-05,
+        "2025-11-01T00:00:00",
+        "Event Grid",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        0.000389376,
+        "2025-11-01T00:00:00",
+        "Event Grid",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        0.000129792,
+        "2025-11-01T00:00:00",
+        "Event Grid",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        0.001557504,
+        "2025-11-01T00:00:00",
+        "Event Grid",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        0.001557504,
+        "2025-11-01T00:00:00",
+        "Event Grid",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        0.001557504,
+        "2025-11-01T00:00:00",
+        "Event Grid",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        0.001557504,
+        "2025-11-01T00:00:00",
+        "Event Grid",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        0.02754362,
+        "2025-11-01T00:00:00",
+        "Event Grid",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        0.001560208,
+        "2025-11-01T00:00:00",
+        "Event Grid",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        0.001557504,
+        "2025-11-01T00:00:00",
+        "Event Grid",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        0.00358618,
+        "2025-11-01T00:00:00",
+        "Event Grid",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        0.001557504,
+        "2025-11-01T00:00:00",
+        "Event Grid",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        0.001557504,
+        "2025-11-01T00:00:00",
+        "Event Grid",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        0.001562912,
+        "2025-11-01T00:00:00",
+        "Event Grid",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        0.001557504,
+        "2025-11-01T00:00:00",
+        "Event Grid",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        0.0201558479,
+        "2025-11-01T00:00:00",
+        "Foundry Models",
+        "esdaicoe-aiservices-stg",
+        "CAD"
+      ],
+      [
+        0.3782850411,
+        "2025-11-01T00:00:00",
+        "Foundry Models",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        0.3352966504,
+        "2025-11-01T00:00:00",
+        "Foundry Models",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        0.0290003829,
+        "2025-11-01T00:00:00",
+        "Foundry Models",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        34.71159188,
+        "2025-11-01T00:00:00",
+        "Foundry Tools",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        0.001014,
+        "2025-11-01T00:00:00",
+        "Foundry Tools",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        0.022308,
+        "2025-11-01T00:00:00",
+        "Foundry Tools",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        1.03350294,
+        "2025-11-01T00:00:00",
+        "Foundry Tools",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        0.001352,
+        "2025-11-01T00:00:00",
+        "Foundry Tools",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        1.352e-05,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        2.704e-05,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "esdaicoe-aiops-learningsandbox",
+        "CAD"
+      ],
+      [
+        2.028e-05,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        4.732e-05,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        1.352e-05,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        2.028e-05,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "eva-automated-data-injection-rg",
+        "CAD"
+      ],
+      [
+        0.00962286,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        0.0153959,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        0.00955526,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        0.01522352,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        0.0096668,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        0.00028392,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        0.00032448,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        0.00033124,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        0.00028392,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        0.00017576,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        0.00245726,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        0.00056108,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        0.00041574,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        0.00058136,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        0.00046644,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        0.09160476,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        0.00022984,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        0.00020956,
+        "2025-11-01T00:00:00",
+        "Key Vault",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        2.69760519077106,
+        "2025-11-01T00:00:00",
+        "Load Balancer",
+        "me_evachat-appenv_evachatdevrg_canadacentral",
+        "CAD"
+      ],
+      [
+        2.6976046672282,
+        "2025-11-01T00:00:00",
+        "Load Balancer",
+        "me_evachatdev2-appenv_evachatdev2rg_canadacentral",
+        "CAD"
+      ],
+      [
+        2.69760367502457,
+        "2025-11-01T00:00:00",
+        "Load Balancer",
+        "me_evachatdev3-appenv_evachatdev3rg_canadacentral",
+        "CAD"
+      ],
+      [
+        2.69760325267305,
+        "2025-11-01T00:00:00",
+        "Load Balancer",
+        "me_evachatstg-appenv_evachatstgrg_canadacentral",
+        "CAD"
+      ],
+      [
+        2.69860822352586,
+        "2025-11-01T00:00:00",
+        "Load Balancer",
+        "me_evachatstg2-appenv_evachatstg2rg_canadacentral",
+        "CAD"
+      ],
+      [
+        0.08471805763,
+        "2025-11-01T00:00:00",
+        "Log Analytics",
+        "defaultresourcegroup-ccan",
+        "CAD"
+      ],
+      [
+        4.454764e-05,
+        "2025-11-01T00:00:00",
+        "Log Analytics",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        0.17116931204,
+        "2025-11-01T00:00:00",
+        "Log Analytics",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        0.1147101108,
+        "2025-11-01T00:00:00",
+        "Log Analytics",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        0.02222416263,
+        "2025-11-01T00:00:00",
+        "Log Analytics",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        2.67065744989,
+        "2025-11-01T00:00:00",
+        "Log Analytics",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        2.78732960371,
+        "2025-11-01T00:00:00",
+        "Log Analytics",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        4.52790194775,
+        "2025-11-01T00:00:00",
+        "Log Analytics",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        3.21036182102,
+        "2025-11-01T00:00:00",
+        "Log Analytics",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        0.01121866257,
+        "2025-11-01T00:00:00",
+        "Log Analytics",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        4.88107171285,
+        "2025-11-01T00:00:00",
+        "Log Analytics",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        3.14163611424,
+        "2025-11-01T00:00:00",
+        "Log Analytics",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        2.93934218344,
+        "2025-11-01T00:00:00",
+        "Log Analytics",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        2.98495879575,
+        "2025-11-01T00:00:00",
+        "Log Analytics",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        2.97455943158,
+        "2025-11-01T00:00:00",
+        "Log Analytics",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        2.94505043605,
+        "2025-11-01T00:00:00",
+        "Log Analytics",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        4.08984487571,
+        "2025-11-01T00:00:00",
+        "Log Analytics",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        4.18267926206,
+        "2025-11-01T00:00:00",
+        "Log Analytics",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        0.00041146740302432,
+        "2025-11-01T00:00:00",
+        "Logic Apps",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        0.107392553116882,
+        "2025-11-01T00:00:00",
+        "Logic Apps",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        0.00126077880106878,
+        "2025-11-01T00:00:00",
+        "Logic Apps",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        0.74592,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "",
+        "CAD"
+      ],
+      [
+        2.2418784,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        4.4469984,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdaicoe-aiops-learningsandbox",
+        "CAD"
+      ],
+      [
+        0.012702298,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdaicoe-aiservices-stg",
+        "CAD"
+      ],
+      [
+        2.16,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdaicoe-maxpocadorg",
+        "CAD"
+      ],
+      [
+        8.8488768,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        11.3239968,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        10.9913184,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        0.0367584,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "eva-automated-data-injection-rg",
+        "CAD"
+      ],
+      [
+        5.17771323870968,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        9.49771323870968,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        5.17771323870968,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        7.33771323870968,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        5.17771323870968,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        8.72221212402155,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        15.2021389844377,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        8.72205694225315,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        8.72213723261245,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        8.7218831285,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        15.7390275706764,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        8.72221984138264,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        13.0594650036306,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        8.73163209097066,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        17.3633449635492,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        17.3631745822847,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        8.72202996081378,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        8.72205901178949,
+        "2025-11-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        85.03134679,
+        "2025-11-01T00:00:00",
+        "Microsoft Dev Box",
+        "esdcaicoe-devrg",
+        "CAD"
+      ],
+      [
+        4.7616,
+        "2025-11-01T00:00:00",
+        "Redis Cache",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        5.9424,
+        "2025-11-01T00:00:00",
+        "Redis Cache",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        5.9424,
+        "2025-11-01T00:00:00",
+        "Redis Cache",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        0.0319299274,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        0.000890077,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "esdaicoe-aiops-learningsandbox",
+        "CAD"
+      ],
+      [
+        0.80844019544,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        10.78911610036,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        4.26054147356,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        1.68525981,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "esdcaicoe-devrg",
+        "CAD"
+      ],
+      [
+        0.109418272,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        0.07446659632,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        0.0833106702,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        0.0548309032,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        0.0665092866,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        0.0639873212,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        0.07391914476,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        0.24596239996,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        0.23496425476,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        0.4277846918,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        0.2540870665,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        0.44005599844,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        0.3100777988,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        0.07421676816,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        0.06374329476,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        0.06731380476,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        0.07849577812,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        0.07490888682,
+        "2025-11-01T00:00:00",
+        "Storage",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        44.83214542,
+        "2025-11-01T00:00:00",
+        "Virtual Machines",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        25.0839293619,
+        "2025-11-01T00:00:00",
+        "Virtual Machines",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        4.32,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        1.08,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "esdaicoe-aiservices-stg",
+        "CAD"
+      ],
+      [
+        1.08,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        0.0642246902365237,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        2.35509262566427,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        4.32,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        8.64,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        4.32,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        8.64,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        4.32,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        15.12,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        15.12,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        15.12,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        15.12,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        1.08,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        16.2,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        15.12,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        16.2,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        15.12,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        15.12,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        15.12,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        15.12,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        15.12,
+        "2025-11-01T00:00:00",
+        "Virtual Network",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        55.1304,
+        "2025-12-01T00:00:00",
+        "API Management",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        66.85584,
+        "2025-12-01T00:00:00",
+        "Azure App Service",
+        "esdaicoe-maxpocadorg",
+        "CAD"
+      ],
+      [
+        105.4992,
+        "2025-12-01T00:00:00",
+        "Azure App Service",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        133.71168,
+        "2025-12-01T00:00:00",
+        "Azure App Service",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        66.85584,
+        "2025-12-01T00:00:00",
+        "Azure App Service",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        479.4359275,
+        "2025-12-01T00:00:00",
+        "Azure App Service",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        503.981352,
+        "2025-12-01T00:00:00",
+        "Azure App Service",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        483.714123686,
+        "2025-12-01T00:00:00",
+        "Azure App Service",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        482.745629,
+        "2025-12-01T00:00:00",
+        "Azure App Service",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        413.5111126484,
+        "2025-12-01T00:00:00",
+        "Azure App Service",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        559.3079815422,
+        "2025-12-01T00:00:00",
+        "Azure App Service",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        491.5084425,
+        "2025-12-01T00:00:00",
+        "Azure App Service",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        424.7094239452,
+        "2025-12-01T00:00:00",
+        "Azure App Service",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        693.304935732,
+        "2025-12-01T00:00:00",
+        "Azure App Service",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        730.4592,
+        "2025-12-01T00:00:00",
+        "Azure App Service",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        730.4592,
+        "2025-12-01T00:00:00",
+        "Azure App Service",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        693.063658476,
+        "2025-12-01T00:00:00",
+        "Azure App Service",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        693.119257272,
+        "2025-12-01T00:00:00",
+        "Azure App Service",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2025-12-01T00:00:00",
+        "Azure Cognitive Search",
+        "esdaicoe-aiops-learningsandbox",
+        "CAD"
+      ],
+      [
+        366.048,
+        "2025-12-01T00:00:00",
+        "Azure Cognitive Search",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2025-12-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2025-12-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2025-12-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2025-12-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        268.758,
+        "2025-12-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        271.026,
+        "2025-12-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2025-12-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        270.648,
+        "2025-12-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2025-12-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2025-12-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2025-12-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2025-12-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2025-12-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        3.90529422,
+        "2025-12-01T00:00:00",
+        "Azure Container Apps",
+        "evachatdev2apprg",
+        "CAD"
+      ],
+      [
+        26.1629475377778,
+        "2025-12-01T00:00:00",
+        "Azure Container Apps",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        112.79291193,
+        "2025-12-01T00:00:00",
+        "Azure Container Apps",
+        "evachatdev3apprg",
+        "CAD"
+      ],
+      [
+        443.706677562222,
+        "2025-12-01T00:00:00",
+        "Azure Container Apps",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        3.58282758,
+        "2025-12-01T00:00:00",
+        "Azure Container Apps",
+        "evachatdevapprg",
+        "CAD"
+      ],
+      [
+        26.0804433244444,
+        "2025-12-01T00:00:00",
+        "Azure Container Apps",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        76.43937441,
+        "2025-12-01T00:00:00",
+        "Azure Container Apps",
+        "evachatstg2apprg",
+        "CAD"
+      ],
+      [
+        443.694769828889,
+        "2025-12-01T00:00:00",
+        "Azure Container Apps",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        3.90511719,
+        "2025-12-01T00:00:00",
+        "Azure Container Apps",
+        "evachatstgapprg",
+        "CAD"
+      ],
+      [
+        443.712297268889,
+        "2025-12-01T00:00:00",
+        "Azure Container Apps",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        0.014332327964916,
+        "2025-12-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        0.0141949263374247,
+        "2025-12-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        0.00845401246120097,
+        "2025-12-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        0.014942126972819,
+        "2025-12-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        0.0679913277372274,
+        "2025-12-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        0.0898700229328786,
+        "2025-12-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        0.0843922312736084,
+        "2025-12-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        0.141401444114284,
+        "2025-12-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        0.0514653102292806,
+        "2025-12-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        0.0805774486778809,
+        "2025-12-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        0.0777935668105041,
+        "2025-12-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        0.0245187788582194,
+        "2025-12-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        0.0571313837694031,
+        "2025-12-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        2.82505085,
+        "2025-12-01T00:00:00",
+        "Azure DNS",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        0.565,
+        "2025-12-01T00:00:00",
+        "Azure DNS",
+        "esdaicoe-aiservices-stg",
+        "CAD"
+      ],
+      [
+        0.62454445,
+        "2025-12-01T00:00:00",
+        "Azure DNS",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        0.5651206,
+        "2025-12-01T00:00:00",
+        "Azure DNS",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        0.5652772,
+        "2025-12-01T00:00:00",
+        "Azure DNS",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        0.5654248,
+        "2025-12-01T00:00:00",
+        "Azure DNS",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        2.8521098,
+        "2025-12-01T00:00:00",
+        "Azure DNS",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        2.3719231,
+        "2025-12-01T00:00:00",
+        "Azure DNS",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        204.9702132,
+        "2025-12-01T00:00:00",
+        "Azure DNS",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        204.97045305,
+        "2025-12-01T00:00:00",
+        "Azure DNS",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        204.9699306,
+        "2025-12-01T00:00:00",
+        "Azure DNS",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        204.96970515,
+        "2025-12-01T00:00:00",
+        "Azure DNS",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        2.825,
+        "2025-12-01T00:00:00",
+        "Azure DNS",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        211.5585746,
+        "2025-12-01T00:00:00",
+        "Azure DNS",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        204.97656,
+        "2025-12-01T00:00:00",
+        "Azure DNS",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        212.0686836,
+        "2025-12-01T00:00:00",
+        "Azure DNS",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        204.97253565,
+        "2025-12-01T00:00:00",
+        "Azure DNS",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        204.9952332,
+        "2025-12-01T00:00:00",
+        "Azure DNS",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        204.9949353,
+        "2025-12-01T00:00:00",
+        "Azure DNS",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        204.9782754,
+        "2025-12-01T00:00:00",
+        "Azure DNS",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        204.97279665,
+        "2025-12-01T00:00:00",
+        "Azure DNS",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        20.05432,
+        "2025-12-01T00:00:00",
+        "Azure Database for PostgreSQL",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        66.56176,
+        "2025-12-01T00:00:00",
+        "Azure Database for PostgreSQL",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        1.18600817204301,
+        "2025-12-01T00:00:00",
+        "Azure Database for PostgreSQL",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        20.05432,
+        "2025-12-01T00:00:00",
+        "Azure Database for PostgreSQL",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        162.90976,
+        "2025-12-01T00:00:00",
+        "Azure Database for PostgreSQL",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        3.68944283154122,
+        "2025-12-01T00:00:00",
+        "Azure Monitor",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        10.4267790725806,
+        "2025-12-01T00:00:00",
+        "Azure Monitor",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        3.18764444444444,
+        "2025-12-01T00:00:00",
+        "Azure Monitor",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        3.71579999999896,
+        "2025-12-01T00:00:00",
+        "Backup",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        2.571312e-05,
+        "2025-12-01T00:00:00",
+        "Bandwidth",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        2.61232e-06,
+        "2025-12-01T00:00:00",
+        "Bandwidth",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        5.94528e-06,
+        "2025-12-01T00:00:00",
+        "Bandwidth",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        5.8552e-06,
+        "2025-12-01T00:00:00",
+        "Bandwidth",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        0.006708198,
+        "2025-12-01T00:00:00",
+        "Bandwidth",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        4.9e-07,
+        "2025-12-01T00:00:00",
+        "Bandwidth",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        0.004310236,
+        "2025-12-01T00:00:00",
+        "Bandwidth",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        0.00294784,
+        "2025-12-01T00:00:00",
+        "Bandwidth",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        0.005548564,
+        "2025-12-01T00:00:00",
+        "Bandwidth",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        5.88e-07,
+        "2025-12-01T00:00:00",
+        "Bandwidth",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2025-12-01T00:00:00",
+        "Container Registry",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        46.5210386253317,
+        "2025-12-01T00:00:00",
+        "Container Registry",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        3.39214609764047,
+        "2025-12-01T00:00:00",
+        "Container Registry",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2025-12-01T00:00:00",
+        "Container Registry",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        3.34358471472674,
+        "2025-12-01T00:00:00",
+        "Container Registry",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2025-12-01T00:00:00",
+        "Container Registry",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2025-12-01T00:00:00",
+        "Container Registry",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2025-12-01T00:00:00",
+        "Container Registry",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2025-12-01T00:00:00",
+        "Container Registry",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2025-12-01T00:00:00",
+        "Container Registry",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2025-12-01T00:00:00",
+        "Container Registry",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        55.5616804782939,
+        "2025-12-01T00:00:00",
+        "Container Registry",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        55.9833563728781,
+        "2025-12-01T00:00:00",
+        "Container Registry",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2025-12-01T00:00:00",
+        "Container Registry",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        55.9573616509243,
+        "2025-12-01T00:00:00",
+        "Container Registry",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2025-12-01T00:00:00",
+        "Container Registry",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2025-12-01T00:00:00",
+        "Container Registry",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2025-12-01T00:00:00",
+        "Container Registry",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2025-12-01T00:00:00",
+        "Container Registry",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2025-12-01T00:00:00",
+        "Container Registry",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        0.000139256,
+        "2025-12-01T00:00:00",
+        "Event Grid",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        2.028e-06,
+        "2025-12-01T00:00:00",
+        "Event Grid",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        0.000174408,
+        "2025-12-01T00:00:00",
+        "Event Grid",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        2.028e-06,
+        "2025-12-01T00:00:00",
+        "Event Grid",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        5.8136e-05,
+        "2025-12-01T00:00:00",
+        "Event Grid",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        0.012067952,
+        "2025-12-01T00:00:00",
+        "Event Grid",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        0.0120666,
+        "2025-12-01T00:00:00",
+        "Event Grid",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        0.01205984,
+        "2025-12-01T00:00:00",
+        "Event Grid",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        0.01205984,
+        "2025-12-01T00:00:00",
+        "Event Grid",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        0.0837564,
+        "2025-12-01T00:00:00",
+        "Event Grid",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        0.012831156,
+        "2025-12-01T00:00:00",
+        "Event Grid",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        0.057401864,
+        "2025-12-01T00:00:00",
+        "Event Grid",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        0.162747,
+        "2025-12-01T00:00:00",
+        "Event Grid",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        0.012067276,
+        "2025-12-01T00:00:00",
+        "Event Grid",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        0.01205984,
+        "2025-12-01T00:00:00",
+        "Event Grid",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        0.013011648,
+        "2025-12-01T00:00:00",
+        "Event Grid",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        0.055894384,
+        "2025-12-01T00:00:00",
+        "Event Grid",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        1.56086616945,
+        "2025-12-01T00:00:00",
+        "Foundry Models",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        0.1596406083,
+        "2025-12-01T00:00:00",
+        "Foundry Models",
+        "esdaicoe-aiservices-stg",
+        "CAD"
+      ],
+      [
+        0.8396236049,
+        "2025-12-01T00:00:00",
+        "Foundry Models",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        0.008420678,
+        "2025-12-01T00:00:00",
+        "Foundry Models",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        2.853861464,
+        "2025-12-01T00:00:00",
+        "Foundry Models",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        0.5991768099,
+        "2025-12-01T00:00:00",
+        "Foundry Models",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        0.4627236208,
+        "2025-12-01T00:00:00",
+        "Foundry Models",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        0.4156226812,
+        "2025-12-01T00:00:00",
+        "Foundry Models",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        16.36705756,
+        "2025-12-01T00:00:00",
+        "Foundry Tools",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        0.51874704,
+        "2025-12-01T00:00:00",
+        "Foundry Tools",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        21.56922384,
+        "2025-12-01T00:00:00",
+        "Foundry Tools",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        61.37198858,
+        "2025-12-01T00:00:00",
+        "Foundry Tools",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        2.20410211,
+        "2025-12-01T00:00:00",
+        "Foundry Tools",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        11.00345823,
+        "2025-12-01T00:00:00",
+        "Foundry Tools",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        0.0001352,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        0.00022984,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "esdaicoe-aiops-learningsandbox",
+        "CAD"
+      ],
+      [
+        0.0001352,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        0.00030082,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        0.0001352,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        0.00018928,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "eva-automated-data-injection-rg",
+        "CAD"
+      ],
+      [
+        0.00450892,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        0.12306918,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        0.00435006,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        0.12005422,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        0.00448864,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        0.00279864,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        0.0028899,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        0.00307918,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        0.00342732,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        0.00153452,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        0.00360308,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        0.00346788,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        0.0049855,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        0.00334282,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        0.03133936,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        0.07877428,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        0.00382616,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        0.00264316,
+        "2025-12-01T00:00:00",
+        "Key Vault",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        1.26450253370543,
+        "2025-12-01T00:00:00",
+        "Load Balancer",
+        "me_evachat-appenv_evachatdevrg_canadacentral",
+        "CAD"
+      ],
+      [
+        1.26450291983592,
+        "2025-12-01T00:00:00",
+        "Load Balancer",
+        "me_evachatdev2-appenv_evachatdev2rg_canadacentral",
+        "CAD"
+      ],
+      [
+        20.907547772141,
+        "2025-12-01T00:00:00",
+        "Load Balancer",
+        "me_evachatdev3-appenv_evachatdev3rg_canadacentral",
+        "CAD"
+      ],
+      [
+        20.906426888487,
+        "2025-12-01T00:00:00",
+        "Load Balancer",
+        "me_evachatstg-appenv_evachatstgrg_canadacentral",
+        "CAD"
+      ],
+      [
+        20.9171346588253,
+        "2025-12-01T00:00:00",
+        "Load Balancer",
+        "me_evachatstg2-appenv_evachatstg2rg_canadacentral",
+        "CAD"
+      ],
+      [
+        0.27319814904,
+        "2025-12-01T00:00:00",
+        "Log Analytics",
+        "defaultresourcegroup-ccan",
+        "CAD"
+      ],
+      [
+        0.00180616049,
+        "2025-12-01T00:00:00",
+        "Log Analytics",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        1.33584861898,
+        "2025-12-01T00:00:00",
+        "Log Analytics",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        0.90169640385,
+        "2025-12-01T00:00:00",
+        "Log Analytics",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        0.01006670613,
+        "2025-12-01T00:00:00",
+        "Log Analytics",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        20.88555976392,
+        "2025-12-01T00:00:00",
+        "Log Analytics",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        20.99540413355,
+        "2025-12-01T00:00:00",
+        "Log Analytics",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        35.52396991204,
+        "2025-12-01T00:00:00",
+        "Log Analytics",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        25.1397032246,
+        "2025-12-01T00:00:00",
+        "Log Analytics",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        0.03677106012,
+        "2025-12-01T00:00:00",
+        "Log Analytics",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        34.25044625908,
+        "2025-12-01T00:00:00",
+        "Log Analytics",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        25.47673510329,
+        "2025-12-01T00:00:00",
+        "Log Analytics",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        25.38097909586,
+        "2025-12-01T00:00:00",
+        "Log Analytics",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        28.7044569723,
+        "2025-12-01T00:00:00",
+        "Log Analytics",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        22.39123742489,
+        "2025-12-01T00:00:00",
+        "Log Analytics",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        22.58203806768,
+        "2025-12-01T00:00:00",
+        "Log Analytics",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        26.49358924024,
+        "2025-12-01T00:00:00",
+        "Log Analytics",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        31.39611331013,
+        "2025-12-01T00:00:00",
+        "Log Analytics",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        0.00298313867192632,
+        "2025-12-01T00:00:00",
+        "Logic Apps",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        0.0433310629606331,
+        "2025-12-01T00:00:00",
+        "Logic Apps",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        0.0215366063907723,
+        "2025-12-01T00:00:00",
+        "Logic Apps",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        21.78428,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "",
+        "CAD"
+      ],
+      [
+        17.368143527,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        34.4484776,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdaicoe-aiops-learningsandbox",
+        "CAD"
+      ],
+      [
+        0.092493056,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdaicoe-aiservices-stg",
+        "CAD"
+      ],
+      [
+        16.74,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdaicoe-maxpocadorg",
+        "CAD"
+      ],
+      [
+        68.5551552,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        85.9459651136714,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        85.1748376,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        0.2848776,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "eva-automated-data-injection-rg",
+        "CAD"
+      ],
+      [
+        24.0482776,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        73.5993977775921,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        2.64088018064516,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        56.8593976,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        40.1193976,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        78.1193099615366,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        83.5862238720206,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        78.9282477881974,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        78.8167917721168,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        63.7816788478705,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        97.4643576851857,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        80.8275424175456,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        67.3716375281589,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        68.0782829932076,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        134.558351428141,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        134.557990311159,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        67.6811562459561,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        67.8855268330807,
+        "2025-12-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        1921.53555635,
+        "2025-12-01T00:00:00",
+        "Microsoft Dev Box",
+        "esdcaicoe-devrg",
+        "CAD"
+      ],
+      [
+        36.8032,
+        "2025-12-01T00:00:00",
+        "Redis Cache",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        45.9917,
+        "2025-12-01T00:00:00",
+        "Redis Cache",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        45.9917,
+        "2025-12-01T00:00:00",
+        "Redis Cache",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        0.2405881805,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        0.0067757438,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "esdaicoe-aiops-learningsandbox",
+        "CAD"
+      ],
+      [
+        6.06706071856,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        79.87024488746,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        31.91982568164,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        0.0470641576,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        0.8138784705,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        0.0361012692,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        0.65594111164,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        0.1481410366,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        0.5034732298,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        0.52046342564,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        1.90374072572,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        1.85344318848,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        1.2873552344,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        1.42935564846,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        3.2678409441,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        2.49193057582,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        1.12713458618,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        0.48595491314,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        0.49706406414,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        0.52477324576,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        0.72081025244,
+        "2025-12-01T00:00:00",
+        "Storage",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        318.498006437,
+        "2025-12-01T00:00:00",
+        "Virtual Machines",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        194.3828412663,
+        "2025-12-01T00:00:00",
+        "Virtual Machines",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        33.48,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        8.37,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "esdaicoe-aiservices-stg",
+        "CAD"
+      ],
+      [
+        8.37,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        0.655491491412651,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        17.3202913041157,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        9.88875,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        66.96,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        9.855,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        66.96,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        33.48,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        117.18,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        117.18,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        117.18,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        117.18,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        8.01,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        121.455,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        117.18,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        121.2975,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        117.18,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        117.18,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        117.18,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        117.18,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        117.18,
+        "2025-12-01T00:00:00",
+        "Virtual Network",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        55.1304,
+        "2026-01-01T00:00:00",
+        "API Management",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        66.85584,
+        "2026-01-01T00:00:00",
+        "Azure App Service",
+        "esdaicoe-maxpocadorg",
+        "CAD"
+      ],
+      [
+        105.4992,
+        "2026-01-01T00:00:00",
+        "Azure App Service",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        133.71168,
+        "2026-01-01T00:00:00",
+        "Azure App Service",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        66.85584,
+        "2026-01-01T00:00:00",
+        "Azure App Service",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        648.5331071,
+        "2026-01-01T00:00:00",
+        "Azure App Service",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        527.9867479,
+        "2026-01-01T00:00:00",
+        "Azure App Service",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        774.373415354,
+        "2026-01-01T00:00:00",
+        "Azure App Service",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        434.0294236,
+        "2026-01-01T00:00:00",
+        "Azure App Service",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        543.682279558,
+        "2026-01-01T00:00:00",
+        "Azure App Service",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        692.8128,
+        "2026-01-01T00:00:00",
+        "Azure App Service",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        730.4592,
+        "2026-01-01T00:00:00",
+        "Azure App Service",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        730.4592,
+        "2026-01-01T00:00:00",
+        "Azure App Service",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        692.8128,
+        "2026-01-01T00:00:00",
+        "Azure App Service",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        694.099903158,
+        "2026-01-01T00:00:00",
+        "Azure App Service",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        267.4658,
+        "2026-01-01T00:00:00",
+        "Azure Cognitive Search",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2026-01-01T00:00:00",
+        "Azure Cognitive Search",
+        "esdaicoe-aiops-learningsandbox",
+        "CAD"
+      ],
+      [
+        366.048,
+        "2026-01-01T00:00:00",
+        "Azure Cognitive Search",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2026-01-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2026-01-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2026-01-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2026-01-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2026-01-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2026-01-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2026-01-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2026-01-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2026-01-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        281.232,
+        "2026-01-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        159.65944899,
+        "2026-01-01T00:00:00",
+        "Azure Container Apps",
+        "evachatdev3apprg",
+        "CAD"
+      ],
+      [
+        443.783915191111,
+        "2026-01-01T00:00:00",
+        "Azure Container Apps",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        74.18419212,
+        "2026-01-01T00:00:00",
+        "Azure Container Apps",
+        "evachatstg2apprg",
+        "CAD"
+      ],
+      [
+        443.687080948889,
+        "2026-01-01T00:00:00",
+        "Azure Container Apps",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        443.74391582,
+        "2026-01-01T00:00:00",
+        "Azure Container Apps",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        0.0142373231799469,
+        "2026-01-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        0.0140836399279785,
+        "2026-01-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        0.0436896612957713,
+        "2026-01-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        0.0145087816085988,
+        "2026-01-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        0.335526930373238,
+        "2026-01-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        0.0176083490336121,
+        "2026-01-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        0.0810739034941925,
+        "2026-01-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        0.0809882293547119,
+        "2026-01-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        0.0144832825946503,
+        "2026-01-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        0.17240789937111,
+        "2026-01-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        2.82527855,
+        "2026-01-01T00:00:00",
+        "Azure DNS",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        0.565,
+        "2026-01-01T00:00:00",
+        "Azure DNS",
+        "esdaicoe-aiservices-stg",
+        "CAD"
+      ],
+      [
+        0.869290649118877,
+        "2026-01-01T00:00:00",
+        "Azure DNS",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        0.56508685,
+        "2026-01-01T00:00:00",
+        "Azure DNS",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        0.56540725,
+        "2026-01-01T00:00:00",
+        "Azure DNS",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        0.56536675,
+        "2026-01-01T00:00:00",
+        "Azure DNS",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        2.8549511,
+        "2026-01-01T00:00:00",
+        "Azure DNS",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        2.3617819,
+        "2026-01-01T00:00:00",
+        "Azure DNS",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        204.97070955,
+        "2026-01-01T00:00:00",
+        "Azure DNS",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        204.97010385,
+        "2026-01-01T00:00:00",
+        "Azure DNS",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        204.9784329,
+        "2026-01-01T00:00:00",
+        "Azure DNS",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        204.9689856,
+        "2026-01-01T00:00:00",
+        "Azure DNS",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        2.825,
+        "2026-01-01T00:00:00",
+        "Azure DNS",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        211.5192086,
+        "2026-01-01T00:00:00",
+        "Azure DNS",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        204.431507326882,
+        "2026-01-01T00:00:00",
+        "Azure DNS",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        212.0282772,
+        "2026-01-01T00:00:00",
+        "Azure DNS",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        204.9741732,
+        "2026-01-01T00:00:00",
+        "Azure DNS",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        204.9936609,
+        "2026-01-01T00:00:00",
+        "Azure DNS",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        204.99349305,
+        "2026-01-01T00:00:00",
+        "Azure DNS",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        204.9775176,
+        "2026-01-01T00:00:00",
+        "Azure DNS",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        204.9746574,
+        "2026-01-01T00:00:00",
+        "Azure DNS",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        20.05432,
+        "2026-01-01T00:00:00",
+        "Azure Database for PostgreSQL",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        66.56176,
+        "2026-01-01T00:00:00",
+        "Azure Database for PostgreSQL",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        20.05432,
+        "2026-01-01T00:00:00",
+        "Azure Database for PostgreSQL",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        162.90976,
+        "2026-01-01T00:00:00",
+        "Azure Database for PostgreSQL",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        3.71579999999896,
+        "2026-01-01T00:00:00",
+        "Backup",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        4.758172e-05,
+        "2026-01-01T00:00:00",
+        "Bandwidth",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        2.52224e-06,
+        "2026-01-01T00:00:00",
+        "Bandwidth",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        0.0,
+        "2026-01-01T00:00:00",
+        "Bandwidth",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        1.6366e-05,
+        "2026-01-01T00:00:00",
+        "Bandwidth",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        0.000440706,
+        "2026-01-01T00:00:00",
+        "Bandwidth",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        0.00609711504,
+        "2026-01-01T00:00:00",
+        "Bandwidth",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2026-01-01T00:00:00",
+        "Container Registry",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        46.5210386253317,
+        "2026-01-01T00:00:00",
+        "Container Registry",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2026-01-01T00:00:00",
+        "Container Registry",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2026-01-01T00:00:00",
+        "Container Registry",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2026-01-01T00:00:00",
+        "Container Registry",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2026-01-01T00:00:00",
+        "Container Registry",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2026-01-01T00:00:00",
+        "Container Registry",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2026-01-01T00:00:00",
+        "Container Registry",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2026-01-01T00:00:00",
+        "Container Registry",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2026-01-01T00:00:00",
+        "Container Registry",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2026-01-01T00:00:00",
+        "Container Registry",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2026-01-01T00:00:00",
+        "Container Registry",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2026-01-01T00:00:00",
+        "Container Registry",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2026-01-01T00:00:00",
+        "Container Registry",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        58.1667985606658,
+        "2026-01-01T00:00:00",
+        "Container Registry",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        0.000136552,
+        "2026-01-01T00:00:00",
+        "Event Grid",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        3.6504e-05,
+        "2026-01-01T00:00:00",
+        "Event Grid",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        5.3404e-05,
+        "2026-01-01T00:00:00",
+        "Event Grid",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        0.000448864,
+        "2026-01-01T00:00:00",
+        "Event Grid",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        0.012003056,
+        "2026-01-01T00:00:00",
+        "Event Grid",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        0.011997648,
+        "2026-01-01T00:00:00",
+        "Event Grid",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        0.128362936,
+        "2026-01-01T00:00:00",
+        "Event Grid",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        0.011976016,
+        "2026-01-01T00:00:00",
+        "Event Grid",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        0.205053784,
+        "2026-01-01T00:00:00",
+        "Event Grid",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        0.013791076,
+        "2026-01-01T00:00:00",
+        "Event Grid",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        0.012000352,
+        "2026-01-01T00:00:00",
+        "Event Grid",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        0.01200576,
+        "2026-01-01T00:00:00",
+        "Event Grid",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        0.012008464,
+        "2026-01-01T00:00:00",
+        "Event Grid",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        0.243855508,
+        "2026-01-01T00:00:00",
+        "Event Grid",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        57.4405161999266,
+        "2026-01-01T00:00:00",
+        "Foundry Models",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        0.00702766,
+        "2026-01-01T00:00:00",
+        "Foundry Models",
+        "esdaicoe-aiops-learningsandbox",
+        "CAD"
+      ],
+      [
+        0.14649371335,
+        "2026-01-01T00:00:00",
+        "Foundry Models",
+        "esdaicoe-aiservices-stg",
+        "CAD"
+      ],
+      [
+        0.002245466,
+        "2026-01-01T00:00:00",
+        "Foundry Models",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        0.00570340704,
+        "2026-01-01T00:00:00",
+        "Foundry Models",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        0.00895827955,
+        "2026-01-01T00:00:00",
+        "Foundry Models",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        8.0327023413,
+        "2026-01-01T00:00:00",
+        "Foundry Models",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        0.013061323,
+        "2026-01-01T00:00:00",
+        "Foundry Models",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        0.6375032364,
+        "2026-01-01T00:00:00",
+        "Foundry Models",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        0.015886,
+        "2026-01-01T00:00:00",
+        "Foundry Tools",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        0.00572248,
+        "2026-01-01T00:00:00",
+        "Foundry Tools",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        0.001352,
+        "2026-01-01T00:00:00",
+        "Foundry Tools",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        154.56951404,
+        "2026-01-01T00:00:00",
+        "Foundry Tools",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        2.85784104,
+        "2026-01-01T00:00:00",
+        "Foundry Tools",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        186.98907458,
+        "2026-01-01T00:00:00",
+        "Foundry Tools",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        0.00012844,
+        "2026-01-01T00:00:00",
+        "Key Vault",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        0.00020956,
+        "2026-01-01T00:00:00",
+        "Key Vault",
+        "esdaicoe-aiops-learningsandbox",
+        "CAD"
+      ],
+      [
+        0.00012844,
+        "2026-01-01T00:00:00",
+        "Key Vault",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        0.0002535,
+        "2026-01-01T00:00:00",
+        "Key Vault",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        0.00012844,
+        "2026-01-01T00:00:00",
+        "Key Vault",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        0.00019942,
+        "2026-01-01T00:00:00",
+        "Key Vault",
+        "eva-automated-data-injection-rg",
+        "CAD"
+      ],
+      [
+        0.00018252,
+        "2026-01-01T00:00:00",
+        "Key Vault",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        0.17900142,
+        "2026-01-01T00:00:00",
+        "Key Vault",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        0.00012844,
+        "2026-01-01T00:00:00",
+        "Key Vault",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        0.12111892,
+        "2026-01-01T00:00:00",
+        "Key Vault",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        0.00012844,
+        "2026-01-01T00:00:00",
+        "Key Vault",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        0.00275132,
+        "2026-01-01T00:00:00",
+        "Key Vault",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        0.00251472,
+        "2026-01-01T00:00:00",
+        "Key Vault",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        0.00333268,
+        "2026-01-01T00:00:00",
+        "Key Vault",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        0.00254176,
+        "2026-01-01T00:00:00",
+        "Key Vault",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        0.00521872,
+        "2026-01-01T00:00:00",
+        "Key Vault",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        0.00182858,
+        "2026-01-01T00:00:00",
+        "Key Vault",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        0.00350844,
+        "2026-01-01T00:00:00",
+        "Key Vault",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        0.00350844,
+        "2026-01-01T00:00:00",
+        "Key Vault",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        0.00164268,
+        "2026-01-01T00:00:00",
+        "Key Vault",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        0.00200772,
+        "2026-01-01T00:00:00",
+        "Key Vault",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        20.9070415872482,
+        "2026-01-01T00:00:00",
+        "Load Balancer",
+        "me_evachatdev3-appenv_evachatdev3rg_canadacentral",
+        "CAD"
+      ],
+      [
+        20.906427969277,
+        "2026-01-01T00:00:00",
+        "Load Balancer",
+        "me_evachatstg-appenv_evachatstgrg_canadacentral",
+        "CAD"
+      ],
+      [
+        20.9151847717003,
+        "2026-01-01T00:00:00",
+        "Load Balancer",
+        "me_evachatstg2-appenv_evachatstg2rg_canadacentral",
+        "CAD"
+      ],
+      [
+        0.25733345747,
+        "2026-01-01T00:00:00",
+        "Log Analytics",
+        "defaultresourcegroup-ccan",
+        "CAD"
+      ],
+      [
+        0.00487366545,
+        "2026-01-01T00:00:00",
+        "Log Analytics",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        1.41928045836,
+        "2026-01-01T00:00:00",
+        "Log Analytics",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        0.91790112416,
+        "2026-01-01T00:00:00",
+        "Log Analytics",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        21.43058602925,
+        "2026-01-01T00:00:00",
+        "Log Analytics",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        20.95433480152,
+        "2026-01-01T00:00:00",
+        "Log Analytics",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        142.27932024581,
+        "2026-01-01T00:00:00",
+        "Log Analytics",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        24.93910982314,
+        "2026-01-01T00:00:00",
+        "Log Analytics",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        44.05731373331,
+        "2026-01-01T00:00:00",
+        "Log Analytics",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        20.50885083489,
+        "2026-01-01T00:00:00",
+        "Log Analytics",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        23.04956318899,
+        "2026-01-01T00:00:00",
+        "Log Analytics",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        23.08118543263,
+        "2026-01-01T00:00:00",
+        "Log Analytics",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        20.40120690844,
+        "2026-01-01T00:00:00",
+        "Log Analytics",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        38.39401113511,
+        "2026-01-01T00:00:00",
+        "Log Analytics",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        17.85731,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "",
+        "CAD"
+      ],
+      [
+        18.105612027,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        34.448505531,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdaicoe-aiops-learningsandbox",
+        "CAD"
+      ],
+      [
+        0.119420342,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdaicoe-aiservices-stg",
+        "CAD"
+      ],
+      [
+        16.74,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdaicoe-maxpocadorg",
+        "CAD"
+      ],
+      [
+        68.554954302,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        91.9001092983509,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        85.1511976,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        0.2848776,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "eva-automated-data-injection-rg",
+        "CAD"
+      ],
+      [
+        23.0297176,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        73.5915176102245,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        0.2848776,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        56.8515199626518,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        40.1115176,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        116.099299141123,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        89.0087079170394,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        119.023419046438,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        67.8618890725128,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        100.529300099126,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        67.6102392034725,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        134.558421441163,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        134.558416579109,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        67.5892441979287,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        71.0944250808862,
+        "2026-01-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        1772.043241645,
+        "2026-01-01T00:00:00",
+        "Microsoft Dev Box",
+        "esdcaicoe-devrg",
+        "CAD"
+      ],
+      [
+        36.9024,
+        "2026-01-01T00:00:00",
+        "Redis Cache",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        45.9917,
+        "2026-01-01T00:00:00",
+        "Redis Cache",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        45.9917,
+        "2026-01-01T00:00:00",
+        "Redis Cache",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        0.2545436936,
+        "2026-01-01T00:00:00",
+        "Storage",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        0.0058056288,
+        "2026-01-01T00:00:00",
+        "Storage",
+        "esdaicoe-aiops-learningsandbox",
+        "CAD"
+      ],
+      [
+        6.06507229506,
+        "2026-01-01T00:00:00",
+        "Storage",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        81.40845163136,
+        "2026-01-01T00:00:00",
+        "Storage",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        31.95467677534,
+        "2026-01-01T00:00:00",
+        "Storage",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        0.855698476,
+        "2026-01-01T00:00:00",
+        "Storage",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        0.68829171736,
+        "2026-01-01T00:00:00",
+        "Storage",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        0.1246354164,
+        "2026-01-01T00:00:00",
+        "Storage",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        0.51385664726,
+        "2026-01-01T00:00:00",
+        "Storage",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        0.48563316448,
+        "2026-01-01T00:00:00",
+        "Storage",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        3.91481887778,
+        "2026-01-01T00:00:00",
+        "Storage",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        1.83899340572,
+        "2026-01-01T00:00:00",
+        "Storage",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        4.12024548124,
+        "2026-01-01T00:00:00",
+        "Storage",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        0.6787027971,
+        "2026-01-01T00:00:00",
+        "Storage",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        0.48487521164,
+        "2026-01-01T00:00:00",
+        "Storage",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        0.48483211058,
+        "2026-01-01T00:00:00",
+        "Storage",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        0.4463408358,
+        "2026-01-01T00:00:00",
+        "Storage",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        1.69264670264,
+        "2026-01-01T00:00:00",
+        "Storage",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        420.272885458,
+        "2026-01-01T00:00:00",
+        "Virtual Machines",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        194.3889312687,
+        "2026-01-01T00:00:00",
+        "Virtual Machines",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        33.48,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        8.37,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "esdaicoe-aiservices-stg",
+        "CAD"
+      ],
+      [
+        8.37,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        4.05383259058744,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        16.9045567379581,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        8.37,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        66.96,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        8.37,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        66.96,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        33.48,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        117.18,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        117.18,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        117.18,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        117.18,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        8.37,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        117.18,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        8.37,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        117.18,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        117.18,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        117.18,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        117.18,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        117.18,
+        "2026-01-01T00:00:00",
+        "Virtual Network",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        45.6456,
+        "2026-02-01T00:00:00",
+        "API Management",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        40.6068,
+        "2026-02-01T00:00:00",
+        "API Management",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        55.35376,
+        "2026-02-01T00:00:00",
+        "Azure App Service",
+        "esdaicoe-maxpocadorg",
+        "CAD"
+      ],
+      [
+        120.56370158,
+        "2026-02-01T00:00:00",
+        "Azure App Service",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        110.79726039634,
+        "2026-02-01T00:00:00",
+        "Azure App Service",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        55.4065500542,
+        "2026-02-01T00:00:00",
+        "Azure App Service",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        508.2054123,
+        "2026-02-01T00:00:00",
+        "Azure App Service",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        577.8828789,
+        "2026-02-01T00:00:00",
+        "Azure App Service",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        580.923063898,
+        "2026-02-01T00:00:00",
+        "Azure App Service",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        442.1601507,
+        "2026-02-01T00:00:00",
+        "Azure App Service",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        426.9905878,
+        "2026-02-01T00:00:00",
+        "Azure App Service",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        573.1775648778,
+        "2026-02-01T00:00:00",
+        "Azure App Service",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        604.2888,
+        "2026-02-01T00:00:00",
+        "Azure App Service",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        603.807,
+        "2026-02-01T00:00:00",
+        "Azure App Service",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        573.1374,
+        "2026-02-01T00:00:00",
+        "Azure App Service",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        572.9718,
+        "2026-02-01T00:00:00",
+        "Azure App Service",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        932.008,
+        "2026-02-01T00:00:00",
+        "Azure Cognitive Search",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        232.848,
+        "2026-02-01T00:00:00",
+        "Azure Cognitive Search",
+        "esdaicoe-aiops-learningsandbox",
+        "CAD"
+      ],
+      [
+        365.886,
+        "2026-02-01T00:00:00",
+        "Azure Cognitive Search",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        232.848,
+        "2026-02-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        232.848,
+        "2026-02-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        232.848,
+        "2026-02-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        232.848,
+        "2026-02-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        232.848,
+        "2026-02-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        232.848,
+        "2026-02-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        232.848,
+        "2026-02-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        232.848,
+        "2026-02-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        232.848,
+        "2026-02-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        232.848,
+        "2026-02-01T00:00:00",
+        "Azure Cognitive Search",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        16.86799054,
+        "2026-02-01T00:00:00",
+        "Azure Container Apps",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        153.46245849,
+        "2026-02-01T00:00:00",
+        "Azure Container Apps",
+        "evachatdev3apprg",
+        "CAD"
+      ],
+      [
+        366.8930633,
+        "2026-02-01T00:00:00",
+        "Azure Container Apps",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        64.90311708,
+        "2026-02-01T00:00:00",
+        "Azure Container Apps",
+        "evachatstg2apprg",
+        "CAD"
+      ],
+      [
+        366.93449036,
+        "2026-02-01T00:00:00",
+        "Azure Container Apps",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        366.896901184444,
+        "2026-02-01T00:00:00",
+        "Azure Container Apps",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        0.2736589810132,
+        "2026-02-01T00:00:00",
+        "Azure Cosmos DB",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        0.0118279581403322,
+        "2026-02-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        0.0116832794028813,
+        "2026-02-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        6.80264639489379,
+        "2026-02-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        0.0119889081634771,
+        "2026-02-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        0.106480413075863,
+        "2026-02-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        1.10555254970579,
+        "2026-02-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        0.0668183295116756,
+        "2026-02-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        0.0674801584116756,
+        "2026-02-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        0.0120250927291239,
+        "2026-02-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        0.0130782785121139,
+        "2026-02-01T00:00:00",
+        "Azure Cosmos DB",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        2.3322842172043,
+        "2026-02-01T00:00:00",
+        "Azure DNS",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        0.464758064516129,
+        "2026-02-01T00:00:00",
+        "Azure DNS",
+        "esdaicoe-aiservices-stg",
+        "CAD"
+      ],
+      [
+        0.980809777434289,
+        "2026-02-01T00:00:00",
+        "Azure DNS",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        0.467885698924731,
+        "2026-02-01T00:00:00",
+        "Azure DNS",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        0.463477297311828,
+        "2026-02-01T00:00:00",
+        "Azure DNS",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        0.46587792311828,
+        "2026-02-01T00:00:00",
+        "Azure DNS",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        2.3877082655914,
+        "2026-02-01T00:00:00",
+        "Azure DNS",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        1.94599238387097,
+        "2026-02-01T00:00:00",
+        "Azure DNS",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        187.989702583794,
+        "2026-02-01T00:00:00",
+        "Azure DNS",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        187.984751482181,
+        "2026-02-01T00:00:00",
+        "Azure DNS",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        187.983578704762,
+        "2026-02-01T00:00:00",
+        "Azure DNS",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        187.978228463364,
+        "2026-02-01T00:00:00",
+        "Azure DNS",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        2.32834677419355,
+        "2026-02-01T00:00:00",
+        "Azure DNS",
+        "infoasst-esdc-eva-dev-4",
+        "CAD"
+      ],
+      [
+        193.338789712289,
+        "2026-02-01T00:00:00",
+        "Azure DNS",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        187.98242554616,
+        "2026-02-01T00:00:00",
+        "Azure DNS",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        193.822400594009,
+        "2026-02-01T00:00:00",
+        "Azure DNS",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        187.98609073917,
+        "2026-02-01T00:00:00",
+        "Azure DNS",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        188.003966864977,
+        "2026-02-01T00:00:00",
+        "Azure DNS",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        188.001851347773,
+        "2026-02-01T00:00:00",
+        "Azure DNS",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        187.991206732181,
+        "2026-02-01T00:00:00",
+        "Azure DNS",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        187.981434004762,
+        "2026-02-01T00:00:00",
+        "Azure DNS",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        0.0,
+        "2026-02-01T00:00:00",
+        "Azure Data Explorer",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        9.81880153333334,
+        "2026-02-01T00:00:00",
+        "Azure Data Factory v2",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        16.9807357142857,
+        "2026-02-01T00:00:00",
+        "Azure Database for PostgreSQL",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        56.1090657142857,
+        "2026-02-01T00:00:00",
+        "Azure Database for PostgreSQL",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        17.7904357142857,
+        "2026-02-01T00:00:00",
+        "Azure Database for PostgreSQL",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        135.066885714286,
+        "2026-02-01T00:00:00",
+        "Azure Database for PostgreSQL",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        3.0765225806443,
+        "2026-02-01T00:00:00",
+        "Backup",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        7.451712e-05,
+        "2026-02-01T00:00:00",
+        "Bandwidth",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        0.0205832871941049,
+        "2026-02-01T00:00:00",
+        "Bandwidth",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        4.74837422370911e-08,
+        "2026-02-01T00:00:00",
+        "Bandwidth",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        1.96e-07,
+        "2026-02-01T00:00:00",
+        "Bandwidth",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        0.010146626,
+        "2026-02-01T00:00:00",
+        "Bandwidth",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        0.000220696,
+        "2026-02-01T00:00:00",
+        "Bandwidth",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        0.003405206,
+        "2026-02-01T00:00:00",
+        "Bandwidth",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        48.1596074104438,
+        "2026-02-01T00:00:00",
+        "Container Registry",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        6.53263377117101,
+        "2026-02-01T00:00:00",
+        "Container Registry",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        38.5174190768875,
+        "2026-02-01T00:00:00",
+        "Container Registry",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        48.1596074104438,
+        "2026-02-01T00:00:00",
+        "Container Registry",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        48.1596074104438,
+        "2026-02-01T00:00:00",
+        "Container Registry",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        48.1596074104438,
+        "2026-02-01T00:00:00",
+        "Container Registry",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        48.1596074104438,
+        "2026-02-01T00:00:00",
+        "Container Registry",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        48.1596074104438,
+        "2026-02-01T00:00:00",
+        "Container Registry",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        48.1596074104438,
+        "2026-02-01T00:00:00",
+        "Container Registry",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        48.1596074104438,
+        "2026-02-01T00:00:00",
+        "Container Registry",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        48.1596074104438,
+        "2026-02-01T00:00:00",
+        "Container Registry",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        48.1596074104438,
+        "2026-02-01T00:00:00",
+        "Container Registry",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        48.1596074104438,
+        "2026-02-01T00:00:00",
+        "Container Registry",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        48.1596074104438,
+        "2026-02-01T00:00:00",
+        "Container Registry",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        48.1596074104438,
+        "2026-02-01T00:00:00",
+        "Container Registry",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        48.1596074104438,
+        "2026-02-01T00:00:00",
+        "Container Registry",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        0.000109512,
+        "2026-02-01T00:00:00",
+        "Event Grid",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        0.000767936,
+        "2026-02-01T00:00:00",
+        "Event Grid",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        2.6364e-05,
+        "2026-02-01T00:00:00",
+        "Event Grid",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        1.2168e-05,
+        "2026-02-01T00:00:00",
+        "Event Grid",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        1.352e-05,
+        "2026-02-01T00:00:00",
+        "Event Grid",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        1.2168e-05,
+        "2026-02-01T00:00:00",
+        "Event Grid",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        0.00985946,
+        "2026-02-01T00:00:00",
+        "Event Grid",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        0.009853376,
+        "2026-02-01T00:00:00",
+        "Event Grid",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        3.219251932,
+        "2026-02-01T00:00:00",
+        "Event Grid",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        0.00982228,
+        "2026-02-01T00:00:00",
+        "Event Grid",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        0.022264736,
+        "2026-02-01T00:00:00",
+        "Event Grid",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        0.01671072,
+        "2026-02-01T00:00:00",
+        "Event Grid",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        0.009836476,
+        "2026-02-01T00:00:00",
+        "Event Grid",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        0.009841208,
+        "2026-02-01T00:00:00",
+        "Event Grid",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        0.009843236,
+        "2026-02-01T00:00:00",
+        "Event Grid",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        0.009871628,
+        "2026-02-01T00:00:00",
+        "Event Grid",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        94.94819191743,
+        "2026-02-01T00:00:00",
+        "Foundry Models",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        0.14389567095,
+        "2026-02-01T00:00:00",
+        "Foundry Models",
+        "esdaicoe-aiservices-stg",
+        "CAD"
+      ],
+      [
+        0.4830086332,
+        "2026-02-01T00:00:00",
+        "Foundry Models",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        19.6476699213,
+        "2026-02-01T00:00:00",
+        "Foundry Models",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        0.7200063829,
+        "2026-02-01T00:00:00",
+        "Foundry Models",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        6.1152282051,
+        "2026-02-01T00:00:00",
+        "Foundry Models",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        0.0001296829,
+        "2026-02-01T00:00:00",
+        "Foundry Models",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        0.017238,
+        "2026-02-01T00:00:00",
+        "Foundry Tools",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        0.001014,
+        "2026-02-01T00:00:00",
+        "Foundry Tools",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        8109.02999916,
+        "2026-02-01T00:00:00",
+        "Foundry Tools",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        2.73780986,
+        "2026-02-01T00:00:00",
+        "Foundry Tools",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        10.29223298,
+        "2026-02-01T00:00:00",
+        "Foundry Tools",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        0.000338,
+        "2026-02-01T00:00:00",
+        "Foundry Tools",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        9.126e-05,
+        "2026-02-01T00:00:00",
+        "Key Vault",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        0.0001352,
+        "2026-02-01T00:00:00",
+        "Key Vault",
+        "esdaicoe-aiops-learningsandbox",
+        "CAD"
+      ],
+      [
+        0.00054756,
+        "2026-02-01T00:00:00",
+        "Key Vault",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        0.00017576,
+        "2026-02-01T00:00:00",
+        "Key Vault",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        8.788e-05,
+        "2026-02-01T00:00:00",
+        "Key Vault",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        0.00013182,
+        "2026-02-01T00:00:00",
+        "Key Vault",
+        "eva-automated-data-injection-rg",
+        "CAD"
+      ],
+      [
+        0.0001352,
+        "2026-02-01T00:00:00",
+        "Key Vault",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        0.17665232,
+        "2026-02-01T00:00:00",
+        "Key Vault",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        0.0002704,
+        "2026-02-01T00:00:00",
+        "Key Vault",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        0.1004705,
+        "2026-02-01T00:00:00",
+        "Key Vault",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        8.788e-05,
+        "2026-02-01T00:00:00",
+        "Key Vault",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        0.00239304,
+        "2026-02-01T00:00:00",
+        "Key Vault",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        0.00359294,
+        "2026-02-01T00:00:00",
+        "Key Vault",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        0.0069966,
+        "2026-02-01T00:00:00",
+        "Key Vault",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        0.00301158,
+        "2026-02-01T00:00:00",
+        "Key Vault",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        0.00312312,
+        "2026-02-01T00:00:00",
+        "Key Vault",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        0.00167648,
+        "2026-02-01T00:00:00",
+        "Key Vault",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        0.00373152,
+        "2026-02-01T00:00:00",
+        "Key Vault",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        0.00402896,
+        "2026-02-01T00:00:00",
+        "Key Vault",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        0.00140608,
+        "2026-02-01T00:00:00",
+        "Key Vault",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        0.00139594,
+        "2026-02-01T00:00:00",
+        "Key Vault",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        0.340532386662155,
+        "2026-02-01T00:00:00",
+        "Load Balancer",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        17.3385720723001,
+        "2026-02-01T00:00:00",
+        "Load Balancer",
+        "me_evachatdev3-appenv_evachatdev3rg_canadacentral",
+        "CAD"
+      ],
+      [
+        17.337728034263,
+        "2026-02-01T00:00:00",
+        "Load Balancer",
+        "me_evachatstg-appenv_evachatstgrg_canadacentral",
+        "CAD"
+      ],
+      [
+        17.3434782553329,
+        "2026-02-01T00:00:00",
+        "Load Balancer",
+        "me_evachatstg2-appenv_evachatstg2rg_canadacentral",
+        "CAD"
+      ],
+      [
+        0.02643115604,
+        "2026-02-01T00:00:00",
+        "Log Analytics",
+        "ai_marco-sandbox-appinsights_ae7caa2c-344a-418d-b304-dfb17329f494_managed",
+        "CAD"
+      ],
+      [
+        0.69002724432,
+        "2026-02-01T00:00:00",
+        "Log Analytics",
+        "defaultresourcegroup-ccan",
+        "CAD"
+      ],
+      [
+        0.00687511528,
+        "2026-02-01T00:00:00",
+        "Log Analytics",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        0.032631053,
+        "2026-02-01T00:00:00",
+        "Log Analytics",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        1.16662825064,
+        "2026-02-01T00:00:00",
+        "Log Analytics",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        0.73988701623,
+        "2026-02-01T00:00:00",
+        "Log Analytics",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        17.77011710531,
+        "2026-02-01T00:00:00",
+        "Log Analytics",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        18.80432988142,
+        "2026-02-01T00:00:00",
+        "Log Analytics",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        237.2445426546,
+        "2026-02-01T00:00:00",
+        "Log Analytics",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        21.16370221895,
+        "2026-02-01T00:00:00",
+        "Log Analytics",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        23.63584708752,
+        "2026-02-01T00:00:00",
+        "Log Analytics",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        144.21418181916,
+        "2026-02-01T00:00:00",
+        "Log Analytics",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        19.28327025151,
+        "2026-02-01T00:00:00",
+        "Log Analytics",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        19.23092377958,
+        "2026-02-01T00:00:00",
+        "Log Analytics",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        17.06053653837,
+        "2026-02-01T00:00:00",
+        "Log Analytics",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        18.87554550396,
+        "2026-02-01T00:00:00",
+        "Log Analytics",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        39.74029,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "",
+        "CAD"
+      ],
+      [
+        14.342768825,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        28.4036264,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdaicoe-aiops-learningsandbox",
+        "CAD"
+      ],
+      [
+        0.153328576,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdaicoe-aiservices-stg",
+        "CAD"
+      ],
+      [
+        13.86,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdaicoe-maxpocadorg",
+        "CAD"
+      ],
+      [
+        115.724913911016,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        106.513690503579,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        70.481761411519,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        0.2358664,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "eva-automated-data-injection-rg",
+        "CAD"
+      ],
+      [
+        19.0741399483871,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        60.8900150793976,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        0.2358664,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        47.0447094072891,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        33.1698399483871,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        89.7233562908357,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        105.307484594445,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        121.957841077812,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        74.9104639358721,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        72.4703898369263,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        65.4012243986384,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        111.353345930515,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        111.345543564487,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        55.8979221564591,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        55.8981687568709,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        1.08744,
+        "2026-02-01T00:00:00",
+        "Microsoft Defender for Cloud",
+        "unknown",
+        "CAD"
+      ],
+      [
+        1825.668189785,
+        "2026-02-01T00:00:00",
+        "Microsoft Dev Box",
+        "esdcaicoe-devrg",
+        "CAD"
+      ],
+      [
+        36.750882,
+        "2026-02-01T00:00:00",
+        "Redis Cache",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        30.5536,
+        "2026-02-01T00:00:00",
+        "Redis Cache",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        38.1304,
+        "2026-02-01T00:00:00",
+        "Redis Cache",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        38.1304,
+        "2026-02-01T00:00:00",
+        "Redis Cache",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        0.0,
+        "2026-02-01T00:00:00",
+        "Service Bus",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        0.2515809754,
+        "2026-02-01T00:00:00",
+        "Storage",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        0.003298452,
+        "2026-02-01T00:00:00",
+        "Storage",
+        "esdaicoe-aiops-learningsandbox",
+        "CAD"
+      ],
+      [
+        6.19640222306,
+        "2026-02-01T00:00:00",
+        "Storage",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        116.75359180396,
+        "2026-02-01T00:00:00",
+        "Storage",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        29.07525869686,
+        "2026-02-01T00:00:00",
+        "Storage",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        1.35814667906,
+        "2026-02-01T00:00:00",
+        "Storage",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        0.88169230054,
+        "2026-02-01T00:00:00",
+        "Storage",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        0.1135263838,
+        "2026-02-01T00:00:00",
+        "Storage",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        0.40883084636,
+        "2026-02-01T00:00:00",
+        "Storage",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        0.40169804886,
+        "2026-02-01T00:00:00",
+        "Storage",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        17.01787145694,
+        "2026-02-01T00:00:00",
+        "Storage",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        1.52317973708,
+        "2026-02-01T00:00:00",
+        "Storage",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        3.05367467068,
+        "2026-02-01T00:00:00",
+        "Storage",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        0.63309515014,
+        "2026-02-01T00:00:00",
+        "Storage",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        0.40177841832,
+        "2026-02-01T00:00:00",
+        "Storage",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        0.40165233828,
+        "2026-02-01T00:00:00",
+        "Storage",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        0.36999866804,
+        "2026-02-01T00:00:00",
+        "Storage",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        0.70925513044,
+        "2026-02-01T00:00:00",
+        "Storage",
+        "infoasst-stg5",
+        "CAD"
+      ],
+      [
+        1.0934419584,
+        "2026-02-01T00:00:00",
+        "Virtual Machines",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        888.8660898322,
+        "2026-02-01T00:00:00",
+        "Virtual Machines",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        160.6664294776,
+        "2026-02-01T00:00:00",
+        "Virtual Machines",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        28.534834375,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "esdaicoe-ai-foundry-rg",
+        "CAD"
+      ],
+      [
+        6.94125,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "esdaicoe-aiservices-stg",
+        "CAD"
+      ],
+      [
+        6.97906419444444,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "esdaicoe-sandbox",
+        "CAD"
+      ],
+      [
+        5.76563976717312,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "esdcaicoe-corg",
+        "CAD"
+      ],
+      [
+        14.3347786872596,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "esdcaicoe-costarg",
+        "CAD"
+      ],
+      [
+        6.94125,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "evachatdev2rg",
+        "CAD"
+      ],
+      [
+        55.49625,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "evachatdev3rg",
+        "CAD"
+      ],
+      [
+        6.93,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "evachatdevrg",
+        "CAD"
+      ],
+      [
+        55.5075,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "evachatstg2rg",
+        "CAD"
+      ],
+      [
+        27.75375,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "evachatstgrg",
+        "CAD"
+      ],
+      [
+        97.14375,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "infoasst-dev0",
+        "CAD"
+      ],
+      [
+        97.12125,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "infoasst-dev1",
+        "CAD"
+      ],
+      [
+        97.1325,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "infoasst-dev2",
+        "CAD"
+      ],
+      [
+        100.8069375,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "infoasst-dev3",
+        "CAD"
+      ],
+      [
+        6.93,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "infoasst-esdc-eva-stg-securemode-1",
+        "CAD"
+      ],
+      [
+        97.16625,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "infoasst-hccld2",
+        "CAD"
+      ],
+      [
+        6.94125,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "infoasst-infoasst-esdc-eva-dev-securemode-2",
+        "CAD"
+      ],
+      [
+        97.12125,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "infoasst-stg1",
+        "CAD"
+      ],
+      [
+        97.1325,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "infoasst-stg2",
+        "CAD"
+      ],
+      [
+        97.14375,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "infoasst-stg3",
+        "CAD"
+      ],
+      [
+        97.14375,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "infoasst-stg4",
+        "CAD"
+      ],
+      [
+        97.11,
+        "2026-02-01T00:00:00",
+        "Virtual Network",
+        "infoasst-stg5",
+        "CAD"
+      ]
+    ]
+  },
+  "sku": null,
+  "type": "Microsoft.CostManagement/query"
+}
