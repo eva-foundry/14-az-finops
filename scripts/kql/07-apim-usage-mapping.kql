@@ -1,0 +1,28 @@
+// =============================================================================
+// 07-apim-usage-mapping.kql
+// Ingestion mapping for apim_usage table
+//
+// Source format: APIM GatewayLogs → Azure Monitor Diagnostic Settings → Event Hub
+// Each message from Event Hub is an Azure Monitor envelope:
+//   { "records": [ { "time": "...", "durationMs": N, "properties": { ... } }, ... ] }
+// ADX Event Hub data connection automatically expands the "records" array,
+// so every path below is relative to a single record item.
+//
+// Header attribution columns (CallerApp / CostCenter / Environment) are
+// populated from custom request headers emitted by the APIM base policy.
+// They fall back to "unattributed" / null in AllocateCostByApp() when absent.
+// =============================================================================
+
+.create-or-alter table apim_usage ingestion json mapping "ApimUsageMapping"
+'[
+  {"column":"Timestamp",      "path":"$.time",                                              "datatype":"datetime"},
+  {"column":"ApiId",          "path":"$.properties.apiId",                                  "datatype":"string"},
+  {"column":"OperationId",    "path":"$.properties.operationId",                            "datatype":"string"},
+  {"column":"ProductId",      "path":"$.properties.productId",                              "datatype":"string"},
+  {"column":"RequestId",      "path":"$.properties.requestId",                              "datatype":"string"},
+  {"column":"CallerApp",      "path":"$.properties.requestHeaders.x-caller-app",           "datatype":"string"},
+  {"column":"CostCenter",     "path":"$.properties.requestHeaders.x-costcenter",             "datatype":"string"},
+  {"column":"Environment",    "path":"$.properties.requestHeaders.x-environment",            "datatype":"string"},
+  {"column":"HttpStatusCode", "path":"$.properties.responseCode",                           "datatype":"int"},
+  {"column":"DurationMs",     "path":"$.durationMs",                                        "datatype":"real"}
+]'

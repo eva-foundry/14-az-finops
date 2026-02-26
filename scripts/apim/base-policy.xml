@@ -1,0 +1,40 @@
+<!--
+  APIM All-APIs Base Policy - marco-sandbox-apim
+  Purpose: Normalise cost-attribution headers for every request.
+
+  Attribution cascade (inbound):
+    CallerApp   : x-caller-app header  >  APIM subscription name  >  "unattributed"
+    CostCenter  : x-costcenter header  >  "AiCoE"
+    Environment : x-environment header >  APIM subscription name  >  "unknown"
+-->
+<policies>
+  <inbound>
+    <set-variable name="v-caller-app" value="@{
+        var h = context.Request.Headers.GetValueOrDefault(&quot;x-caller-app&quot;, &quot;&quot;);
+        if (!string.IsNullOrWhiteSpace(h)) { return h; }
+        var sub = context.Subscription?.Name ?? &quot;&quot;;
+        if (!string.IsNullOrWhiteSpace(sub)) { return sub; }
+        return &quot;unattributed&quot;;
+    }" />
+    <set-variable name="v-costcenter" value="@(context.Request.Headers.GetValueOrDefault(&quot;x-costcenter&quot;, &quot;AiCoE&quot;))" />
+    <set-variable name="v-environment" value="@{
+        var h = context.Request.Headers.GetValueOrDefault(&quot;x-environment&quot;, &quot;&quot;);
+        if (!string.IsNullOrWhiteSpace(h)) { return h; }
+        return context.Subscription?.Name ?? &quot;unknown&quot;;
+    }" />
+    <set-header name="x-caller-app" exists-action="override">
+      <value>@((string)context.Variables["v-caller-app"])</value>
+    </set-header>
+    <set-header name="x-costcenter" exists-action="override">
+      <value>@((string)context.Variables["v-costcenter"])</value>
+    </set-header>
+    <set-header name="x-environment" exists-action="override">
+      <value>@((string)context.Variables["v-environment"])</value>
+    </set-header>
+  </inbound>
+  <backend>
+    <forward-request />
+  </backend>
+  <outbound />
+  <on-error />
+</policies>

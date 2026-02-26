@@ -112,4 +112,4 @@ Write-Host "=== RBAC Summary ===" -ForegroundColor Cyan
 az role assignment list --assignee $principalId --query "[].{Role:roleDefinitionName, Scope:scope}" -o table 2>&1
 Write-Host ""
 Write-Host "[DONE] RBAC assignment complete." -ForegroundColor Green
-Write-Host "  Next: Run create-schema.kql in ADX query editor at https://dataexplorer.azure.com/clusters/$AdxClusterName"
+Write-Host "  Next: Run create-schema.kql in ADX query editor at https://dataexplorer.azure.com/clusters/$AdxClusterName.canadacentral"

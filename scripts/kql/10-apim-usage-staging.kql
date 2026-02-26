@@ -1,0 +1,29 @@
+// =============================================================================
+// 10-apim-usage-staging.kql
+// Staging table for raw APIM GatewayLog messages from Event Hub.
+//
+// Azure Monitor diagnostic logs arrive at Event Hub as:
+//   { "records": [ { "time": "..", "durationMs": N, "properties": {...} }, ... ] }
+//
+// This staging table captures the raw records array.
+// An update policy on apim_usage expands the array into individual rows.
+// =============================================================================
+
+// 1. Staging table (one row per Event Hub message)
+.create-merge table apim_usage_staging (Records:dynamic)
+
+// 2. Ingestion mapping: map $.records array to the Records column
+.create-or-alter table apim_usage_staging ingestion json mapping "ApimStagingMapping"
+'[{"column":"Records","path":"$.records","datatype":"dynamic"}]'
+
+// 3. Retention: staging only needs hot cache, short soft-delete
+.alter table apim_usage_staging policy retention '{"SoftDeletePeriod":"7.00:00:00","Recoverability":"Disabled"}'
+
+// 4. Update policy: mv-expand each record into apim_usage
+.alter table apim_usage policy update
+@'[{
+  "Source": "apim_usage_staging",
+  "Query": "apim_usage_staging | mv-expand Records | project Timestamp=todatetime(Records[\"time\"]), ApiId=tostring(Records[\"properties\"][\"apiId\"]), OperationId=tostring(Records[\"properties\"][\"operationId\"]), ProductId=tostring(Records[\"properties\"][\"productId\"]), RequestId=tostring(Records[\"properties\"][\"requestId\"]), CallerApp=tostring(Records[\"properties\"][\"requestHeaders\"][\"x-caller-app\"]), CostCenter=tostring(Records[\"properties\"][\"requestHeaders\"][\"x-costcenter\"]), Environment=tostring(Records[\"properties\"][\"requestHeaders\"][\"x-environment\"]), HttpStatusCode=toint(Records[\"properties\"][\"responseCode\"]), DurationMs=todouble(Records[\"durationMs\"])",
+  "IsEnabled": true,
+  "PropagateIngestionProperties": false
+}]'

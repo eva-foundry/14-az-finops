@@ -115,7 +115,7 @@ Write-Host "Next steps:"
 Write-Host "  1. Open ADF Studio and verify linked services / test connections"
 Write-Host "  2. Create Storage Event trigger pointing to raw/costs/**/*.csv.gz"  
 Write-Host "  3. Associate trigger with pipeline ingest-costs-to-adx"
-Write-Host "  4. Run create-schema.kql in ADX query editor: https://dataexplorer.azure.com/clusters/marcofinopsadx"
+Write-Host "  4. Run create-schema.kql in ADX query editor: https://dataexplorer.azure.com/clusters/marcofinopsadx.canadacentral"
 Write-Host "  5. Test pipeline manually with a sample blob URL"
 Write-Host ""
 Write-Host "[DONE] ADF artefacts deployed." -ForegroundColor Green
