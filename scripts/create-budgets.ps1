@@ -22,10 +22,12 @@
     Target subscription. Defaults to EsDAICoESub.
 
 .PARAMETER TotalAmount
-    Monthly cap in CAD for the subscription-wide budget. Default 700000.
+    Monthly cap in CAD for the subscription-wide budget.
+    REQUIRED – must be set by the Financial Authority. No default.
 
 .PARAMETER SandboxAmount
-    Monthly cap in CAD for the GHCP-Sandbox scoped budget. Default 50000.
+    Monthly cap in CAD for the GHCP-Sandbox scoped budget.
+    REQUIRED – must be set by the Financial Authority. No default.
 
 .PARAMETER NotifyEmails
     Array of email addresses for budget alerts.
@@ -41,14 +43,19 @@
 [CmdletBinding()]
 param(
     [string]  $SubscriptionId = 'd2d4e571-e0f2-4f6c-901a-f88f7669bcba',
-    [decimal] $TotalAmount    = 700000,
-    [decimal] $SandboxAmount  = 50000,
+    [decimal] $TotalAmount    = 0,   # MUST be provided – no default (requires Financial Authority sign-off)
+    [decimal] $SandboxAmount  = 0,   # MUST be provided – no default (requires Financial Authority sign-off)
     [string[]]$NotifyEmails   = @('marco.presta@hrsdc-rhdcc.gc.ca'),
     [switch]  $WhatIf
 )
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
+
+if ($TotalAmount -eq 0 -or $SandboxAmount -eq 0) {
+    Write-Error "Budget amounts must be explicitly provided (-TotalAmount, -SandboxAmount). Values must be approved by the Financial Authority before creating budgets."
+    exit 1
+}
 
 $API_VERSION = '2023-05-01'
 $SCOPE       = "/subscriptions/$SubscriptionId"

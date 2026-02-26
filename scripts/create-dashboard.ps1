@@ -191,9 +191,7 @@ $partsArray = @(
 
     (New-CostTile -id '4' -x 6 -y 6 `
         -title 'Cost by Owner (MTD)' `
-        -groupTagKey 'owner'),
-
-    (New-BudgetTile -x 0 -y 10)
+        -groupTagKey 'owner')
 )
 
 # ── assemble full dashboard body ──────────────────────────────────────────────
