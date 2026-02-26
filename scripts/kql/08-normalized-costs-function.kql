@@ -1,10 +1,24 @@
-.create-or-alter function with (folder="FinOps", docstring="Normalized cost rows — tags parsed, effective cost-centre resolved") NormalizedCosts() {
+.create-or-alter function with (folder="FinOps", docstring="Normalized cost rows — tags parsed, attribution resolved with fallbacks (CostCenter→AiCoE, CallerApp→Pre-APIM, Environment→SubscriptionName)") NormalizedCosts() {
     raw_costs
+    | extend TagsParsed = parse_json(tostring(Tags))
     | extend
-        CostCenterTag       = tostring(parse_json(tostring(Tags)).CostCenter),
-        Application         = tostring(parse_json(tostring(Tags)).Application),
-        Environment         = tostring(parse_json(tostring(Tags)).Environment),
-        Owner               = tostring(parse_json(tostring(Tags)).owner)
-    | extend EffectiveCostCenter = iff(isnotempty(CostCenter), CostCenter, CostCenterTag)
-    | project-away CostCenterTag, Tags
+        Application         = tostring(TagsParsed.Application),
+        CostCenterTag       = tostring(TagsParsed.CostCenter),
+        EnvTag              = tostring(TagsParsed.Environment),
+        Owner               = tostring(TagsParsed.owner)
+    | extend
+        EffectiveCostCenter  = coalesce(
+            iff(isnotempty(CostCenter),    CostCenter,    ""),
+            iff(isnotempty(CostCenterTag), CostCenterTag, ""),
+            "AiCoE"
+        ),
+        EffectiveCallerApp   = coalesce(
+            iff(isnotempty(Application), Application, ""),
+            "Pre-APIM"
+        ),
+        EffectiveEnvironment = coalesce(
+            iff(isnotempty(EnvTag), EnvTag, ""),
+            SubscriptionName
+        )
+    | project-away TagsParsed, CostCenterTag, EnvTag, Tags
 }

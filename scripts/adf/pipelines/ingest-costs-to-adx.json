@@ -85,6 +85,8 @@
           },
           "sink": {
             "type": "AzureDataExplorerSink",
+            "ingestionMappingName": "CostExportMapping",
+            "ingestionMappingType": "Csv",
             "flushImmediately": false
           },
           "enableStaging": false,

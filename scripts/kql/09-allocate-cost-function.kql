@@ -1,17 +1,53 @@
-.create-or-alter function with (folder="FinOps", skipvalidation=false, docstring="Allocate APIM cost proportionally by caller application") AllocateCostByApp() {
-    let usage = apim_usage
-        | where Timestamp >= ago(1d)
-        | summarize RequestCount = count() by CallerApp, bin(Timestamp, 1h);
-    let costs = (
-        NormalizedCosts()
-        | where Date >= ago(1d)
-        | where ResourceId has '/Microsoft.ApiManagement/'
-        | summarize TotalCost = sum(CostInBillingCurrency) by bin(Date, 1h)
+.create-or-alter function with (folder="FinOps", skipvalidation=false, docstring="Allocate APIM cost by caller app — 3-tier fallback: (1) x-caller-app header via apim_usage, (2) Azure resource tag, (3) Pre-APIM/AiCoE/{SubscriptionName}") AllocateCostByApp() {
+    //
+    // Tier 1: header-attributed telemetry rows in apim_usage
+    //   Used once apps inject x-caller-app / x-costcenter headers.
+    //   AttributionSource = 'header'
+    //
+    let has_telemetry = toscalar(
+        apim_usage
+        | where isnotempty(CallerApp) and CallerApp !in ("unattributed", "Pre-APIM")
+        | count
     );
-    let totals = usage | summarize TotalRequests = sum(RequestCount) by bin(Timestamp, 1h);
-    usage
-    | join kind=inner (costs) on $left.Timestamp == $right.Date
-    | join kind=inner (totals) on Timestamp
-    | extend AllocatedCost = (RequestCount * 1.0 / TotalRequests) * TotalCost
-    | project CallerApp, Timestamp, AllocatedCost, RequestCount, TotalCost
+    let telem_by_hour =
+        apim_usage
+        | where isnotempty(CallerApp) and CallerApp !in ("unattributed", "Pre-APIM")
+        | summarize RequestCount = count() by CallerApp, CostCenter, Environment, HourBin = bin(Timestamp, 1h);
+    let telem_totals =
+        telem_by_hour
+        | summarize TotalRequests = sum(RequestCount) by HourBin;
+    let apim_cost_hourly =
+        NormalizedCosts()
+        | where MeterCategory has "API Management"
+        | summarize HourlyCost = sum(CostInBillingCurrency) by HourBin = bin(Date, 1h);
+    let tier1 =
+        telem_by_hour
+        | join kind=inner telem_totals on HourBin
+        | join kind=inner apim_cost_hourly on HourBin
+        | extend AllocatedCost = (RequestCount * 1.0 / TotalRequests) * HourlyCost
+        | extend AttributionSource = "header"
+        | project CallerApp, CostCenter, Environment,
+                  Date = HourBin, AllocatedCost, RequestCount, AttributionSource;
+    //
+    // Tier 2 & 3: billing-record fallback from raw_costs
+    //   Tier 2 → Azure tag (Application tag present)  AttributionSource = 'tag'
+    //   Tier 3 → No tag / no header                   AttributionSource = 'pre-apim'
+    //             CallerApp=Pre-APIM, CostCenter=AiCoE, Environment=SubscriptionName
+    //
+    let tier2_3 =
+        NormalizedCosts()
+        | where MeterCategory has "API Management"
+        | summarize
+            AllocatedCost  = sum(CostInBillingCurrency),
+            RequestCount   = long(0)
+          by
+            CallerApp      = EffectiveCallerApp,
+            CostCenter     = EffectiveCostCenter,
+            Environment    = EffectiveEnvironment,
+            Date           = bin(Date, 1h)
+        | extend AttributionSource = iff(CallerApp == "Pre-APIM", "pre-apim", "tag");
+    // Emit Tier 1 when telemetry exists, Tier 2/3 otherwise
+    union
+        (tier1   | where has_telemetry > 0),
+        (tier2_3 | where has_telemetry == 0)
 }
