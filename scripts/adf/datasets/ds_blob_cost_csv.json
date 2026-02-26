@@ -34,7 +34,8 @@
         }
       },
       "columnDelimiter": ",",
-      "rowDelimiter": "\n",
+      "quoteChar": "\"",
+      "escapeChar": "\"",
       "encodingName": "UTF-8",
       "compressionCodec": "gzip",
       "firstRowAsHeader": true,
