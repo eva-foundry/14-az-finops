@@ -1,6 +1,6 @@
 # Azure FinOps - ESDC Cost Management
 
-> **Last Updated**: February 26, 2026 (Phase 1 COMPLETE Feb 25 | Phase 2 COMPLETE Feb 26 | Phase 3 IN PROGRESS)
+> **Last Updated**: March 1, 2026 (Phase 1 COMPLETE Feb 25 | Phase 2 COMPLETE Feb 26 | Phase 3 IN PROGRESS | Advanced Capabilities Showcase NEW)
 > **Status**: [PASS] Phase 1 COMPLETE — containers, lifecycle policy, 28 blobs migrated | [PASS] Phase 2 COMPLETE — ADX cluster, ADF pipeline, schema deployed, backfill triggered | [IN PROGRESS] Phase 3 — NormalizedCosts() v2 deployed (tag bug fixed, dual-schema SSC+Legacy, CanonicalEnvironment, 6 ESDC dimensions, 460K rows clean); APIM policy + telemetry pipeline pending
 > **Scope**: EsDAICoESub + EsPAICoESub (ESDC Production) + 50+ EVA-JP APIs (cost attribution)
 > **Tenant**: 9ed55846-8a81-4246-acd8-b1a01abfc0d1
@@ -8,7 +8,45 @@
 
 ---
 
-## 🚀 **NEW: Phase 1 FinOps Enterprise Roadmap (February 17, 2026)**
+## NEW: Advanced Capabilities Showcase (March 1, 2026)
+
+**Client Follow-Up**: After the success of [saving-opportunities.md](docs/saving-opportunities.md) ($80K+ quick wins), this comprehensive capabilities document answers **"What else can we do with the data we've collected?"**
+
+### **[ADVANCED-CAPABILITIES-SHOWCASE.md](docs/ADVANCED-CAPABILITIES-SHOWCASE.md)** — Complete Operations Playbook
+
+**12 Advanced Analytics + 8 Operational Use Cases** ready to deploy:
+
+#### Analytics Capabilities (Now Ready)
+1. **Real-Time Anomaly Detection** — Prevent $150K+ incidents; detect cost spikes in <4 hours (vs. 16 days detected)
+2. **Cost Attribution by Team/Department** — Chargeback visibility for all cost centers; $300K+ in owner accountability
+3. **Idle & Underutilized Resource Detection** — $48-84K/yr from compute scheduling + resource cleanup
+4. **Cost Driver Analysis & Service Benchmarking** — $18-24K/yr from Search consolidation insights
+5. **Chargeback & Finance Integration** — Automated monthly invoicing via SAP integration; 99.997% tag compliance
+6. **APIM Cost Attribution** — Per-API chargeback on 50+ EVA-JP APIs (Phase 3 blocker; pending telemetry)
+7. **Sustainability & Carbon Footprint** — ESG reporting, carbon credit monetization, emissions tracking
+8. **Budget Forecasting & Planning** — ARIMA forecasting with seasonality; what-if scenario modeling
+
+#### Operational Use Cases (Ready for Implementation)
+9. **Multi-Region & HA Cost Trade-Off Analysis** — Business case validation for failover design
+10. **Compliance & Audit Trail Reporting** — SOX/PCI-ready audit evidence; cost immutability proof
+11. **Technology Stack Optimization & TCO** — Reserved Instance savings ($80K/yr); architecture optimization roadmap
+12. **Organizational Change & Cost Culture** — 5-15% cost reduction through behavior change; engineering cost awareness
+
+**Key Metrics** (460K+ cost records collected):
+- Cost ingested: $567K total ($318K/yr steady-state after anomalies)
+- Tag coverage: 99.997% (460,594/460,609 rows)
+- Development vs Production ratio: 4.7:1 (shows optimization opportunity)
+- Quick wins identified: $103K/yr potential (32% of current spend)
+
+**Navigation**: Read the document by role:
+- **Finance/CFO**: Executive summary + chargeback automation (Part 4)
+- **Engineers**: Idle resource detection + anomaly detection (Part 1-2)
+- **Architects**: Technology stack optimization + multi-region analysis (Part 3)
+- **Operational**: Compliance + cost culture + forecasting (Part 4)
+
+---
+
+## 🚀 **Phase 1 FinOps Enterprise Roadmap (February 17, 2026)**
 
 ### Comprehensive Documentation Delivered
 
