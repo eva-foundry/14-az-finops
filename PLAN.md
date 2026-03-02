@@ -1,7 +1,7 @@
 # Project Plan
 
-<!-- veritas-normalized 2026-02-26 prefix=F14 source=README.md -->
-<!-- Last updated: 2026-02-26 | Phase 3 IN PROGRESS — NormalizedCosts v2 + AllocateCostByApp v2 deployed (tag bug fixed, ESDC dims live) -->
+<!-- veritas-normalized 2026-03-02 prefix=F14 source=README.md -->
+<!-- Last updated: 2026-03-02 5:38 PM ET | Phase 3 IN PROGRESS — NormalizedCosts v2 + AllocateCostByApp v2 deployed (tag bug fixed, ESDC dims live); FinOps Toolkit Discovery added -->
 
 ## Feature: [DONE] Phase 1 FinOps Enterprise Roadmap [ID=F14-01]
 
@@ -24,6 +24,34 @@
 
 ## Feature: [DONE] Project Structure [ID=F14-05]
 <!-- scripts/kql/ + scripts/adf/ + bicep artefacts all in place -->
+
+## Feature: [NEW] FinOps Toolkit Integration (Added March 2, 2026, 5:38 PM ET) [ID=F14-05]
+
+### Story: [NEW] Discover FinOps Toolkit Components [ID=F14-05-001]
+<!-- Discovery: March 2, 2026, 5:38 PM ET — 5 components mapped against current state
+     ✅ FinOps Hubs: Already building (ADX, ADF, ADLS)
+     ❌ Azure Optimization Engine: Missing — high priority for Phase 4
+     ⚠️  FinOps Workbooks: Partial (docs exist, need Monitor deployment)
+     ⚠️  PowerShell Module: Not using (custom scripts work; can migrate)
+     ⚠️  Bicep + Open Data: Partial (custom Bicep; FOCUS validation needed) -->
+
+### Story: [NEW] Phase 3 Gap: Wire Toolkit Power BI to ADX [ID=F14-05-002]
+<!-- Action: Use toolkit's 5 pre-built Power BI reports (charge breakdown, summary, recommendations, governance, rate-optimization)
+     Wire to your normalized_costs table
+     Status: PLANNED for Phase 3 completion -->
+
+### Story: [NEW] Phase 4 Priority: Deploy Azure Optimization Engine [ID=F14-05-003]
+<!-- Deployment: 5 min setup, runs weekly
+     Outputs: Log Analytics + SQL Server + Power BI workbooks
+     Capabilities: VM right-sizing, orphaned resources, idle compute detection, anomalies
+     Your Overlap: Replaces manual anomaly detection from Advanced-Capabilities doc
+     Status: PLANNED for Phase 4 (Epic: Advanced Analytics) -->
+
+### Story: [NEW] Phase 4 Action: FOCUS Schema Validation [ID=F14-05-004]
+<!-- Validate normalized_costs table against toolkit FOCUS 1.0 spec
+     Download: FOCUS examples + metadata from toolkit GitHub
+     Risk: Your schema may diverge from standard; impact on future integrations
+     Status: PLANNED for Phase 4 (Epic: Data Quality) -->
 
 ## Feature: Deployment Roadmap [ID=F14-06]
 

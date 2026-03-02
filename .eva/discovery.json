@@ -1,8 +1,8 @@
 {
   "meta": {
     "schema": "eva.discovery.v2",
-    "generated_at": "2026-02-25T21:00:36.576Z",
-    "repo": "C:\\AICOE\\eva-foundation\\14-az-finops"
+    "generated_at": "2026-03-02T12:21:32.750Z",
+    "repo": "C:\\AICOE\\eva-foundry\\14-az-finops"
   },
   "project": null,
   "planned": {
@@ -178,6 +178,21 @@
         "story_tags": []
       },
       {
+        "path": "CODE_OF_CONDUCT.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "CONTRIBUTING.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "LICENSE",
+        "type": "other",
+        "story_tags": []
+      },
+      {
         "path": "PLAN.md",
         "type": "doc",
         "story_tags": []
@@ -190,6 +205,11 @@
       {
         "path": "requirements.txt",
         "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "SECURITY.md",
+        "type": "doc",
         "story_tags": []
       },
       {
@@ -208,6 +228,11 @@
         "story_tags": []
       },
       {
+        "path": "docs/ADVANCED-CAPABILITIES-SHOWCASE.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
         "path": "docs/BACKFILL-TEST-RESULTS.md",
         "type": "doc",
         "story_tags": []
@@ -220,6 +245,36 @@
       {
         "path": "docs/RATE-LIMITING-BEST-PRACTICES.md",
         "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/saving-opportunities.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/saving-opportunities.pdf",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "evidence/smoke-test-v2-20260226_104543.json",
+        "type": "evidence",
+        "story_tags": []
+      },
+      {
+        "path": "evidence/smoke-test-v2-20260226_104712.json",
+        "type": "evidence",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/adx-cluster.bicep",
+        "type": "infra",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/assign-rbac-roles.ps1",
+        "type": "code",
         "story_tags": []
       },
       {
@@ -240,12 +295,48 @@
         ]
       },
       {
+        "path": "scripts/backfill-historical.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/check-env.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
         "path": "scripts/Configure-EsDAICoESub-CostExport.ps1",
         "type": "code",
         "story_tags": []
       },
       {
         "path": "scripts/Configure-EsPAICoESub-CostExport.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/create-budgets.ps1",
+        "type": "code",
+        "story_tags": [
+          "F14-08-002"
+        ]
+      },
+      {
+        "path": "scripts/create-cost-views.ps1",
+        "type": "code",
+        "story_tags": [
+          "F14-08-001"
+        ]
+      },
+      {
+        "path": "scripts/create-dashboard.ps1",
+        "type": "code",
+        "story_tags": [
+          "F14-08-003"
+        ]
+      },
+      {
+        "path": "scripts/create-eventgrid-subscription.ps1",
         "type": "code",
         "story_tags": []
       },
@@ -260,6 +351,31 @@
         "story_tags": []
       },
       {
+        "path": "scripts/create-schema.kql",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/deploy-adf-artefacts.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/deploy-functions.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/deploy-phase3-infra.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/diag-deploy.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
         "path": "scripts/Download-Monthly-Exports-EsPAICoESub.ps1",
         "type": "code",
         "story_tags": []
@@ -270,7 +386,67 @@
         "story_tags": []
       },
       {
+        "path": "scripts/exec-kql.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
         "path": "scripts/extract_costs_sdk.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/get-run-errors.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/inspect-csv.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/inspect-tags-deep.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/inspect-tags.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/lifecycle-policy.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/managed-identity.bicep",
+        "type": "infra",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/migrate-costs-to-raw.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/migration-log-20260225-173423.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/migration-log-20260225-174736.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/patch-tags-env-sec.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/raw-tag-check.ps1",
         "type": "code",
         "story_tags": []
       },
@@ -282,6 +458,41 @@
       {
         "path": "scripts/README.md",
         "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/redeploy-adf-artefacts.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/run-schema.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/smoke-test-v2.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/tag-infoasst-fleet.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/tag-marco-resources.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/test-kql-incremental.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/test-minimal-func.ps1",
+        "type": "code",
         "story_tags": []
       },
       {
@@ -505,6 +716,81 @@
         "story_tags": []
       },
       {
+        "path": "scripts/analysis/cost-savings-analysis.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/analysis/dev-prod-split.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/analysis/finops-savings-analysis.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/apim/base-policy.xml",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/kql/01-raw-costs-table.kql",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/kql/02-ingestion-mapping.kql",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/kql/03-raw-costs-retention.kql",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/kql/04-raw-costs-partitioning.kql.dev-unsupported",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/kql/05-raw-costs-update-policy.kql.skip",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/kql/06-apim-usage-table.kql",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/kql/07-apim-usage-mapping.kql",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/kql/07-apim-usage-retention.kql",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/kql/08-normalized-costs-function.kql",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/kql/09-allocate-cost-function.kql",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/kql/10-apim-usage-staging.kql",
+        "type": "other",
+        "story_tags": []
+      },
+      {
         "path": "scripts/offline-packages/azure_common-1.1.28-py2.py3-none-any.whl",
         "type": "other",
         "story_tags": []
@@ -660,6 +946,11 @@
         "story_tags": []
       },
       {
+        "path": "tools/finops/analysis-summary.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
         "path": "tools/finops/az-inventory-finops.ps1",
         "type": "code",
         "story_tags": [
@@ -680,6 +971,21 @@
           "F14-09-002",
           "F14-09-003"
         ]
+      },
+      {
+        "path": "tools/finops/build-db.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "tools/finops/dev-costs.db",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "tools/finops/extract-costs.ps1",
+        "type": "code",
+        "story_tags": []
       },
       {
         "path": "docs/finops/sharepoint-package/00-current-state-inventory.html",
@@ -767,6 +1073,31 @@
         "story_tags": []
       },
       {
+        "path": "scripts/adf/datasets/ds_adx_raw_costs.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/adf/datasets/ds_blob_cost_csv.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/adf/linked-services/ls_marcofinops_adx.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/adf/linked-services/ls_marcosandbox_blob.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/adf/pipelines/ingest-costs-to-adx.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
         "path": "tools/finops/out/adf-factories-20260217-090932.json",
         "type": "data",
         "story_tags": []
@@ -827,6 +1158,26 @@
         "story_tags": []
       },
       {
+        "path": "tools/finops/raw/daily_by_meter.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "tools/finops/raw/daily_by_rg.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "tools/finops/raw/daily_by_service.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "tools/finops/raw/monthly_by_service_rg.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
         "path": "docs/finops/sharepoint-package/test-evidence/test-results-20260217-133603.csv",
         "type": "doc",
         "story_tags": []
@@ -845,6 +1196,61 @@
             "type": "code",
             "story_tags": [
               "F14-07-003"
+            ]
+          }
+        ]
+      },
+      "F14-08-002": {
+        "artifacts": [
+          {
+            "path": "scripts/create-budgets.ps1",
+            "type": "code",
+            "story_tags": [
+              "F14-08-002"
+            ]
+          }
+        ]
+      },
+      "F14-08-001": {
+        "artifacts": [
+          {
+            "path": "scripts/create-cost-views.ps1",
+            "type": "code",
+            "story_tags": [
+              "F14-08-001"
+            ]
+          },
+          {
+            "path": "tools/finops/az-inventory-finops.ps1",
+            "type": "code",
+            "story_tags": [
+              "F14-01-001",
+              "F14-02-001",
+              "F14-02-002",
+              "F14-02-003",
+              "F14-06-001",
+              "F14-06-002",
+              "F14-06-003",
+              "F14-06-004",
+              "F14-06-005",
+              "F14-06-006",
+              "F14-07-001",
+              "F14-07-002",
+              "F14-08-001",
+              "F14-09-001",
+              "F14-09-002",
+              "F14-09-003"
+            ]
+          }
+        ]
+      },
+      "F14-08-003": {
+        "artifacts": [
+          {
+            "path": "scripts/create-dashboard.ps1",
+            "type": "code",
+            "story_tags": [
+              "F14-08-003"
             ]
           }
         ]
@@ -1136,32 +1542,6 @@
         ]
       },
       "F14-07-002": {
-        "artifacts": [
-          {
-            "path": "tools/finops/az-inventory-finops.ps1",
-            "type": "code",
-            "story_tags": [
-              "F14-01-001",
-              "F14-02-001",
-              "F14-02-002",
-              "F14-02-003",
-              "F14-06-001",
-              "F14-06-002",
-              "F14-06-003",
-              "F14-06-004",
-              "F14-06-005",
-              "F14-06-006",
-              "F14-07-001",
-              "F14-07-002",
-              "F14-08-001",
-              "F14-09-001",
-              "F14-09-002",
-              "F14-09-003"
-            ]
-          }
-        ]
-      },
-      "F14-08-001": {
         "artifacts": [
           {
             "path": "tools/finops/az-inventory-finops.ps1",

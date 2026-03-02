@@ -1,10 +1,70 @@
 # Azure FinOps - ESDC Cost Management
 
-> **Last Updated**: March 1, 2026 (Phase 1 COMPLETE Feb 25 | Phase 2 COMPLETE Feb 26 | Phase 3 IN PROGRESS | Advanced Capabilities Showcase NEW)
-> **Status**: [PASS] Phase 1 COMPLETE — containers, lifecycle policy, 28 blobs migrated | [PASS] Phase 2 COMPLETE — ADX cluster, ADF pipeline, schema deployed, backfill triggered | [IN PROGRESS] Phase 3 — NormalizedCosts() v2 deployed (tag bug fixed, dual-schema SSC+Legacy, CanonicalEnvironment, 6 ESDC dimensions, 460K rows clean); APIM policy + telemetry pipeline pending
+> **Last Updated**: March 2, 2026 5:38 PM ET (Phase 1 COMPLETE Feb 25 | Phase 2 COMPLETE Feb 26 | Phase 3 IN PROGRESS | Advanced Capabilities + Toolkit Discovery NEW)
+> **Status**: [PASS] Phase 1 COMPLETE — containers, lifecycle policy, 28 blobs migrated | [PASS] Phase 2 COMPLETE — ADX cluster, ADF pipeline, schema deployed, backfill triggered | [IN PROGRESS] Phase 3 — NormalizedCosts() v2 deployed (tag bug fixed, dual-schema SSC+Legacy, CanonicalEnvironment, 6 ESDC dimensions, 460K rows clean); APIM policy + telemetry pipeline pending | [NEW] FinOps Toolkit Discovery — 5 components mapped, 3 integration gaps identified
 > **Scope**: EsDAICoESub + EsPAICoESub (ESDC Production) + 50+ EVA-JP APIs (cost attribution)
 > **Tenant**: 9ed55846-8a81-4246-acd8-b1a01abfc0d1
 > **User**: marco.presta@hrsdc-rhdcc.gc.ca (Cost Management Contributor + Reader)
+
+---
+
+## NEW: FinOps Toolkit Discovery (March 2, 2026, 5:38 PM ET)
+
+**Scope**: Deep discovery of Microsoft FinOps Toolkit components against your current project state.
+
+### Components Discovered
+
+#### 1. FinOps Hubs — Core Data Platform
+**Status**: ✅ **Already Building**  
+**Cost**: $120/mo base + $10/mo per $1M monitored (~$130/mo for your $567K spend)  
+**What You Have**: ADX cluster, ADF pipeline, ADLS Gen2 containers, lifecycle policy (90d Cool, 180d Archive)  
+**What's New**: Toolkit includes **5 pre-built Power BI reports** (charge breakdown, summary, recommendations, governance, rate-optimization) ready to wire to your ADX schema  
+**Phase 3 Action**: Wire toolkit Power BI templates → your ADX normalized_costs table
+
+#### 2. Azure Optimization Engine (AOE) — Extensible Recommendations
+**Status**: ❌ **Missing — High Priority**  
+**What It Does**: Weekly custom recommendations framework; extends Azure Advisor with 25+ audit rules  
+**Setup**: 5 min deployment; outputs to Log Analytics + SQL Server + Power BI  
+**Capabilities**:
+- Cost: VM right-sizing (with guest OS metrics), orphaned disks/IPs, idle compute, forgotten VMs
+- HA: Availability zones, managed disks, VM Scale Sets distribution
+- Security: Expired service principal certs, NSG rules with orphaned NICs
+- OpsExc: Identity governance, policy compliance, resource group limits
+- **Workbooks**: Reservations potential, cost anomalies, identity governance, policy compliance
+
+**Your Overlap**: You have manual "idle resource detection" in Advanced-Capabilities-Showcase — AOE automates this weekly  
+**Phase 4 Action**: Deploy AOE into sandbox; wire to your ADX for anomaly correlation
+
+#### 3. FinOps Workbooks — Azure Monitor Native
+**Status**: ⚠️ **Partial** — You have docs, need Monitor workbooks  
+**What It Includes**: 2 pre-built workbooks (Optimization + Governance)  
+**Integration**: Works with ADX, ADLS, or both  
+**Phase 4 Action**: Deploy toolkit workbooks alongside your ADX dashboards
+
+#### 4. PowerShell Module (FinOpsToolkit)
+**Status**: ⚠️ **Not Using** — Uses custom scripts instead  
+**Available Commands**:
+- Cost Management: Get/New/Remove/Start Cost Exports
+- FinOps Hubs: Deploy/Get/Initialize/Register/Remove hub lifecycle
+- Open Data: Pricing units, regions, resource types, services lookups
+
+**Your Approach**: Custom `az-inventory-finops.ps1` works well; toolkit module offers pre-built integration  
+**Phase 4 Action**: Optional — keep custom scripts or migrate to module for consistency
+
+#### 5. Bicep Registry Modules + Open Data
+**Status**: ⚠️ Partial — You built custom; toolkit has pre-built  
+**Bicep**: Scheduled actions module (Cost Management alerts)  
+**Open Data**: Reference CSVs (PricingUnits, Regions, ResourceTypes, Services, FOCUS examples)  
+**Your Coverage**: 99.997% tag coverage; open data would validate normalization further  
+**Phase 4 Action**: Validate your normalized_costs schema against FOCUS 1.0 spec
+
+### Integration Gaps (3 Critical)
+
+| Gap | Your Project | Toolkit Capability | Phase 3/4 Action |
+|---|---|---|---|
+| **Power BI Starter Kits** | Advanced-Capabilities manual doc | 5 pre-built reports for ADX | Wire toolkit reports to your ADX schema |
+| **Weekly Recommendations** | Manual analysis in Advanced-Capabilities | AOE weekly automation + 10 workbooks | Deploy AOE; correlate anomalies with your data |
+| **FOCUS Alignment** | Custom normalized_costs schema | Toolkit FOCUS 1.0 examples + metadata | Validate schema against official spec |
 
 ---
 

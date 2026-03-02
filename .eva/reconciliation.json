@@ -1,9 +1,9 @@
 {
   "meta": {
     "schema": "eva.reconciliation.v2",
-    "generated_at": "2026-02-25T21:00:36.591Z",
-    "repo": "C:\\AICOE\\eva-foundation\\14-az-finops",
-    "discovery_path": "C:\\AICOE\\eva-foundation\\14-az-finops\\.eva\\discovery.json"
+    "generated_at": "2026-03-02T12:21:32.764Z",
+    "repo": "C:\\AICOE\\eva-foundry\\14-az-finops",
+    "discovery_path": "C:\\AICOE\\eva-foundry\\14-az-finops\\.eva\\discovery.json"
   },
   "coverage": {
     "stories_total": 17,
@@ -103,5 +103,16 @@
       "gap_count": 0
     }
   ],
-  "gaps": []
+  "gaps": [
+    {
+      "type": "orphan_story_tag",
+      "story_id": "F14-08-002",
+      "title": null
+    },
+    {
+      "type": "orphan_story_tag",
+      "story_id": "F14-08-003",
+      "title": null
+    }
+  ]
 }
